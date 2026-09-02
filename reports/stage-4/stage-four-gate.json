@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T07:55:30.273Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-CTRL4",
+  "passed": false,
+  "results": [
+    {
+      "name": "type-check",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "deterministic-and-unit-tests",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "control-browser-contract",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "hardware-control-evidence",
+      "passed": false,
+      "exitCode": 1,
+      "error": null
+    }
+  ]
+}

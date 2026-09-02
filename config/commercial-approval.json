@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "product": "Iron Kestrel '87",
+  "publisherLegalName": null,
+  "publicSupportEmail": null,
+  "intendedTerritories": ["United Kingdom", "European Union", "United States", "Canada", "Australia", "New Zealand"],
+  "trademarkClearance": {
+    "status": "PENDING_EXTERNAL_COUNSEL",
+    "opinionReference": null,
+    "approvedAt": null
+  },
+  "legalDocuments": {
+    "status": "DRAFT_PENDING_PUBLISHER_AND_COUNSEL_APPROVAL",
+    "approvedAt": null
+  },
+  "storeMedia": {
+    "status": "PENDING_HUMAN_APPROVAL",
+    "approvedAt": null
+  },
+  "systemRequirements": {
+    "status": "PENDING_SIGNED_BUILD_HARDWARE_CHECK",
+    "approvedAt": null
+  },
+  "steam": {
+    "contentSurvey": "DRAFT_NOT_SUBMITTED",
+    "storePresence": "NOT_SUBMITTED",
+    "productBuild": "NOT_SUBMITTED",
+    "comingSoonPublishedAt": null
+  }
+}

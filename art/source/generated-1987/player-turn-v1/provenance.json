@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "batchId": "player-turn-v1",
+  "createdAt": "2026-09-02",
+  "generator": "OpenAI built-in image generation",
+  "mode": "reference-guided generation plus background-only edit",
+  "reference": "public/assets/sprites/sea-harrier-frs1-hero-v3.png",
+  "sources": [
+    "player-turn-checker-source.png",
+    "player-turn-chroma-source.png"
+  ],
+  "runtime": "public/assets/sprites/sea-harrier-turn-v1.png",
+  "processor": "scripts/prepare_player_turn_art.py",
+  "frames": ["three-quarter-right", "near-head-on-right", "head-on", "near-head-on-left", "three-quarter-left"],
+  "review": {
+    "technical": "APPROVED_FOR_INTEGRATION",
+    "styleConsistency": "APPROVED_FOR_INTEGRATION",
+    "provenance": "RECORDED",
+    "copyrightResemblanceScreen": "No third-party composition, watermark, signature or named living-artist style requested or observed; final commercial legal review remains separate."
+  }
+}

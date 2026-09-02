@@ -1,0 +1,1696 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-02T15:39:05.897Z",
+  "product": "Iron Kestrel '87: North Atlantic Air War",
+  "registerReviewedAt": "2026-08-30",
+  "passed": true,
+  "totals": {
+    "assets": 87,
+    "bytes": 35102160,
+    "approved": 16,
+    "conditional": 71,
+    "unresolved": 0
+  },
+  "evidenceMissing": [],
+  "policy": {
+    "allowedStatuses": [
+      "APPROVED",
+      "CONDITIONAL"
+    ],
+    "blockedStatuses": [
+      "UNRESOLVED",
+      "BLOCKED"
+    ],
+    "aiOutputNotice": "AI-assisted output may not be unique. Approval records the project's right to use the output, not exclusivity or immunity from third-party claims.",
+    "termsReference": "https://openai.com/policies/eu-terms-of-use/"
+  },
+  "assets": [
+    {
+      "path": "public/assets/audio/aden-cannon-v1.wav",
+      "bytes": 7982,
+      "sha256": "8d71ab353c2fba8ae427e4ee81ba5eb1ce74c033d035f15dcbbec0c5dc45c4eb",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/bomb-release-v1.wav",
+      "bytes": 15038,
+      "sha256": "294bfcac38658949bb4f320eae8ecc4e48b81710b812f61081e9e8ac710204a9",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/carrier-touchdown-v1.wav",
+      "bytes": 27386,
+      "sha256": "68dd5adc7b55fb193054a6e0c386b899d17b83352295c192b6910ba38084014a",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/flare-eject-v1.wav",
+      "bytes": 11510,
+      "sha256": "988e89a4052a8a9990468daa79ede753cd41c42435e6afddc48afd7bcc23b883",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/heavy-impact-v1.wav",
+      "bytes": 46348,
+      "sha256": "e8cd6a8244e2948f5b4c280a60ce37d28ad98ee2a84a367830983da8e78e2b3a",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/naval-gun-v1.wav",
+      "bytes": 31796,
+      "sha256": "9111c13b1149e9329f5fdc0aeb3c23a01f3f84b0b93cf0523c2d717fe9b5381a",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/north-atlantic-wind-v1.wav",
+      "bytes": 79424,
+      "sha256": "c8f509e85c7690b9bec04602585ba050374c04bb36d627b5396cad2b0334860b",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/pegasus-engine-loop-v2.wav",
+      "bytes": 88244,
+      "sha256": "2b4c543286d3a6827e071a0facb3a164348c7c68c410cdc7e967a8e2e630986f",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/radio-chirp-v1.wav",
+      "bytes": 5336,
+      "sha256": "05b62dbd0bb621d282ba617a4dd4794738557155fd8398300d3bf5ecbf1f5bc2",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/rocket-motor-v1.wav",
+      "bytes": 25622,
+      "sha256": "d5d5271e5170411aee102b78e39834f6632a8c375cff0273c892466a22c58d0e",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/sidewinder-motor-v1.wav",
+      "bytes": 31796,
+      "sha256": "3526cd82ab289c976640168e529dd104413bcce0cbf05d4c45a3a9cfad576cef",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/threat-warning-v1.wav",
+      "bytes": 15038,
+      "sha256": "f51c7b86b0c2f5565c425ce9b488ea62e6713c9c0099dd4fe9a15ce368263e00",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/vtol-downwash-loop-v1.wav",
+      "bytes": 88244,
+      "sha256": "e46a04eb295c3d35f1741c9a1b85789e4fee7cf6a8492d3013196871218eddd4",
+      "ruleId": "project-audio",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "scripts/generate_showcase_audio.py",
+        "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-bridgehead-operational-v1.webp",
+      "bytes": 217974,
+      "sha256": "20b9b63176d210cae73aa67240dcfb672ae7a40a16b7f8726c9edaf22a33d62a",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-bridgehead-painted-v1.webp",
+      "bytes": 155546,
+      "sha256": "3bac0fa7d6520149fe3bc751cdc7a62127b9f4f0deb913c7e1db46d47733779a",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-deep-fjord-painted-v1.webp",
+      "bytes": 163852,
+      "sha256": "bfe4ed69dce7dcd9ecb82e69e23e3fea19837828b32eef08dda2492163c3a9e8",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-north-cape-assault-operational-v1.webp",
+      "bytes": 134956,
+      "sha256": "ddb0fbbac7f37307b40b30a8d2768968c6009aa3f5859092c5ba2645d201ee14",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-north-cape-painted-v1.webp",
+      "bytes": 141644,
+      "sha256": "7a2813491b42c0071f37c5df7d7538fd743cdc9a942305243e8297f7e106f898",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-open-sea-painted-v1.webp",
+      "bytes": 115546,
+      "sha256": "016a9931704c57b858d7534a87e737e9aeacb6c7602be85939e5315e3003407d",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-polar-night-painted-v1.webp",
+      "bytes": 113396,
+      "sha256": "6ac40c4e252cca123a8f86a5b6e5669a100688689225d9bb8c4cfd2934260889",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-red-tide-operational-v1.webp",
+      "bytes": 123654,
+      "sha256": "665f0c7a35c957907862e0c4c18533e157ba114b908e4ff0b2f48e87710be6d9",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/arctic-whiteout-rescue-operational-v1.webp",
+      "bytes": 106938,
+      "sha256": "0350b12ea8c494c5a5c260be21d89be7550aafefb381e61d8546cfe92760ffc7",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/convoy-valley-painted-v1.webp",
+      "bytes": 358020,
+      "sha256": "5508edc5de09fe94934ef5462d79169283bd1c474b8b271d3af4feeaa0402900",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/fjord-pass-painted-v1.webp",
+      "bytes": 163858,
+      "sha256": "0a80433c3431c941aadd024f8d27c573eb11babe415bcab8020a908180b154ee",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/forward-base-painted-v1.webp",
+      "bytes": 250340,
+      "sha256": "188f2375376eef50b4b41513df376bfec08319349024a5e7cc094966389caea9",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/janus-airbase-night-painted-v1.webp",
+      "bytes": 99774,
+      "sha256": "7d1b1cb0006effdd2a60526556fb8c024b24343a1826e0e78e914460dc77e7dc",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/janus-causeway-painted-v1.webp",
+      "bytes": 164320,
+      "sha256": "9c244b6fcecc1db6aec081c6bd95697060d9f75e5d9cf1848ba1e6807650e280",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/manifest.json",
+      "bytes": 4583,
+      "sha256": "5ca15c565da5f9846b38404ced323de44db1d3c18ca423c835fa3a5ad1d6938d",
+      "ruleId": "project-metadata",
+      "category": "METADATA",
+      "provenance": "PROJECT_AUTHORED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original project-authored asset metadata",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "public/assets/sprites/manifest.json",
+        "public/assets/backgrounds/manifest.json",
+        "public/assets/layers/manifest.json"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/mission-1-dawn-showcase-v2.webp",
+      "bytes": 94808,
+      "sha256": "6d4b67803b9f28a1299ede319fc292949e5859e82e39f0a9dee7751d0d412bcc",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/mission-10-bastion-hero-v3.webp",
+      "bytes": 173580,
+      "sha256": "e0c850a247c3a50c15c1948666e54fdac2d9b312011454b83b0da2c1d14477c6",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/mission-6-storm-showcase-v2.webp",
+      "bytes": 97268,
+      "sha256": "784ff9e04d95619272ee02d0486e3da8ec109f93aa5b966ecf256b163dcb8349",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/north-atlantic-dawn-painted.webp",
+      "bytes": 110786,
+      "sha256": "697d42a47418ec04254653b311313978a7013386082984d504b677beea935437",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/rescue-coast-painted-v1.webp",
+      "bytes": 215834,
+      "sha256": "438e8927e676b05e4c8da8b62a8ab50bc419730aa96d117c9201882fe30dce43",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/skeld-defence-dawn-painted-v1.webp",
+      "bytes": 174536,
+      "sha256": "cbbd9c24e434bfea780fc5426df4982dafbd085575f55d848c9127d31a842318",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/backgrounds/storm-fleet-painted-v1.webp",
+      "bytes": 105448,
+      "sha256": "b17a4b4e97a3baa4f248360f5329cd0d094327f6395237dc3b2afbf85c34a6d5",
+      "ruleId": "ai-backgrounds",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/ART_BIBLE.md",
+        "docs/SHOWCASE_ART.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/bastion-fortress-surface-v1.webp",
+      "bytes": 1635600,
+      "sha256": "c62dfbd45df3a960dcc5f8b9b7106dad8ed4e848eb0d58b60db717d99d634d96",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/bastion-fortress-surface-v3.webp",
+      "bytes": 415020,
+      "sha256": "29ec78657deed8af55e4b385aba2145fe98637f74fb6a9f606759834779fae51",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/coast-approach-panorama.webp",
+      "bytes": 490356,
+      "sha256": "9dcefcb4520cf441e8431d593312accc4d1b88e81e00cbd9776f0f1f99d635d0",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/coast-basalt-panorama.webp",
+      "bytes": 905112,
+      "sha256": "77c4a659da9597e733f500ff14e097e71d844ee9e2e167c0be70a099c0d3ae82",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/coast-beach-panorama.webp",
+      "bytes": 851858,
+      "sha256": "408a95ddf5de0c9b5fbd755274d5991a84be8cac55dea3741ce5ea502bec5c5c",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/coast-tundra-panorama.webp",
+      "bytes": 696198,
+      "sha256": "f7f3f1294d92fa24edba4d7311c0f4f54bf7a9de48709061c495928bc2d1561a",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/janus-airbase-surface-v2.webp",
+      "bytes": 353102,
+      "sha256": "9bc6bcd5946a093b21cb185817b4a1c28437ecf6ca261681a41078c2669c265c",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/janus-causeway-surface-v2.webp",
+      "bytes": 482382,
+      "sha256": "2e0a155d1a7ae7d94bcd83ffc3330e328d9f6f943623d2acdc33479010253623",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/manifest.json",
+      "bytes": 1947,
+      "sha256": "330d9c120bea595d086e15700e525f9355b032e7e354bec615e97a7f3d3b2b2a",
+      "ruleId": "project-metadata",
+      "category": "METADATA",
+      "provenance": "PROJECT_AUTHORED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original project-authored asset metadata",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "public/assets/sprites/manifest.json",
+        "public/assets/backgrounds/manifest.json",
+        "public/assets/layers/manifest.json"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/ocean-foreground-panorama.webp",
+      "bytes": 538968,
+      "sha256": "a1999a11b1a121589c721d2f517f6187ff204c8113a90686a346901ba6ab8269",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/layers/skeld-defence-surface-v2.webp",
+      "bytes": 386782,
+      "sha256": "55c27b811365c558dd3163fc708523598cb76a87be0aaf58cbe4eeada34c1ca6",
+      "ruleId": "ai-terrain-layers",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_PANORAMA_LAYERS.md",
+        "docs/ACT_THREE_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/act-three-objectives-v1.png",
+      "bytes": 891429,
+      "sha256": "a4628196d7cb06493b76b338734a070257298bb94b23aba3b367dd68cc9a6ba5",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/cargo-supply-freighter-v2.png",
+      "bytes": 449609,
+      "sha256": "ae1fc91449f4e92e26898b8751b0eb9a88a2241fede3049f4b4f230e1fd905b6",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/coastal-artillery-damage-v1.png",
+      "bytes": 321975,
+      "sha256": "8efd1fca6de88f5368af37b602b61f48b41223f2f99e8b7bac8a9308294961c5",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/combat-wrecks-v1.png",
+      "bytes": 997394,
+      "sha256": "a9b3d64022dbabfcf065a16db69bf9aea4a53eaa83bd81587a78f567ebffe68e",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/explosion-fireball-v2.png",
+      "bytes": 729572,
+      "sha256": "7d0efc098e55fd9c46e6a620c66e8b9ed6167fc74fc324025071f4660e01c9e0",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/explosion-smoke-v2.png",
+      "bytes": 798047,
+      "sha256": "70c2e44f0bc61fccd7a41b26da7963e6b279432a11af09c7eb57b85bb2b1c5d0",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/explosion-stages-stage6-v1.png",
+      "bytes": 543457,
+      "sha256": "0f87f5aab3976dc229331aeb59af3f99bb5375bc962da2f048bcbdd078ff850f",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/explosion-stages-v1.png",
+      "bytes": 1175471,
+      "sha256": "4454221aba4003a2122f0147df5f23ba0ca93c2fdd9a457eea05532d660a3f80",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/explosion-stages-v2.png",
+      "bytes": 1006477,
+      "sha256": "0f34060b5f73ba4b711cc493dd914d6d273b651059cf8bbd6b0c9adb53d63eee",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/forward-base-farp-v1.png",
+      "bytes": 207874,
+      "sha256": "1b9338df09692dd69c686fa95626627e6707e5b216899e0ac901e9476d712f24",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/friendly-supply-cache-v2.png",
+      "bytes": 388675,
+      "sha256": "7b4c892cad9ee375029e5f59421d33d76cba489e548a2246b1f672650126ee0e",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/fuel-depot-painted.png",
+      "bytes": 1322480,
+      "sha256": "39da3a090df2c1592c32e91d2e8c44b67e6a3645f07533cf5fdccf9ef1e0b490",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/fuel-depot-v2.png",
+      "bytes": 355210,
+      "sha256": "969f1a5383e026f9f23b6ed7fdf8638888fbe8906bc85c8fc92e077cd4c57023",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/harrier-ejection-v1.png",
+      "bytes": 991081,
+      "sha256": "4a41f22587aa204c2aef0a143de258f70220c1441e7c8a55fa18bd9babbbd04c",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/invincible-carrier-hero-v3.png",
+      "bytes": 1127532,
+      "sha256": "53fad064afb17eb66f69ac703151d7d71c1415cc305ecca2d598a9fcc6336820",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/landing-craft-damage-v1.png",
+      "bytes": 305440,
+      "sha256": "f5a56f133563a4148506a7f8a193ea33d60c40c1a8de28fb5a8fd374bcbd9372",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/manifest.json",
+      "bytes": 14461,
+      "sha256": "89e0f9ed5894f3678d3d7b5f83eb524e43979186efee56f61caaa4057f259f77",
+      "ruleId": "project-metadata",
+      "category": "METADATA",
+      "provenance": "PROJECT_AUTHORED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original project-authored asset metadata",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "public/assets/sprites/manifest.json",
+        "public/assets/backgrounds/manifest.json",
+        "public/assets/layers/manifest.json"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/mi24d-painted-v2.png",
+      "bytes": 178565,
+      "sha256": "6d1d8354da089f089faffe70865b9fe032e1e8bd9bc23fc48cab914c53354769",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/mig21bis-hero-v3.png",
+      "bytes": 445488,
+      "sha256": "bc35216330c50d479554deb1023c2e3129a581016989e8ccb15391c155e35e16",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/mig23ml-hero-v3.png",
+      "bytes": 451567,
+      "sha256": "b184f497844538ec12ec9f22610826035d6255967ce0c9057d98d82c25cc1e83",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/mig29a-hero-v3.png",
+      "bytes": 361578,
+      "sha256": "7842b82149dc9721d771e00f845b877fefcc398ad0370343f2bd54a08bbdc674",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/missile-corvette-hero-v3.png",
+      "bytes": 757003,
+      "sha256": "fe5d616f47fb980e6bf8aad3a88dbdc00a5b8711adf8ca35d1529bf00c4a32a1",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/missile-patrol-boat-hero-v3.png",
+      "bytes": 514559,
+      "sha256": "63a7a92e563462f04ea28cfd27cfe0ca8f0f93462fb9f281fa7063cebfc0ad77",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/p19-radar-painted.png",
+      "bytes": 1222427,
+      "sha256": "69a7f5d16ecd137c463e3945ef5ac3e0f1fe21bc322f8baa13473a936d301614",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/p19-radar-v2.png",
+      "bytes": 458580,
+      "sha256": "f0cf33775ae128295d8c531d5ad619fe35b4a5b3f54aba2a186d06cccba60d2f",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/sa8-gecko-painted.png",
+      "bytes": 1481509,
+      "sha256": "bf1e6845abd2762424a2c1184a7d9183e5d92d3d3db3d114b61b1ef36f8576f3",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/sa8-gecko-v2.png",
+      "bytes": 418708,
+      "sha256": "fab7e2b62152c8d3abf420c952373e5efca57bbec49e1d93b6a3df2b5df5c7ee",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/sea-harrier-frs1-hero-v3.png",
+      "bytes": 480765,
+      "sha256": "af66848005ad16fcc02e4b3f5e70026ca65916d217e5bdd7a087d28da7b81c29",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/sea-harrier-turn-v1.png",
+      "bytes": 379342,
+      "sha256": "b40313d087bd16f1e7f6f9b3efcd4a3c980813151427fc36636724433d52e750",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/su24m-damage-v1.png",
+      "bytes": 318145,
+      "sha256": "4c8fde2ff4182732a1fee0408c3a542091e29cad596bb195bf4868f9968f8ba7",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/submarine-pen-damage-v1.png",
+      "bytes": 476517,
+      "sha256": "b810b80dd63305d2f96f531e2e659940e726920555838528f950646a9ae436c2",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/t72m-painted.png",
+      "bytes": 1245983,
+      "sha256": "d286b4d39cf642fea71d737840535adac15c842fab0eebff3235a0a9a3bd9ed2",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/t72m-v2.png",
+      "bytes": 313051,
+      "sha256": "e9734ca6f2d243ac4bf24070b473d1cf0f543f6460fe36b5e89af52e9da9e623",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/tu16k-damage-v1.png",
+      "bytes": 276015,
+      "sha256": "f432c5a79c79865efc3244426d51288bc975664a51d890de63a0191055bde823",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/sprites/zsu23-4-v2.png",
+      "bytes": 490207,
+      "sha256": "2c5a981e58a65f8518720af507eb3c1c8d13bad5416ba55552cc79394b6ec153",
+      "ruleId": "ai-sprites",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "art/source/sea-harrier-frs1-concept.png",
+        "docs/GENERATED_ASSETS_1987.md",
+        "docs/NORWEGIAN_TOOLKIT_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/terrain/arctic-deep-fjord-contact-v1.png",
+      "bytes": 1590091,
+      "sha256": "382477fda0ce2efdeab8844c34fc7b2122e49bbfe06a81ca19d95a07f11d5d29",
+      "ruleId": "ai-contact-art",
+      "category": "ARTWORK_TERRAIN_CONTACT",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Project-authored contact derivative of archived generated environment artwork",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987/norwegian-toolkit-v1",
+        "docs/NORWEGIAN_TOOLKIT_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/ui/briefing-iron-dawn-v2.jpg",
+      "bytes": 314182,
+      "sha256": "a6088ed3efa86c3b7c6217135c88c151397d782db4fe453b43fbf6af1d69166a",
+      "ruleId": "ai-interface-art",
+      "category": "ARTWORK_INTERFACE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-composed and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_CAMPAIGN_UI.md",
+        "docs/SURVIVAL_SEA_WAR_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/ui/campaign-map-northern-lance.jpg",
+      "bytes": 368804,
+      "sha256": "958928b55fd145e388d677bf918404f0cdf9ebffb07b4b20a37364af96a57ed1",
+      "ruleId": "ai-interface-art",
+      "category": "ARTWORK_INTERFACE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-composed and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_CAMPAIGN_UI.md",
+        "docs/SURVIVAL_SEA_WAR_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/ui/carrier-servicing-v1.webp",
+      "bytes": 138626,
+      "sha256": "286ae5b3c06dca98d3c00eb744a7a9e34c297507f2fbc088a845c66ea2765bd8",
+      "ruleId": "ai-interface-art",
+      "category": "ARTWORK_INTERFACE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-composed and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_CAMPAIGN_UI.md",
+        "docs/SURVIVAL_SEA_WAR_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/ui/farp-servicing-v1.webp",
+      "bytes": 197528,
+      "sha256": "abb988b4446bcc1166324b410fbd760497f2ca8090cba389c862409cee286b6e",
+      "ruleId": "ai-interface-art",
+      "category": "ARTWORK_INTERFACE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-composed and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_CAMPAIGN_UI.md",
+        "docs/SURVIVAL_SEA_WAR_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/ui/title-composition-hero-v1.webp",
+      "bytes": 78986,
+      "sha256": "69e9b7a65209120c6f040e0c227d48997dc4b3fb6d8d4317ee29d010704885f0",
+      "ruleId": "ai-interface-art",
+      "category": "ARTWORK_INTERFACE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-composed and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-1987",
+        "docs/GENERATED_CAMPAIGN_UI.md",
+        "docs/SURVIVAL_SEA_WAR_ART.md",
+        "docs/STAGE5_HERO_ART.md"
+      ],
+      "matchingRuleCount": 1
+    }
+  ]
+}

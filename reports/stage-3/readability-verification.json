@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T07:55:56.280Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-CTRL4",
+  "passed": false,
+  "issues": [
+    "Human readability review is not marked complete.",
+    "MISSION_1_DESKTOP requires exactly one current-build review.",
+    "MISSION_6_DESKTOP requires exactly one current-build review.",
+    "MISSION_10_DESKTOP requires exactly one current-build review.",
+    "MISSION_1_COMPACT requires exactly one current-build review.",
+    "MISSION_6_COMPACT requires exactly one current-build review.",
+    "MISSION_10_COMPACT requires exactly one current-build review."
+  ]
+}

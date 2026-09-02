@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T07:55:56.298Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-CTRL4",
+  "passed": false,
+  "results": [
+    {
+      "name": "type-check",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "deterministic-and-unit-tests",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "balance-certification",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "visual-manifest",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "name": "human-readability-evidence",
+      "passed": false,
+      "exitCode": 1,
+      "error": null
+    }
+  ]
+}

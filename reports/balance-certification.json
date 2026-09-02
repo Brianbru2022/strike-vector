@@ -1,0 +1,1274 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-02T17:33:09.356Z",
+  "campaignEntries": [
+    {
+      "missionId": "m1_coastal_strike",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 2,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 2230,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m2_valley_run",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 3,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": 6680,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m3_convoy_hunter",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 6980,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m4_night_raid",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 4,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m5_pilot_rescue",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 6855,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m6_fleet_defence",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "FLEET_CAP",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 3,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 8,
+      "groundOrdnanceCapacity": 2,
+      "openingAirSeparation": 2580,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m7_bridge_strike",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 6,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": 7955,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m8_airbase_raid",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m9_forward_defence",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "FLEET_CAP",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 5,
+      "groundTargets": 1,
+      "airOrdnanceCapacity": 8,
+      "groundOrdnanceCapacity": 2,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m10_hq_assault",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 1,
+      "groundTargets": 5,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m11_cold_passage",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 3080,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m12_hammerfall_fjord",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 6,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m13_troms_bridgehead",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 8,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m14_whiteout_rescue",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m15_red_tide",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 2,
+      "groundTargets": 4,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m16_north_cape_assault",
+      "difficulty": "ARCADE",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 1,
+      "groundTargets": 5,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m1_coastal_strike",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 2,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 2230,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m2_valley_run",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 3,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": 6680,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m3_convoy_hunter",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 6980,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m4_night_raid",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 4,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m5_pilot_rescue",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 6855,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m6_fleet_defence",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "FLEET_CAP",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 3,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 8,
+      "groundOrdnanceCapacity": 2,
+      "openingAirSeparation": 2580,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m7_bridge_strike",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 6,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": 7955,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m8_airbase_raid",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m9_forward_defence",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "FLEET_CAP",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 5,
+      "groundTargets": 1,
+      "airOrdnanceCapacity": 8,
+      "groundOrdnanceCapacity": 2,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m10_hq_assault",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 1,
+      "groundTargets": 5,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m11_cold_passage",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 3080,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m12_hammerfall_fjord",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 6,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m13_troms_bridgehead",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 8,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m14_whiteout_rescue",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m15_red_tide",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 2,
+      "groundTargets": 4,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m16_north_cape_assault",
+      "difficulty": "PILOT",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 1,
+      "groundTargets": 5,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m1_coastal_strike",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 2,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 2230,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m2_valley_run",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 3,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": 6680,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m3_convoy_hunter",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 6980,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m4_night_raid",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 4,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m5_pilot_rescue",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 6855,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m6_fleet_defence",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "FLEET_CAP",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 3,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 8,
+      "groundOrdnanceCapacity": 2,
+      "openingAirSeparation": 2580,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m7_bridge_strike",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 6,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": 7955,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m8_airbase_raid",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m9_forward_defence",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "FLEET_CAP",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 5,
+      "groundTargets": 1,
+      "airOrdnanceCapacity": 8,
+      "groundOrdnanceCapacity": 2,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m10_hq_assault",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 1,
+      "groundTargets": 5,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m11_cold_passage",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 2,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": 3080,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m12_hammerfall_fjord",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 6,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m13_troms_bridgehead",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 8,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m14_whiteout_rescue",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "CLOSE_SUPPORT",
+      "offeredLoadouts": [
+        "FLEET_CAP",
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 0,
+      "groundTargets": 0,
+      "airOrdnanceCapacity": 10,
+      "groundOrdnanceCapacity": 10,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m15_red_tide",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 2,
+      "groundTargets": 4,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    },
+    {
+      "missionId": "m16_north_cape_assault",
+      "difficulty": "VETERAN",
+      "recommendedLoadout": "STRIKE",
+      "offeredLoadouts": [
+        "STRIKE",
+        "CLOSE_SUPPORT"
+      ],
+      "airTargets": 1,
+      "groundTargets": 5,
+      "airOrdnanceCapacity": 2,
+      "groundOrdnanceCapacity": 8,
+      "openingAirSeparation": null,
+      "recoveryValid": true,
+      "issues": []
+    }
+  ],
+  "deployments": [
+    {
+      "difficulty": "ARCADE",
+      "seed": 1,
+      "archetypes": [
+        "SEAD",
+        "ARMOURED_INTERDICTION",
+        "PILOT_RESCUE"
+      ],
+      "sorties": [
+        {
+          "missionId": "op_1_1",
+          "difficulty": "ARCADE",
+          "recommendedLoadout": "STRIKE",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 3,
+          "airOrdnanceCapacity": 2,
+          "groundOrdnanceCapacity": 8,
+          "openingAirSeparation": 6805,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_1_2",
+          "difficulty": "ARCADE",
+          "recommendedLoadout": "CLOSE_SUPPORT",
+          "offeredLoadouts": [
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 6,
+          "airOrdnanceCapacity": 10,
+          "groundOrdnanceCapacity": 10,
+          "openingAirSeparation": 7934,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_1_3",
+          "difficulty": "ARCADE",
+          "recommendedLoadout": "CLOSE_SUPPORT",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 0,
+          "airOrdnanceCapacity": 10,
+          "groundOrdnanceCapacity": 10,
+          "openingAirSeparation": 6827,
+          "recoveryValid": true,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "difficulty": "ARCADE",
+      "seed": 23,
+      "archetypes": [
+        "FLEET_CAP",
+        "FARP_DEFENCE",
+        "DEEP_STRIKE"
+      ],
+      "sorties": [
+        {
+          "missionId": "op_23_1",
+          "difficulty": "ARCADE",
+          "recommendedLoadout": "FLEET_CAP",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 3,
+          "groundTargets": 2,
+          "airOrdnanceCapacity": 8,
+          "groundOrdnanceCapacity": 2,
+          "openingAirSeparation": 2585,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_23_2",
+          "difficulty": "ARCADE",
+          "recommendedLoadout": "FLEET_CAP",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 5,
+          "groundTargets": 1,
+          "airOrdnanceCapacity": 8,
+          "groundOrdnanceCapacity": 2,
+          "openingAirSeparation": null,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_23_3",
+          "difficulty": "ARCADE",
+          "recommendedLoadout": "STRIKE",
+          "offeredLoadouts": [
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 1,
+          "groundTargets": 5,
+          "airOrdnanceCapacity": 2,
+          "groundOrdnanceCapacity": 8,
+          "openingAirSeparation": null,
+          "recoveryValid": true,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "difficulty": "PILOT",
+      "seed": 1,
+      "archetypes": [
+        "SEAD",
+        "ARMOURED_INTERDICTION",
+        "PILOT_RESCUE"
+      ],
+      "sorties": [
+        {
+          "missionId": "op_1_1",
+          "difficulty": "PILOT",
+          "recommendedLoadout": "STRIKE",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 3,
+          "airOrdnanceCapacity": 2,
+          "groundOrdnanceCapacity": 8,
+          "openingAirSeparation": 6805,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_1_2",
+          "difficulty": "PILOT",
+          "recommendedLoadout": "CLOSE_SUPPORT",
+          "offeredLoadouts": [
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 6,
+          "airOrdnanceCapacity": 10,
+          "groundOrdnanceCapacity": 10,
+          "openingAirSeparation": 7934,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_1_3",
+          "difficulty": "PILOT",
+          "recommendedLoadout": "CLOSE_SUPPORT",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 0,
+          "airOrdnanceCapacity": 10,
+          "groundOrdnanceCapacity": 10,
+          "openingAirSeparation": 6827,
+          "recoveryValid": true,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "difficulty": "PILOT",
+      "seed": 23,
+      "archetypes": [
+        "FLEET_CAP",
+        "FARP_DEFENCE",
+        "DEEP_STRIKE"
+      ],
+      "sorties": [
+        {
+          "missionId": "op_23_1",
+          "difficulty": "PILOT",
+          "recommendedLoadout": "FLEET_CAP",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 3,
+          "groundTargets": 2,
+          "airOrdnanceCapacity": 8,
+          "groundOrdnanceCapacity": 2,
+          "openingAirSeparation": 2585,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_23_2",
+          "difficulty": "PILOT",
+          "recommendedLoadout": "FLEET_CAP",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 5,
+          "groundTargets": 1,
+          "airOrdnanceCapacity": 8,
+          "groundOrdnanceCapacity": 2,
+          "openingAirSeparation": null,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_23_3",
+          "difficulty": "PILOT",
+          "recommendedLoadout": "STRIKE",
+          "offeredLoadouts": [
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 1,
+          "groundTargets": 5,
+          "airOrdnanceCapacity": 2,
+          "groundOrdnanceCapacity": 8,
+          "openingAirSeparation": null,
+          "recoveryValid": true,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "difficulty": "VETERAN",
+      "seed": 1,
+      "archetypes": [
+        "SEAD",
+        "ARMOURED_INTERDICTION",
+        "PILOT_RESCUE"
+      ],
+      "sorties": [
+        {
+          "missionId": "op_1_1",
+          "difficulty": "VETERAN",
+          "recommendedLoadout": "STRIKE",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 3,
+          "airOrdnanceCapacity": 2,
+          "groundOrdnanceCapacity": 8,
+          "openingAirSeparation": 6805,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_1_2",
+          "difficulty": "VETERAN",
+          "recommendedLoadout": "CLOSE_SUPPORT",
+          "offeredLoadouts": [
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 6,
+          "airOrdnanceCapacity": 10,
+          "groundOrdnanceCapacity": 10,
+          "openingAirSeparation": 7934,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_1_3",
+          "difficulty": "VETERAN",
+          "recommendedLoadout": "CLOSE_SUPPORT",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 0,
+          "groundTargets": 0,
+          "airOrdnanceCapacity": 10,
+          "groundOrdnanceCapacity": 10,
+          "openingAirSeparation": 6827,
+          "recoveryValid": true,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "difficulty": "VETERAN",
+      "seed": 23,
+      "archetypes": [
+        "FLEET_CAP",
+        "FARP_DEFENCE",
+        "DEEP_STRIKE"
+      ],
+      "sorties": [
+        {
+          "missionId": "op_23_1",
+          "difficulty": "VETERAN",
+          "recommendedLoadout": "FLEET_CAP",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 3,
+          "groundTargets": 2,
+          "airOrdnanceCapacity": 8,
+          "groundOrdnanceCapacity": 2,
+          "openingAirSeparation": 2585,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_23_2",
+          "difficulty": "VETERAN",
+          "recommendedLoadout": "FLEET_CAP",
+          "offeredLoadouts": [
+            "FLEET_CAP",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 5,
+          "groundTargets": 1,
+          "airOrdnanceCapacity": 8,
+          "groundOrdnanceCapacity": 2,
+          "openingAirSeparation": null,
+          "recoveryValid": true,
+          "issues": []
+        },
+        {
+          "missionId": "op_23_3",
+          "difficulty": "VETERAN",
+          "recommendedLoadout": "STRIKE",
+          "offeredLoadouts": [
+            "STRIKE",
+            "CLOSE_SUPPORT"
+          ],
+          "airTargets": 1,
+          "groundTargets": 5,
+          "airOrdnanceCapacity": 2,
+          "groundOrdnanceCapacity": 8,
+          "openingAirSeparation": null,
+          "recoveryValid": true,
+          "issues": []
+        }
+      ]
+    }
+  ],
+  "encounters": [
+    {
+      "difficulty": "ARCADE",
+      "scenario": "FIGHTER",
+      "deterministic": true,
+      "firingEvents": 3,
+      "samLaunches": 0,
+      "maximumPitchDegrees": 24,
+      "minimumTerrainClearance": 88.62578968545569
+    },
+    {
+      "difficulty": "ARCADE",
+      "scenario": "SAM",
+      "deterministic": true,
+      "firingEvents": 0,
+      "samLaunches": 3,
+      "maximumPitchDegrees": 0,
+      "minimumTerrainClearance": 0
+    },
+    {
+      "difficulty": "ARCADE",
+      "scenario": "COMBINED",
+      "deterministic": true,
+      "firingEvents": 3,
+      "samLaunches": 3,
+      "maximumPitchDegrees": 24,
+      "minimumTerrainClearance": 88.62578968545569
+    },
+    {
+      "difficulty": "PILOT",
+      "scenario": "FIGHTER",
+      "deterministic": true,
+      "firingEvents": 1,
+      "samLaunches": 0,
+      "maximumPitchDegrees": 24,
+      "minimumTerrainClearance": 90.24984941070949
+    },
+    {
+      "difficulty": "PILOT",
+      "scenario": "SAM",
+      "deterministic": true,
+      "firingEvents": 0,
+      "samLaunches": 4,
+      "maximumPitchDegrees": 0,
+      "minimumTerrainClearance": 0
+    },
+    {
+      "difficulty": "PILOT",
+      "scenario": "COMBINED",
+      "deterministic": true,
+      "firingEvents": 1,
+      "samLaunches": 4,
+      "maximumPitchDegrees": 24,
+      "minimumTerrainClearance": 90.24984941070949
+    },
+    {
+      "difficulty": "VETERAN",
+      "scenario": "FIGHTER",
+      "deterministic": true,
+      "firingEvents": 3,
+      "samLaunches": 0,
+      "maximumPitchDegrees": 24,
+      "minimumTerrainClearance": 86.28087905156968
+    },
+    {
+      "difficulty": "VETERAN",
+      "scenario": "SAM",
+      "deterministic": true,
+      "firingEvents": 0,
+      "samLaunches": 5,
+      "maximumPitchDegrees": 0,
+      "minimumTerrainClearance": 0
+    },
+    {
+      "difficulty": "VETERAN",
+      "scenario": "COMBINED",
+      "deterministic": true,
+      "firingEvents": 3,
+      "samLaunches": 5,
+      "maximumPitchDegrees": 24,
+      "minimumTerrainClearance": 86.28087905156968
+    }
+  ],
+  "coveredArchetypes": {
+    "ARCADE": [
+      "FLEET_CAP",
+      "SEAD",
+      "ARMOURED_INTERDICTION",
+      "PILOT_RESCUE",
+      "FARP_DEFENCE",
+      "DEEP_STRIKE"
+    ],
+    "PILOT": [
+      "FLEET_CAP",
+      "SEAD",
+      "ARMOURED_INTERDICTION",
+      "PILOT_RESCUE",
+      "FARP_DEFENCE",
+      "DEEP_STRIKE"
+    ],
+    "VETERAN": [
+      "FLEET_CAP",
+      "SEAD",
+      "ARMOURED_INTERDICTION",
+      "PILOT_RESCUE",
+      "FARP_DEFENCE",
+      "DEEP_STRIKE"
+    ]
+  },
+  "issues": [],
+  "passed": true
+}

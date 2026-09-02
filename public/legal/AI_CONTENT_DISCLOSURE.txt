@@ -1,0 +1,9 @@
+IRON KESTREL '87 — AI-ASSISTED CONTENT DISCLOSURE
+
+Iron Kestrel '87 contains pre-generated visual material created with assistance from OpenAI image-generation tools during development. This includes source artwork used for painted environments, aircraft, vehicles, ships, interface illustrations, effects and store key art. Selected output was cleaned, composited, resized, integrated and reviewed by the project before being bundled with the game.
+
+The game does not generate artwork, dialogue, audio or other content with generative AI while it is running. It does not send player prompts or gameplay data to an AI service.
+
+Engineering and editorial work also used OpenAI Codex assistance. This development tooling is not a live player-facing AI system.
+
+The maintained disclosure and provenance references are in docs/AI_GENERATION_DISCLOSURE.md and docs/asset-rights-register.json.

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-02T17:34:35.390Z",
+  "passed": true,
+  "legacyFixtures": {
+    "v1": 4001643771,
+    "v2": 300066680
+  },
+  "deployments": 4000,
+  "sorties": 16000,
+  "issues": []
+}

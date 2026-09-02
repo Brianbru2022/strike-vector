@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "batch": "stage6-effects-v1",
+  "createdAt": "2026-08-30",
+  "tool": "OpenAI built-in image generation",
+  "mode": "generation",
+  "source": "explosion-stages-stage6-source.png",
+  "runtime": "public/assets/sprites/explosion-stages-stage6-v1.png",
+  "processor": "scripts/prepare_stage6_effect_art.py",
+  "approval": {
+    "status": "APPROVED_FOR_INTEGRATION",
+    "originalProjectSpecificPrompt": true,
+    "identifiableCopyrightedComposition": false,
+    "brandOrSignature": false,
+    "livingArtistStyleRequested": false,
+    "technicalCaptureReviewRequired": true
+  }
+}

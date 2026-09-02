@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "buildIdentifier": "IK87-1.2.0-DEV1-20260902-TURN9",
+  "generatedAt": "2026-09-02T17:33:08.647Z",
+  "passed": true,
+  "authoringDocumentVersion": 1,
+  "campaignMissionsRoundTripped": 16,
+  "objectivesValidated": 68,
+  "eventsValidated": 53,
+  "initialUnitsValidated": 84,
+  "cleanMissionCompiled": "authoring_test_mission",
+  "issues": []
+}

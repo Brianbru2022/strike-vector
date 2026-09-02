@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T07:55:30.254Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-CTRL4",
+  "passed": false,
+  "issues": [
+    "Hardware control certification is not marked complete.",
+    "GUIDED_KEYBOARD requires exactly one current-build hardware run.",
+    "GUIDED_XBOX_GAMEPAD requires exactly one current-build hardware run.",
+    "GUIDED_MOBILE_TOUCH requires exactly one current-build hardware run."
+  ]
+}

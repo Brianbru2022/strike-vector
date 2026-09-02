@@ -1,0 +1,289 @@
+{
+  "version": 2,
+  "sprites": {
+    "player_jet": {
+      "file": "sea-harrier-frs1-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2304, "height": 225 },
+      "pivot": { "x": 0.5, "y": 0.52 },
+      "displaySize": { "width": 96, "height": 32 },
+      "animations": { "flight": [0, 1, 2] },
+      "damageStates": ["normal", "damaged", "critical"]
+    },
+    "player_turn": {
+      "file": "sea-harrier-turn-v1.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2560, "height": 256 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 104, "height": 52 },
+      "animations": { "yaw_turn": [0, 1, 2, 3, 4] },
+      "damageStates": ["normal"]
+    },
+    "carrier_ship": {
+      "file": "invincible-carrier-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 3600, "height": 416 },
+      "pivot": { "x": 0, "y": 0.56 },
+      "displaySize": { "width": 480, "height": 128 },
+      "animations": { "sea_motion": [0, 1, 2] },
+      "damageStates": ["normal", "damaged", "critical"]
+    },
+    "enemy_jet": {
+      "file": "mig23ml-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2304, "height": 341 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 82, "height": 24 },
+      "animations": { "flight": [0, 1, 2] },
+      "damageStates": ["normal", "damaged", "critical"]
+    },
+    "enemy_mig21": {
+      "file": "mig21bis-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2304, "height": 224 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 82, "height": 24 },
+      "animations": { "flight": [0, 1, 2] },
+      "damageStates": ["normal", "damaged", "critical"]
+    },
+    "enemy_mig29": {
+      "file": "mig29a-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2304, "height": 201 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 86, "height": 24 },
+      "animations": { "flight": [0, 1, 2] },
+      "damageStates": ["normal", "damaged", "critical"]
+    },
+    "enemy_heli": {
+      "file": "mi24d-painted-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 207 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 96, "height": 30 },
+      "animations": { "hover": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_sam": {
+      "file": "sa8-gecko-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 409 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 84, "height": 44 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_tank": {
+      "file": "t72m-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 278 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 82, "height": 30 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_radar": {
+      "file": "p19-radar-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 430 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 104, "height": 58 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_oil": {
+      "file": "fuel-depot-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 254 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 112, "height": 38 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_flak": {
+      "file": "zsu23-4-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 439 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 72, "height": 41 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_ship": {
+      "file": "cargo-supply-freighter-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 287 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 150, "height": 42 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "friendly_supplies": {
+      "file": "friendly-supply-cache-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 768, "height": 281 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 112, "height": 41 },
+      "animations": { "idle": [0] },
+      "damageStates": ["normal"]
+    },
+    "forward_base": {
+      "file": "forward-base-farp-v1.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 275 },
+      "pivot": { "x": 0, "y": 1 },
+      "displaySize": { "width": 520, "height": 140 },
+      "animations": { "landing_lights": [0] },
+      "damageStates": ["normal"]
+    },
+    "enemy_patrol_boat": {
+      "file": "missile-patrol-boat-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2460, "height": 328 },
+      "pivot": { "x": 0.5, "y": 0.79 },
+      "displaySize": { "width": 148, "height": 66 },
+      "animations": { "patrol": [0] },
+      "damageStates": ["normal", "smoking", "sunk"]
+    },
+    "enemy_corvette": {
+      "file": "missile-corvette-hero-v3.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2700, "height": 468 },
+      "pivot": { "x": 0.5, "y": 0.79 },
+      "displaySize": { "width": 188, "height": 68 },
+      "animations": { "patrol": [0] },
+      "damageStates": ["normal", "smoking", "sunk"]
+    },
+    "combat_wrecks": {
+      "file": "combat-wrecks-v1.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2163, "height": 354 },
+      "pivot": { "x": 0.5, "y": 0.76 },
+      "displaySize": { "width": 110, "height": 48 },
+      "animations": { "wreck_types": [0, 1, 2] },
+      "damageStates": ["destroyed"]
+    },
+    "harrier_ejection": {
+      "file": "harrier-ejection-v1.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 1767, "height": 687 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 72, "height": 100 },
+      "animations": { "ejection": [0, 1, 2, 3] },
+      "damageStates": ["normal"]
+    },
+    "act_three_objectives": {
+      "file": "act-three-objectives-v1.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2156, "height": 417 },
+      "pivot": { "x": 0.5, "y": 1 },
+      "displaySize": { "width": 150, "height": 66 },
+      "animations": { "objective_types": [0, 1, 2, 3, 4] },
+      "damageStates": ["normal", "destroyed"]
+    },
+    "enemy_tu16k": {
+      "file": "tu16k-damage-v1.png", "sourceRect": { "x": 0, "y": 0, "width": 1536, "height": 205 }, "pivot": { "x": 0.5, "y": 0.52 }, "displaySize": { "width": 134, "height": 38 }, "animations": { "damage": [0, 1, 2] }, "damageStates": ["normal", "damaged", "destroyed"]
+    },
+    "enemy_su24m": {
+      "file": "su24m-damage-v1.png", "sourceRect": { "x": 0, "y": 0, "width": 1536, "height": 205 }, "pivot": { "x": 0.5, "y": 0.52 }, "displaySize": { "width": 92, "height": 29 }, "animations": { "damage": [0, 1, 2] }, "damageStates": ["normal", "damaged", "destroyed"]
+    },
+    "arctic_landing_craft": {
+      "file": "landing-craft-damage-v1.png", "sourceRect": { "x": 0, "y": 0, "width": 1536, "height": 204 }, "pivot": { "x": 0.5, "y": 0.8 }, "displaySize": { "width": 164, "height": 62 }, "animations": { "damage": [0, 1, 2] }, "damageStates": ["normal", "damaged", "destroyed"]
+    },
+    "arctic_coastal_artillery": {
+      "file": "coastal-artillery-damage-v1.png", "sourceRect": { "x": 0, "y": 0, "width": 1536, "height": 205 }, "pivot": { "x": 0.5, "y": 0.92 }, "displaySize": { "width": 112, "height": 54 }, "animations": { "damage": [0, 1, 2] }, "damageStates": ["normal", "damaged", "destroyed"]
+    },
+    "arctic_submarine_pen": {
+      "file": "submarine-pen-damage-v1.png", "sourceRect": { "x": 0, "y": 0, "width": 1536, "height": 205 }, "pivot": { "x": 0.5, "y": 0.94 }, "displaySize": { "width": 196, "height": 88 }, "animations": { "damage": [0, 1, 2] }, "damageStates": ["normal", "damaged", "destroyed"]
+    },
+    "fx_explosion": {
+      "file": "explosion-fireball-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 640, "height": 596 },
+      "pivot": { "x": 0.5, "y": 0.5 },
+      "displaySize": { "width": 96, "height": 90 },
+      "animations": { "flash": [0] },
+      "damageStates": ["normal"]
+    },
+    "fx_explosion_smoke": {
+      "file": "explosion-smoke-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 512, "height": 776 },
+      "pivot": { "x": 0.5, "y": 0.82 },
+      "displaySize": { "width": 72, "height": 110 },
+      "animations": { "smoke": [0] },
+      "damageStates": ["normal"]
+    },
+    "fx_explosion_stages": {
+      "file": "explosion-stages-v2.png",
+      "sourceRect": { "x": 0, "y": 0, "width": 2100, "height": 362 },
+      "pivot": { "x": 0.5, "y": 0.54 },
+      "displaySize": { "width": 130, "height": 130 },
+      "animations": { "blast": [0, 1, 2, 3, 4, 5] },
+      "damageStates": ["normal"]
+    }
+  },
+  "presentationMetadata": {
+    "enemy_tu16k": {
+      "contactAnchor": { "x": 0.5, "y": 0.52 }, "shadowFootprint": { "width": 0.84, "offsetY": 0.06 }, "animationClips": [{ "name": "damage", "frames": [0, 1, 2], "framesPerSecond": 1, "loop": false }], "damageFrames": { "DAMAGED": 1, "CRITICAL": 1, "DESTROYED": 2 }, "effectAttachments": [{ "id": "engine_smoke", "x": 0.35, "y": 0.55 }]
+    },
+    "enemy_su24m": {
+      "contactAnchor": { "x": 0.5, "y": 0.52 }, "shadowFootprint": { "width": 0.8, "offsetY": 0.05 }, "animationClips": [{ "name": "damage", "frames": [0, 1, 2], "framesPerSecond": 1, "loop": false }], "damageFrames": { "DAMAGED": 1, "CRITICAL": 1, "DESTROYED": 2 }, "effectAttachments": [{ "id": "engine_smoke", "x": 0.2, "y": 0.54 }]
+    },
+    "arctic_landing_craft": {
+      "contactAnchor": { "x": 0.5, "y": 0.8 }, "shadowFootprint": { "width": 0.92, "offsetY": 0 }, "animationClips": [{ "name": "damage", "frames": [0, 1, 2], "framesPerSecond": 1, "loop": false }], "damageFrames": { "DAMAGED": 1, "CRITICAL": 1, "DESTROYED": 2 }, "effectAttachments": [{ "id": "bow_spray", "x": 0.94, "y": 0.78 }, { "id": "damage_smoke", "x": 0.55, "y": 0.38 }]
+    },
+    "arctic_coastal_artillery": {
+      "contactAnchor": { "x": 0.5, "y": 0.92 }, "shadowFootprint": { "width": 0.88, "offsetY": 0 }, "animationClips": [{ "name": "damage", "frames": [0, 1, 2], "framesPerSecond": 1, "loop": false }], "damageFrames": { "DAMAGED": 1, "CRITICAL": 1, "DESTROYED": 2 }, "effectAttachments": [{ "id": "muzzle", "x": 0.83, "y": 0.35 }, { "id": "damage_smoke", "x": 0.5, "y": 0.46 }]
+    },
+    "arctic_submarine_pen": {
+      "contactAnchor": { "x": 0.5, "y": 0.94 }, "shadowFootprint": { "width": 0.96, "offsetY": 0 }, "animationClips": [{ "name": "damage", "frames": [0, 1, 2], "framesPerSecond": 1, "loop": false }], "damageFrames": { "DAMAGED": 1, "CRITICAL": 1, "DESTROYED": 2 }, "effectAttachments": [{ "id": "damage_smoke", "x": 0.55, "y": 0.35 }]
+    },
+    "player_jet": {
+      "contactAnchor": { "x": 0.5, "y": 0.78 },
+      "shadowFootprint": { "width": 0.82, "offsetY": 0.08 },
+      "animationClips": [
+        { "name": "flight", "frames": [0], "framesPerSecond": 1, "loop": true },
+        { "name": "vtol_nozzles", "frames": [0], "framesPerSecond": 10, "loop": true },
+        { "name": "gear_transition", "frames": [0], "framesPerSecond": 8, "loop": false }
+      ],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [
+        { "id": "engine_exhaust", "x": 0.12, "y": 0.57 },
+        { "id": "cannon_left", "x": 0.72, "y": 0.72 },
+        { "id": "landing_gear", "x": 0.5, "y": 0.82 }
+      ]
+    },
+    "player_turn": {
+      "contactAnchor": { "x": 0.5, "y": 0.5 },
+      "shadowFootprint": { "width": 0.82, "offsetY": 0.08 },
+      "animationClips": [{ "name": "yaw_turn", "frames": [0, 1, 2, 3, 4], "framesPerSecond": 18, "loop": false }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "engine_exhaust", "x": 0.5, "y": 0.64 }]
+    },
+    "carrier_ship": {
+      "contactAnchor": { "x": 0.5, "y": 0.93 },
+      "shadowFootprint": { "width": 0.96, "offsetY": 0 },
+      "animationClips": [{ "name": "sea_motion", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [
+        { "id": "bow_spray", "x": 0.96, "y": 0.76 },
+        { "id": "stern_wake", "x": 0.02, "y": 0.8 },
+        { "id": "island_damage", "x": 0.38, "y": 0.35 }
+      ]
+    },
+    "enemy_jet": {
+      "contactAnchor": { "x": 0.5, "y": 0.52 },
+      "shadowFootprint": { "width": 0.78, "offsetY": 0.05 },
+      "animationClips": [{ "name": "flight_damage", "frames": [0, 1, 2], "framesPerSecond": 1, "loop": false }],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [{ "id": "engine_exhaust", "x": 0.08, "y": 0.55 }, { "id": "missile_release", "x": 0.58, "y": 0.7 }]
+    },
+    "enemy_mig21": {
+      "contactAnchor": { "x": 0.5, "y": 0.5 },
+      "shadowFootprint": { "width": 0.72, "offsetY": 0.05 },
+      "animationClips": [{ "name": "flight", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [{ "id": "engine_exhaust", "x": 0.08, "y": 0.53 }]
+    },
+    "enemy_mig29": {
+      "contactAnchor": { "x": 0.5, "y": 0.5 },
+      "shadowFootprint": { "width": 0.76, "offsetY": 0.05 },
+      "animationClips": [{ "name": "flight", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [{ "id": "engine_exhaust", "x": 0.08, "y": 0.54 }]
+    },
+    "enemy_patrol_boat": {
+      "contactAnchor": { "x": 0.5, "y": 0.92 },
+      "shadowFootprint": { "width": 0.9, "offsetY": 0 },
+      "animationClips": [{ "name": "patrol", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [{ "id": "bow_spray", "x": 0.95, "y": 0.78 }, { "id": "wake", "x": 0.04, "y": 0.8 }]
+    },
+    "enemy_corvette": {
+      "contactAnchor": { "x": 0.5, "y": 0.92 },
+      "shadowFootprint": { "width": 0.92, "offsetY": 0 },
+      "animationClips": [{ "name": "patrol", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
+      "effectAttachments": [{ "id": "bow_spray", "x": 0.95, "y": 0.78 }, { "id": "missile_launcher", "x": 0.62, "y": 0.34 }, { "id": "wake", "x": 0.04, "y": 0.8 }]
+    }
+  }
+}

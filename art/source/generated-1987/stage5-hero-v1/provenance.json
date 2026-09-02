@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "batchId": "stage5-hero-v1",
+  "createdAt": "2026-08-30",
+  "generator": "OpenAI built-in image generation",
+  "mode": "generate plus one reference-guided repaint",
+  "artDirection": {
+    "viewpoint": "strict side profile for gameplay sprites; wide lateral compositions for presentation art",
+    "light": "cool overcast upper-left key with restrained amber horizon rim",
+    "palette": ["slate blue", "sea green", "charcoal", "muted amber"],
+    "medium": "controlled hand-painted gouache and oil illustration",
+    "exclusions": ["identifiable copyrighted compositions", "brand logos", "watermarks", "signatures", "living artist styles"]
+  },
+  "sourceReferences": [
+    "docs/ART_BIBLE.md",
+    "docs/SHOWCASE_ART.md",
+    "public/assets/sprites/sea-harrier-frs1-painted.png"
+  ],
+  "assets": [
+    {"id":"harrier","source":"sea-harrier-stage5-source.png","prompt":"P-AIRCRAFT-HARRIER-02","runtime":"public/assets/sprites/sea-harrier-frs1-hero-v3.png","approval":"APPROVED"},
+    {"id":"mig21","source":"mig21bis-stage5-source.png","prompt":"P-AIRCRAFT-MIG21-01","runtime":"public/assets/sprites/mig21bis-hero-v3.png","approval":"APPROVED"},
+    {"id":"mig23","source":"mig23ml-stage5-source.png","prompt":"P-AIRCRAFT-MIG23-01","runtime":"public/assets/sprites/mig23ml-hero-v3.png","approval":"APPROVED"},
+    {"id":"mig29","source":"mig29a-stage5-source.png","prompt":"P-AIRCRAFT-MIG29-01","runtime":"public/assets/sprites/mig29a-hero-v3.png","approval":"APPROVED"},
+    {"id":"carrier","source":"invincible-carrier-stage5-source.png","prompt":"P-NAVAL-CARRIER-01","runtime":"public/assets/sprites/invincible-carrier-hero-v3.png","approval":"APPROVED"},
+    {"id":"corvette","source":"missile-corvette-stage5-source.png","prompt":"P-NAVAL-CORVETTE-01","runtime":"public/assets/sprites/missile-corvette-hero-v3.png","approval":"APPROVED"},
+    {"id":"patrol_boat","source":"missile-patrol-boat-stage5-source.png","prompt":"P-NAVAL-PATROL-01","runtime":"public/assets/sprites/missile-patrol-boat-hero-v3.png","approval":"APPROVED"},
+    {"id":"bastion","source":"bastion-fortress-stage5-source.png","prompt":"P-BASTION-01","runtime":"public/assets/backgrounds/mission-10-bastion-hero-v3.webp","approval":"APPROVED"},
+    {"id":"title","source":"title-composition-stage5-source.png","prompt":"P-TITLE-01","runtime":"public/assets/ui/title-composition-hero-v1.webp","approval":"APPROVED"},
+    {"id":"store_capsules","source":"store-capsule-stage5-source.png","prompt":"P-STORE-01","runtime":"marketing/store/stage5","approval":"APPROVED"}
+  ],
+  "rejections": [
+    {"source":"rejected-harrier-proportions-source.png","reason":"Silhouette read as a conventional fast jet rather than a compact Sea Harrier; not shipped."}
+  ],
+  "editingHistory": [
+    "Archived untouched generator outputs.",
+    "Removed edge-connected baked checkerboard RGB and produced genuine alpha.",
+    "Split three vertical damage studies and assembled equal-width horizontal runtime atlases.",
+    "Normalised padding and baseline; removed isolated guide-line remnants.",
+    "Exported backgrounds as quality-checked WebP and deterministic store crops as JPEG.",
+    "Moved superseded runtime hero files into superseded-runtime so comparisons remain available without bloating the PWA cache.",
+    "Verified transparent corners, frame divisibility, runtime mapping and metadata contacts."
+  ],
+  "review": {
+    "technical": "APPROVED",
+    "styleConsistency": "APPROVED",
+    "provenance": "APPROVED",
+    "copyrightResemblanceScreen": "No identifiable third-party composition, branding, watermark, signature or named living-artist style observed; this is a project review, not a legal guarantee."
+  }
+}

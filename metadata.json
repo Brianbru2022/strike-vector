@@ -1,0 +1,6 @@
+{
+  "name": "IRON KESTREL '87: NORTH ATLANTIC AIR WAR",
+  "description": "Painted 2D Cold War VTOL action-simulation with a sixteen-mission North Atlantic campaign.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["OFFLINE_PWA", "TOUCH_AND_GAMEPAD", "FIXED_TIMESTEP_SIMULATION"]
+}

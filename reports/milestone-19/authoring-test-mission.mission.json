@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "mission": {
+    "id": "authoring_test_mission",
+    "codeName": "DRAFT LANCE",
+    "title": "AUTHORING TEST MISSION",
+    "dayNumber": 1,
+    "timeString": "DAY 1 — 0900",
+    "theater": "MISSION TOOLKIT RANGE",
+    "terrainProfile": "COASTAL_STRIKE",
+    "threatLevel": "MODERATE",
+    "timeOfDay": {
+      "time": "DAWN",
+      "ambientLight": 0.8,
+      "skyTopColor": "#1e1b4b",
+      "skyBottomColor": "#fb923c",
+      "sunColor": "#fde047",
+      "fogColor": "#ea580c"
+    },
+    "weather": {
+      "condition": "CLEAR",
+      "windSpeed": 4,
+      "cloudsDensity": 0.2,
+      "lightningFrequency": 0
+    },
+    "briefingText": "Development-only mission assembled through the external authoring document.",
+    "tacticalNotes": [
+      "Destroy the radar station.",
+      "Recover at the marked carrier landing surface."
+    ],
+    "rulesOfEngagement": "Development range rules apply.",
+    "mapLength": 7000,
+    "hasCarrierLaunch": true,
+    "hasCarrierRecovery": true,
+    "carrierX": 200,
+    "carrierLandingX": 6200,
+    "objectives": [
+      {
+        "id": "destroy_radar",
+        "description": "Destroy the range radar",
+        "targetType": "RADAR_STATION",
+        "requiredCount": 1,
+        "points": 1000,
+        "isPrimary": true,
+        "completed": false,
+        "currentCount": 0
+      },
+      {
+        "id": "recover",
+        "description": "Recover aboard the carrier",
+        "targetType": "LANDING",
+        "requiredCount": 1,
+        "points": 1000,
+        "isPrimary": true,
+        "completed": false,
+        "currentCount": 0
+      }
+    ],
+    "recoverySite": "CARRIER",
+    "presentation": {
+      "id": "signature_carrier_dawn_v2",
+      "backdropAsset": "/assets/backgrounds/mission-1-dawn-showcase-v2.webp",
+      "backdropFilter": "saturate(0.94) contrast(1.08) brightness(0.88)",
+      "overlayColour": "rgba(13, 32, 48, 0.08)",
+      "vignetteStrength": 0.28,
+      "parallax": 0.01,
+      "overscan": 0.055,
+      "seaState": "MODERATE",
+      "hazeDensity": 0.24,
+      "sprayIntensity": 0.34,
+      "rainDensity": 0,
+      "ultrawideFocus": 1.07,
+      "gameplayCalm": 0.46
+    },
+    "launchSite": "CARRIER",
+    "phases": [
+      {
+        "id": "INGRESS",
+        "label": "RANGE INGRESS"
+      },
+      {
+        "id": "RECOVERY",
+        "label": "RETURN TO CARRIER"
+      }
+    ],
+    "events": [
+      {
+        "id": "range_contact",
+        "trigger": {
+          "type": "PLAYER_X",
+          "worldX": 1500
+        },
+        "actions": [
+          {
+            "type": "RADIO",
+            "message": "RANGE CONTROL: AUTHORING TARGET IS ACTIVE."
+          }
+        ]
+      }
+    ]
+  },
+  "enemies": [
+    {
+      "id": "range_radar",
+      "type": "RADAR_STATION",
+      "category": "GROUND",
+      "name": "Range radar",
+      "x": 2800,
+      "y": 560,
+      "vx": 0,
+      "vy": 0,
+      "width": 64,
+      "height": 46,
+      "health": 120,
+      "maxHealth": 120,
+      "isAlive": true,
+      "isTargetable": true,
+      "isPrimaryObjective": true,
+      "pointsValue": 1000,
+      "rotation": 0,
+      "fireCooldown": 0,
+      "reloadTime": 120,
+      "detectionRange": 900,
+      "accuracy": 0,
+      "stateTimer": 0,
+      "state": "ACTIVE"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "startedAt": "2026-08-31T22:23:13.197Z",
+  "completedAt": "2026-08-31T22:23:32.865Z",
+  "requestedMinutes": 0.2,
+  "requiredMinutes": 180,
+  "certificationEligible": false,
+  "pageErrors": [],
+  "samples": [
+    {
+      "elapsedSeconds": 0,
+      "heapBytes": 16100000
+    },
+    {
+      "elapsedSeconds": 6,
+      "heapBytes": 16100000
+    },
+    {
+      "elapsedSeconds": 11,
+      "heapBytes": 16100000
+    }
+  ],
+  "exclusions": [
+    "OS suspend/resume requires a human Windows run.",
+    "Physical controller reconnection requires real hardware.",
+    "This harness does not approve minimum-spec performance."
+  ]
+}

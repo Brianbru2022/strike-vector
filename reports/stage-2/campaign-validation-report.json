@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T07:55:51.365Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-CTRL4",
+  "inputPath": "E:\\Apps\\strike-vector\\reports\\stage-2\\campaign-validation-evidence.json",
+  "passed": false,
+  "summary": {
+    "buildId": "IK87-1.2.0-DEV1-20260831-CTRL4",
+    "currentBuildEvidenceCount": 0,
+    "historicalEvidenceCount": 0,
+    "totalScenarios": 26,
+    "completedScenarioIds": [],
+    "victories": 0,
+    "pilotMissionsCovered": 0,
+    "arcadeStressCovered": 0,
+    "veteranStressCovered": 0,
+    "warningExposedRuns": 0,
+    "warningAcknowledgedRuns": 0,
+    "blockers": 0,
+    "repeatedIssues": [],
+    "averageDurationSeconds": 0,
+    "totalDeaths": 0,
+    "signOffReady": false
+  },
+  "issues": [
+    "Evidence file could not be read: ENOENT: no such file or directory, open 'E:\\Apps\\strike-vector\\reports\\stage-2\\campaign-validation-evidence.json'",
+    "Campaign validation export version must be 1.",
+    "Evidence build missing does not match IK87-1.2.0-DEV1-20260831-CTRL4.",
+    "Campaign validation export does not contain an evidence array.",
+    "Missing scenario coverage: CV-P01, CV-P02, CV-P03, CV-P04, CV-P05, CV-P06, CV-P07, CV-P08, CV-P09, CV-P10, CV-P11, CV-P12, CV-P13, CV-P14, CV-P15, CV-P16, CV-A01, CV-A02, CV-A03, CV-A04, CV-A05, CV-V01, CV-V02, CV-V03, CV-V04, CV-V05.",
+    "Campaign balance sign-off requirements are not satisfied."
+  ]
+}

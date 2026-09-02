@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "signedCommercialBuild": { "status": "PENDING", "certificateReference": null },
+  "storePageApproved": { "status": "PENDING", "approvedAt": null },
+  "humanSignOff": { "status": "PENDING", "report": null },
+  "windowsCertification": {
+    "windows10InstallUpdateUninstall": "PENDING",
+    "windows11InstallUpdateUninstall": "PENDING",
+    "minimumSpecificationHardware": "PENDING",
+    "controllerReconnection": "PENDING"
+  },
+  "saveCertification": {
+    "corruptRecovery": "AUTOMATED_PASS_PENDING_HUMAN_DESKTOP_CHECK",
+    "autoCloudConflict": "PENDING_STEAM_TEST",
+    "importExport": "PENDING_DESKTOP_CHECK",
+    "rollback": "PENDING_REHEARSAL"
+  },
+  "soak": { "status": "PENDING", "requiredHours": 3, "report": null },
+  "freeze": { "status": "NOT_STARTED", "startedAt": null, "earliestReleaseAt": null }
+}

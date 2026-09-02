@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "buildIdentifier": "local-2026-08-30",
+  "generatedAt": "2026-08-30T17:13:49.712Z",
+  "passed": true,
+  "campaignMissionCount": 16,
+  "norwegianMissionCount": 6,
+  "difficultyEntries": 18,
+  "legacyOperationsPreservedByFixture": true,
+  "norwegianOperationCoverage": {
+    "ARCADE": {
+      "seeds": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "archetypes": [
+        "SEAD",
+        "ARMOURED_INTERDICTION",
+        "PILOT_RESCUE",
+        "DEEP_STRIKE",
+        "FARP_DEFENCE",
+        "FLEET_CAP"
+      ]
+    },
+    "PILOT": {
+      "seeds": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "archetypes": [
+        "SEAD",
+        "ARMOURED_INTERDICTION",
+        "PILOT_RESCUE",
+        "DEEP_STRIKE",
+        "FARP_DEFENCE",
+        "FLEET_CAP"
+      ]
+    },
+    "VETERAN": {
+      "seeds": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "archetypes": [
+        "SEAD",
+        "ARMOURED_INTERDICTION",
+        "PILOT_RESCUE",
+        "DEEP_STRIKE",
+        "FARP_DEFENCE",
+        "FLEET_CAP"
+      ]
+    }
+  },
+  "publicPackMiB": 33.24,
+  "publicPackLimitMiB": 45,
+  "issues": []
+}

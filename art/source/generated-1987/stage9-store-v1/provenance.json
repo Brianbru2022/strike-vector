@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "batchId": "stage9-store-v1",
+  "createdAt": "2026-08-31",
+  "generator": "OpenAI built-in image generation",
+  "mode": "reference-guided original generation",
+  "source": "iron-kestrel-store-master-source.png",
+  "runtimeOutputs": "marketing/store/stage9",
+  "prompt": "Project-specific painted Steam key art: a plausible Sea Harrier FRS.1 above rough North Atlantic water and an Invincible-class light carrier, with basalt islands, cool slate-blue light and negative space for a separately applied title. No text, logos, roundels, watermarks, signatures, copied poster composition or named artist style.",
+  "referenceRole": "The Stage 5 capsule source was used only as a broad mood and palette reference; the output is a new composition.",
+  "editingHistory": [
+    "Archived the untouched generated master.",
+    "Created current Steam-dimension crops and applied the project title deterministically.",
+    "Generated a separate transparent library logotype from project typography."
+  ],
+  "approval": {
+    "technical": "APPROVED_DIMENSIONS_AND_READABILITY",
+    "storeRules": "PENDING_HUMAN_REVIEW",
+    "copyrightSimilarity": "PENDING_FORMAL_REVIEW",
+    "aiDisclosureRequired": true
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "mapping": "mission_profile_composition",
+  "layers": {
+    "coast_approach": {
+      "file": "coast-approach-panorama.webp",
+      "sourceSize": { "width": 2172, "height": 320 },
+      "contactEdge": "top",
+      "order": 0,
+      "usage": "authored open-water, surf, beach and headland transition"
+    },
+    "coast_basalt": {
+      "file": "coast-basalt-panorama.webp",
+      "sourceSize": { "width": 1983, "height": 337 },
+      "contactEdge": "top",
+      "order": 1
+    },
+    "coast_tundra": {
+      "file": "coast-tundra-panorama.webp",
+      "sourceSize": { "width": 1870, "height": 336 },
+      "contactEdge": "top",
+      "order": 2
+    },
+    "coast_beach": {
+      "file": "coast-beach-panorama.webp",
+      "sourceSize": { "width": 1983, "height": 331 },
+      "contactEdge": "top",
+      "order": 3
+    },
+    "ocean_foreground": {
+      "file": "ocean-foreground-panorama.webp",
+      "sourceSize": { "width": 1824, "height": 303 },
+      "contactEdge": "top",
+      "usage": "carrier_waterline"
+    },
+    "janus_causeway_surface": {
+      "file": "janus-causeway-surface-v2.webp",
+      "sourceSize": { "width": 8000, "height": 384 },
+      "contactEdge": "alpha_profile",
+      "usage": "authoritative_causeway_contact"
+    },
+    "janus_airbase_surface": {
+      "file": "janus-airbase-surface-v2.webp",
+      "sourceSize": { "width": 8000, "height": 384 },
+      "contactEdge": "alpha_profile",
+      "usage": "authoritative_airbase_contact"
+    },
+    "skeld_defence_surface": {
+      "file": "skeld-defence-surface-v2.webp",
+      "sourceSize": { "width": 8000, "height": 384 },
+      "contactEdge": "alpha_profile",
+      "usage": "authoritative_farp_contact"
+    },
+    "bastion_fortress_surface": {
+      "file": "bastion-fortress-surface-v3.webp",
+      "sourceSize": { "width": 8000, "height": 384 },
+      "contactEdge": "alpha_profile",
+      "usage": "authoritative_fortress_contact"
+    }
+  }
+}

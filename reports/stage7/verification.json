@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T21:31:50.731Z",
+  "passed": false,
+  "buildId": "IK87-1.2.0-DEV1-20260831-BAL7",
+  "campaignRuns": 0,
+  "deploymentRuns": 0,
+  "completedDeployments": {
+    "ARCADE": 0,
+    "PILOT": 0,
+    "VETERAN": 0
+  },
+  "coveredArchetypes": {
+    "ARCADE": [],
+    "PILOT": [],
+    "VETERAN": []
+  },
+  "metricsByDifficulty": {
+    "ARCADE": {
+      "attempts": 0,
+      "victories": 0,
+      "completionRate": 0,
+      "averageSortieSeconds": 0,
+      "averageCombatSeconds": 0,
+      "ammunitionUsed": {
+        "CANNON": 0,
+        "MISSILE": 0,
+        "BOMB": 0,
+        "ROCKET": 0,
+        "FLARE": 0
+      },
+      "damageBySource": {
+        "AIRCRAFT_GUN": 0,
+        "SAM_MISSILE": 0,
+        "FLAK": 0,
+        "GROUND_FIRE": 0,
+        "IMPACT": 0
+      },
+      "missileWarnings": 0,
+      "warningAcknowledgements": 0,
+      "warningAcknowledgementRate": 0,
+      "landingGrades": {}
+    },
+    "PILOT": {
+      "attempts": 0,
+      "victories": 0,
+      "completionRate": 0,
+      "averageSortieSeconds": 0,
+      "averageCombatSeconds": 0,
+      "ammunitionUsed": {
+        "CANNON": 0,
+        "MISSILE": 0,
+        "BOMB": 0,
+        "ROCKET": 0,
+        "FLARE": 0
+      },
+      "damageBySource": {
+        "AIRCRAFT_GUN": 0,
+        "SAM_MISSILE": 0,
+        "FLAK": 0,
+        "GROUND_FIRE": 0,
+        "IMPACT": 0
+      },
+      "missileWarnings": 0,
+      "warningAcknowledgements": 0,
+      "warningAcknowledgementRate": 0,
+      "landingGrades": {}
+    },
+    "VETERAN": {
+      "attempts": 0,
+      "victories": 0,
+      "completionRate": 0,
+      "averageSortieSeconds": 0,
+      "averageCombatSeconds": 0,
+      "ammunitionUsed": {
+        "CANNON": 0,
+        "MISSILE": 0,
+        "BOMB": 0,
+        "ROCKET": 0,
+        "FLARE": 0
+      },
+      "damageBySource": {
+        "AIRCRAFT_GUN": 0,
+        "SAM_MISSILE": 0,
+        "FLAK": 0,
+        "GROUND_FIRE": 0,
+        "IMPACT": 0
+      },
+      "missileWarnings": 0,
+      "warningAcknowledgements": 0,
+      "warningAcknowledgementRate": 0,
+      "landingGrades": {}
+    }
+  },
+  "issues": [
+    "Missing ARCADE campaign run for m1_coastal_strike.",
+    "Missing ARCADE campaign run for m2_valley_run.",
+    "Missing ARCADE campaign run for m3_convoy_hunter.",
+    "Missing ARCADE campaign run for m4_night_raid.",
+    "Missing ARCADE campaign run for m5_pilot_rescue.",
+    "Missing ARCADE campaign run for m6_fleet_defence.",
+    "Missing ARCADE campaign run for m7_bridge_strike.",
+    "Missing ARCADE campaign run for m8_airbase_raid.",
+    "Missing ARCADE campaign run for m9_forward_defence.",
+    "Missing ARCADE campaign run for m10_hq_assault.",
+    "Missing ARCADE campaign run for m11_cold_passage.",
+    "Missing ARCADE campaign run for m12_hammerfall_fjord.",
+    "Missing ARCADE campaign run for m13_troms_bridgehead.",
+    "Missing ARCADE campaign run for m14_whiteout_rescue.",
+    "Missing ARCADE campaign run for m15_red_tide.",
+    "Missing ARCADE campaign run for m16_north_cape_assault.",
+    "Missing PILOT campaign run for m1_coastal_strike.",
+    "Missing PILOT campaign run for m2_valley_run.",
+    "Missing PILOT campaign run for m3_convoy_hunter.",
+    "Missing PILOT campaign run for m4_night_raid.",
+    "Missing PILOT campaign run for m5_pilot_rescue.",
+    "Missing PILOT campaign run for m6_fleet_defence.",
+    "Missing PILOT campaign run for m7_bridge_strike.",
+    "Missing PILOT campaign run for m8_airbase_raid.",
+    "Missing PILOT campaign run for m9_forward_defence.",
+    "Missing PILOT campaign run for m10_hq_assault.",
+    "Missing PILOT campaign run for m11_cold_passage.",
+    "Missing PILOT campaign run for m12_hammerfall_fjord.",
+    "Missing PILOT campaign run for m13_troms_bridgehead.",
+    "Missing PILOT campaign run for m14_whiteout_rescue.",
+    "Missing PILOT campaign run for m15_red_tide.",
+    "Missing PILOT campaign run for m16_north_cape_assault.",
+    "Missing VETERAN campaign run for m1_coastal_strike.",
+    "Missing VETERAN campaign run for m2_valley_run.",
+    "Missing VETERAN campaign run for m3_convoy_hunter.",
+    "Missing VETERAN campaign run for m4_night_raid.",
+    "Missing VETERAN campaign run for m5_pilot_rescue.",
+    "Missing VETERAN campaign run for m6_fleet_defence.",
+    "Missing VETERAN campaign run for m7_bridge_strike.",
+    "Missing VETERAN campaign run for m8_airbase_raid.",
+    "Missing VETERAN campaign run for m9_forward_defence.",
+    "Missing VETERAN campaign run for m10_hq_assault.",
+    "Missing VETERAN campaign run for m11_cold_passage.",
+    "Missing VETERAN campaign run for m12_hammerfall_fjord.",
+    "Missing VETERAN campaign run for m13_troms_bridgehead.",
+    "Missing VETERAN campaign run for m14_whiteout_rescue.",
+    "Missing VETERAN campaign run for m15_red_tide.",
+    "Missing VETERAN campaign run for m16_north_cape_assault.",
+    "ARCADE requires two completed three-sortie deployments.",
+    "ARCADE deployments do not cover all six procedural archetypes.",
+    "PILOT requires two completed three-sortie deployments.",
+    "PILOT deployments do not cover all six procedural archetypes.",
+    "VETERAN requires two completed three-sortie deployments.",
+    "VETERAN deployments do not cover all six procedural archetypes."
+  ]
+}

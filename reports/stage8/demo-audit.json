@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-02T17:35:07.286Z",
+  "buildId": "IK87-1.2.0-DEV1-20260902-TURN9",
+  "passed": true,
+  "totalBytes": 15348887,
+  "budgetBytes": 15728640,
+  "assetBytes": 14458812,
+  "assetCount": 43,
+  "outputFileCount": 56,
+  "fingerprint": "73afda07ad2c250de686b17af3e0a1026f0e739168b50bd43058b02aa263cafa",
+  "issues": []
+}

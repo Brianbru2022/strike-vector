@@ -1,0 +1,14 @@
+IRON KESTREL '87 END-USER LICENCE AGREEMENT
+Release draft dated 31 August 2026 — publisher and legal approval required before commercial distribution.
+
+The authorised publisher identified on the store page grants the player a personal, limited, non-exclusive, non-transferable licence to install and use Iron Kestrel '87 for private, non-commercial entertainment. The game is licensed, not sold.
+
+Except where applicable law expressly permits it, the player must not distribute, sell, rent, sublicense or commercially exploit the game; remove rights notices; bypass access controls; or reverse engineer it. Lawful interoperability, security research, criticism, preservation and consumer rights that cannot be excluded remain unaffected.
+
+Progress is stored locally and may be exported in a versioned save archive. Players are responsible for their own backups. The current release does not promise accounts, multiplayer, achievements or developer-operated online storage.
+
+The game is an original fictional work. Historical equipment and organisation names are descriptive; no endorsement or affiliation is claimed.
+
+Nothing excludes mandatory consumer guarantees. Subject to those rights, the game is provided without additional warranties and liability is limited to the extent permitted by law.
+
+The full maintained release draft is at docs/EULA.md. The publisher identity, governing-law wording and public support contact must be approved before this document is shipped commercially.

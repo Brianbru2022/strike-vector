@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "completedAt": null,
+  "devices": [
+    { "device": "HEADPHONES", "status": "PENDING", "warningsClear": null, "radioClear": null, "weaponsDistinct": null, "engineBalanced": null, "ambienceBalanced": null, "noDistortion": null, "notes": "" },
+    { "device": "SPEAKERS", "status": "PENDING", "warningsClear": null, "radioClear": null, "weaponsDistinct": null, "engineBalanced": null, "ambienceBalanced": null, "noDistortion": null, "notes": "" },
+    { "device": "LAPTOP_OR_MOBILE", "status": "PENDING", "warningsClear": null, "radioClear": null, "weaponsDistinct": null, "engineBalanced": null, "ambienceBalanced": null, "noDistortion": null, "notes": "" }
+  ]
+}

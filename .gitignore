@@ -1,0 +1,14 @@
+node_modules/
+build/
+dist/
+dist-demo/
+.demo-public/
+release-artifacts/
+coverage/
+test-results/
+playwright-report/
+src-tauri/target/
+.DS_Store
+*.log
+.env*
+!.env.example

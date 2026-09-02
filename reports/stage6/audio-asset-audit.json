@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-02T14:01:09.316Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-TURN2",
+  "passed": true,
+  "cueCount": 13,
+  "totalBytes": 473764,
+  "files": [
+    {
+      "id": "jet_engine",
+      "path": "public/assets/audio/pegasus-engine-loop-v2.wav",
+      "bytes": 88244,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.492919921875,
+      "rms": 0.2509900393630984
+    },
+    {
+      "id": "vtol_thrust",
+      "path": "public/assets/audio/vtol-downwash-loop-v1.wav",
+      "bytes": 88244,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.378570556640625,
+      "rms": 0.1656629244175005
+    },
+    {
+      "id": "aden_cannon",
+      "path": "public/assets/audio/aden-cannon-v1.wav",
+      "bytes": 7982,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.999969482421875,
+      "rms": 0.20198206865877594
+    },
+    {
+      "id": "missile_launch",
+      "path": "public/assets/audio/sidewinder-motor-v1.wav",
+      "bytes": 31796,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.598541259765625,
+      "rms": 0.14077380368820885
+    },
+    {
+      "id": "rocket_launch",
+      "path": "public/assets/audio/rocket-motor-v1.wav",
+      "bytes": 25622,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.65057373046875,
+      "rms": 0.16150467698880439
+    },
+    {
+      "id": "bomb_release",
+      "path": "public/assets/audio/bomb-release-v1.wav",
+      "bytes": 15038,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.71484375,
+      "rms": 0.14435174385954902
+    },
+    {
+      "id": "countermeasure",
+      "path": "public/assets/audio/flare-eject-v1.wav",
+      "bytes": 11510,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.673675537109375,
+      "rms": 0.1120414613657352
+    },
+    {
+      "id": "combat_impact",
+      "path": "public/assets/audio/heavy-impact-v1.wav",
+      "bytes": 46348,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.999969482421875,
+      "rms": 0.16204293174032233
+    },
+    {
+      "id": "ship_weapon",
+      "path": "public/assets/audio/naval-gun-v1.wav",
+      "bytes": 31796,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.999969482421875,
+      "rms": 0.19178881976078216
+    },
+    {
+      "id": "carrier_touchdown",
+      "path": "public/assets/audio/carrier-touchdown-v1.wav",
+      "bytes": 27386,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.764556884765625,
+      "rms": 0.14023628894609508
+    },
+    {
+      "id": "missile_warning",
+      "path": "public/assets/audio/threat-warning-v1.wav",
+      "bytes": 15038,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.419403076171875,
+      "rms": 0.1714470187787037
+    },
+    {
+      "id": "north_atlantic_wind",
+      "path": "public/assets/audio/north-atlantic-wind-v1.wav",
+      "bytes": 79424,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.82171630859375,
+      "rms": 0.1598764557038206
+    },
+    {
+      "id": "radio_call",
+      "path": "public/assets/audio/radio-chirp-v1.wav",
+      "bytes": 5336,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.32757568359375,
+      "rms": 0.1103282360922893
+    }
+  ],
+  "issues": []
+}

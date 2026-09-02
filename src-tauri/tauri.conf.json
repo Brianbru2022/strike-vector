@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Iron Kestrel '87",
+  "version": "1.2.0-1",
+  "identifier": "com.ironkestrel.iron-kestrel-87",
+  "build": {
+    "beforeDevCommand": "node node_modules/vite/bin/vite.js --mode desktop",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "node node_modules/vite/bin/vite.js build --mode desktop",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "security": {
+      "csp": "default-src 'self' tauri: asset:; img-src 'self' asset: https://asset.localhost blob: data:; media-src 'self' asset: https://asset.localhost blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost"
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "Iron Kestrel '87: North Atlantic Air War",
+        "width": 1600,
+        "height": 900,
+        "minWidth": 844,
+        "minHeight": 390,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "backgroundColor": "#030806"
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi"],
+    "category": "Game",
+    "shortDescription": "Painted Cold War VTOL action-simulation",
+    "longDescription": "A painted 2D Cold War VTOL action-simulation set across an alternative 1987 North Atlantic.",
+    "copyright": "Copyright 2026 Iron Kestrel development team",
+    "windows": {
+      "webviewInstallMode": { "type": "downloadBootstrapper", "silent": true },
+      "allowDowngrades": false
+    },
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.ico"]
+  }
+}

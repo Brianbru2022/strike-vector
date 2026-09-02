@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "batchId": "act-three-foreground-v2",
+  "createdAt": "2026-09-02",
+  "generator": "OpenAI built-in image generation",
+  "mode": "reference-guided original generation",
+  "processor": "scripts/prepare_act_three_foregrounds.py",
+  "artDirection": {
+    "viewpoint": "strict side-on painted terrain cross-section for a 2D scrolling game",
+    "light": "mission-matched upper-right directional light",
+    "medium": "painted realism with restrained 1980s military illustration colour",
+    "exclusions": ["vehicles", "people", "logos", "watermarks", "signatures", "living artist styles"]
+  },
+  "assets": [
+    {"mission": 7, "source": "janus-causeway-source.png", "runtime": "public/assets/layers/janus-causeway-surface-v2.webp", "approval": "APPROVED_FOR_INTEGRATION"},
+    {"mission": 8, "source": "janus-airbase-source.png", "runtime": "public/assets/layers/janus-airbase-surface-v2.webp", "approval": "APPROVED_FOR_INTEGRATION"},
+    {"mission": 9, "source": "skeld-defence-source.png", "runtime": "public/assets/layers/skeld-defence-surface-v2.webp", "approval": "APPROVED_FOR_INTEGRATION"},
+    {"mission": 10, "source": "bastion-fortress-source.png", "runtime": "public/assets/layers/bastion-fortress-surface-v3.webp", "approval": "APPROVED_FOR_INTEGRATION"}
+  ],
+  "editingHistory": [
+    "Archived untouched generator outputs.",
+    "Converted the deliberately keyed sky to genuine alpha and removed colour spill.",
+    "Split each source sheet into four unique sections.",
+    "Aligned only section endpoints, preserving internal terrain variation.",
+    "Cross-faded joins and exported wide, non-tiled WebP panoramas with alpha.",
+    "Moved the four superseded runtime surfaces into superseded-runtime so they remain recoverable without entering the PWA cache."
+  ],
+  "review": {
+    "copyrightResemblanceScreen": "No identifiable third-party composition, branding, watermark, signature or named living-artist style requested or observed; project review only.",
+    "humanVisualApproval": "PENDING"
+  }
+}

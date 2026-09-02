@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260830",
+  "defects": [
+    {
+      "version": 1,
+      "id": "IK87-S1-001",
+      "title": "Authoritative simulation used global randomness",
+      "severity": "BLOCKER",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "RESOLVED",
+      "reproduction": "Repeat subsystem damage or enemy reload timing after restarting the same sortie.",
+      "resolution": "GameEngine now owns resettable authoritative and presentation seeded random channels.",
+      "verification": ["authoritative-simulation-audit.json", "SimulationRandom tests"]
+    },
+    {
+      "version": 1,
+      "id": "IK87-S1-002",
+      "title": "Score timing had a wall-clock fallback",
+      "severity": "BLOCKER",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "RESOLVED",
+      "reproduction": "Call score finalisation without simulation ticks.",
+      "resolution": "Score finalisation now requires a non-negative simulation tick count.",
+      "verification": ["CombatFlow tests", "authoritative-simulation-audit.json"]
+    },
+    {
+      "version": 1,
+      "id": "IK87-S1-003",
+      "title": "Validation used an obsolete hard-coded build identifier",
+      "severity": "MAJOR",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "RESOLVED",
+      "reproduction": "Open Validation Runs and compare its identifier with Release.ts.",
+      "resolution": "Validation now sources RELEASE_INFO.buildId and excludes other-build evidence from sign-off.",
+      "verification": ["Validation tests"]
+    },
+    {
+      "version": 1,
+      "id": "IK87-S1-004",
+      "title": "Twenty-one human validation runs are pending",
+      "severity": "BLOCKER",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "HUMAN_VALIDATION_REQUIRED",
+      "reproduction": "Run the playtest evidence verifier without a complete current-build export.",
+      "resolution": null,
+      "verification": ["human-validation-report.json"]
+    },
+    {
+      "version": 1,
+      "id": "IK87-S1-005",
+      "title": "Altitude HUD displayed contradictory vertical speeds",
+      "severity": "MAJOR",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "RESOLVED",
+      "reproduction": "Fly with non-zero vertical velocity and compare both altitude-panel values.",
+      "resolution": "The HUD now displays one signed feet-per-minute value, positive for climb.",
+      "verification": ["HUD vertical-speed tests", "visual capture manifest"]
+    },
+    {
+      "version": 1,
+      "id": "IK87-S1-006",
+      "title": "Player-facing legacy branding remained",
+      "severity": "MAJOR",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "RESOLVED",
+      "reproduction": "Open the operation seed field or force a missing player sprite.",
+      "resolution": "New seeds use IK-, legacy SV- input remains compatible, and visible fallback labels use Kestrel branding.",
+      "verification": ["consumer-branding-audit.json", "Dynamic Operations compatibility tests"]
+    },
+    {
+      "version": 1,
+      "id": "IK87-S1-007",
+      "title": "Visual reports were not bound to a build",
+      "severity": "MAJOR",
+      "affectedBuild": "IK87-1.2.0-DEV1-20260830",
+      "status": "RESOLVED",
+      "reproduction": "Compare existing screenshots with source changes made after their timestamps.",
+      "resolution": "Capture output now includes a build-bound checksum manifest and freshness audit.",
+      "verification": ["visual-integration/manifest.json", "visual-manifest-audit.json"]
+    }
+  ]
+}

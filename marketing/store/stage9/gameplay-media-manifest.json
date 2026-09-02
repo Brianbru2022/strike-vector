@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T22:07:29.130Z",
+  "releaseVersion": "1.2.0-dev.1",
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "sourceUrl": "http://127.0.0.1:4177",
+  "servedTitle": "Iron Kestrel '87: North Atlantic Air War",
+  "policy": "Captured game-stage output only; no concept-art or marketing-copy frames.",
+  "captures": [
+    {
+      "file": "screenshots/01-carrier-launch.png",
+      "label": "Mission 1 carrier launch",
+      "missionId": "m1_coastal_strike",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "0c9ef7472a859ac6edd70194410b6f2e1e733f6819f35503e3877ad55a082926"
+    },
+    {
+      "file": "screenshots/02-coastal-interception.png",
+      "label": "Mission 1 coastal interception",
+      "missionId": "m1_coastal_strike",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "8a819d083d341f208894cd5c04a53b8c263f34c43744e0d7bbccd6f2011ee1b1"
+    },
+    {
+      "file": "screenshots/03-storm-fleet-defence.png",
+      "label": "Mission 6 storm fleet defence",
+      "missionId": "m6_fleet_defence",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "4c496b0fa4d73550d379e862d5d8be1fdbbd0a2e7ab3e6a8778b834a8d54645b"
+    },
+    {
+      "file": "screenshots/04-sea-skimming-threat.png",
+      "label": "Mission 6 naval engagement",
+      "missionId": "m6_fleet_defence",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "e65618f71a8f4e82b02f7ca17a50b4bfc0adc30697d018d92029d6a4041b5916"
+    },
+    {
+      "file": "screenshots/05-bastion-approach.png",
+      "label": "Mission 10 Bastion approach",
+      "missionId": "m10_hq_assault",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "1d620e9a0ebf4db7a0e6b355affbb8cf4dac9dc6f5f8035ebe4df6cb488694c4"
+    },
+    {
+      "file": "screenshots/06-bastion-withdrawal.png",
+      "label": "Mission 10 withdrawal",
+      "missionId": "m10_hq_assault",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "e249f4b44cdc1fbffc07ca03c053857157ff443847be76e04ebded16c8fa6aab"
+    }
+  ],
+  "trailer": {
+    "file": "gameplay-trailer-master.webm",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 4000026,
+    "sha256": "335643ff2c7abb7599e89b92a1c1fc1dc2a09f1b60585fe5d2603a4c5fa97ce3",
+    "source": "Recorded game-stage output only"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "release": {
+    "version": "1.2.0-dev.1",
+    "displayVersion": "1.2 DEV1",
+    "buildId": "IK87-1.2.0-DEV1-20260830",
+    "channel": "DEVELOPMENT",
+    "campaignMissionCount": 16,
+    "operationGenerationVersions": [
+      1,
+      2,
+      3
+    ],
+    "saveVersion": 4,
+    "freezeStarted": "2026-08-30"
+  },
+  "generatedAt": "2026-08-30T18:16:04.315Z",
+  "passed": true,
+  "campaign": {
+    "missions": 16,
+    "difficultyEntries": 48,
+    "balancePassed": true
+  },
+  "migrations": [
+    {
+      "fromVersion": 1,
+      "toVersion": 4,
+      "passed": true
+    },
+    {
+      "fromVersion": 2,
+      "toVersion": 4,
+      "passed": true
+    },
+    {
+      "fromVersion": 3,
+      "toVersion": 4,
+      "passed": true
+    },
+    {
+      "fromVersion": 4,
+      "toVersion": 4,
+      "passed": true
+    }
+  ],
+  "operations": [
+    {
+      "version": 1,
+      "difficulty": "ARCADE",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 1,
+      "difficulty": "PILOT",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 1,
+      "difficulty": "VETERAN",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 2,
+      "difficulty": "ARCADE",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 2,
+      "difficulty": "PILOT",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 2,
+      "difficulty": "VETERAN",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 3,
+      "difficulty": "ARCADE",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 3,
+      "difficulty": "ARCADE",
+      "sortieCount": 5,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 3,
+      "difficulty": "PILOT",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 3,
+      "difficulty": "PILOT",
+      "sortieCount": 5,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 3,
+      "difficulty": "VETERAN",
+      "sortieCount": 3,
+      "deterministic": true,
+      "validSorties": true
+    },
+    {
+      "version": 3,
+      "difficulty": "VETERAN",
+      "sortieCount": 5,
+      "deterministic": true,
+      "validSorties": true
+    }
+  ],
+  "runtimePackMiB": 33.84,
+  "runtimePackLimitMiB": 45,
+  "media": [
+    {
+      "path": "reports/showcase-media/01-carrier-qualification.png",
+      "present": true,
+      "bytes": 1836105
+    },
+    {
+      "path": "reports/showcase-media/02-fleet-defence.png",
+      "present": true,
+      "bytes": 1664516
+    },
+    {
+      "path": "reports/showcase-media/03-bastion-assault.png",
+      "present": true,
+      "bytes": 1594170
+    },
+    {
+      "path": "reports/showcase-media/north-atlantic-showcase-tour.webm",
+      "present": true,
+      "bytes": 1088717
+    },
+    {
+      "path": "reports/norwegian-release/media/11-cold-passage-desktop.png",
+      "present": true,
+      "bytes": 1752311
+    },
+    {
+      "path": "reports/norwegian-release/media/14-whiteout-rescue-mobile.png",
+      "present": true,
+      "bytes": 240163
+    },
+    {
+      "path": "reports/norwegian-release/media/16-north-cape-assault-ultrawide.png",
+      "present": true,
+      "bytes": 2717867
+    },
+    {
+      "path": "reports/norwegian-release/media/north-cape-gameplay.webm",
+      "present": true,
+      "bytes": 2299250
+    }
+  ],
+  "freezeRules": [
+    "The 1.0 campaign objectives, formations and progression remain frozen.",
+    "Campaign V1-V4 migration and operation V1/V2 seeds remain compatible.",
+    "Dynamic Operations 2.0 data is isolated in V3 blueprints and V2 persistence stores.",
+    "Bundled 1.0 gameplay assets remain unchanged."
+  ],
+  "issues": []
+}

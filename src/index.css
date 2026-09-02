@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+body {
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #e4e4e7;
+    background-color: #09090b;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #9df2b7 !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px rgba(3, 8, 6, .92), 0 0 18px rgba(157, 242, 183, .45);
+}
+
+button:disabled {
+  opacity: .62 !important;
+}
+
+#game-hud { --hud-min-text: 11px; }
+#game-hud[data-hud-scale="COMPACT"] { --hud-min-text: 11px; }
+#game-hud[data-hud-scale="STANDARD"] { --hud-min-text: 12px; }
+#game-hud[data-hud-scale="LARGE"] { --hud-min-text: 14px; }
+#game-hud [class*="text-[6px]"],
+#game-hud [class*="text-[7px]"],
+#game-hud [class*="text-[8px]"],
+#game-hud [class*="text-[9px]"],
+#game-hud [class*="text-[10px]"],
+#game-hud [class*="text-[11px]"] { font-size: var(--hud-min-text) !important; line-height: 1.25 !important; }
+
+@media (max-height: 760px) and (min-width: 900px) {
+  #game-hud[data-hud-scale="AUTO"] { --hud-min-text: 11px; }
+}
+@media (min-width: 2400px) {
+  #game-hud[data-hud-scale="AUTO"] { --hud-min-text: 13px; }
+}
+@media (max-width: 899px) and (orientation: landscape) {
+  #game-hud[data-hud-scale="AUTO"] { --hud-min-text: 11px; }
+  #game-hud { padding: 8px; }
+}
+}
+
+.harrier-shell {
+  background: radial-gradient(circle at 50% 40%, #102019 0%, #050b08 58%, #020403 100%);
+}
+
+.harrier-shell .text-cyan-200,
+.harrier-shell .text-cyan-300,
+.harrier-shell .text-cyan-400 { color: #9df2b7; }
+.harrier-shell .border-cyan-500\/30,
+.harrier-shell .border-cyan-500\/40,
+.harrier-shell .border-cyan-500\/50 { border-color: rgba(99, 217, 154, .42); }
+.harrier-shell .bg-cyan-500,
+.harrier-shell .bg-cyan-600 { background-color: #54c784; }
+
+.high-contrast-mode #game-hud {
+  filter: contrast(1.18) saturate(1.25);
+}
+
+.high-contrast-mode #game-hud [class*="bg-zinc-950"] {
+  background-color: rgba(0, 0, 0, .96);
+}
+
+.high-text-contrast-mode {
+  --muted-interface-text: #e4e4e7;
+}
+
+.high-text-contrast-mode .text-zinc-400,
+.high-text-contrast-mode .text-zinc-500,
+.high-text-contrast-mode .text-slate-400,
+.high-text-contrast-mode .text-slate-500 {
+  color: var(--muted-interface-text) !important;
+}
+
+.touch-controls[data-clear-view="true"] .touch-control-panel {
+  background: rgba(3, 9, 13, .28) !important;
+  backdrop-filter: none;
+  border-color: rgba(103, 232, 249, .2);
+  box-shadow: none;
+}
+
+.reduced-effects-mode *,
+.reduced-effects-mode *::before,
+.reduced-effects-mode *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .crt-mode::before,
+  .crt-mode::after { display: none; }
+}
+
+.font-display {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* CRT 1984 arcade mode scanlines & curvature effect */
+.crt-mode {
+  position: relative;
+}
+
+.crt-mode::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 40;
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.crt-mode::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.55) 100%);
+  z-index: 41;
+  pointer-events: none;
+}
+
+/* Radar pulse animation */
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 3s linear infinite;
+}
+
+@keyframes mission-screen-enter {
+  from { opacity: 0; transform: scale(1.012); filter: blur(3px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+.mission-screen-enter {
+  animation: mission-screen-enter 360ms cubic-bezier(.2, .72, .2, 1) both;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+/* Preserve the authored 16:9 composition on ultra-wide and tall displays. */
+.game-stage {
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  aspect-ratio: 16 / 9;
+}

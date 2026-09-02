@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T22:06:56.188506+00:00",
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "source": "art/source/generated-1987/stage9-store-v1/iron-kestrel-store-master-source.png",
+  "sourceSha256": "009dd0caf2a63025208b5f119901f5b06e51eeb8a4df2dfa36bbc23b625a3d1b",
+  "provenance": "art/source/generated-1987/stage9-store-v1/provenance.json",
+  "provenanceSha256": "fc9723feacf863b8b88e8c464de1a475b775ade72b8ca8d457b7ba81f6307269",
+  "aiAssistedSource": true,
+  "titleTextAppliedBy": "scripts/prepare_stage9_store_art.py",
+  "assets": [
+    {
+      "file": "header_capsule.jpg",
+      "width": 920,
+      "height": 430,
+      "sha256": "bed8165caa11b64f5369067bd5589484fa7d3f4a8c0c63f9e3afe27610eb9dca"
+    },
+    {
+      "file": "small_capsule.png",
+      "width": 462,
+      "height": 174,
+      "sha256": "2407836edf8b67f761a12de70aaa476affc8b1e55c2383cb253c384afd1456eb"
+    },
+    {
+      "file": "main_capsule.jpg",
+      "width": 1232,
+      "height": 706,
+      "sha256": "9ff5d965f053560b2046152b368c77410b4f8121f82d922a06899942ff2e021d"
+    },
+    {
+      "file": "vertical_capsule.jpg",
+      "width": 748,
+      "height": 896,
+      "sha256": "43b24f4e58f6f8d118438e23b89888ef1c6d0fe6bb19a563f22bcd0858d1a4cd"
+    },
+    {
+      "file": "page_background.jpg",
+      "width": 1438,
+      "height": 810,
+      "sha256": "33d5f4d2e4bfaffe11070b5f2a9fb78c14a791b4e6e08f713f2fa01cfc5041fe"
+    },
+    {
+      "file": "library_capsule.jpg",
+      "width": 600,
+      "height": 900,
+      "sha256": "9e8263cdb833619d4cf49f8a5df6c61b3f98339f5524db76333a143c080c3f2e"
+    },
+    {
+      "file": "library_hero.jpg",
+      "width": 3840,
+      "height": 1240,
+      "sha256": "14c81db66578f56efda2291570ef98c0b46e0e4c1289280836ba5765bf440df0"
+    },
+    {
+      "file": "library_header_capsule.jpg",
+      "width": 920,
+      "height": 430,
+      "sha256": "bed8165caa11b64f5369067bd5589484fa7d3f4a8c0c63f9e3afe27610eb9dca"
+    },
+    {
+      "file": "library_logo.png",
+      "width": 1280,
+      "height": 320,
+      "sha256": "7e95bd1d027084121b2b7c14596433c29c2c0c9dbd0ae36b8fc334aef304b429"
+    }
+  ]
+}

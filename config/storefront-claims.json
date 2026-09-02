@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "product": "Iron Kestrel '87",
+  "supportedPlatforms": ["Windows 10 64-bit", "Windows 11 64-bit"],
+  "languages": {
+    "interface": ["English"],
+    "subtitles": ["English"],
+    "fullAudio": []
+  },
+  "approvedClaims": [
+    "Single-player",
+    "Sixteen-mission alternate-1987 North Atlantic campaign",
+    "Three-sortie seeded Dynamic Operations",
+    "Keyboard controls",
+    "Local save export and import",
+    "Three difficulty profiles"
+  ],
+  "withheldUntilCertified": [
+    "Steam Cloud",
+    "Full controller support",
+    "Steam Deck compatibility",
+    "Achievements",
+    "Additional languages",
+    "Formal accessibility conformance"
+  ]
+}

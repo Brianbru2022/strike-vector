@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "textures": {
+    "terrain_coastal": {
+      "file": "north-atlantic-ground-painted.webp",
+      "sourceSize": { "width": 768, "height": 768 },
+      "displayTile": { "width": 260, "height": 260 },
+      "wrap": "repeat"
+    },
+    "terrain_ocean_surface": {
+      "file": "north-atlantic-sea-painted.webp",
+      "sourceSize": { "width": 768, "height": 768 },
+      "displayTile": { "width": 360, "height": 250 },
+      "wrap": "repeat"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+IRON KESTREL '87 SUPPORT
+
+Use the support or community channel on the storefront or distribution page from which Iron Kestrel '87 was obtained. A dedicated public address must be added before standalone commercial distribution without a storefront support route.
+
+ISSUE REPORT
+1. Open System Settings.
+2. Select Export Issue Report under Support & Issue Report.
+3. Review the downloaded JSON before sharing it.
+4. Include the displayed build identifier and a short description.
+
+The consumer export contains non-identifying runtime, settings and performance information. Internal builds may also include recent sanitised diagnostics. It excludes operation seeds, raw keys, names, contact details, IP addresses and account identifiers. Nothing is uploaded automatically.
+
+RECOVERY
+- Repair incomplete offline files from System Settings, then reload.
+- Export Progress before moving browsers or clearing site data.
+- Save imports show a preview and preserve the previous progression as Restore Pre-Import Backup.
+- Reset keyboard or gamepad bindings if controls behave unexpectedly.
+- Lower rendering quality or enable reduced effects if performance is unstable.
+- Preserve relevant save evidence before clearing browser site data.
+
+The commercial target is the 64-bit Windows 10/11 edition using Microsoft WebView2. The focused browser demo requires Canvas, Web Audio, local storage and service-worker support. Keyboard is the only storefront input claim until controller certification is approved; compatible gamepad and mobile landscape touch paths remain available for testing.

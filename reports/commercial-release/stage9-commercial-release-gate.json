@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T22:00:23.555Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-COMM9",
+  "mode": "RELEASE_GATE",
+  "status": "BLOCKED",
+  "blockers": [
+    "Publisher legal name has not been supplied.",
+    "Public support address has not been supplied.",
+    "Formal title/trade-mark clearance for Iron Kestrel '87 is pending.",
+    "Publisher/counsel approval of the EULA and privacy documents is pending.",
+    "Human approval of screenshots, capsule crops and the final trailer encode is pending.",
+    "System requirements have not been confirmed against the signed near-final Windows build.",
+    "Steam content survey has not been submitted and approved.",
+    "Steam store presence has not been approved.",
+    "Near-final Steam product build has not been approved.",
+    "Coming Soon publication date has not been recorded.",
+    "70 AI-assisted runtime assets still require final human/legal similarity review."
+  ],
+  "pendingExternalApprovals": [
+    "Publisher legal name has not been supplied.",
+    "Public support address has not been supplied.",
+    "Formal title/trade-mark clearance for Iron Kestrel '87 is pending.",
+    "Publisher/counsel approval of the EULA and privacy documents is pending.",
+    "Human approval of screenshots, capsule crops and the final trailer encode is pending.",
+    "System requirements have not been confirmed against the signed near-final Windows build.",
+    "Steam content survey has not been submitted and approved.",
+    "Steam store presence has not been approved.",
+    "Near-final Steam product build has not been approved.",
+    "Coming Soon publication date has not been recorded.",
+    "70 AI-assisted runtime assets still require final human/legal similarity review."
+  ],
+  "warnings": [
+    "26 permissive packages lack a bundled upstream text; see THIRD_PARTY_LICENCE_REVIEW.md.",
+    "41 permissive Rust/Tauri packages lack a bundled upstream text; see THIRD_PARTY_LICENCE_REVIEW.md."
+  ]
+}

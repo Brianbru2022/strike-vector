@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "buildIdentifier": "release-m11-2026.08.30",
+  "generatedAt": "2026-08-30T12:51:41.892Z",
+  "toolingReady": true,
+  "humanSignOff": "PENDING",
+  "scenarioCount": 21,
+  "missionCount": 6,
+  "difficultyCount": 3,
+  "deviceClassCount": 3,
+  "issues": [],
+  "note": "Automated readiness does not count as human playtest evidence. Complete the in-game Validation Runs matrix to close Milestone 11."
+}

@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-02T17:33:08.686Z",
+  "buildId": "IK87-1.2.0-DEV1-20260902-TURN9",
+  "entries": [
+    {
+      "missionId": "m1_coastal_strike",
+      "mapLength": 6400,
+      "phaseCount": 1,
+      "largestContactGap": 2350,
+      "returnDistance": 1350,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": false
+    },
+    {
+      "missionId": "m2_valley_run",
+      "mapLength": 9000,
+      "phaseCount": 1,
+      "largestContactGap": 2650,
+      "returnDistance": 800,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": false
+    },
+    {
+      "missionId": "m3_convoy_hunter",
+      "mapLength": 9800,
+      "phaseCount": 1,
+      "largestContactGap": 4350,
+      "returnDistance": 1000,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": false
+    },
+    {
+      "missionId": "m4_night_raid",
+      "mapLength": 10800,
+      "phaseCount": 1,
+      "largestContactGap": 4200,
+      "returnDistance": 2600,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": false
+    },
+    {
+      "missionId": "m5_pilot_rescue",
+      "mapLength": 10800,
+      "phaseCount": 1,
+      "largestContactGap": 4700,
+      "returnDistance": 2100,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": false
+    },
+    {
+      "missionId": "m6_fleet_defence",
+      "mapLength": 10000,
+      "phaseCount": 5,
+      "largestContactGap": 2700,
+      "returnDistance": 1450,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m7_bridge_strike",
+      "mapLength": 10800,
+      "phaseCount": 3,
+      "largestContactGap": 4100,
+      "returnDistance": 1000,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m8_airbase_raid",
+      "mapLength": 12400,
+      "phaseCount": 3,
+      "largestContactGap": 5100,
+      "returnDistance": 2100,
+      "longSortie": false,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m9_forward_defence",
+      "mapLength": 7600,
+      "phaseCount": 5,
+      "largestContactGap": 3500,
+      "returnDistance": 6800,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m10_hq_assault",
+      "mapLength": 13200,
+      "phaseCount": 5,
+      "largestContactGap": 4000,
+      "returnDistance": 1700,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m11_cold_passage",
+      "mapLength": 12000,
+      "phaseCount": 5,
+      "largestContactGap": 2300,
+      "returnDistance": 2300,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m12_hammerfall_fjord",
+      "mapLength": 18000,
+      "phaseCount": 5,
+      "largestContactGap": 2800,
+      "returnDistance": 2800,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m13_troms_bridgehead",
+      "mapLength": 18000,
+      "phaseCount": 5,
+      "largestContactGap": 4350,
+      "returnDistance": 130,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m14_whiteout_rescue",
+      "mapLength": 13800,
+      "phaseCount": 5,
+      "largestContactGap": 2500,
+      "returnDistance": 3100,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m15_red_tide",
+      "mapLength": 18000,
+      "phaseCount": 6,
+      "largestContactGap": 4200,
+      "returnDistance": 3000,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    },
+    {
+      "missionId": "m16_north_cape_assault",
+      "mapLength": 18000,
+      "phaseCount": 6,
+      "largestContactGap": 2750,
+      "returnDistance": 1900,
+      "longSortie": true,
+      "deadTravelRisk": false,
+      "lateFailureRisk": false,
+      "phaseRebriefAvailable": true
+    }
+  ],
+  "observations": [],
+  "passed": true
+}

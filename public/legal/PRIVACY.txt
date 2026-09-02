@@ -1,0 +1,16 @@
+IRON KESTREL '87 PRIVACY NOTICE
+Effective date: 30 August 2026
+
+Iron Kestrel '87 is an offline-capable game with no account system, advertising SDK or developer-operated analytics service. No cloud-save feature is claimed unless separately certified and enabled by a distributor. Campaign progress, settings and operations records are stored locally on the device and are not transmitted to the developer. The browser edition uses local site storage; the Windows edition uses a versioned per-user save archive with rotating recovery backups. Normal consumer builds do not record playtest diagnostics or expose validation and mission-authoring tools.
+
+Explicit internal-development builds can enable local diagnostics containing mission results, simulation timing, objectives, aggregate weapon use and hits, damage categories, warnings, landing grade and difficulty. They do not contain names, email addresses, account identifiers, precise location, IP addresses, raw key presses, free-form messages or browsing history. A maximum of 100 sessions is retained.
+
+Internal diagnostics can be disabled, inspected through JSON export or cleared in System Settings. Export Issue Report remains available in consumer builds and only downloads a sanitised JSON file to the device; it does not send the file anywhere. Consumer issue reports contain no diagnostic-session history. Operation seed values are removed from that export.
+
+Export Progress creates a versioned JSON archive containing campaign, operation, showcase and score progress. It excludes diagnostic and validation evidence and is never uploaded automatically. Imported saves are validated before replacement, and the previous progression is retained locally as a rollback backup.
+
+The application uses network access to download and update its bundled files. The campaign works offline after a successful load. Optional browser or operating-system speech synthesis may have its own processing behaviour; captions remain available and speech can be muted.
+
+Browser data and cached offline files can be removed through clear-site-data or installed-app controls. Windows saves may be retained during uninstall so progress can survive reinstallation and can be removed from the application's per-user roaming-data directory after exporting any wanted backup. Privacy or support questions should use the support channel on the storefront or distribution page from which the game was obtained.
+
+Full maintained source notice: docs/PRIVACY.md

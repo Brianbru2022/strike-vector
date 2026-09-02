@@ -1,0 +1,1085 @@
+{
+  "version": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260902-TURN9",
+  "frozenAt": "2026-09-02T17:19:11.133Z",
+  "sha256": "81167dc6cb5518e6e483a05b39532a2f03303341f222e150fb365417e14e2d6f",
+  "snapshot": {
+    "missions": [
+      {
+        "id": "m1_coastal_strike",
+        "mapLength": 6400,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 5200,
+        "objectives": [
+          {
+            "id": "m1_intercept",
+            "description": "Intercept Hostile Reconnaissance Pair",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "PATROL_FIGHTER",
+            "points": 1800,
+            "active": true
+          },
+          {
+            "id": "m1_recover",
+            "description": "Qualify Aboard HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1500,
+            "active": true
+          }
+        ],
+        "phases": []
+      },
+      {
+        "id": "m2_valley_run",
+        "mapLength": 9000,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 7800,
+        "objectives": [
+          {
+            "id": "m2_radar",
+            "description": "Destroy Skeld Early-Warning Radar",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "RADAR_STATION",
+            "points": 1500,
+            "active": true
+          },
+          {
+            "id": "m2_sams",
+            "description": "Suppress Both Fjord SA-8 Batteries",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "SAM_LAUNCHER",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m2_recover",
+            "description": "Return to Carrier",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1000,
+            "active": true
+          }
+        ],
+        "phases": []
+      },
+      {
+        "id": "m3_convoy_hunter",
+        "mapLength": 9800,
+        "launchSite": "CARRIER",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 8200,
+        "objectives": [
+          {
+            "id": "m3_command",
+            "description": "Destroy Skeld Command Vehicle",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "COMMAND_VEHICLE",
+            "points": 1600,
+            "active": true
+          },
+          {
+            "id": "m3_sam",
+            "description": "Neutralise Forward-Site SA-8",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "SAM_LAUNCHER",
+            "points": 1400,
+            "active": true
+          },
+          {
+            "id": "m3_land",
+            "description": "Capture Skeld FARP by Landing",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1800,
+            "active": true
+          }
+        ],
+        "phases": []
+      },
+      {
+        "id": "m4_night_raid",
+        "mapLength": 10800,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 9300,
+        "objectives": [
+          {
+            "id": "m4_command",
+            "description": "Destroy Convoy Command Vehicle",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "COMMAND_VEHICLE",
+            "points": 1600,
+            "active": true
+          },
+          {
+            "id": "m4_armour",
+            "description": "Interdict Three T-72M Tanks",
+            "isPrimary": true,
+            "requiredCount": 3,
+            "targetType": "TANK",
+            "points": 2100,
+            "active": true
+          },
+          {
+            "id": "m4_recover",
+            "description": "Recover and Rearm at Skeld FARP",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1200,
+            "active": true
+          }
+        ],
+        "phases": []
+      },
+      {
+        "id": "m5_pilot_rescue",
+        "mapLength": 10800,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 9300,
+        "objectives": [
+          {
+            "id": "m5_rescue",
+            "description": "Extract Viper One by VTOL Hover",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DOWNED_PILOT",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m5_land",
+            "description": "Deliver Pilot to Skeld Medical Team",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1200,
+            "active": true
+          }
+        ],
+        "phases": []
+      },
+      {
+        "id": "m6_fleet_defence",
+        "mapLength": 10000,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 8800,
+        "objectives": [
+          {
+            "id": "m6_jets",
+            "description": "Destroy MiG-29A Strike Aircraft (3/3)",
+            "isPrimary": true,
+            "requiredCount": 3,
+            "targetType": "PATROL_FIGHTER",
+            "points": 2400,
+            "active": true
+          },
+          {
+            "id": "m6_corvettes",
+            "description": "Sink Missile Corvettes (2/2)",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "MISSILE_CORVETTE",
+            "points": 2400,
+            "active": true
+          },
+          {
+            "id": "m6_carrier",
+            "description": "Keep HMS Invincible Operational",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DEFEND_ASSET",
+            "points": 1500,
+            "active": true
+          },
+          {
+            "id": "m6_land",
+            "description": "Recover Aboard HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1000,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "SCRAMBLE",
+            "label": "STORM SCRAMBLE"
+          },
+          {
+            "id": "AIR_RAID",
+            "label": "BREAK THE AIR RAID"
+          },
+          {
+            "id": "MISSILE_SALVO",
+            "label": "INTERCEPT SEA-SKIMMERS"
+          },
+          {
+            "id": "SURFACE_ACTION",
+            "label": "SINK MISSILE CORVETTES"
+          },
+          {
+            "id": "RECOVER",
+            "label": "RECOVER HMS INVINCIBLE"
+          }
+        ]
+      },
+      {
+        "id": "m7_bridge_strike",
+        "mapLength": 10800,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 9300,
+        "objectives": [
+          {
+            "id": "m7_command",
+            "description": "Destroy Bridgehead Command Vehicle",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "COMMAND_VEHICLE",
+            "points": 1700,
+            "active": true
+          },
+          {
+            "id": "m7_armour",
+            "description": "Stop Three T-72M Tanks",
+            "isPrimary": true,
+            "requiredCount": 3,
+            "targetType": "TANK",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m7_bridge",
+            "description": "Demolish Two Marked Bridge Spans",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "BRIDGE_SEGMENT",
+            "points": 2000,
+            "active": true
+          },
+          {
+            "id": "m7_land",
+            "description": "Recover at Skeld Forward Strip",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1200,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "INTERDICT",
+            "label": "INTERDICT CONVOY"
+          },
+          {
+            "id": "DEMOLISH",
+            "label": "DEMOLISH CAUSEWAY"
+          },
+          {
+            "id": "RECOVER",
+            "label": "RETURN TO SKELD"
+          }
+        ]
+      },
+      {
+        "id": "m8_airbase_raid",
+        "mapLength": 12400,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 10900,
+        "objectives": [
+          {
+            "id": "m8_radar",
+            "description": "Blind Janus GCI Radar",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "RADAR_STATION",
+            "points": 1800,
+            "active": true
+          },
+          {
+            "id": "m8_fuel",
+            "description": "Destroy Alert-Runway Fuel Farm",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "FUEL_DEPOT",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m8_land",
+            "description": "Complete Night Recovery",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1500,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "INGRESS",
+            "label": "COVERT INGRESS"
+          },
+          {
+            "id": "ALERT",
+            "label": "AIRBASE ALERT"
+          },
+          {
+            "id": "EGRESS",
+            "label": "NIGHT EGRESS"
+          }
+        ]
+      },
+      {
+        "id": "m9_forward_defence",
+        "mapLength": 7600,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 100,
+        "objectives": [
+          {
+            "id": "m9_raiders",
+            "description": "Destroy Five Incoming Raiders",
+            "isPrimary": true,
+            "requiredCount": 5,
+            "targetType": "PATROL_FIGHTER",
+            "points": 3600,
+            "active": true
+          },
+          {
+            "id": "m9_sam",
+            "description": "Destroy Hostile Ridge SA-8",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "SAM_LAUNCHER",
+            "points": 1400,
+            "active": true
+          },
+          {
+            "id": "m9_defend",
+            "description": "Keep Skeld FARP Operational",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DEFEND_ASSET",
+            "points": 1800,
+            "active": true
+          },
+          {
+            "id": "m9_land",
+            "description": "Recover at Skeld FARP",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1200,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "SCRAMBLE",
+            "label": "EMERGENCY SCRAMBLE"
+          },
+          {
+            "id": "WAVE_ONE",
+            "label": "WAVE ONE — MIG-21"
+          },
+          {
+            "id": "WAVE_TWO",
+            "label": "WAVE TWO — MIG-23"
+          },
+          {
+            "id": "FINAL_WAVE",
+            "label": "FINAL WAVE — MIG-29"
+          },
+          {
+            "id": "RECOVER",
+            "label": "FARP RECOVERY"
+          }
+        ]
+      },
+      {
+        "id": "m10_hq_assault",
+        "mapLength": 13200,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 11800,
+        "objectives": [
+          {
+            "id": "m10_sams",
+            "description": "Suppress Bastion Outer SA-8 Belt",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "SAM_LAUNCHER",
+            "points": 2400,
+            "active": true
+          },
+          {
+            "id": "m10_radar",
+            "description": "Destroy Bastion Command Radar",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "RADAR_STATION",
+            "points": 1900,
+            "active": false
+          },
+          {
+            "id": "m10_hq",
+            "description": "Demolish Hardened Headquarters",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "COMMAND_BUNKER",
+            "points": 2600,
+            "active": false
+          },
+          {
+            "id": "m10_fuel",
+            "description": "Destroy Hardened Fuel Complex",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "FUEL_DEPOT",
+            "points": 1800,
+            "active": false
+          },
+          {
+            "id": "m10_fighter",
+            "description": "Defeat MiG-29A Command Interceptor",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "PATROL_FIGHTER",
+            "points": 1800,
+            "active": false
+          },
+          {
+            "id": "m10_land",
+            "description": "Return to HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 2000,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "SAM_BELT",
+            "label": "PHASE 1 — OUTER SAM BELT"
+          },
+          {
+            "id": "COMMAND_RADAR",
+            "label": "PHASE 2 — COMMAND RADAR"
+          },
+          {
+            "id": "HEADQUARTERS",
+            "label": "PHASE 3 — HARDENED BASTION"
+          },
+          {
+            "id": "INTERCEPTOR",
+            "label": "PHASE 4 — COMMAND INTERCEPTOR"
+          },
+          {
+            "id": "WITHDRAW",
+            "label": "PHASE 5 — CARRIER RETURN"
+          }
+        ]
+      },
+      {
+        "id": "m11_cold_passage",
+        "mapLength": 12000,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 11000,
+        "objectives": [
+          {
+            "id": "m11_tu16",
+            "description": "Identify and Intercept Two Tu-16K Aircraft",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "HEAVY_BOMBER",
+            "points": 3200,
+            "active": true
+          },
+          {
+            "id": "m11_fleet",
+            "description": "Keep the Carrier Group Operational",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DEFEND_ASSET",
+            "points": 1800,
+            "active": true
+          },
+          {
+            "id": "m11_patrols",
+            "description": "Neutralise Coastal Patrol Boats",
+            "isPrimary": false,
+            "requiredCount": 2,
+            "targetType": "PATROL_BOAT",
+            "points": 1400,
+            "active": true
+          },
+          {
+            "id": "m11_diversion",
+            "description": "Defeat the MiG-21bis Diversion",
+            "isPrimary": false,
+            "requiredCount": 1,
+            "targetType": "PATROL_FIGHTER",
+            "points": 900,
+            "active": true
+          },
+          {
+            "id": "m11_recover",
+            "description": "Recover Aboard HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1600,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "FLEET_ESCORT",
+            "label": "ESCORT THE REPLENISHMENT GROUP"
+          },
+          {
+            "id": "IDENTIFY",
+            "label": "IDENTIFY LONG-RANGE CONTACT"
+          },
+          {
+            "id": "SECOND_CONTACT",
+            "label": "SECOND TARGETING AIRCRAFT"
+          },
+          {
+            "id": "DIVERSION",
+            "label": "BREAK THE MIG-21 DIVERSION"
+          },
+          {
+            "id": "RECOVER",
+            "label": "RECOVER HMS INVINCIBLE"
+          }
+        ]
+      },
+      {
+        "id": "m12_hammerfall_fjord",
+        "mapLength": 18000,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 17400,
+        "objectives": [
+          {
+            "id": "m12_relay_alpha",
+            "description": "Destroy Radar-Relay Alpha",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "RADAR_STATION",
+            "points": 1500,
+            "active": true
+          },
+          {
+            "id": "m12_relay_bravo",
+            "description": "Destroy Radar-Relay Bravo",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "RADAR_STATION",
+            "points": 1700,
+            "active": false
+          },
+          {
+            "id": "m12_sams",
+            "description": "Suppress Two SA-6 and Two SA-8 Batteries",
+            "isPrimary": true,
+            "requiredCount": 4,
+            "targetType": "SAM_LAUNCHER",
+            "points": 3000,
+            "active": true
+          },
+          {
+            "id": "m12_artillery",
+            "description": "Silence Coastal Artillery Positions",
+            "isPrimary": false,
+            "requiredCount": 2,
+            "targetType": "COASTAL_ARTILLERY",
+            "points": 1300,
+            "active": true
+          },
+          {
+            "id": "m12_searchlights",
+            "description": "Extinguish Fjord Searchlights",
+            "isPrimary": false,
+            "requiredCount": 2,
+            "targetType": "SEARCHLIGHT",
+            "points": 700,
+            "active": true
+          },
+          {
+            "id": "m12_recover",
+            "description": "Recover Aboard HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1700,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "FJORD_INGRESS",
+            "label": "LOW-LEVEL FJORD INGRESS"
+          },
+          {
+            "id": "RELAY_ALPHA",
+            "label": "RADAR-RELAY ALPHA"
+          },
+          {
+            "id": "RELAY_BRAVO",
+            "label": "RADAR-RELAY BRAVO"
+          },
+          {
+            "id": "SAM_CORRIDOR",
+            "label": "CLEAR THE LINKED SAM CORRIDOR"
+          },
+          {
+            "id": "RECOVER",
+            "label": "HAMMERFALL ROUTE OPEN — RECOVER"
+          }
+        ]
+      },
+      {
+        "id": "m13_troms_bridgehead",
+        "mapLength": 18000,
+        "launchSite": "CARRIER",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 15850,
+        "objectives": [
+          {
+            "id": "m13_landing_force",
+            "description": "Keep the NATO Landing Force Operational",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DEFEND_ASSET",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m13_artillery",
+            "description": "Silence Two Coastal Artillery Batteries",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "COASTAL_ARTILLERY",
+            "points": 1800,
+            "active": true
+          },
+          {
+            "id": "m13_armour",
+            "description": "Destroy Four T-72 Reserve Tanks",
+            "isPrimary": true,
+            "requiredCount": 4,
+            "targetType": "TANK",
+            "points": 2800,
+            "active": true
+          },
+          {
+            "id": "m13_bridges",
+            "description": "Demolish Two Designated Bridge Sections",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "BRIDGE_SEGMENT",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m13_command",
+            "description": "Destroy the Reserve Command Vehicle",
+            "isPrimary": false,
+            "requiredCount": 1,
+            "targetType": "COMMAND_VEHICLE",
+            "points": 750,
+            "active": true
+          },
+          {
+            "id": "m13_recover",
+            "description": "Capture and Land at Troms FARP",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1900,
+            "active": false
+          }
+        ],
+        "phases": [
+          {
+            "id": "AMPHIBIOUS_APPROACH",
+            "label": "AMPHIBIOUS FORCE APPROACHING"
+          },
+          {
+            "id": "BEACHHEAD_UNDER_FIRE",
+            "label": "PROTECT THE TROMS LANDING"
+          },
+          {
+            "id": "RESERVE_COLUMN",
+            "label": "BREAK THE T-72 RESERVE"
+          },
+          {
+            "id": "BRIDGE_DEMOLITION",
+            "label": "CUT THE INLAND BRIDGES"
+          },
+          {
+            "id": "FARP_CAPTURE",
+            "label": "TROMS FARP OPERATIONAL — RECOVER"
+          }
+        ]
+      },
+      {
+        "id": "m14_whiteout_rescue",
+        "mapLength": 13800,
+        "launchSite": "FORWARD_BASE",
+        "recoverySite": "FORWARD_BASE",
+        "carrierX": 100,
+        "carrierLandingX": 12600,
+        "objectives": [
+          {
+            "id": "m14_crew",
+            "description": "Locate and Recover the Reconnaissance Crew",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DOWNED_PILOT",
+            "points": 3000,
+            "active": true
+          },
+          {
+            "id": "m14_hind",
+            "description": "Drive Off the Mi-24D Search Aircraft",
+            "isPrimary": false,
+            "requiredCount": 1,
+            "targetType": "ATTACK_HELI",
+            "points": 900,
+            "active": true
+          },
+          {
+            "id": "m14_interceptor",
+            "description": "Defeat the MiG-23ML Interceptor",
+            "isPrimary": false,
+            "requiredCount": 1,
+            "targetType": "PATROL_FIGHTER",
+            "points": 1100,
+            "active": true
+          },
+          {
+            "id": "m14_recover",
+            "description": "Deliver the Crew to Troms FARP",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1800,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "WHITEOUT_INGRESS",
+            "label": "FOLLOW THE EMERGENCY BEACON"
+          },
+          {
+            "id": "SEARCH_ZONE",
+            "label": "SEARCH THE LYNGEN PLATEAU"
+          },
+          {
+            "id": "VTOL_EXTRACTION",
+            "label": "HOLD VTOL OVER THE CREW"
+          },
+          {
+            "id": "BREAK_CONTACT",
+            "label": "CREW ABOARD — BREAK CONTACT"
+          },
+          {
+            "id": "TROMS_RECOVERY",
+            "label": "RECOVER AT TROMS FARP"
+          }
+        ]
+      },
+      {
+        "id": "m15_red_tide",
+        "mapLength": 18000,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 16400,
+        "objectives": [
+          {
+            "id": "m15_corvettes",
+            "description": "Sink Four Red Tide Missile Corvettes",
+            "isPrimary": true,
+            "requiredCount": 4,
+            "targetType": "MISSILE_CORVETTE",
+            "points": 4600,
+            "active": true
+          },
+          {
+            "id": "m15_fighters",
+            "description": "Destroy Two Fighter-Screen Aircraft",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "PATROL_FIGHTER",
+            "points": 2200,
+            "active": true
+          },
+          {
+            "id": "m15_missiles",
+            "description": "Intercept Four Sea-Skimming Missiles",
+            "isPrimary": false,
+            "requiredCount": 4,
+            "targetType": "ANTI_SHIP_MISSILE",
+            "points": 1800,
+            "active": true
+          },
+          {
+            "id": "m15_carrier",
+            "description": "Keep HMS Invincible Operational",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DEFEND_ASSET",
+            "points": 2400,
+            "active": true
+          },
+          {
+            "id": "m15_recover",
+            "description": "Recover Aboard HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 1800,
+            "active": true
+          }
+        ],
+        "phases": [
+          {
+            "id": "FLEET_SCREEN",
+            "label": "FORM THE FORWARD FLEET SCREEN"
+          },
+          {
+            "id": "FIRST_SALVO",
+            "label": "RED TIDE GROUP ONE — INTERCEPT"
+          },
+          {
+            "id": "FIGHTER_SCREEN",
+            "label": "BREAK THE FIGHTER SCREEN"
+          },
+          {
+            "id": "SECOND_SALVO",
+            "label": "RED TIDE GROUP TWO — INTERCEPT"
+          },
+          {
+            "id": "FINAL_BARRIER",
+            "label": "DESTROY THE REMAINING LAUNCHERS"
+          },
+          {
+            "id": "STORM_RECOVERY",
+            "label": "FLEET SECURE — RECOVER INVINCIBLE"
+          }
+        ]
+      },
+      {
+        "id": "m16_north_cape_assault",
+        "mapLength": 18000,
+        "launchSite": "CARRIER",
+        "recoverySite": "CARRIER",
+        "carrierX": 100,
+        "carrierLandingX": 16400,
+        "objectives": [
+          {
+            "id": "m16_picket",
+            "description": "Sink the North Cape Missile Corvette",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "MISSILE_CORVETTE",
+            "points": 1500,
+            "active": true
+          },
+          {
+            "id": "m16_sams",
+            "description": "Suppress the Outer SA-6 and SA-8 Belt",
+            "isPrimary": true,
+            "requiredCount": 2,
+            "targetType": "SAM_LAUNCHER",
+            "points": 2600,
+            "active": true
+          },
+          {
+            "id": "m16_radar",
+            "description": "Destroy North Cape Command Radar",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "RADAR_STATION",
+            "points": 2100,
+            "active": false
+          },
+          {
+            "id": "m16_hq",
+            "description": "Demolish the Hardened Northern Headquarters",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "COMMAND_BUNKER",
+            "points": 3200,
+            "active": false
+          },
+          {
+            "id": "m16_fuel",
+            "description": "Destroy the Fortress Fuel Complex",
+            "isPrimary": false,
+            "requiredCount": 1,
+            "targetType": "FUEL_DEPOT",
+            "points": 1400,
+            "active": false
+          },
+          {
+            "id": "m16_fighter",
+            "description": "Defeat the MiG-29A Command Interceptor",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "PATROL_FIGHTER",
+            "points": 2000,
+            "active": false
+          },
+          {
+            "id": "m16_carrier",
+            "description": "Keep HMS Invincible Operational",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "DEFEND_ASSET",
+            "points": 2400,
+            "active": true
+          },
+          {
+            "id": "m16_recover",
+            "description": "Return to HMS Invincible",
+            "isPrimary": true,
+            "requiredCount": 1,
+            "targetType": "LANDING",
+            "points": 2200,
+            "active": false
+          }
+        ],
+        "phases": [
+          {
+            "id": "SEA_APPROACH",
+            "label": "PHASE 1 — BREAK THE NAVAL PICKET"
+          },
+          {
+            "id": "OUTER_DEFENCES",
+            "label": "PHASE 2 — SUPPRESS THE MISSILE BELT"
+          },
+          {
+            "id": "COMMAND_RADAR",
+            "label": "PHASE 3 — DESTROY COMMAND RADAR"
+          },
+          {
+            "id": "FORTRESS_CORE",
+            "label": "PHASE 4 — DEMOLISH NORTH CAPE HQ"
+          },
+          {
+            "id": "COMMAND_INTERCEPTOR",
+            "label": "PHASE 5 — DEFEAT COMMAND FULCRUM"
+          },
+          {
+            "id": "CARRIER_RETURN",
+            "label": "PHASE 6 — RETURN TO INVINCIBLE"
+          }
+        ]
+      }
+    ],
+    "difficultyProfiles": {
+      "ARCADE": {
+        "difficulty": "ARCADE",
+        "detection": 0.78,
+        "accuracy": 0.72,
+        "reloadTime": 1.28,
+        "incomingDamage": 0.65,
+        "landingTolerance": 1.25,
+        "aircraftTurnRate": 0.85,
+        "decisionDelay": 1.25,
+        "playerLockTime": 0.72,
+        "enemyLaunchWarningTicks": 90
+      },
+      "PILOT": {
+        "difficulty": "PILOT",
+        "detection": 1,
+        "accuracy": 1,
+        "reloadTime": 1,
+        "incomingDamage": 1,
+        "landingTolerance": 1,
+        "aircraftTurnRate": 1,
+        "decisionDelay": 1,
+        "playerLockTime": 1,
+        "enemyLaunchWarningTicks": 60
+      },
+      "VETERAN": {
+        "difficulty": "VETERAN",
+        "detection": 1.15,
+        "accuracy": 1.12,
+        "reloadTime": 0.82,
+        "incomingDamage": 1.25,
+        "landingTolerance": 0.82,
+        "aircraftTurnRate": 1.08,
+        "decisionDelay": 0.8,
+        "playerLockTime": 1.2,
+        "enemyLaunchWarningTicks": 45
+      }
+    },
+    "loadouts": {
+      "FLEET_CAP": {
+        "label": "Fleet CAP",
+        "description": "Maximum Sidewinder fit for fleet interception.",
+        "missiles": 6,
+        "bombs": 0,
+        "rockets": 4,
+        "flares": 6
+      },
+      "STRIKE": {
+        "label": "Strike",
+        "description": "Heavy bomb fit for hardened ground targets.",
+        "missiles": 2,
+        "bombs": 8,
+        "rockets": 0,
+        "flares": 6
+      },
+      "CLOSE_SUPPORT": {
+        "label": "Close Support",
+        "description": "Rocket-heavy fit for armour and mobile targets.",
+        "missiles": 2,
+        "bombs": 2,
+        "rockets": 16,
+        "flares": 6
+      }
+    }
+  }
+}

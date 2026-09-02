@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-02T14:04:09.865Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-TURN2",
+  "passed": false,
+  "results": [
+    {
+      "script": "lint",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "test",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "simulation:audit",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "branding:audit",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "balance:certify",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "build:web",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "build:server",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "consumer:audit",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "offline:verify",
+      "passed": true,
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "script": "visual:manifest:audit",
+      "passed": false,
+      "exitCode": 1,
+      "error": null
+    },
+    {
+      "script": "validation:evidence",
+      "passed": false,
+      "exitCode": 1,
+      "error": null
+    },
+    {
+      "script": "defects:audit",
+      "passed": false,
+      "exitCode": 1,
+      "error": null
+    }
+  ]
+}

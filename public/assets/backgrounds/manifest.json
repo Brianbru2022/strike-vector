@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "backgrounds": {
+    "north_atlantic_dawn": {
+      "file": "north-atlantic-dawn-painted.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "painted_16_9",
+      "timeGrade": "dawn",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "fjord_pass": {
+      "file": "fjord-pass-painted-v1.webp",
+      "sourceSize": { "width": 1536, "height": 1024 },
+      "composition": "painted_fjord",
+      "timeGrade": "overcast",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "forward_base": {
+      "file": "forward-base-painted-v1.webp",
+      "sourceSize": { "width": 1983, "height": 793 },
+      "composition": "painted_farp",
+      "timeGrade": "late_day",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "convoy_valley": {
+      "file": "convoy-valley-painted-v1.webp",
+      "sourceSize": { "width": 1983, "height": 793 },
+      "composition": "painted_coast_road",
+      "timeGrade": "overcast",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "rescue_coast": {
+      "file": "rescue-coast-painted-v1.webp",
+      "sourceSize": { "width": 1920, "height": 819 },
+      "composition": "painted_rescue_coast",
+      "timeGrade": "day_mist",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "storm_fleet": {
+      "file": "storm-fleet-painted-v1.webp",
+      "sourceSize": { "width": 1536, "height": 1024 },
+      "composition": "painted_open_sea",
+      "timeGrade": "storm_sunset",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "janus_causeway": {
+      "file": "janus-causeway-painted-v1.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "painted_causeway",
+      "timeGrade": "overcast",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "janus_airbase": {
+      "file": "janus-airbase-night-painted-v1.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "painted_night_airbase",
+      "timeGrade": "night",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "skeld_defence": {
+      "file": "skeld-defence-dawn-painted-v1.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "painted_forward_base_defence",
+      "timeGrade": "dawn",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "bastion_fortress": {
+      "file": "mission-10-bastion-hero-v3.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "painted_basalt_fortress",
+      "timeGrade": "dawn",
+      "parallax": 0.012,
+      "overscan": 0.065
+    },
+    "signature_mission_1": {
+      "file": "mission-1-dawn-showcase-v2.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "showcase_open_sea_dawn",
+      "timeGrade": "dawn",
+      "parallax": 0.010,
+      "overscan": 0.055
+    },
+    "signature_mission_6": {
+      "file": "mission-6-storm-showcase-v2.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "showcase_storm_fleet",
+      "timeGrade": "storm",
+      "parallax": 0.008,
+      "overscan": 0.045
+    },
+    "signature_mission_10": {
+      "file": "mission-10-bastion-hero-v3.webp",
+      "sourceSize": { "width": 1672, "height": 941 },
+      "composition": "showcase_basalt_fortress",
+      "timeGrade": "cold_dawn",
+      "parallax": 0.007,
+      "overscan": 0.050
+    },
+    "arctic_open_sea": {
+      "file": "arctic-open-sea-painted-v1.webp", "sourceSize": { "width": 1672, "height": 941 }, "composition": "painted_arctic_open_sea", "timeGrade": "low_winter_day", "parallax": 0.006, "overscan": 0.045
+    },
+    "arctic_deep_fjord": {
+      "file": "arctic-deep-fjord-painted-v1.webp", "sourceSize": { "width": 1672, "height": 941 }, "composition": "painted_deep_fjord", "timeGrade": "overcast_winter", "parallax": 0.008, "overscan": 0.050
+    },
+    "arctic_bridgehead": {
+      "file": "arctic-bridgehead-painted-v1.webp", "sourceSize": { "width": 1672, "height": 941 }, "composition": "painted_coastal_bridgehead", "timeGrade": "cold_day", "parallax": 0.007, "overscan": 0.050
+    },
+    "polar_night_plateau": {
+      "file": "arctic-polar-night-painted-v1.webp", "sourceSize": { "width": 1672, "height": 941 }, "composition": "painted_polar_plateau", "timeGrade": "polar_night", "parallax": 0.006, "overscan": 0.045
+    },
+    "north_cape_fortress": {
+      "file": "arctic-north-cape-painted-v1.webp", "sourceSize": { "width": 1672, "height": 941 }, "composition": "painted_north_cape_fortress", "timeGrade": "storm_dawn", "parallax": 0.006, "overscan": 0.050
+    }
+  }
+}

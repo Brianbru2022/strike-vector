@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "testedAt": "2026-08-31T22:24:34.0057210Z",
+  "platform": "current Windows workstation",
+  "artefact": "release-artifacts/windows-1.2.0-dev.1/portable-qa/iron-kestrel-87.exe",
+  "sha256": "e0e49760965398a2fd3051026e7e564699e49e99d8bf69c607953c97d9a7b600",
+  "started": true,
+  "aliveAfterEightSeconds": true,
+  "terminatedByHarness": true,
+  "certificationScope": "Local launch smoke only; does not certify clean installation, UI judgement, Windows 10/11 coverage, minimum specification, signing or controller reconnection."
+}

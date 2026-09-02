@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "product": "Iron Kestrel '87: North Atlantic Air War",
+  "reviewedAt": "2026-08-30",
+  "scope": "Every file shipped beneath public/assets",
+  "policy": {
+    "allowedStatuses": ["APPROVED", "CONDITIONAL"],
+    "blockedStatuses": ["UNRESOLVED", "BLOCKED"],
+    "aiOutputNotice": "AI-assisted output may not be unique. Approval records the project's right to use the output, not exclusivity or immunity from third-party claims.",
+    "termsReference": "https://openai.com/policies/eu-terms-of-use/"
+  },
+  "rules": [
+    {
+      "id": "project-audio",
+      "pattern": "audio/*.wav",
+      "category": "AUDIO",
+      "provenance": "PROJECT_GENERATED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original deterministic PCM synthesis written for the project",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": ["scripts/generate_showcase_audio.py", "docs/SOUNDSCAPE_RADIO_V1.md"]
+    },
+    {
+      "id": "ai-backgrounds",
+      "pattern": "backgrounds/*.webp",
+      "category": "ARTWORK_BACKGROUND",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-curated and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-1987", "docs/ART_BIBLE.md", "docs/SHOWCASE_ART.md", "docs/NORWEGIAN_TOOLKIT_ART.md", "docs/STAGE5_HERO_ART.md"]
+    },
+    {
+      "id": "ai-terrain-layers",
+      "pattern": "layers/*.webp",
+      "category": "ARTWORK_TERRAIN",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; alpha-cleaned and integrated by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-1987", "docs/GENERATED_PANORAMA_LAYERS.md", "docs/ACT_THREE_ART.md"]
+    },
+    {
+      "id": "ai-sprites",
+      "pattern": "sprites/*.png",
+      "category": "ARTWORK_SPRITE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; transparency, scale and damage states edited by the project",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-1987", "art/source/sea-harrier-frs1-concept.png", "docs/GENERATED_ASSETS_1987.md", "docs/NORWEGIAN_TOOLKIT_ART.md", "docs/STAGE5_HERO_ART.md"]
+    },
+    {
+      "id": "ai-contact-art",
+      "pattern": "terrain/*.png",
+      "category": "ARTWORK_TERRAIN_CONTACT",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Project-authored contact derivative of archived generated environment artwork",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-1987/norwegian-toolkit-v1", "docs/NORWEGIAN_TOOLKIT_ART.md"]
+    },
+    {
+      "id": "ai-interface-art",
+      "pattern": "ui/*",
+      "category": "ARTWORK_INTERFACE",
+      "provenance": "OPENAI_AI_ASSISTED_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using OpenAI image generation",
+      "rightsBasis": "Output assigned to the user as between the user and OpenAI; project-composed and optimised derivative",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-1987", "docs/GENERATED_CAMPAIGN_UI.md", "docs/SURVIVAL_SEA_WAR_ART.md", "docs/STAGE5_HERO_ART.md"]
+    },
+    {
+      "id": "project-metadata",
+      "pattern": "**/*.json",
+      "category": "METADATA",
+      "provenance": "PROJECT_AUTHORED",
+      "creator": "Iron Kestrel project",
+      "rightsBasis": "Original project-authored asset metadata",
+      "releaseStatus": "APPROVED",
+      "attributionRequired": false,
+      "sourceEvidence": ["public/assets/sprites/manifest.json", "public/assets/backgrounds/manifest.json", "public/assets/layers/manifest.json"]
+    }
+  ]
+}

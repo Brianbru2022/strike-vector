@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-31T21:36:10.289Z",
+  "buildId": "IK87-1.2.0-DEV1-20260831-BAL7",
+  "passed": false,
+  "issues": [
+    "HEADPHONES listening sign-off is incomplete or failed.",
+    "SPEAKERS listening sign-off is incomplete or failed.",
+    "LAPTOP_OR_MOBILE listening sign-off is incomplete or failed.",
+    "Audio evidence has no valid completion time."
+  ]
+}
