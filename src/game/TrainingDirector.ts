@@ -1,16 +1,18 @@
 import { InputAction, PlayerStats, TrainingRuntimeState, TrainingStep } from '../types/game';
 
 export const CARRIER_QUALIFICATION_STEPS: TrainingStep[] = [
-  { id: 'LAUNCH', title: 'Ski-jump departure', instruction: 'Launch from HMS Invincible and establish a safe climb.' },
-  { id: 'PITCH', action: 'PITCH_UP', title: 'Pitch control', instruction: 'Climb away from the sea using pitch-up.' },
-  { id: 'THROTTLE', action: 'THROTTLE_UP', title: 'Throttle control', instruction: 'Increase throttle and accelerate into the patrol area.' },
-  { id: 'CANNON', action: 'PRIMARY_FIRE', title: 'ADEN cannon', instruction: 'Test-fire the twin 30 mm ADEN cannon.' },
-  { id: 'TARGET', title: 'Target acquisition', instruction: 'Close with the reconnaissance aircraft until the targeting system begins a lock.' },
-  { id: 'SIDEWINDER', action: 'SECONDARY_FIRE', title: 'Sidewinder', instruction: 'With a lock established, fire the selected AIM-9L.' },
-  { id: 'COUNTERMEASURE', action: 'COUNTERMEASURE', title: 'Countermeasures', instruction: 'Deploy a flare to practise missile defence.' },
-  { id: 'VTOL', action: 'VTOL', title: 'Vector nozzles', instruction: 'Engage VTOL mode and observe the nozzle indicator.' },
-  { id: 'RECOVERY', title: 'Carrier recovery', instruction: 'Complete the interception, return to the carrier and touch down gently in VTOL mode.' },
+  { id: 'LAUNCH', title: 'Ski-jump departure', instruction: 'Leave the deck and hold a safe climb.', successMessage: 'Airborne — climb established.', completion: 'PLAYER_STATE' },
+  { id: 'PITCH', action: 'PITCH_UP', title: 'Pitch control', instruction: 'Raise the nose to gain altitude.', successMessage: 'Climb response confirmed.', completion: 'PLAYER_STATE' },
+  { id: 'THROTTLE', action: 'THROTTLE_UP', title: 'Power and speed', instruction: 'Add power and accelerate towards the patrol area.', successMessage: 'Power increasing — acceleration confirmed.', completion: 'SEMANTIC_ACTION' },
+  { id: 'CANNON', action: 'PRIMARY_FIRE', title: 'ADEN cannon', instruction: 'Fire a short burst from the twin 30 mm cannon.', successMessage: 'Cannon response confirmed.', completion: 'SEMANTIC_ACTION' },
+  { id: 'TARGET', title: 'Target acquisition', instruction: 'Approach the marked aircraft and hold it in the targeting circle.', successMessage: 'Target locked.', completion: 'PLAYER_STATE' },
+  { id: 'SIDEWINDER', action: 'SECONDARY_FIRE', title: 'Sidewinder', instruction: 'With LOCK shown, launch the selected AIM-9L.', successMessage: 'Sidewinder away.', completion: 'SEMANTIC_ACTION' },
+  { id: 'COUNTERMEASURE', action: 'COUNTERMEASURE', title: 'Countermeasures', instruction: 'Release a flare now; use the same control when warned of a missile.', successMessage: 'Flare released.', completion: 'SEMANTIC_ACTION' },
+  { id: 'VTOL', action: 'VTOL', title: 'Vector nozzles', instruction: 'Select VTOL mode and watch the nozzle indicator move.', successMessage: 'VTOL selected — nozzles rotating.', completion: 'PLAYER_STATE' },
+  { id: 'RECOVERY', title: 'Carrier recovery', instruction: 'Finish the interception, return to Invincible and land gently in VTOL mode.', successMessage: 'Carrier qualification complete.', completion: 'MISSION_RESULT' },
 ];
+
+export const TRAINING_SUCCESS_TICKS = 48;
 
 export class TrainingDirector {
   private state: TrainingRuntimeState;
@@ -21,7 +23,11 @@ export class TrainingDirector {
       completed: false,
       skipped: false,
       currentIndex: enabled ? 0 : CARRIER_QUALIFICATION_STEPS.length,
+      completedSteps: 0,
       currentStep: enabled ? CARRIER_QUALIFICATION_STEPS[0] : null,
+      phase: 'INSTRUCTION',
+      successMessage: null,
+      transitionTicksRemaining: 0,
     };
   }
 
@@ -31,17 +37,25 @@ export class TrainingDirector {
 
   public onAction(action: InputAction, player?: PlayerStats): boolean {
     const step = this.state.currentStep;
-    if (!this.state.enabled || !step?.action || step.action !== action) return false;
+    if (!this.state.enabled || this.state.phase !== 'INSTRUCTION' || step?.completion !== 'SEMANTIC_ACTION' || !step.action || step.action !== action) return false;
     if (step.id === 'SIDEWINDER' && (!player || player.targetLockedId === null || player.selectedWeapon !== 'MISSILE')) return false;
-    return this.advance();
+    return this.confirmCurrentStep();
   }
 
   public update(player: PlayerStats, launchX: number): boolean {
     const step = this.state.currentStep;
     if (!this.state.enabled || !step) return false;
-    if (step.id === 'LAUNCH' && player.x > launchX + 260 && player.y < 520) return this.advance();
-    if (step.id === 'TARGET' && player.targetLockedId !== null) return this.advance();
-    if (step.id === 'RECOVERY' && Boolean(player.carrierLandingGrade)) return this.advance();
+    if (this.state.phase === 'SUCCESS') {
+      const ticksRemaining = Math.max(0, this.state.transitionTicksRemaining - 1);
+      if (ticksRemaining === 0) this.advance();
+      else this.state = { ...this.state, transitionTicksRemaining: ticksRemaining };
+      return false;
+    }
+    if (step.id === 'LAUNCH' && player.x > launchX + 260 && player.y < 520) return this.confirmCurrentStep();
+    if (step.id === 'PITCH' && player.pitchAngle <= -0.22 && player.vy <= -1.5) return this.confirmCurrentStep();
+    if (step.id === 'TARGET' && player.targetLockedId !== null) return this.confirmCurrentStep();
+    if (step.id === 'VTOL' && player.vtolMode && player.vtolTransition >= 0.35) return this.confirmCurrentStep();
+    if (step.id === 'RECOVERY' && Boolean(player.carrierLandingGrade)) return this.confirmCurrentStep();
     return false;
   }
 
@@ -52,20 +66,51 @@ export class TrainingDirector {
       completed: false,
       skipped: true,
       currentIndex: CARRIER_QUALIFICATION_STEPS.length,
+      completedSteps: this.state.completedSteps,
       currentStep: null,
+      phase: 'INSTRUCTION',
+      successMessage: null,
+      transitionTicksRemaining: 0,
     };
   }
 
-  private advance(): boolean {
-    const nextIndex = this.state.currentIndex + 1;
-    const complete = nextIndex >= CARRIER_QUALIFICATION_STEPS.length;
+  private confirmCurrentStep(): boolean {
+    const step = this.state.currentStep;
+    if (!step) return false;
+    const completedSteps = this.state.currentIndex + 1;
+    if (step.id === 'RECOVERY') {
+      this.state = {
+        ...this.state,
+        enabled: false,
+        completed: true,
+        currentIndex: CARRIER_QUALIFICATION_STEPS.length,
+        completedSteps: CARRIER_QUALIFICATION_STEPS.length,
+        currentStep: null,
+        phase: 'SUCCESS',
+        successMessage: step.successMessage,
+        transitionTicksRemaining: 0,
+      };
+      return true;
+    }
     this.state = {
       ...this.state,
-      completed: complete,
-      enabled: !complete,
-      currentIndex: nextIndex,
-      currentStep: complete ? null : CARRIER_QUALIFICATION_STEPS[nextIndex],
+      completedSteps,
+      phase: 'SUCCESS',
+      successMessage: step.successMessage,
+      transitionTicksRemaining: TRAINING_SUCCESS_TICKS,
     };
     return true;
+  }
+
+  private advance(): void {
+    const nextIndex = this.state.currentIndex + 1;
+    this.state = {
+      ...this.state,
+      currentIndex: nextIndex,
+      currentStep: CARRIER_QUALIFICATION_STEPS[nextIndex],
+      phase: 'INSTRUCTION',
+      successMessage: null,
+      transitionTicksRemaining: 0,
+    };
   }
 }

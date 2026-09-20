@@ -18,6 +18,6 @@ describe('HUD notification placement', () => {
   it('keeps radio captions out of the central aiming region', () => {
     expect(getHudNotificationRegion('radio')).toBe('radio-caption');
     expect(getHudNotificationRegion('missile')).toBe('central-notification');
-    expect(getHudNotificationRegion('training')).toBe('central-notification');
+    expect(getHudNotificationRegion('training')).toBe('training-banner');
   });
 });

@@ -147,6 +147,8 @@ test('launches guided carrier qualification with device-aware training prompts',
   await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
 
   await expect(page.getByText(/FLIGHT SCHOOL [1-9]\/9/)).toBeVisible();
+  await expect(page.getByRole('status')).toHaveAttribute('data-hud-region', 'training-banner');
+  await expect(page.getByRole('status')).toHaveAttribute('data-training-phase', 'INSTRUCTION');
   await expect(page.getByRole('button', { name: 'SKIP TRAINING' })).toBeVisible();
   if (testInfo.project.name !== 'desktop') {
     await expect(page.getByRole('status')).toContainText('PITCH CONTROL', { timeout: 15_000 });

@@ -11,8 +11,10 @@ export function getVerticalSpeedReadout(verticalVelocity: number): { feetPerMinu
   };
 }
 
-export function getHudNotificationRegion(notificationId: string): 'radio-caption' | 'central-notification' {
-  return notificationId === 'radio' ? 'radio-caption' : 'central-notification';
+export function getHudNotificationRegion(notificationId: string): 'radio-caption' | 'training-banner' | 'central-notification' {
+  if (notificationId === 'radio') return 'radio-caption';
+  if (notificationId === 'training') return 'training-banner';
+  return 'central-notification';
 }
 
 interface HUDProps {
@@ -93,13 +95,13 @@ export const HUD: React.FC<HUDProps> = ({
   const northCapeObjectives = mission.objectives.filter((objective) => ['m16_picket', 'm16_sams', 'm16_radar', 'm16_hq', 'm16_fighter'].includes(objective.id));
   const currentObjective = mission.objectives.find((objective) => objective.active !== false && !objective.completed && objective.isPrimary)
     ?? mission.objectives.find((objective) => objective.active !== false && !objective.completed);
-  const trainingAction = trainingState?.currentStep?.action ? bindingLabel(inputBindings, trainingState.currentStep.action, inputDevice) : 'FOLLOW HUD CUE';
+  const trainingAction = trainingState?.phase === 'INSTRUCTION' && trainingState.currentStep?.action ? bindingLabel(inputBindings, trainingState.currentStep.action, inputDevice) : trainingState?.phase === 'INSTRUCTION' ? 'FOLLOW HUD CUE' : undefined;
   const primaryNotification = selectHudNotification([
     feedback?.incomingMissileDirection ? { id: 'missile', priority: HUD_NOTIFICATION_PRIORITY.MISSILE, tone: 'DANGER', label: `◆ MISSILE ${feedback.incomingMissileDirection}`, message: 'Break away and deploy countermeasures.', action: bindingLabel(inputBindings, 'COUNTERMEASURE', inputDevice) } : null,
     feedback?.damageWarningTicks ? { id: 'damage', priority: HUD_NOTIFICATION_PRIORITY.DAMAGE, tone: 'DANGER', label: '✦ AIRFRAME HIT', message: `Threat bearing ${feedback.threatDirection ?? 'unknown'}.` } : null,
     feedback?.airThreatState === 'FIRING' ? { id: 'fighter-fire', priority: HUD_NOTIFICATION_PRIORITY.FIGHTER_FIRING, tone: 'DANGER', label: `△ BANDIT FIRING ${feedback.airThreatDirection ?? ''}`, message: 'Change altitude and aspect immediately.' } : null,
     feedback?.airThreatState === 'TRACKING' ? { id: 'fighter-track', priority: HUD_NOTIFICATION_PRIORITY.FIGHTER_TRACKING, tone: 'WARNING', label: `△ BANDIT TRACKING ${feedback.airThreatDirection ?? ''}`, message: 'Prepare to evade.' } : null,
-    trainingState?.enabled && trainingState.currentStep ? { id: 'training', priority: HUD_NOTIFICATION_PRIORITY.TRAINING, tone: 'TRAINING', label: `FLIGHT SCHOOL ${trainingState.currentIndex + 1}/9`, message: `${trainingState.currentStep.title.toUpperCase()} — ${trainingState.currentStep.instruction}`, action: trainingAction } : null,
+    trainingState?.enabled && trainingState.currentStep ? { id: 'training', priority: HUD_NOTIFICATION_PRIORITY.TRAINING, tone: 'TRAINING', label: trainingState.phase === 'SUCCESS' ? `✓ LESSON ${trainingState.currentIndex + 1} COMPLETE` : `FLIGHT SCHOOL ${trainingState.currentIndex + 1}/9`, message: trainingState.phase === 'SUCCESS' ? trainingState.successMessage ?? 'Action confirmed.' : `${trainingState.currentStep.title.toUpperCase()} — ${trainingState.currentStep.instruction}`, action: trainingAction } : null,
     isRecoverySiteNear && recoveryGuidance ? { id: 'recovery', priority: recoveryGuidance.status === 'STABLE' ? HUD_NOTIFICATION_PRIORITY.RECOVERY_STABLE : HUD_NOTIFICATION_PRIORITY.RECOVERY_UNSAFE, tone: recoveryGuidance.status === 'STABLE' ? 'INFO' : 'WARNING', label: `○ ${isForwardBaseRecovery ? 'FORWARD SITE' : 'INVINCIBLE'} APPROACH`, message: recoveryGuidance.status === 'STABLE' ? 'Approach stable — continue to touchdown.' : recoveryGuidance.status.replaceAll('_', ' ') } : null,
     accessibility.radioCaptions && feedback?.radioCaption ? { id: 'radio', priority: HUD_NOTIFICATION_PRIORITY.RADIO, tone: 'INFO', label: 'RADIO', message: feedback.radioCaption } : null,
     flow.lastActionTimer > 0 ? { id: 'score', priority: HUD_NOTIFICATION_PRIORITY.COMBAT_RESULT, tone: 'INFO', label: 'COMBAT RESULT', message: flow.lastActionText } : null,
@@ -108,15 +110,17 @@ export const HUD: React.FC<HUDProps> = ({
   const notificationRegion = primaryNotification ? getHudNotificationRegion(primaryNotification.id) : null;
   const notificationPlacement = notificationRegion === 'radio-caption'
     ? 'right-2 top-[24%] w-[min(42%,480px)] min-[900px]:right-4 min-[900px]:top-[15%]'
-    : 'left-1/2 top-[54%] w-[min(88%,520px)] -translate-x-1/2 min-[900px]:top-[26%]';
+    : notificationRegion === 'training-banner'
+      ? 'left-1/2 top-3 w-[min(92%,480px)] -translate-x-1/2 min-[900px]:top-6'
+      : 'left-1/2 top-[54%] w-[min(88%,520px)] -translate-x-1/2 min-[900px]:top-[26%]';
 
   return (
     <div id="game-hud" data-hud-scale={accessibility.hudScale} data-hud-contrast={accessibility.hudContrast} data-text-contrast={accessibility.textContrast} className={`absolute inset-0 pointer-events-none select-none flex flex-col justify-between p-2 sm:p-4 font-mono-tech ${accessibility.highContrastHud || accessibility.hudContrast === 'HIGH' ? 'contrast-125 saturate-150' : ''}`}>
-      {primaryNotification ? <div data-hud-region={notificationRegion ?? undefined} data-notification-id={primaryNotification.id} className={`pointer-events-auto absolute z-30 rounded-lg border-2 px-4 py-2.5 text-center shadow-2xl ${notificationPlacement} ${notificationTone}`} role="status" aria-live={primaryNotification.tone === 'DANGER' ? 'assertive' : 'polite'} aria-atomic="true">
+      {primaryNotification ? <div data-hud-region={notificationRegion ?? undefined} data-notification-id={primaryNotification.id} data-training-phase={primaryNotification.id === 'training' ? trainingState?.phase : undefined} className={`pointer-events-auto absolute z-30 rounded-lg border-2 px-4 py-2.5 text-center shadow-2xl ${notificationPlacement} ${notificationTone}`} role="status" aria-live={primaryNotification.tone === 'DANGER' ? 'assertive' : 'polite'} aria-atomic="true">
         <div className="text-[10px] font-black tracking-[.2em]">{primaryNotification.label}</div><div className="mt-1 text-[11px] font-bold leading-relaxed text-white">{primaryNotification.message}</div>
         {primaryNotification.id === 'recovery' && recoveryGuidance ? <div className="mt-2 grid grid-cols-4 gap-2 border-t border-white/15 pt-1.5 text-[9px] text-zinc-300"><span>RANGE <b className="text-white">{distanceToRecovery}m</b></span><span>FWD <b className={recoveryGuidance.forwardSpeed > 4 ? 'text-amber-200' : 'text-emerald-200'}>{recoveryGuidance.forwardSpeed.toFixed(1)}</b></span><span>DESC <b className={recoveryGuidance.descentRate > 2.2 ? 'text-rose-200' : 'text-emerald-200'}>{recoveryGuidance.descentRate.toFixed(1)}</b></span><span>NOZZLE <b className="text-cyan-100">{recoveryGuidance.nozzleAngle}°</b></span></div> : null}
         {primaryNotification.action ? <span className="mt-1.5 inline-block rounded bg-white/90 px-2 py-1 text-[10px] font-black text-slate-950">{primaryNotification.action}</span> : null}
-        {primaryNotification.id === 'training' ? <button type="button" onClick={onSkipTraining} className="ml-3 text-[10px] font-bold text-zinc-300 underline hover:text-white">SKIP TRAINING</button> : null}
+        {primaryNotification.id === 'training' && trainingState?.phase === 'INSTRUCTION' ? <button type="button" onClick={onSkipTraining} className="ml-3 text-[10px] font-bold text-zinc-300 underline hover:text-white focus-visible:outline-2 focus-visible:outline-white">SKIP TRAINING</button> : null}
       </div> : null}
       {feedback?.hitMarkerTicks ? <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center" aria-live="polite"><div className={`text-2xl font-black drop-shadow-[0_0_5px_#22d3ee] ${feedback.hitOutcome === 'DESTROYED' ? 'text-amber-200' : feedback.hitOutcome === 'CRITICAL' ? 'text-rose-200' : 'text-white'}`}>×</div>{!primaryNotification && feedback.hitOutcome && feedback.hitWeapon ? <div className="mt-1 max-w-56 rounded border border-white/20 bg-black/75 px-2 py-0.5 text-center text-[8px] font-black tracking-wider text-zinc-100"><div>{feedback.hitWeapon} // {feedback.hitAspect} // {feedback.hitOutcome}</div>{feedback.hitTargetName ? <div className="mt-0.5 truncate font-normal text-zinc-400">{feedback.hitTargetName}</div> : null}</div> : null}</div> : null}
       {feedback?.damageWarningTicks && feedback.threatDirection ? <div className={`absolute top-1/2 z-20 -translate-y-1/2 animate-pulse text-4xl font-black text-rose-400 ${feedback.threatDirection === 'LEFT' ? 'left-4' : 'right-4'}`}>{feedback.threatDirection === 'LEFT' ? '‹' : '›'}</div> : null}

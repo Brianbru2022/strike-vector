@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
+  "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
   "signedCommercialBuild": { "status": "PENDING", "certificateReference": null },
   "storePageApproved": { "status": "PENDING", "approvedAt": null },
   "humanSignOff": { "status": "PENDING", "report": null },

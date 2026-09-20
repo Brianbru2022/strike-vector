@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-20T17:33:23.299Z",
+  "generatedAt": "2026-09-20T20:55:25.120Z",
   "authoritativeFiles": [
     "src/game/GameEngine.ts",
     "src/game/PlayerAircraft.ts",

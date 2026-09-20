@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
-  "branch": "release/1.2-control-playtest",
+  "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
+  "branch": "release/1.2-guided-onboarding",
   "channel": "DEVELOPMENT",
   "createdAt": "2026-09-20",
   "automatedGates": [

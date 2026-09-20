@@ -115,6 +115,8 @@ export interface TrainingStep {
   action?: InputAction;
   title: string;
   instruction: string;
+  successMessage: string;
+  completion: 'PLAYER_STATE' | 'SEMANTIC_ACTION' | 'MISSION_RESULT';
 }
 
 export interface TrainingRuntimeState {
@@ -122,7 +124,11 @@ export interface TrainingRuntimeState {
   completed: boolean;
   skipped: boolean;
   currentIndex: number;
+  completedSteps: number;
   currentStep: TrainingStep | null;
+  phase: 'INSTRUCTION' | 'SUCCESS';
+  successMessage: string | null;
+  transitionTicksRemaining: number;
 }
 
 export interface CombatFeedbackState {

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T17:37:32.879Z",
-  "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
+  "generatedAt": "2026-09-20T20:55:04.149Z",
+  "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
   "input": "reports\\milestone-5\\control-concept-evidence.json",
   "passed": false,
   "summary": {
-    "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
+    "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
     "currentBuildCount": 0,
     "historicalCount": 0,
     "completedSlotIds": [],
@@ -36,7 +36,7 @@
   "issues": [
     "Evidence file is missing or invalid JSON: reports\\milestone-5\\control-concept-evidence.json",
     "Evidence export version must be 1.",
-    "Evidence must target current build IK87-1.2.0-DEV1-20260920-CONTROL1.",
+    "Evidence must target current build IK87-1.2.0-DEV1-20260920-ONBOARD1.",
     "Evidence export does not contain an evidence array.",
     "Complete all 5 current-build participant slots.",
     "Three novice-player sessions are required.",

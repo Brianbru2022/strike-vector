@@ -806,7 +806,7 @@ export class GameEngine {
       deathCause: result === 'VICTORY' ? null : this.deathCause ?? 'OTHER',
       weaponsUsed: weaponTelemetry.shotsFired,
       landingGrade: this.player.stats.carrierLandingGrade,
-      tutorialStepsCompleted: training.currentIndex,
+      tutorialStepsCompleted: training.completedSteps,
       tutorialSkipped: training.skipped,
       operationSeed: operation?.seed ?? null,
       operationArchetype: operation?.archetype ?? null,
