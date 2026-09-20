@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { RELEASE_INFO } from '../src/game/Release';
+import { aggregateControlConceptEvidence, sanitiseControlConceptEvidence } from '../src/game/ControlConceptPlaytest';
 
 type Status = 'PENDING' | 'PENDING_HUMAN' | 'PENDING_EXTERNAL' | 'PASS' | 'APPROVED';
 interface Approval {
@@ -41,14 +42,18 @@ if (!existsSync(resolve('release-artifacts/itch-1.2.0-dev.1/iron-kestrel-87-itch
 const approval = readJson<Approval>('config/external-beta-approval.json');
 if (!approval || approval.schemaVersion !== 1 || approval.buildId !== RELEASE_INFO.buildId) blockers.push('External-beta approval configuration does not match the current build.');
 if (approval) {
-  const evidence = approval.fivePlayerInternalTest.evidence ? readJson<{ buildId?: string; runs?: HumanRun[] }>(approval.fivePlayerInternalTest.evidence) : null;
+  const evidence = approval.fivePlayerInternalTest.evidence ? readJson<{ buildId?: string; runs?: HumanRun[]; evidence?: unknown[] }>(approval.fivePlayerInternalTest.evidence) : null;
   const runs = evidence?.runs ?? [];
   const testers = new Set(runs.map((run) => run.testerId).filter(Boolean));
   const novices = runs.filter((run) => run.experience === 'NOVICE').length;
   const experienced = runs.filter((run) => run.experience === 'EXPERIENCED').length;
-  const validHumanEvidence = evidence?.buildId === RELEASE_INFO.buildId && runs.length === 5 && testers.size === 5 && novices >= 3 && experienced >= 2
+  const validLegacyEvidence = evidence?.buildId === RELEASE_INFO.buildId && runs.length === 5 && testers.size === 5 && novices >= 3 && experienced >= 2
     && runs.every((run) => run.guidedMission1?.attempted && run.guidedMission1.meaningfulOutcome && !run.guidedMission1.seriousCrash && run.guidedMission1.saveSurvived && !run.controlsUniversallyRejected && typeof run.understoodFailure === 'boolean' && typeof run.wantedAnotherSortie === 'boolean')
     && runs.some((run) => run.wantedAnotherSortie);
+  const controlEvidence = Array.isArray(evidence?.evidence) ? evidence.evidence.map(sanitiseControlConceptEvidence).filter((item): item is NonNullable<ReturnType<typeof sanitiseControlConceptEvidence>> => item !== null) : [];
+  const controlSummary = aggregateControlConceptEvidence(controlEvidence);
+  const validControlEvidence = evidence?.buildId === RELEASE_INFO.buildId && controlSummary.complete && controlSummary.wantsAnotherSortieCount > 0;
+  const validHumanEvidence = validLegacyEvidence || validControlEvidence;
   if (approval.fivePlayerInternalTest.status !== 'APPROVED' || !validHumanEvidence) pending.push('Five-player internal Guided Mission 1 evidence is pending or incomplete.');
   for (const [device, status] of Object.entries(approval.physicalSmoke)) if (status !== 'APPROVED') pending.push(`Physical ${device} smoke test is pending.`);
   if (approval.readabilityReview.status !== 'APPROVED' || !approval.readabilityReview.evidence) pending.push('Human readability review is pending.');

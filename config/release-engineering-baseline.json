@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260920-ITCH1",
-  "branch": "release/1.2-itch",
+  "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
+  "branch": "release/1.2-control-playtest",
   "channel": "DEVELOPMENT",
   "createdAt": "2026-09-20",
   "automatedGates": [

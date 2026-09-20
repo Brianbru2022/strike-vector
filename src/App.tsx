@@ -35,6 +35,8 @@ import { useControllerNavigation } from './game/useControllerNavigation';
 import { GamepadInputState } from './game/GamepadInputState';
 import { createDemoProgress, DEMO_MANIFEST, exportDemoTransfer, loadDemoProgress, persistDemoProgress, recordDemoVictory } from './game/Demo';
 import { recordBetaEvent } from './game/BetaEvidence';
+import { appendControlConceptEvidence, clearControlConceptEvidence, ControlConceptEvidenceV1, ControlConceptResponseV1, ControlConceptSlot, createControlConceptScenario, loadControlConceptEvidence } from './game/ControlConceptPlaytest';
+import { RELEASE_INFO } from './game/Release';
 
 const EXPERIENCE_MANIFEST = DEMO_BUILD ? DEMO_MANIFEST : SHOWCASE_MANIFEST;
 
@@ -46,6 +48,12 @@ const ValidationRunsScreen = INTERNAL_TOOLS_COMPILED
   : null;
 const ValidationReview = INTERNAL_TOOLS_COMPILED
   ? React.lazy(() => import('./components/ValidationRunsScreen').then((module) => ({ default: module.ValidationReview })))
+  : null;
+const ControlConceptPlaytestScreen = INTERNAL_TOOLS_COMPILED
+  ? React.lazy(() => import('./components/ControlConceptPlaytestScreen').then((module) => ({ default: module.ControlConceptPlaytestScreen })))
+  : null;
+const ControlConceptReview = INTERNAL_TOOLS_COMPILED
+  ? React.lazy(() => import('./components/ControlConceptPlaytestScreen').then((module) => ({ default: module.ControlConceptReview })))
   : null;
 const CampaignValidationScreen = INTERNAL_TOOLS_COMPILED
   ? React.lazy(() => import('./components/CampaignValidationScreen').then((module) => ({ default: module.CampaignValidationScreen })))
@@ -77,6 +85,9 @@ export default function App() {
   const [showcasePosition, setShowcasePosition] = useState<number | null>(null);
   const showcasePositionRef = useRef<number | null>(null);
   const [playtestEvidence, setPlaytestEvidence] = useState<PlaytestEvidenceV1[]>(loadPlaytestEvidence);
+  const [controlConceptEvidence, setControlConceptEvidence] = useState<ControlConceptEvidenceV1[]>(loadControlConceptEvidence);
+  const [controlConceptSlot, setControlConceptSlot] = useState<ControlConceptSlot | null>(null);
+  const controlConceptSlotRef = useRef<ControlConceptSlot | null>(null);
   const [campaignValidationEvidence, setCampaignValidationEvidence] = useState<CampaignValidationEvidenceV1[]>(loadCampaignValidationEvidence);
   const [validationScenario, setValidationScenario] = useState<ValidationScenario | null>(null);
   const validationScenarioRef = useRef<ValidationScenario | null>(null);
@@ -170,7 +181,7 @@ export default function App() {
         if (validation) {
           const diagnostic = engine.getDiagnosticSession(finalScore.isVictory ? 'VICTORY' : 'FAILURE');
           const warnings = engine.getValidationWarningExposure();
-          setValidationRunResult({
+          const runResult: PlaytestRunResult = {
             result: diagnostic.result,
             simulationTicks: diagnostic.simulationTicks,
             completedObjectiveIds: diagnostic.completedObjectiveIds,
@@ -191,8 +202,9 @@ export default function App() {
             tutorialStepsCompleted: diagnostic.tutorialStepsCompleted,
             tutorialSkipped: diagnostic.tutorialSkipped,
             aircraftLossPhase: diagnostic.aircraftLossPhase,
-          });
-          setGameState('VALIDATION_REVIEW');
+          };
+          setValidationRunResult(runResult);
+          setGameState(controlConceptSlotRef.current ? 'CONTROL_CONCEPT_REVIEW' : 'VALIDATION_REVIEW');
           return;
         }
         setGameState(newState);
@@ -537,13 +549,15 @@ export default function App() {
     setGameState('BRIEFING');
   };
 
-  const startValidationScenario = (scenario: ValidationScenario) => {
+  const startValidationScenario = (scenario: ValidationScenario, conceptSlot: ControlConceptSlot | null = null) => {
     const mission = CAMPAIGN_MISSIONS.find((candidate) => candidate.id === scenario.missionId);
     if (!mission) return;
     showcasePositionRef.current = null;
     setShowcasePosition(null);
     validationScenarioRef.current = scenario;
     setValidationScenario(scenario);
+    controlConceptSlotRef.current = conceptSlot;
+    setControlConceptSlot(conceptSlot);
     validationRetriesRef.current = 0;
     setValidationRunResult(null);
     setCurrentMission(mission);
@@ -553,6 +567,10 @@ export default function App() {
     setScoreData(null);
     setRecoveredCondition(null);
     setGameState('BRIEFING');
+  };
+
+  const startControlConceptTest = (slot: ControlConceptSlot, device: InputDevice) => {
+    startValidationScenario(createControlConceptScenario(slot, device), slot);
   };
 
   const setAndPersistOperation = (run: OperationRunState) => {
@@ -639,6 +657,24 @@ export default function App() {
       setValidationRunResult(null);
       setGameState(scenario.id.startsWith('CV-') ? 'CAMPAIGN_VALIDATION' : 'VALIDATION_RUNS');
     }
+  };
+
+  const submitControlConceptEvidence = (response: ControlConceptResponseV1) => {
+    const slot = controlConceptSlotRef.current;
+    if (!slot || !validationRunResult) return;
+    setControlConceptEvidence(appendControlConceptEvidence({
+      version: 1,
+      buildId: RELEASE_INFO.buildId,
+      slotId: slot.id,
+      experience: slot.experience,
+      completedAt: new Date().toISOString(),
+      cleanSnapshot: true,
+      guidedMission: true,
+      run: validationRunResult,
+      response,
+    }));
+    setValidationRunResult(null);
+    setGameState('CONTROL_CONCEPT_TEST');
   };
 
   const handleNextMission = () => {
@@ -802,6 +838,7 @@ export default function App() {
               setGameState('LANDING_PRACTICE');
             }}
             onOpenValidation={validationAvailable ? () => setGameState('VALIDATION_RUNS') : undefined}
+            onOpenControlConceptTest={validationAvailable ? () => setGameState('CONTROL_CONCEPT_TEST') : undefined}
             onOpenAuthoring={authoringAvailable ? () => setGameState('MISSION_AUTHORING') : undefined}
             onOpenHowToPlay={() => setShowHowToPlay(true)}
             onOpenOptions={() => setShowOptions(true)}
@@ -856,6 +893,26 @@ export default function App() {
               }}
               onOpenCampaignValidation={() => setGameState('CAMPAIGN_VALIDATION')}
               onClose={() => {
+                validationScenarioRef.current = null;
+                setValidationScenario(null);
+                setGameState('MENU');
+              }}
+            />
+          </React.Suspense>
+        ) : null}
+
+        {gameState === 'CONTROL_CONCEPT_TEST' && validationAvailable && ControlConceptPlaytestScreen ? (
+          <React.Suspense fallback={null}>
+            <ControlConceptPlaytestScreen
+              evidence={controlConceptEvidence}
+              onLaunch={startControlConceptTest}
+              onClear={() => {
+                clearControlConceptEvidence();
+                setControlConceptEvidence([]);
+              }}
+              onClose={() => {
+                controlConceptSlotRef.current = null;
+                setControlConceptSlot(null);
                 validationScenarioRef.current = null;
                 setValidationScenario(null);
                 setGameState('MENU');
@@ -936,7 +993,7 @@ export default function App() {
           <BriefingScreen
             mission={currentMission}
             onLaunch={launchSortie}
-            onBack={() => setGameState(authoringMissionRef.current ? 'MISSION_AUTHORING' : validationScenarioRef.current ? validationScenarioRef.current.id.startsWith('CV-') ? 'CAMPAIGN_VALIDATION' : 'VALIDATION_RUNS' : showcasePositionRef.current !== null ? 'SHOWCASE_SELECT' : activeOperation && currentMission.id.startsWith(`op_${activeOperation.blueprint.seed}_`) ? 'OPERATION_DOSSIER' : 'MENU')}
+            onBack={() => setGameState(authoringMissionRef.current ? 'MISSION_AUTHORING' : controlConceptSlotRef.current ? 'CONTROL_CONCEPT_TEST' : validationScenarioRef.current ? validationScenarioRef.current.id.startsWith('CV-') ? 'CAMPAIGN_VALIDATION' : 'VALIDATION_RUNS' : showcasePositionRef.current !== null ? 'SHOWCASE_SELECT' : activeOperation && currentMission.id.startsWith(`op_${activeOperation.blueprint.seed}_`) ? 'OPERATION_DOSSIER' : 'MENU')}
             guidedTraining={guidedTraining}
             onGuidedTrainingChange={(guided) => {
               setGuidedTraining(guided);
@@ -947,6 +1004,7 @@ export default function App() {
               }
             }}
             tutorialCompleted={validationScenarioRef.current ? false : campaign.tutorialCompleted}
+            trainingModeLocked={Boolean(controlConceptSlotRef.current)}
           />
         )}
 
@@ -1064,7 +1122,7 @@ export default function App() {
                     }
                     if (validationScenarioRef.current) {
                       setValidationRunResult(null);
-                      setGameState(validationScenarioRef.current.id.startsWith('CV-') ? 'CAMPAIGN_VALIDATION' : 'VALIDATION_RUNS');
+                      setGameState(controlConceptSlotRef.current ? 'CONTROL_CONCEPT_TEST' : validationScenarioRef.current.id.startsWith('CV-') ? 'CAMPAIGN_VALIDATION' : 'VALIDATION_RUNS');
                       soundEngine.stopAll();
                       return;
                     }
@@ -1105,6 +1163,12 @@ export default function App() {
         {gameState === 'VALIDATION_REVIEW' && validationScenario && validationRunResult && ValidationReview ? (
           <React.Suspense fallback={null}>
             <ValidationReview scenario={validationScenario} run={validationRunResult} onSubmit={submitValidationEvidence} />
+          </React.Suspense>
+        ) : null}
+
+        {gameState === 'CONTROL_CONCEPT_REVIEW' && controlConceptSlot && validationRunResult && ControlConceptReview ? (
+          <React.Suspense fallback={null}>
+            <ControlConceptReview slot={controlConceptSlot} run={validationRunResult} onSubmit={submitControlConceptEvidence} />
           </React.Suspense>
         ) : null}
 

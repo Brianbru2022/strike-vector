@@ -15,7 +15,7 @@ export const PLAYTEST_EVIDENCE_STORAGE_KEY = 'STRIKE_VECTOR_PLAYTEST_EVIDENCE_V1
 export const VALIDATION_BUILD_ID = RELEASE_INFO.buildId;
 export const MAX_PLAYTEST_EVIDENCE = 100;
 
-const STANDARD_ACCESSIBILITY: AccessibilitySettings = {
+export const STANDARD_ACCESSIBILITY: AccessibilitySettings = {
   radioCaptions: true,
   highContrastHud: false,
   hudContrast: 'STANDARD',

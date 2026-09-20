@@ -1,6 +1,6 @@
 # Browser contract audit
 
-Milestone 3 distinguishes genuine regressions from stale wording and deliberately inapplicable project combinations. The current full browser inventory contains 34 scenarios executed across desktop and compact mobile landscape.
+Milestone 3 distinguishes genuine regressions from stale wording and deliberately inapplicable project combinations. The current full browser inventory contains 35 scenarios executed across desktop and compact mobile landscape.
 
 ## Resolved contract review
 
@@ -25,4 +25,4 @@ Every skip carries an explicit reason. The remaining combinations execute normal
 
 ## Verification
 
-The full `pnpm test:e2e` run for build `IK87-1.2.0-DEV1-20260920-GATES1` completed with 63 passing executions, five justified project skips and zero failures. Internal validation and mission-authoring routes were included; the public consumer command continues to exclude only those explicitly named development contracts.
+The Milestone 5 addition covers the isolated five-person control-concept runner, its structured observer review and its separate storage namespace. It is an internal human-evidence contract and remains excluded from the public consumer suite under the existing `isolated internal validation` filter.

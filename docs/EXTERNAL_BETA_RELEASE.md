@@ -16,6 +16,8 @@ Set `VITE_BETA_FEEDBACK_URL` to the HTTPS tester form or support page before the
 
 Run `pnpm external-beta:audit` to see automated readiness without pretending that human work is complete. Run `pnpm external-beta:gate` only when the current-build evidence in `config/external-beta-approval.json` has been completed. The strict upload command must remain blocked until the five-player test, physical input smoke, readability/audio checks and feedback route are genuine.
 
+For the five-player control-concept test, launch an internal build and choose **Early Control Test**. Complete anonymous slots P01-P03 with novice players and P04-P05 with experienced players, export the reviewed evidence to `reports/milestone-5/control-concept-evidence.json`, then run `pnpm milestone5:evidence`. The verifier rejects coached sessions, stale builds and incomplete player-group coverage; automated runs must never be substituted for these observations.
+
 ## Gate split
 
 The external-beta gate requires a working consumer build, stable saves, a working itch package, no internal tools, understandable Mission 1, basic keyboard/Xbox/touch operation, essential readability and audio, a real feedback route and a successful smoke test of the uploaded unlisted build.

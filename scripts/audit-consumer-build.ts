@@ -16,13 +16,13 @@ function walk(directory: string): string[] {
 if (!existsSync(path.join(dist, 'index.html'))) blockers.push('Production build is missing. Run the normal production build before this audit.');
 const files = existsSync(dist) ? walk(dist) : [];
 const relativeFiles = files.map((file) => path.relative(dist, file).replaceAll('\\', '/'));
-const internalChunkPatterns = [/ValidationRunsScreen/i, /MissionAuthoringScreen/i, /DiagnosticsPanel/i, /EncounterHarness/i];
+const internalChunkPatterns = [/ValidationRunsScreen/i, /ControlConceptPlaytestScreen/i, /MissionAuthoringScreen/i, /DiagnosticsPanel/i, /EncounterHarness/i];
 for (const file of relativeFiles) {
   if (internalChunkPatterns.some((pattern) => pattern.test(file))) blockers.push(`Internal-only chunk shipped: ${file}`);
 }
 
 const javascript = files.filter((file) => /\.js$/i.test(file)).map((file) => readFileSync(file, 'utf8')).join('\n');
-for (const marker of ['__STRIKE_VECTOR_VALIDATION__', '__STRIKE_VECTOR_BALANCE__', 'LOCAL PLAYTEST DIAGNOSTICS']) {
+for (const marker of ['__STRIKE_VECTOR_VALIDATION__', '__STRIKE_VECTOR_BALANCE__', 'LOCAL PLAYTEST DIAGNOSTICS', 'EARLY CONTROL-CONCEPT TEST']) {
   if (javascript.includes(marker)) blockers.push(`Internal-only runtime marker shipped: ${marker}`);
 }
 

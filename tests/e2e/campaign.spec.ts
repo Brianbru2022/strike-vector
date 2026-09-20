@@ -77,6 +77,30 @@ test('opens isolated internal validation scenarios in a development build', asyn
   await expect((await downloadPromise).suggestedFilename()).toContain(RELEASE_INFO.buildId);
 });
 
+test('opens isolated internal validation for the five-person early control concept test', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'EARLY CONTROL TEST' }).click();
+  await expect(page.getByRole('heading', { name: 'EARLY CONTROL-CONCEPT TEST' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'START CLEAN GUIDED RUN' })).toHaveCount(5);
+  await expect(page.getByText('0/5').first()).toBeVisible();
+  await page.getByRole('button', { name: 'START CLEAN GUIDED RUN' }).first().click();
+  await expect(page.getByRole('heading', { name: 'OPERATION DECK TEST' })).toBeVisible();
+  await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
+  await page.evaluate(() => (window as unknown as { __STRIKE_VECTOR_VALIDATION__: { completeCurrent: (victory: boolean) => void } }).__STRIKE_VECTOR_VALIDATION__.completeCurrent(true));
+  await expect(page.getByText('P01 // OBSERVER REVIEW')).toBeVisible();
+  for (const select of await page.getByRole('combobox').all()) await select.selectOption('INDEPENDENT');
+  for (const input of await page.getByRole('spinbutton').all()) await input.fill('30');
+  await page.getByText('After the run, did the player say they wanted another sortie?').locator('..').getByRole('button', { name: 'YES' }).click();
+  await page.getByText('Did they request another sortie before the observer suggested Mission 2?').locator('..').getByRole('button', { name: 'YES' }).click();
+  await page.getByRole('button', { name: 'SAVE HUMAN EVIDENCE' }).click();
+  await expect(page.getByText('1/5').first()).toBeVisible();
+  expect(await page.evaluate(() => ({
+    control: JSON.parse(localStorage.getItem('IRON_KESTREL_CONTROL_CONCEPT_PLAYTEST_V1') || '[]')[0]?.slotId,
+    campaign: localStorage.getItem('STRIKE_VECTOR_HARRIER_87_CAMPAIGN_V4'),
+    validation: localStorage.getItem('STRIKE_VECTOR_PLAYTEST_EVIDENCE_V1'),
+  }))).toEqual({ control: 'P01', campaign: null, validation: null });
+});
+
 test('runs the isolated Stage 2 campaign balance matrix', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'VALIDATION RUNS' }).click();

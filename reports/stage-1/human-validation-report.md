@@ -1,6 +1,6 @@
 # Stage 1 Human Validation
 
-Build: **IK87-1.2.0-DEV1-20260831-TURN2**
+Build: **IK87-1.2.0-DEV1-20260920-CONTROL1**
 Result: **PENDING**
 Scenarios: 0/21
 Victories: 0/21
@@ -10,7 +10,7 @@ Warnings acknowledged: 0/6
 
 - Evidence file could not be read: ENOENT: no such file or directory, open 'E:\Apps\strike-vector\reports\stage-1\playtest-evidence.json'
 - Evidence export version must be 1.
-- Evidence build missing does not match IK87-1.2.0-DEV1-20260831-TURN2.
+- Evidence build missing does not match IK87-1.2.0-DEV1-20260920-CONTROL1.
 - Evidence export does not contain an evidence array.
 - Missing scenario coverage: V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21.
 - Victories 0/21.

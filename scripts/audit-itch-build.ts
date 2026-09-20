@@ -35,7 +35,7 @@ for (const file of textFiles) {
   const name = relative(root, file).replaceAll('\\', '/');
   if (/(?:src|href)=["']\/(?!\/)/i.test(source)) issues.push(`${name} contains a root-relative HTML URL.`);
   if (/(["'`(])\/(?:assets|legal)\//.test(source)) issues.push(`${name} contains a root-relative runtime asset URL.`);
-  if (/__STRIKE_VECTOR_VALIDATION__|__STRIKE_VECTOR_AUTHORING__|VALIDATION RUNS|MISSION AUTHORING/.test(source)) {
+  if (/__STRIKE_VECTOR_VALIDATION__|__STRIKE_VECTOR_AUTHORING__|VALIDATION RUNS|EARLY CONTROL-CONCEPT TEST|MISSION AUTHORING/.test(source)) {
     issues.push(`${name} contains an internal-only tool marker.`);
   }
 }

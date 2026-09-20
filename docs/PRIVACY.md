@@ -14,10 +14,10 @@ The browser edition stores this information in local site storage. The Windows e
 - control bindings, touch-control settings and accessibility preferences;
 - showcase, landing-practice and Dynamic Operations progress and records;
 - internal-development builds may retain up to 100 optional local diagnostic sessions containing mission result, simulation timing, objectives, weapon totals and hits, damage categories, warnings, landing grade and difficulty;
-- internal-development validation evidence when Validation Runs are explicitly enabled.
+- internal-development validation evidence when Validation Runs or the Early Control Test are explicitly enabled. Early Control Test records use anonymous player slots and structured observations only.
 - cached application code, artwork and audio needed for offline play.
 
-Normal consumer builds do not record playtest diagnostic sessions or expose validation and mission-authoring tools. Internal diagnostics do not include names, email addresses, account identifiers, precise location, IP addresses, raw key presses, free-form messages or browsing history. Operation seed values are removed from the issue-report export.
+Normal consumer builds do not record playtest diagnostic sessions or expose validation and mission-authoring tools. Internal diagnostics and Early Control Test evidence do not include names, email addresses, account identifiers, precise location, IP addresses, raw key presses, free-form messages or browsing history. Operation seed values are removed from the issue-report export.
 
 The restricted itch.io beta records at most 250 coarse events locally: session started, mission started, sortie result, retry requested and continue requested. Events contain the build, UTC calendar day, mission, difficulty, simulation ticks and result where applicable. They contain no raw controls, free text, account, advertising identifier or network address. Nothing is transmitted automatically. **Export Beta Play Record** creates a JSON file only when the player asks for it, so the player can review and voluntarily attach it to the separately configured feedback route.
 

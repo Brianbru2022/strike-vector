@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260920-ITCH1",
+  "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
   "releaseVersion": "1.2.0-dev.1",
-  "generatedAt": "2026-09-20T17:01:36.516Z",
+  "generatedAt": "2026-09-20T17:36:37.060Z",
   "hosting": "itch-html5-iframe-relative",
   "serviceWorkerEnabled": false,
-  "totalBytes": 37137784,
+  "totalBytes": 37141869,
   "fileCount": 106,
-  "fingerprint": "95d363d21a1a61bbd33e8da7f5ea3af9ff2f7411a06cb2ae0a722617dd690e80",
+  "fingerprint": "2a26f829a14bd8d7f0cd883577e57bc1b1df07c244f8e94fa7860809fbeae42a",
   "configuredFeedbackUrl": null,
   "feedbackUrlEmbedded": false,
   "assetClasses": {
@@ -192,9 +192,9 @@
       "sha256": "b17a4b4e97a3baa4f248360f5329cd0d094327f6395237dc3b2afbf85c34a6d5"
     },
     {
-      "path": "assets/ChapterSelectScreen-hsiIrlcm.js",
+      "path": "assets/ChapterSelectScreen-C_l5bHXZ.js",
       "bytes": 5233,
-      "sha256": "d5d2b35e88278bdae7313f1cf722081e1a9470b9af1e96858520a8ec32346061"
+      "sha256": "9bd5afd4d8bf60041848772173bc496b3736db6e52abf5639f47f62330affb5f"
     },
     {
       "path": "assets/core-mPlcS5K-.js",
@@ -207,19 +207,19 @@
       "sha256": "69eefb38d700ce3d27b8fcd8589e0209db34510a774f50dacec0ec2d0ed4c5dd"
     },
     {
-      "path": "assets/index-B2YSpN3h.css",
-      "bytes": 115862,
-      "sha256": "9f8cc1fecd0917448f3b57c2320b9642f06fa4c2abeb96efac38f531ffccdcf6"
+      "path": "assets/index-63YIHU5X.js",
+      "bytes": 529542,
+      "sha256": "0ae4f3ecf7ebd7b3bddd1d8fab517db0e2634f163000e33c42cbdd05ad6c7c6c"
     },
     {
-      "path": "assets/index-C-fvnwLS.js",
-      "bytes": 526385,
-      "sha256": "7e4fb0f18d422b8b182900f8f7b5f14b29ca651da15c592efe3216fb972e7fb3"
+      "path": "assets/index-YDZoMSzN.css",
+      "bytes": 116790,
+      "sha256": "b6a017b2ca026e1cf8760a284536249301bbd126dd606e4586506d07b0371c82"
     },
     {
-      "path": "assets/LandingPracticeScreen-SuYX33lp.js",
+      "path": "assets/LandingPracticeScreen-00M4CvAO.js",
       "bytes": 4387,
-      "sha256": "9aef4218317d6c0ed98d45fc48f1bcecf21753849de8c4e84d6fc9dc53b484e5"
+      "sha256": "f589b7661c74ac6b4dd2fef18e0a9d9bf18f7dff2fe29f592157c6d30f503017"
     },
     {
       "path": "assets/layers/bastion-fortress-surface-v1.webp",
@@ -277,24 +277,24 @@
       "sha256": "55c27b811365c558dd3163fc708523598cb76a87be0aaf58cbe4eeada34c1ca6"
     },
     {
-      "path": "assets/NorwegianCampaignMap-B7SAicoF.js",
+      "path": "assets/NorwegianCampaignMap-TkrAkvgU.js",
       "bytes": 5933,
-      "sha256": "73b1cb52e4a9b9384eeb46d9c20609e14c71d87d8f3b36283e924a07bd61ec86"
+      "sha256": "1eda619a85d8198d7a544e4699fb2479e3de366588771d603d638fdf3f6fa174"
     },
     {
-      "path": "assets/OperationAfterAction-7QX5At_k.js",
+      "path": "assets/OperationAfterAction-v6vbS6Rq.js",
       "bytes": 3537,
-      "sha256": "4a88440f52a9fddbf151e37ab252626c9da2dbdf715ae015d97324400698909b"
+      "sha256": "509f770a5358c0c156059be1bb64bd0f226ef29755eb16ad91473e5a7483cb38"
     },
     {
-      "path": "assets/OperationDossier-BDSJfIH9.js",
+      "path": "assets/OperationDossier-dibckCS8.js",
       "bytes": 6753,
-      "sha256": "77d8fb5ef8e4cc6d03c4d6e1af074bddd488fbd355b11124f965234a12bd89ef"
+      "sha256": "f3e913bbccbf9cb4eb099e6f3e9a1dec5acdb7a34ab9a1e48f170217713600e0"
     },
     {
-      "path": "assets/OperationsBoard-B94LOG5u.js",
+      "path": "assets/OperationsBoard-BB4b0DLN.js",
       "bytes": 10150,
-      "sha256": "70bf74f31cc192d9a64690154410de8e4eec8ad71894b327a1f43e37b1fbbd3d"
+      "sha256": "83e038b012ccca24ca3b1ed2b99f14e66c15ad3b81c254646b7fc96c94eb3ac9"
     },
     {
       "path": "assets/react-vendor-DDwC_z6H.js",
@@ -514,7 +514,7 @@
     {
       "path": "index.html",
       "bytes": 883,
-      "sha256": "aab0b97126f45fde40ac10df9357a65e7b8566ec9b8c5fd8ca4a6eca8d6247d4"
+      "sha256": "82b22b4fff27df2963d2c46d6e98624e5f9dddfb8634beb8bdbac34462ef5059"
     },
     {
       "path": "legal/AI_CONTENT_DISCLOSURE.txt",

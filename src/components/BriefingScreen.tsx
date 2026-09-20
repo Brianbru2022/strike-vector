@@ -11,6 +11,7 @@ interface BriefingScreenProps {
   guidedTraining?: boolean;
   onGuidedTrainingChange?: (guided: boolean) => void;
   tutorialCompleted?: boolean;
+  trainingModeLocked?: boolean;
 }
 
 const threatStyles: Record<string, string> = {
@@ -19,7 +20,7 @@ const threatStyles: Record<string, string> = {
   MODERATE: 'border-cyan-400/70 bg-cyan-500/20 text-cyan-100',
 };
 
-export const BriefingScreen: React.FC<BriefingScreenProps> = ({ mission, onLaunch, onBack, guidedTraining = false, onGuidedTrainingChange, tutorialCompleted = false }) => {
+export const BriefingScreen: React.FC<BriefingScreenProps> = ({ mission, onLaunch, onBack, guidedTraining = false, onGuidedTrainingChange, tutorialCompleted = false, trainingModeLocked = false }) => {
   const missionNumber = mission.id.match(/^m\d+/i)?.[0].toUpperCase() ?? mission.id.toUpperCase();
   const missionArtwork = missionPresentationArtwork(mission);
 
@@ -144,8 +145,8 @@ export const BriefingScreen: React.FC<BriefingScreenProps> = ({ mission, onLaunc
           {mission.id === 'm1_coastal_strike' && onGuidedTrainingChange ? (
             <div className="flex items-center gap-1 rounded border border-emerald-400/30 bg-emerald-950/30 p-1 text-[9px]">
               <span className="hidden px-2 text-emerald-200 sm:inline">FLIGHT SCHOOL {tutorialCompleted ? 'COMPLETE' : 'AVAILABLE'}</span>
-              <button type="button" onClick={() => onGuidedTrainingChange(true)} className={`rounded px-2 py-1 font-bold ${guidedTraining ? 'bg-emerald-300 text-slate-950' : 'text-zinc-400'}`}>GUIDED</button>
-              <button type="button" onClick={() => onGuidedTrainingChange(false)} className={`rounded px-2 py-1 font-bold ${!guidedTraining ? 'bg-zinc-700 text-white' : 'text-zinc-400'}`}>STANDARD</button>
+              <button type="button" disabled={trainingModeLocked} onClick={() => onGuidedTrainingChange(true)} className={`rounded px-2 py-1 font-bold ${guidedTraining ? 'bg-emerald-300 text-slate-950' : 'text-zinc-400'} disabled:cursor-not-allowed`}>GUIDED</button>
+              {trainingModeLocked ? <span className="px-2 font-bold text-amber-200">TEST LOCKED</span> : <button type="button" onClick={() => onGuidedTrainingChange(false)} className={`rounded px-2 py-1 font-bold ${!guidedTraining ? 'bg-zinc-700 text-white' : 'text-zinc-400'}`}>STANDARD</button>}
             </div>
           ) : <div className="hidden items-center gap-2 text-[9px] tracking-widest text-emerald-400/60 uppercase sm:flex"><Radio className="h-3 w-3" /> Package ready · launch authority confirmed</div>}
           <button onClick={handleLaunch} className="flex cursor-pointer items-center gap-2 rounded bg-cyan-400 px-7 py-3 font-display text-sm font-black tracking-wider text-zinc-950 shadow-[0_0_28px_rgba(34,211,238,.22)] transition hover:bg-cyan-300 hover:shadow-[0_0_36px_rgba(34,211,238,.34)]"><Play className="h-4 w-4 fill-zinc-950" /> SCRAMBLE LAUNCH</button>

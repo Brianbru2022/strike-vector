@@ -27,12 +27,14 @@ describe('save archive', () => {
     const storage = populatedStorage();
     storage.setItem('STRIKE_VECTOR_DIAGNOSTICS_V3', '[{"private":"not exported"}]');
     storage.setItem('STRIKE_VECTOR_PLAYTEST_EVIDENCE_V1', '[{"internal":true}]');
+    storage.setItem('IRON_KESTREL_CONTROL_CONCEPT_PLAYTEST_V1', '[{"humanEvidence":true}]');
     const json = exportSaveArchiveJson(createSaveArchive(storage as unknown as Storage, '2026-08-30T18:00:00.000Z'));
     const result = parseSaveArchiveJson(json);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.preview).toMatchObject({ completedMissions: 1, operationRecords: 0, showcaseMissions: 1, bestScore: 4200 });
     expect(json).not.toContain('STRIKE_VECTOR_DIAGNOSTICS');
     expect(json).not.toContain('PLAYTEST_EVIDENCE');
+    expect(json).not.toContain('CONTROL_CONCEPT');
     expect(json).not.toContain('not exported');
   });
 

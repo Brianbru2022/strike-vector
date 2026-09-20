@@ -13,6 +13,7 @@ interface MainMenuProps {
   onOpenHowToPlay: () => void;
   onOpenOptions: () => void;
   onOpenValidation?: () => void;
+  onOpenControlConceptTest?: () => void;
   onOpenAuthoring?: () => void;
   highScore: number;
   sortieUnlocked: boolean;
@@ -29,6 +30,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({
   onOpenHowToPlay,
   onOpenOptions,
   onOpenValidation,
+  onOpenControlConceptTest,
   onOpenAuthoring,
   highScore,
   sortieUnlocked,
@@ -171,6 +173,17 @@ export const MainMenu: React.FC<MainMenuProps> = ({
               className="w-full py-2.5 px-6 rounded-lg bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-700/60 text-cyan-300 font-bold text-xs tracking-wider flex items-center justify-center gap-2 transition cursor-pointer"
             >
               <ClipboardCheck className="w-3.5 h-3.5" /> VALIDATION RUNS
+            </button>
+          ) : null}
+          {INTERNAL_TOOLS_COMPILED && onOpenControlConceptTest ? (
+            <button
+              onClick={() => {
+                soundEngine.playUIClick();
+                onOpenControlConceptTest();
+              }}
+              className="w-full py-2.5 px-6 rounded-lg bg-amber-950/40 hover:bg-amber-900/50 border border-amber-700/60 text-amber-300 font-bold text-xs tracking-wider flex items-center justify-center gap-2 transition cursor-pointer"
+            >
+              <ClipboardCheck className="w-3.5 h-3.5" /> EARLY CONTROL TEST
             </button>
           ) : null}
           {INTERNAL_TOOLS_COMPILED && onOpenAuthoring ? (

@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-02T14:04:09.844Z",
-  "buildId": "IK87-1.2.0-DEV1-20260831-TURN2",
+  "generatedAt": "2026-09-20T17:33:13.306Z",
+  "buildId": "IK87-1.2.0-DEV1-20260920-CONTROL1",
   "defectCount": 7,
   "issues": [
-    "Defect register belongs to IK87-1.2.0-DEV1-20260830, not IK87-1.2.0-DEV1-20260831-TURN2.",
+    "Defect register belongs to IK87-1.2.0-DEV1-20260830, not IK87-1.2.0-DEV1-20260920-CONTROL1.",
     "IK87-S1-004 Twenty-one human validation runs are pending: HUMAN_VALIDATION_REQUIRED."
   ],
   "passed": false
