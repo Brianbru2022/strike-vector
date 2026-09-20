@@ -10,6 +10,8 @@ Run `pnpm external-beta:prepare`. This checks the current source, deterministic 
 
 The upload archive is `release-artifacts/itch-1.2.0-dev.1/iron-kestrel-87-itch-beta.zip`. Its `index.html` is at the archive root. The itch target uses relative URLs, runs under an arbitrary nested path and does not register a service worker inside the host iframe. The normal PWA and Tauri builds are unchanged.
 
+`pnpm itch:gate` now treats the ZIP as the product under test. It rejects unsafe archive paths, absolute application URLs, service-worker or web-manifest files, missing asset classes and any mismatch between the audited build and packaged file inventory. It then extracts that exact ZIP into a clean staging directory. The browser certification serves the extracted package at `/games/iron-kestrel/`, both directly and inside an itch-style iframe; downloads every packaged file; confirms image and audio delivery; exercises lazy chunks, save/reload and the Mission 1-to-2 campaign transition; and fails on request, HTTP, console or page errors.
+
 Set `VITE_BETA_FEEDBACK_URL` to the HTTPS tester form or support page before the final itch build. The value is a public URL, never a secret. The beta keeps a small local event record and offers an explicit **Export Beta Play Record** download; it never transmits play data automatically.
 
 Run `pnpm external-beta:audit` to see automated readiness without pretending that human work is complete. Run `pnpm external-beta:gate` only when the current-build evidence in `config/external-beta-approval.json` has been completed. The strict upload command must remain blocked until the five-player test, physical input smoke, readability/audio checks and feedback route are genuine.

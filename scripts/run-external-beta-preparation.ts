@@ -17,8 +17,8 @@ const steps = [
   ['balance-simulation', 'pnpm', ['balance:certify']],
   ['itch-relative-build', 'pnpm', ['itch:build']],
   ['itch-build-audit', 'pnpm', ['itch:audit']],
-  ['itch-browser-suite', 'pnpm', ['itch:test:e2e']],
   ['itch-package', 'pnpm', ['itch:package']],
+  ['itch-browser-suite-from-package', 'pnpm', ['itch:test:e2e']],
 ] as const;
 
 const results: Array<{ name: string; status: 'PASS' | 'FAIL'; exitCode: number }> = [];

@@ -2,7 +2,7 @@
 
 A painted 2D, side-scrolling VTOL action-simulation set during an alternative 1987 NATO–Warsaw Pact conflict. Fly a Sea Harrier FRS.1 through a sixteen-mission North Atlantic and Norwegian Sea campaign.
 
-Current development build: **1.2 DEV1** (`IK87-1.2.0-DEV1-20260920-GATES1`). The certified 1.0 RC1 campaign baseline remains frozen while beta-readiness work validates the existing game with real players and prepares an isolated itch.io browser build. See `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
+Current development build: **1.2 DEV1** (`IK87-1.2.0-DEV1-20260920-ITCH1`). The certified 1.0 RC1 campaign baseline remains frozen while beta-readiness work validates the existing game with real players and prepares an isolated itch.io browser build. See `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
 
 ## Production vertical slice
 

@@ -2,8 +2,8 @@ import express from 'express';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const root = resolve('dist-itch');
-if (!existsSync(resolve(root, 'index.html'))) throw new Error('dist-itch/index.html is missing; run pnpm itch:build first.');
+const root = resolve('.dist-itch-host');
+if (!existsSync(resolve(root, 'index.html'))) throw new Error('.dist-itch-host/index.html is missing; run pnpm itch:package first.');
 
 const app = express();
 const mount = '/games/iron-kestrel';

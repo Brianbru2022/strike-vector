@@ -48,7 +48,7 @@ Attach **Export Beta Play Record** or **Export Issue Report** only if you are co
 ## Current known limitations
 
 - Browser progress is local to the current site and browser profile.
-- The itch iframe build deliberately does not install a service worker; availability depends on itch.io hosting after the first session.
+- The itch iframe build deliberately does not install a service worker. This avoids cache and scope conflicts inside itch.io; the separate normal web build retains its installable offline PWA behaviour.
 - Optional browser-generated radio speech varies by browser and operating system; captions are authoritative.
 - This beta is not the signed Windows commercial edition and makes no Steam, achievement or cloud-save claim.
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T11:54:39.422Z",
-  "buildId": "IK87-1.2.0-DEV1-20260920-GATES1",
+  "generatedAt": "2026-09-20T17:01:58.852Z",
+  "buildId": "IK87-1.2.0-DEV1-20260920-ITCH1",
   "releaseVersion": "1.2.0-dev.1",
   "status": "PREPARED",
   "completedSteps": 15,
@@ -73,12 +73,12 @@
       "exitCode": 0
     },
     {
-      "name": "itch-browser-suite",
+      "name": "itch-package",
       "status": "PASS",
       "exitCode": 0
     },
     {
-      "name": "itch-package",
+      "name": "itch-browser-suite-from-package",
       "status": "PASS",
       "exitCode": 0
     }

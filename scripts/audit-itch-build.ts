@@ -19,6 +19,9 @@ if (!existsSync(indexPath)) issues.push('index.html is missing from the itch ZIP
 
 const outputFiles = walk(root).filter((file) => relative(root, file).replaceAll('\\', '/') !== 'itch-build-manifest.json');
 const relativeFiles = outputFiles.map((file) => relative(root, file).replaceAll('\\', '/')).sort();
+for (const name of relativeFiles) {
+  if (name.startsWith('/') || name.includes('\\') || name.split('/').includes('..')) issues.push(`${name} is not a safe archive-relative path.`);
+}
 for (const forbidden of ['sw.js', 'registerSW.js', 'manifest.webmanifest']) {
   if (relativeFiles.some((file) => file === forbidden || file.endsWith(`/${forbidden}`))) {
     issues.push(`${forbidden} must not ship in the iframe-targeted itch build.`);
@@ -36,6 +39,20 @@ for (const file of textFiles) {
     issues.push(`${name} contains an internal-only tool marker.`);
   }
 }
+const indexHtml = readFileSync(indexPath, 'utf8');
+for (const match of indexHtml.matchAll(/(?:src|href)=["']([^"']+)["']/gi)) {
+  const url = match[1];
+  if (!/^(?:https?:|data:|#)/i.test(url) && !url.startsWith('./')) issues.push(`index.html reference is not explicitly relative: ${url}`);
+}
+
+const assetClasses = {
+  images: relativeFiles.filter((file) => /\.(?:png|jpe?g|webp)$/i.test(file)).length,
+  audio: relativeFiles.filter((file) => /\.wav$/i.test(file)).length,
+  scripts: relativeFiles.filter((file) => /\.js$/i.test(file)).length,
+};
+if (assetClasses.images === 0) issues.push('The itch build contains no packaged image assets.');
+if (assetClasses.audio === 0) issues.push('The itch build contains no packaged audio assets.');
+if (assetClasses.scripts < 2) issues.push('The itch build is missing expected JavaScript chunks.');
 let configuredFeedbackUrl: string | null = null;
 try {
   const approval = JSON.parse(readFileSync(resolve('config/external-beta-approval.json'), 'utf8')) as { feedbackRoute?: { url?: unknown } };
@@ -65,6 +82,7 @@ const manifest = {
   fingerprint,
   configuredFeedbackUrl,
   feedbackUrlEmbedded,
+  assetClasses,
   files: entries,
 };
 writeFileSync(join(root, 'itch-build-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);

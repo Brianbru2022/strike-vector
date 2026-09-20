@@ -27,7 +27,7 @@
     "itch:audit": "tsx scripts/audit-itch-build.ts",
     "itch:test:e2e": "playwright test --config playwright.itch.config.ts",
     "itch:package": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-itch.ps1",
-    "itch:gate": "pnpm itch:build && pnpm itch:audit && pnpm itch:test:e2e && pnpm itch:package",
+    "itch:gate": "pnpm itch:build && pnpm itch:audit && pnpm itch:package && pnpm itch:test:e2e",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "clean": "rimraf dist",

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-20T11:54:58.472Z",
-  "buildId": "IK87-1.2.0-DEV1-20260920-GATES1",
+  "generatedAt": "2026-09-20T16:55:20.701Z",
+  "buildId": "IK87-1.2.0-DEV1-20260920-ITCH1",
   "passed": true,
-  "totalBytes": 15349585,
+  "totalBytes": 15349583,
   "budgetBytes": 15728640,
   "assetBytes": 14459273,
   "assetCount": 43,
