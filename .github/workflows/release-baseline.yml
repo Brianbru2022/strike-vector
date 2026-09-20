@@ -43,6 +43,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install chromium
+      - run: pnpm browser:contracts:audit
       - run: pnpm test:e2e:consumer
 
   windows-desktop:

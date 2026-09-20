@@ -224,6 +224,8 @@ test('keeps simultaneous mobile touch actions independent and inside safe areas'
 
   const controls = page.getByLabel('Right-handed touch flight controls');
   await expect(controls).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Turn / Fly Left' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Turn / Fly Right' })).toBeVisible();
   const actions = [
     ['Climb / Pitch Up', 11],
     ['Turn / Fly Right', 12],
@@ -412,7 +414,7 @@ test('unlocks deterministic Norwegian Sea operations after Mission 16', async ({
 });
 
 test('preserves the 16:9 stage on an ultra-wide display', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'desktop');
+  test.skip(testInfo.project.name !== 'desktop', 'The ultra-wide geometry check runs once in the desktop browser project.');
   await page.setViewportSize({ width: 2200, height: 700 });
   await page.goto('/');
 
