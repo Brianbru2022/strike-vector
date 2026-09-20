@@ -1,6 +1,6 @@
 # Milestone 11 Validation Readiness
 
-Build: **release-m11-2026.08.30**
+Build: **IK87-1.2.0-DEV1-20260902-BETA-PREP2**
 Tooling: **READY**
 Human sign-off: **PENDING**
 

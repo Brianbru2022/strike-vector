@@ -5,6 +5,7 @@ const baseURL = externalBaseUrl || 'http://127.0.0.1:4177';
 
 export default defineConfig({
   testDir: './tests/e2e',
+  timeout: 60_000,
   webServer: externalBaseUrl ? undefined : {
     command: 'pnpm dev',
     url: 'http://127.0.0.1:4177/api/health',

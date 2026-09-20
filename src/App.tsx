@@ -28,12 +28,13 @@ import { DEFAULT_INPUT_BINDINGS } from './game/inputBindings';
 import { appendPlaytestEvidence, clearPlaytestEvidence, loadPlaytestEvidence, VALIDATION_BUILD_ID, VALIDATION_REMAPPED_BINDINGS } from './game/Validation';
 import { appendCampaignValidationEvidence, CAMPAIGN_VALIDATION_BUILD_ID, CampaignValidationEvidenceV1, clearCampaignValidationEvidence, loadCampaignValidationEvidence } from './game/CampaignValidation';
 import { createLandingPracticeMission, LANDING_PRACTICES, LandingPracticeConfig } from './game/LandingPractice';
-import { DEMO_BUILD, INTERNAL_TOOLS_COMPILED, RELEASE_FEATURES } from './game/ReleaseFeatures';
+import { DEMO_BUILD, INTERNAL_TOOLS_COMPILED, ITCH_BUILD, RELEASE_FEATURES } from './game/ReleaseFeatures';
 import { hashSeed } from './game/SeededRandom';
 import { flushPlatformStorage, onPlatformLifecycleEvent } from './game/PlatformRuntime';
 import { useControllerNavigation } from './game/useControllerNavigation';
 import { GamepadInputState } from './game/GamepadInputState';
 import { createDemoProgress, DEMO_MANIFEST, exportDemoTransfer, loadDemoProgress, persistDemoProgress, recordDemoVictory } from './game/Demo';
+import { recordBetaEvent } from './game/BetaEvidence';
 
 const EXPERIENCE_MANIFEST = DEMO_BUILD ? DEMO_MANIFEST : SHOWCASE_MANIFEST;
 
@@ -116,6 +117,10 @@ export default function App() {
   }, [campaign]);
 
   useEffect(() => {
+    if (ITCH_BUILD) recordBetaEvent('SESSION_STARTED');
+  }, []);
+
+  useEffect(() => {
     activeOperationRef.current = activeOperation;
   }, [activeOperation]);
 
@@ -191,6 +196,12 @@ export default function App() {
           return;
         }
         setGameState(newState);
+        if (ITCH_BUILD) recordBetaEvent('SORTIE_ENDED', {
+          missionId: engine.currentMission.id,
+          difficulty: campaignRef.current.difficulty,
+          result: finalScore.isVictory ? 'VICTORY' : 'FAILURE',
+          simulationTicks: engine.getDiagnosticSession(finalScore.isVictory ? 'VICTORY' : 'FAILURE').simulationTicks,
+        });
         const operation = activeOperationRef.current;
         const operationSortie = operation?.blueprint.sorties[operation.currentSortieIndex];
         if (RELEASE_FEATURES.diagnostics && campaignRef.current.diagnosticsEnabled) {
@@ -580,6 +591,10 @@ export default function App() {
     );
     engineRef.current.setAccessibility(validation?.accessibility ?? effectiveAccessibility);
     engineRef.current.player.launchFromCarrier(currentMission.launchSite);
+    if (ITCH_BUILD && !validation) recordBetaEvent('MISSION_STARTED', {
+      missionId: currentMission.id,
+      difficulty: isOperationMission ? operation!.blueprint.difficulty : campaign.difficulty,
+    });
     setValidationRunResult(null);
     setGameState('PLAYING');
   };
@@ -627,6 +642,7 @@ export default function App() {
   };
 
   const handleNextMission = () => {
+    if (ITCH_BUILD) recordBetaEvent('CONTINUE_REQUESTED', { missionId: currentMission.id, difficulty: campaign.difficulty });
     if (showcasePositionRef.current !== null && scoreData?.isVictory) {
       const nextPosition = showcasePositionRef.current + 1;
       if (nextPosition >= EXPERIENCE_MANIFEST.entries.length) {
@@ -1019,6 +1035,7 @@ export default function App() {
                     if (validationScenarioRef.current) validationRetriesRef.current++;
                     const operation = activeOperationRef.current;
                     if (operation && currentMission.id.startsWith(`op_${operation.blueprint.seed}_`)) setAndPersistOperation(incrementOperationRetry(operation));
+                    if (ITCH_BUILD) recordBetaEvent('RETRY_REQUESTED', { missionId: currentMission.id, difficulty: campaign.difficulty });
                     launchSortie();
                   }}
                   className="w-full py-2 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
@@ -1077,7 +1094,10 @@ export default function App() {
             mission={engineRef.current?.currentMission || currentMission}
             restartGuidance={engineRef.current?.getPhaseRestartGuidance()}
             onNextMission={handleNextMission}
-            onRetry={launchSortie}
+            onRetry={() => {
+              if (ITCH_BUILD) recordBetaEvent('RETRY_REQUESTED', { missionId: currentMission.id, difficulty: campaign.difficulty });
+              launchSortie();
+            }}
             onMenu={() => setGameState(showcasePositionRef.current !== null ? 'SHOWCASE_SELECT' : activeOperation && currentMission.id.startsWith(`op_${activeOperation.blueprint.seed}_`) ? 'OPERATIONS_BOARD' : 'MENU')}
           />
         )}

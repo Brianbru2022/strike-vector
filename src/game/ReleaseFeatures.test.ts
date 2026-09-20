@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { deriveReleaseFeatureAccess, isLocalDeveloperHost } from './ReleaseFeatures';
+import { deriveReleaseFeatureAccess, isLocalDeveloperHost, normaliseBetaFeedbackUrl } from './ReleaseFeatures';
 
 describe('release feature access', () => {
   it('keeps every internal surface out of a consumer build', () => {
@@ -26,5 +26,11 @@ describe('release feature access', () => {
     expect(deriveReleaseFeatureAccess({ development: true, internalToolsBuild: true, demoBuild: true, hostname: '127.0.0.1', search: '?playtest=1&authoring=1' })).toEqual({
       internalToolsCompiled: false, localDeveloperHost: true, diagnostics: false, validation: false, authoring: false,
     });
+  });
+
+  it('accepts only explicit web feedback destinations', () => {
+    expect(normaliseBetaFeedbackUrl('https://example.test/iron-kestrel-feedback')).toBe('https://example.test/iron-kestrel-feedback');
+    expect(normaliseBetaFeedbackUrl('javascript:alert(1)')).toBeNull();
+    expect(normaliseBetaFeedbackUrl('')).toBeNull();
   });
 });

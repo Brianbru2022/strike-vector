@@ -1,10 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-31T22:20:09.640Z",
-  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "generatedAt": "2026-09-20T10:43:52.475Z",
+  "buildId": "IK87-1.2.0-DEV1-20260902-BETA-PREP2",
   "mode": "PREPARATION_AUDIT",
-  "status": "PREPARED",
-  "blockers": [],
+  "status": "BLOCKED",
+  "blockers": [
+    "Store capsules belong to IK87-1.2.0-DEV1-20260831-REL10, not IK87-1.2.0-DEV1-20260902-BETA-PREP2.",
+    "Gameplay media does not belong to IK87-1.2.0-DEV1-20260902-BETA-PREP2.",
+    "Storefront claims belong to IK87-1.2.0-DEV1-20260831-REL10, not IK87-1.2.0-DEV1-20260902-BETA-PREP2.",
+    "Commercial approval record belongs to IK87-1.2.0-DEV1-20260831-REL10, not IK87-1.2.0-DEV1-20260902-BETA-PREP2."
+  ],
   "pendingExternalApprovals": [
     "Publisher legal name has not been supplied.",
     "Public support address has not been supplied.",
@@ -16,7 +21,7 @@
     "Steam store presence has not been approved.",
     "Near-final Steam product build has not been approved.",
     "Coming Soon publication date has not been recorded.",
-    "70 AI-assisted runtime assets still require final human/legal similarity review."
+    "71 AI-assisted runtime assets still require final human/legal similarity review."
   ],
   "warnings": [
     "26 permissive packages lack a bundled upstream text; see THIRD_PARTY_LICENCE_REVIEW.md.",

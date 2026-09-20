@@ -38,4 +38,4 @@ pnpm demo:gate
 
 The gate performs TypeScript checking, the complete deterministic unit suite, a fresh demo asset/build pass, the size/content audit and desktop/mobile browser tests. Browser tests verify both routes, storage isolation, absent development tools, local start time, the restrained Windows-edition hand-off and offline replay of both the interface and authored audio.
 
-Current certification build: `IK87-1.2.0-DEV1-20260831-REL10`. The machine-readable result is written to `reports/stage8/demo-audit.json`.
+Last Stage 8 certification build: `IK87-1.2.0-DEV1-20260831-REL10`. The machine-readable historical result is written to `reports/stage8/demo-audit.json`; a fresh build-bound run is required to certify the current development baseline.

@@ -2,22 +2,38 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import {VitePWA} from 'vite-plugin-pwa';
 import path from 'path';
+import { existsSync, rmSync } from 'node:fs';
 import {defineConfig} from 'vite';
 
 export default defineConfig(({mode}) => {
   const desktop = mode === 'desktop';
   const demo = mode === 'demo';
+  const itch = mode === 'itch';
   return {
+    base: itch ? './' : '/',
     publicDir: demo ? '.demo-public' : 'public',
     define: {
       'import.meta.env.VITE_INTERNAL_TOOLS': JSON.stringify(mode === 'internal' ? '1' : '0'),
       'import.meta.env.VITE_DESKTOP': JSON.stringify(desktop ? '1' : '0'),
       'import.meta.env.VITE_DEMO': JSON.stringify(demo ? '1' : '0'),
+      'import.meta.env.VITE_ITCH': JSON.stringify(itch ? '1' : '0'),
     },
     plugins: [
       react(),
       tailwindcss(),
-      ...(!desktop ? [VitePWA({
+      ...(itch ? [{
+        name: 'iron-kestrel-itch-relative-public-paths',
+        enforce: 'pre' as const,
+        transform(code: string, id: string) {
+          if (!id.includes('/src/') && !id.includes('\\src\\')) return null;
+          return code.replace(/([\"'`])\/(assets|legal)\//g, '$1./$2/');
+        },
+        closeBundle() {
+          const demoOnlyPage = path.resolve(__dirname, 'dist-itch/demo-commercial-edition.html');
+          if (existsSync(demoOnlyPage)) rmSync(demoOnlyPage);
+        },
+      }] : []),
+      ...(!desktop && !itch ? [VitePWA({
         registerType: 'autoUpdate',
         manifest: {
           name: demo ? "Iron Kestrel '87 Demo" : "Iron Kestrel '87: North Atlantic Air War",
@@ -53,7 +69,7 @@ export default defineConfig(({mode}) => {
       },
     },
     build: {
-      outDir: demo ? 'dist-demo' : 'dist',
+      outDir: demo ? 'dist-demo' : itch ? 'dist-itch' : 'dist',
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -68,6 +84,9 @@ export default defineConfig(({mode}) => {
       host: '127.0.0.1',
       port: desktop ? 1420 : 5173,
       strictPort: desktop,
+      warmup: {
+        clientFiles: ['./src/**/*.{ts,tsx}'],
+      },
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Use a project-specific port so parallel local Vite apps cannot steal the update channel.
       hmr: process.env.DISABLE_HMR !== 'true' ? { port: 24679 } : false,

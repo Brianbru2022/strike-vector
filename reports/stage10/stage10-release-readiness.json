@@ -1,10 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-31T22:25:12.540Z",
-  "buildId": "IK87-1.2.0-DEV1-20260831-REL10",
+  "generatedAt": "2026-09-20T10:43:53.195Z",
+  "buildId": "IK87-1.2.0-DEV1-20260902-BETA-PREP2",
   "mode": "PREPARATION_AUDIT",
-  "status": "PREPARED",
-  "localBlockers": [],
+  "status": "BLOCKED",
+  "localBlockers": [
+    "Current-build immutable candidate manifest is missing.",
+    "Windows release manifest references a stale build.",
+    "Stage 10 approval record references another build.",
+    "Stage 10 defect register references another build."
+  ],
   "pendingCertification": [
     "Windows release artefacts are not code-signed.",
     "Signed commercial Windows build is pending.",
@@ -32,5 +37,10 @@
     "S10-010: Stage 7 paid-game balance matrix is pending.",
     "S10-011: Title, legal and conditional AI-asset approval is pending."
   ],
-  "blockers": []
+  "blockers": [
+    "Current-build immutable candidate manifest is missing.",
+    "Windows release manifest references a stale build.",
+    "Stage 10 approval record references another build.",
+    "Stage 10 defect register references another build."
+  ]
 }

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260920-BASELINE1",
+  "fivePlayerInternalTest": {
+    "status": "PENDING_HUMAN",
+    "evidence": "config/internal-beta-playtest.json"
+  },
+  "physicalSmoke": {
+    "keyboard": "PENDING_HUMAN",
+    "xboxController": "PENDING_HUMAN",
+    "touchDevice": "PENDING_HUMAN"
+  },
+  "readabilityReview": {
+    "status": "PENDING_HUMAN",
+    "evidence": null
+  },
+  "audioSmoke": {
+    "status": "PENDING_HUMAN",
+    "evidence": null
+  },
+  "feedbackRoute": {
+    "status": "PENDING",
+    "url": null
+  },
+  "hostedItchSmoke": {
+    "status": "PENDING_EXTERNAL",
+    "url": null
+  }
+}

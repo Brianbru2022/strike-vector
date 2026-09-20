@@ -34,11 +34,21 @@ export function deriveReleaseFeatureAccess(input: ReleaseFeatureInput): ReleaseF
   };
 }
 
-type BuildImportMeta = ImportMeta & { env?: { DEV?: boolean; VITE_INTERNAL_TOOLS?: string; VITE_DEMO?: string } };
+export function normaliseBetaFeedbackUrl(value: unknown): string | null {
+  if (typeof value !== 'string' || !value.trim()) return null;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'https:' || url.protocol === 'http:' ? url.toString() : null;
+  } catch { return null; }
+}
+
+type BuildImportMeta = ImportMeta & { env?: { DEV?: boolean; VITE_INTERNAL_TOOLS?: string; VITE_DEMO?: string; VITE_ITCH?: string; VITE_BETA_FEEDBACK_URL?: string } };
 const buildEnvironment = (import.meta as BuildImportMeta).env;
 const developmentBuild = buildEnvironment?.DEV === true;
 const internalToolsBuild = buildEnvironment?.VITE_INTERNAL_TOOLS === '1';
 export const DEMO_BUILD = buildEnvironment?.VITE_DEMO === '1';
+export const ITCH_BUILD = buildEnvironment?.VITE_ITCH === '1';
+export const BETA_FEEDBACK_URL = normaliseBetaFeedbackUrl(buildEnvironment?.VITE_BETA_FEEDBACK_URL);
 
 export const INTERNAL_TOOLS_COMPILED = !DEMO_BUILD && (developmentBuild || internalToolsBuild);
 

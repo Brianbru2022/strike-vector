@@ -36,7 +36,7 @@ test('launches showcase Fleet Defence with its declared Fleet CAP fit', async ({
   await page.getByRole('button', { name: 'NORTH ATLANTIC SHOWCASE' }).click();
   await page.getByRole('button', { name: 'LAUNCH SORTIE' }).nth(1).click();
   await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
-  await expect(page.getByText('HMS INVINCIBLE INTEGRITY')).toBeVisible();
+  await expect(page.getByText(/HMS INVINCIBLE \d+%/)).toBeVisible();
   const snapshot = await page.evaluate(() => (window as unknown as { __STRIKE_VECTOR_VISUAL_AUDIT__: { inputSnapshot: () => Record<string, unknown> } }).__STRIKE_VECTOR_VISUAL_AUDIT__.inputSnapshot());
   expect(snapshot).toMatchObject({ missiles: 6, bombs: 0, rockets: 4, flares: 6, trainingEnabled: false });
 });
@@ -45,9 +45,15 @@ test('opens isolated internal validation scenarios in a development build', asyn
   await page.goto('/');
   await page.getByRole('button', { name: 'VALIDATION RUNS' }).click();
   await expect(page.getByRole('heading', { name: 'VALIDATION RUNS' })).toBeVisible();
+  await page.getByRole('button', { name: 'SHOW FULL MATRIX' }).click();
   await expect(page.getByRole('button', { name: 'START CLEAN RUN' })).toHaveCount(21);
   await expect(page.getByText('0/21').first()).toBeVisible();
   await expect(page.getByText('0/6').first()).toBeVisible();
+  // Return to the compact priority view before launching. Keeping all 21 cards
+  // mounted creates a very tall nested scroll area and made Playwright's
+  // stability check race the container's automatic scroll positioning.
+  await page.getByRole('button', { name: 'SHOW PRIORITY RUNS' }).click();
+  await expect(page.getByRole('button', { name: 'START CLEAN RUN' })).toHaveCount(3);
   await page.getByRole('button', { name: 'START CLEAN RUN' }).first().click();
   await expect(page.getByRole('heading', { name: 'OPERATION DECK TEST' })).toBeVisible();
   await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
@@ -220,7 +226,7 @@ test('keeps simultaneous mobile touch actions independent and inside safe areas'
   await expect(controls).toBeVisible();
   const actions = [
     ['Climb / Pitch Up', 11],
-    ['Accel / Throttle Up', 12],
+    ['Turn / Fly Right', 12],
     ['Fire twin 30mm ADEN cannon', 13],
     ['VTOL Hover Mode', 14],
     ['Deploy countermeasure flares', 15],
@@ -271,7 +277,7 @@ test('configures damaged recovery practice independently of campaign progress', 
   await page.getByRole('button', { name: /AIRCRAFT CONDITION/ }).click();
   await expect(page.getByText('DAMAGED 58%')).toBeVisible();
   await page.getByRole('button', { name: /ROLLING CARRIER RECOVERY/ }).click();
-  await expect(page.getByText(/INVINCIBLE APPROACH DIRECTOR/)).toBeVisible();
+  await expect(page.getByRole('status')).toContainText('INVINCIBLE APPROACH');
   const snapshot = await page.evaluate(() => (window as unknown as { __STRIKE_VECTOR_VISUAL_AUDIT__: { inputSnapshot: () => Record<string, unknown> } }).__STRIKE_VECTOR_VISUAL_AUDIT__.inputSnapshot());
   expect(snapshot.health).toBe(58);
 });

@@ -1,6 +1,6 @@
 # Stage 9 commercial, legal and storefront preparation
 
-Current preparation build: `IK87-1.2.0-DEV1-20260831-REL10`. All generated capsule and gameplay-media manifests are build-bound and checksum-verified; evidence from an earlier build cannot certify this candidate.
+Last prepared Stage 9 evidence build: `IK87-1.2.0-DEV1-20260831-REL10`. Its generated capsule and gameplay-media manifests remain build-bound and checksum-verified historical evidence; they do not certify the current development baseline.
 
 ## What is prepared locally
 

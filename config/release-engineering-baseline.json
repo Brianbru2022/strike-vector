@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260920-BASELINE1",
+  "branch": "release/1.2-baseline",
+  "channel": "DEVELOPMENT",
+  "createdAt": "2026-09-20",
+  "automatedGates": [
+    "type-check",
+    "unit-and-deterministic-tests",
+    "authoritative-simulation-audit",
+    "consumer-branding-audit",
+    "balance-certification",
+    "dynamic-operations-certification",
+    "mission-authoring-certification",
+    "production-and-pwa-build",
+    "consumer-build-audit",
+    "offline-cache-verification",
+    "audio-production-manifest-audit",
+    "consumer-browser-suite",
+    "windows-desktop-check",
+    "browser-demo-gate",
+    "itch-browser-package-gate"
+  ],
+  "buildBoundRecords": [
+    "config/external-beta-approval.json",
+    "config/internal-beta-playtest.json",
+    "config/commercial-approval.json",
+    "config/stage10-release-approval.json",
+    "config/stage10-release-defects.json"
+  ],
+  "excludedHistoricalEvidence": [
+    "reports",
+    "docs/release-archive",
+    "legacy visual and balance manifests"
+  ],
+  "commercialStatus": "NOT_CERTIFIED",
+  "humanAndExternalGates": "PENDING"
+}

@@ -5,7 +5,7 @@ import { CampaignSave, CombatZoomPreset, DifficultyPreset, HudScalePreset, Input
 import { ControlBindingsPanel } from './ControlBindingsPanel';
 import { OfflineStatusPanel } from './OfflineStatusPanel';
 import { SupportPanel } from './SupportPanel';
-import { DEMO_BUILD, INTERNAL_TOOLS_COMPILED, RELEASE_FEATURES } from '../game/ReleaseFeatures';
+import { DEMO_BUILD, INTERNAL_TOOLS_COMPILED, ITCH_BUILD, RELEASE_FEATURES } from '../game/ReleaseFeatures';
 import { SaveManagementPanel } from './SaveManagementPanel';
 import { getPlatformKind, isPlatformFullscreen, setPlatformFullscreen } from '../game/PlatformRuntime';
 import { DemoTransferImportPanel } from './DemoTransferImportPanel';
@@ -269,7 +269,7 @@ export const OptionsMenu: React.FC<OptionsMenuProps> = ({
           {getPlatformKind() === 'WINDOWS_DESKTOP' ? <section className="rounded-lg border border-cyan-800/50 bg-cyan-950/10 p-3">
             <div className="flex items-center justify-between gap-3"><div><div className="font-bold text-cyan-300">WINDOWS DISPLAY</div><div className="text-[9px] text-zinc-500">Uses the native application window; progress is mirrored to a backed-up desktop save.</div></div><button type="button" onClick={() => { const next = !fullscreen; void setPlatformFullscreen(next).then(() => setFullscreen(next)); }} className="rounded border border-cyan-500/50 px-3 py-1 text-cyan-300">{fullscreen ? 'WINDOWED' : 'FULL SCREEN'}</button></div>
           </section> : null}
-          <OfflineStatusPanel performance={performance} onPreserveLocalState={onPreserveLocalState} />
+          {!ITCH_BUILD ? <OfflineStatusPanel performance={performance} onPreserveLocalState={onPreserveLocalState} /> : null}
 
           {/* CRT Arcade Scanline Toggle */}
           <div className="flex items-center justify-between p-3 bg-zinc-950 rounded-lg border border-zinc-800">

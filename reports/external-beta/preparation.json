@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-20T11:42:27.744Z",
+  "buildId": "IK87-1.2.0-DEV1-20260920-BASELINE1",
+  "releaseVersion": "1.2.0-dev.1",
+  "status": "PREPARED",
+  "completedSteps": 15,
+  "requiredSteps": 15,
+  "results": [
+    {
+      "name": "lint",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "unit-and-deterministic-tests",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "authoritative-simulation-audit",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "production-build",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "consumer-build-audit",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "offline-pwa-audit",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "consumer-browser-suite",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "desktop-source-check",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "dynamic-operations-certification",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "mission-authoring-certification",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "balance-simulation",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "itch-relative-build",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "itch-build-audit",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "itch-browser-suite",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "itch-package",
+      "status": "PASS",
+      "exitCode": 0
+    }
+  ]
+}

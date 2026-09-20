@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "title": "Iron Kestrel '87 music and sound-effects production manifest",
+  "sourceStandard": "48 kHz, 24-bit WAV master; retain uncompressed source and generation record",
+  "globalRestrictions": "Original material only. No copyrighted melody, recognisable franchise motif, brand sound, artist imitation, spoken words, clipping, mastering limiter pumping or baked-in reverb tail that prevents editing.",
+  "music": [
+    {
+      "id": "music_title_command",
+      "durationSeconds": 96,
+      "loop": true,
+      "use": "Title and main menu",
+      "prompt": "Original instrumental title theme for a painted 1987 North Atlantic VTOL combat game. Restrained analogue synthesiser pulse, low orchestral strings, distant military snare, cold metallic percussion and a memorable four-note heroic motif. Tense and purposeful rather than triumphant, 104 BPM, F minor, wide stereo, strong opening identity, seamless 96-second loop, leave space for interface sounds. No vocals, no modern trailer braams, no copyrighted or recognisable melody."
+    },
+    {
+      "id": "music_briefing_intelligence",
+      "durationSeconds": 90,
+      "loop": true,
+      "use": "Briefing, map and Operations dossier",
+      "prompt": "Original low-intensity Cold War intelligence-room underscore. Soft analogue sequencer, muted bass pulse, sparse teletype-like percussion, subdued string harmonics and distant sonar-like tones, 78 BPM, dark but readable, seamless 90-second loop, minimal melodic movement so mission text remains clear. No vocals, no alarm sounds, no copyrighted melody."
+    },
+    {
+      "id": "music_carrier_launch",
+      "durationSeconds": 75,
+      "loop": false,
+      "use": "Carrier launch and first climb",
+      "prompt": "Original 75-second carrier scramble cue for a Sea Harrier leaving a ski-jump at dawn. Begin with restrained low synth and ticking percussion, build through turbine-like rhythm and military toms, release into a broad but unsentimental brass-synth chord at take-off. 118 BPM, clear edit points at 20 and 48 seconds, finish with a tail that can crossfade into patrol music. No vocals or borrowed military themes."
+    },
+    {
+      "id": "music_patrol_north_atlantic",
+      "durationSeconds": 120,
+      "loop": true,
+      "use": "Low-threat flight and navigation",
+      "prompt": "Original atmospheric patrol loop over a cold North Atlantic island chain. Slow analogue bass ostinato, airy synthesiser pads, sparse toms and low bowed strings, quiet sense of distance and fuel awareness, 92 BPM, controlled dynamics, seamless 120-second loop. Avoid relaxation music, heroic fanfare, vocals and recognisable melodies."
+    },
+    {
+      "id": "music_air_combat_intercept",
+      "durationSeconds": 120,
+      "loop": true,
+      "use": "Fighter detection, pursuit and attack passes",
+      "prompt": "Original tactical arcade air-combat music with period-inspired analogue arpeggiator, urgent electronic bass, gated snare and clipped low-string accents. 132 BPM, tense readable pulse with breathing room every 16 bars for radio and threat warnings, seamless 120-second loop, energetic without becoming modern EDM or cinematic trailer music. No vocals or copyrighted motifs."
+    },
+    {
+      "id": "music_ground_strike",
+      "durationSeconds": 120,
+      "loop": true,
+      "use": "SEAD, convoy and low-level strike phases",
+      "prompt": "Original low-level ground-attack loop for a 1987 Harrier action simulation. Insistent 7-beat low synth figure against steady 4/4 military percussion, dark brass-synth stabs, tense strings and short radar-like electronic accents, 124 BPM, seamless 120-second loop. Emphasise terrain masking and precision rather than heroic spectacle; no vocals, no copyrighted melody."
+    },
+    {
+      "id": "music_storm_fleet_defence",
+      "durationSeconds": 135,
+      "loop": true,
+      "use": "Mission 6 fleet defence",
+      "prompt": "Original storm-bound naval defence score. Heavy low analogue pulse, rolling toms suggesting rough sea, tense string tremolo, sparse metallic ship percussion and rising synth intervals for incoming sea-skimming missiles, 128 BPM, powerful but leave a clear midrange pocket for warning tones and radio, seamless 135-second loop. No thunder baked into music, no vocals, no recognisable film or game theme."
+    },
+    {
+      "id": "music_bastion_assault",
+      "durationSeconds": 150,
+      "loop": true,
+      "use": "Mission 10 fortress phases",
+      "prompt": "Original multi-stage fortress assault cue for a basalt coastal headquarters in 1987. Menacing low strings and analogue synth begin sparsely, disciplined drums and metallic impacts enter, then a severe descending command motif grows across four sections. 126 BPM, seamless 150-second loop with clear 32-bar intensity layers suitable for phase crossfades, tense and tactical rather than bombastic. No choir, vocals, braams or borrowed melody."
+    },
+    {
+      "id": "music_recovery_approach",
+      "durationSeconds": 105,
+      "loop": true,
+      "use": "Carrier and FARP recovery",
+      "prompt": "Original recovery-approach underscore. Slow heartbeat-like analogue bass, restrained high synth pulse, low strings and occasional muted snare, 84 BPM, communicate concentration, low fuel and fragile aircraft without melodrama. Build subtle tension as the loop progresses but never mask engine pitch or landing guidance, seamless 105-second loop, no vocals or recognisable melody."
+    },
+    {
+      "id": "music_debrief_victory",
+      "durationSeconds": 48,
+      "loop": false,
+      "use": "Successful debrief",
+      "prompt": "Original concise mission-success cue with the title motif resolved modestly on analogue synth, low brass and military snare. 48 seconds, first positive cadence by 6 seconds, then calm debrief underscore and a clean ending. Professional and earned, not celebratory fanfare. No vocals or copyrighted melody."
+    },
+    {
+      "id": "music_debrief_loss",
+      "durationSeconds": 42,
+      "loop": false,
+      "use": "Failure, ejection and pilot-loss debrief",
+      "prompt": "Original restrained mission-loss cue. Sparse low piano-like synth, cold string harmonics, distant military drum and unresolved fragments of an original four-note motif, 42 seconds, sombre but encouraging a retry, clean ending. No funeral quotation, vocals, jump scare or copyrighted melody."
+    },
+    {
+      "id": "music_servicing_turnaround",
+      "durationSeconds": 84,
+      "loop": true,
+      "use": "Carrier deck and FARP servicing",
+      "prompt": "Original practical turnaround loop with muted analogue bass, light mechanical percussion, restrained synth chords and a subtle forward-moving rhythm, 100 BPM, calm operational mood, seamless 84-second loop, leave room for deck ambience and interface clicks. No vocals, comedy, corporate music or copyrighted melody."
+    }
+  ],
+  "soundEffects": [
+    { "id": "sfx_pegasus_idle_loop", "durationSeconds": 8, "loop": true, "use": "Engine idle", "prompt": "Seamless close exterior loop of a late-1980s vectored-thrust turbofan at stable idle on a carrier deck: deep compressor body, fine turbine whine, restrained intake hiss, no voices, birds, music or deck announcements, constant level, clean 8-second loop." },
+    { "id": "sfx_pegasus_power_loop", "durationSeconds": 8, "loop": true, "use": "High throttle flight", "prompt": "Seamless exterior loop of a compact military turbofan at high dry thrust, dense exhaust roar, intake rush and controlled turbine layer, no afterburner, no doppler pass, no clipping, no voices, steady 8-second loop suitable for pitch modulation." },
+    { "id": "sfx_airframe_wind_loop", "durationSeconds": 8, "loop": true, "use": "Airspeed layer", "prompt": "Seamless cockpit-adjacent airframe wind loop for fast low-altitude jet flight, broad turbulent rush with light panel vibration, no engine, rain, whistles, speech or impacts, neutral constant intensity, clean 8-second loop." },
+    { "id": "sfx_vtol_downwash_loop", "durationSeconds": 8, "loop": true, "use": "VTOL hover", "prompt": "Seamless vectored-thrust hover downwash loop above a steel carrier deck: powerful low jet wash, turbulent reflected roar and light deck rattle, no voices or alarms, no rhythmic pulsing, stable 8-second loop." },
+    { "id": "sfx_nozzle_transition", "durationSeconds": 1.2, "loop": false, "use": "VTOL transition", "prompt": "Short mechanical-hydraulic rotation of four vectored-thrust nozzles under engine load, heavy actuator movement with a brief change in exhaust resonance, 1.2 seconds, no warning beep, no voice, dry editable tail." },
+    { "id": "sfx_landing_gear_cycle", "durationSeconds": 1.6, "loop": false, "use": "Gear extension and retraction", "prompt": "Military jet landing gear hydraulic cycle: actuator whine, solid linkage movement and two restrained mechanical locks, 1.6 seconds, no cockpit voice, no exaggerated metallic crash." },
+    { "id": "sfx_engine_compressor_stall", "durationSeconds": 1.4, "loop": false, "use": "Engine damage", "prompt": "Compact military turbofan compressor stall: abrupt deep cough, uneven exhaust surge, metallic flutter and decaying turbine instability, 1.4 seconds, forceful but not an explosion, no voice or alarm." },
+    { "id": "sfx_engine_damaged_loop", "durationSeconds": 7, "loop": true, "use": "Damaged engine layer", "prompt": "Seamless damaged turbofan layer with irregular compressor flutter, bearing rasp and intermittent low surges, no fire, explosions, voice or warning tone, restrained enough to mix beneath the normal engine, clean 7-second loop." },
+    { "id": "sfx_aden_cannon_burst", "durationSeconds": 0.8, "loop": false, "use": "Twin 30 mm cannon", "prompt": "Close exterior burst from twin 30 mm aircraft cannon pods, five to seven heavy rapid reports with mechanical action and compact pressure crack, powerful low-mid body, no ricochet, explosion, shell impacts or battlefield ambience, 0.8 seconds." },
+    { "id": "sfx_sidewinder_rail_launch", "durationSeconds": 1.2, "loop": false, "use": "AIM-9L launch", "prompt": "Short-range air-to-air missile leaving an aircraft rail: ignition snap, rapid rocket build and receding motor hiss, 1.2 seconds, no explosion, lock tone, voice or aircraft engine." },
+    { "id": "sfx_sidewinder_flyby", "durationSeconds": 1.0, "loop": false, "use": "Missile pass", "prompt": "Fast small air-to-air missile flyby with sharp directional whoosh and compact rocket hiss, 1 second, no launch transient, impact, voice or cinematic bass hit." },
+    { "id": "sfx_rocket_pod_salvo", "durationSeconds": 1.0, "loop": false, "use": "Unguided rockets", "prompt": "Four unguided aircraft rockets firing from a pod in quick succession, distinct ignition pops, gritty motors and brief receding tails, 1 second, no impacts, aircraft engine or voice." },
+    { "id": "sfx_bomb_release_clunk", "durationSeconds": 0.7, "loop": false, "use": "Bomb release", "prompt": "Military aircraft bomb-rack release heard near the airframe: firm ejector clunk, short pneumatic snap and subtle airflow departure, 0.7 seconds, no explosion, whistle or voice." },
+    { "id": "sfx_flare_eject", "durationSeconds": 0.7, "loop": false, "use": "Countermeasure", "prompt": "Aircraft countermeasure flare ejection: mechanical thump followed by several bright pyrotechnic crackles moving away, 0.7 seconds, no missile alarm, explosion or voice." },
+    { "id": "sfx_aircraft_gun_hit", "durationSeconds": 0.45, "loop": false, "use": "Projectile hit on aircraft", "prompt": "Brief cannon strike on a military aircraft skin: hard metal punch, tearing aluminium and tiny debris scatter, 0.45 seconds, no gunshot, explosion, voice or long reverb." },
+    { "id": "sfx_ground_armour_hit", "durationSeconds": 0.55, "loop": false, "use": "Projectile hit on armour", "prompt": "Heavy projectile impact on armoured steel: dense metallic slam, short spall rattle and low body resonance, 0.55 seconds, no weapon report, explosion or voice." },
+    { "id": "sfx_ground_soft_hit", "durationSeconds": 0.6, "loop": false, "use": "Ground and structure hit", "prompt": "Compact ordnance impact into rocky soil and concrete, sharp crack, dirt burst and short debris fall, 0.6 seconds, no large explosion, weapon launch or voice." },
+    { "id": "sfx_water_impact", "durationSeconds": 0.8, "loop": false, "use": "Weapon hits sea", "prompt": "Fast projectile or compact rocket striking cold open sea: hard slap, narrow water plume and brief spray fall, 0.8 seconds, no explosion, thunder, ship or voice." },
+    { "id": "sfx_explosion_small", "durationSeconds": 1.0, "loop": false, "use": "Small vehicles and missiles", "prompt": "Small military fuel-and-metal explosion: tight initial crack, compact low thump, short debris ticks and minimal tail, 1 second, no cinematic sub drop, voice or gunfire." },
+    { "id": "sfx_explosion_medium", "durationSeconds": 1.8, "loop": false, "use": "Aircraft and vehicles", "prompt": "Medium combat explosion involving aircraft or armoured vehicle: sharp detonation, strong pressure body, tearing metal and a controlled 1.8-second debris tail, no cinematic braam, voice or secondary gunfire." },
+    { "id": "sfx_explosion_large", "durationSeconds": 2.8, "loop": false, "use": "Ships and structures", "prompt": "Large military structure or small-ship explosion: layered initial blast, deep pressure wave, heavy metal breakup and falling debris over 2.8 seconds, powerful but unclipped, no music, voice or exaggerated Hollywood sub-bass." },
+    { "id": "sfx_fuel_cookoff", "durationSeconds": 4.5, "loop": false, "use": "Fuel depots and secondary destruction", "prompt": "Fuel storage cook-off sequence: primary blast, rushing ignition, two irregular secondary detonations and sustained burning roar fading over 4.5 seconds, no siren, voice, music or repetitive rhythm." },
+    { "id": "sfx_aircraft_breakup", "durationSeconds": 2.2, "loop": false, "use": "Aircraft destruction", "prompt": "Military jet breaking apart in flight: explosive structural snap, tearing airframe, spinning metal debris and rushing air over 2.2 seconds, no pilot voice, music or ground impact." },
+    { "id": "sfx_ground_crash", "durationSeconds": 2.4, "loop": false, "use": "Aircraft terrain impact", "prompt": "Fast military aircraft impacting rocky ground: brutal initial strike, long metal scrape, compact fireball thump and debris fall over 2.4 seconds, no scream, radio or cinematic music." },
+    { "id": "sfx_sea_crash", "durationSeconds": 2.6, "loop": false, "use": "Aircraft sea impact", "prompt": "Fast military aircraft impacting cold sea: heavy water slam, tearing metal, broad spray and short bubbling debris tail over 2.6 seconds, no voice, music or ship ambience." },
+    { "id": "sfx_ejection_canopy", "durationSeconds": 0.65, "loop": false, "use": "Ejection canopy separation", "prompt": "Combat-aircraft canopy jettison: explosive cord crack, pressure pop and rapidly departing lightweight frame, 0.65 seconds, no seat rocket, voice or aircraft crash." },
+    { "id": "sfx_ejection_seat", "durationSeconds": 1.1, "loop": false, "use": "Ejection seat launch", "prompt": "Military ejection seat firing: sharp initiator bang, forceful short rocket thrust and rushing air, 1.1 seconds, no voice, canopy sound or explosion tail." },
+    { "id": "sfx_parachute_open", "durationSeconds": 0.9, "loop": false, "use": "Pilot survival sequence", "prompt": "Emergency parachute deploying at speed: fabric snap, suspension-line pull and quick canopy billow, 0.9 seconds, no voice, wind loop or impact." },
+    { "id": "sfx_naval_gun", "durationSeconds": 1.4, "loop": false, "use": "Ship gunfire", "prompt": "Late-Cold-War naval autocannon firing a short burst over open water: heavy mechanical reports, compact deck resonance and distant pressure reflection, 1.4 seconds, no shell impacts, sea ambience or voice." },
+    { "id": "sfx_antiship_missile_launch", "durationSeconds": 2.0, "loop": false, "use": "Corvette missile launch", "prompt": "Sea-skimming anti-ship missile launching from a small corvette canister: hatch clunk, violent booster ignition, deck-reflected roar and fast departure, 2 seconds, no impact, alarm, voice or music." },
+    { "id": "sfx_ship_sinking", "durationSeconds": 6.0, "loop": false, "use": "Naval destruction", "prompt": "Damaged small warship settling and rolling into rough water: stressed hull groans, loose metal, steam release, water ingress and final heavy wash over 6 seconds, no explosion, voices or music." },
+    { "id": "sfx_carrier_deck_ambience", "durationSeconds": 12, "loop": true, "use": "Carrier servicing and launch", "prompt": "Seamless 1980s light-aircraft-carrier deck ambience: cold wind, distant turbine wash, restrained hydraulic trolley movement and occasional metal deck vibration, no intelligible voices, announcements, music or nearby jet pass, clean 12-second loop." },
+    { "id": "sfx_carrier_touchdown", "durationSeconds": 1.5, "loop": false, "use": "Carrier recovery", "prompt": "Sea Harrier landing on a steel carrier deck: firm tyre contact, landing-gear compression, short deck rumble and slight airframe rattle, 1.5 seconds, no arrestor cable, applause, voice or engine loop." },
+    { "id": "sfx_farp_ambience", "durationSeconds": 12, "loop": true, "use": "Forward-base servicing", "prompt": "Seamless austere forward arming and refuelling point ambience: cold wind, distant portable generator, canvas flap, subdued tool movement and occasional metal crate contact, no intelligible voices, music or active gunfire, clean 12-second loop." },
+    { "id": "sfx_storm_rain_loop", "durationSeconds": 12, "loop": true, "use": "Storm missions", "prompt": "Seamless exposed maritime storm rain: hard wind-driven rain, spray and broad gale texture, no thunder, waves, engine, music or voices, stable 12-second loop with no obvious repetition." },
+    { "id": "sfx_thunder_distant", "durationSeconds": 4.5, "loop": false, "use": "Storm punctuation", "prompt": "Single distant North Atlantic thunder roll behind heavy cloud, soft initial crack and long natural low rumble over 4.5 seconds, no rain bed, explosion, music or clipping." },
+    { "id": "sfx_coastal_surf_loop", "durationSeconds": 12, "loop": true, "use": "Coastal low flight", "prompt": "Seamless cold rocky coastline surf with irregular breakers, foam wash and light wind, no gulls, boats, voices, music or thunder, natural 12-second loop without a rhythmic wave pattern." },
+    { "id": "sfx_radar_search", "durationSeconds": 0.3, "loop": false, "use": "Radar search cue", "prompt": "Brief period military radar search cue: dry low electronic pip with subtle analogue instability, 0.3 seconds, distinct from missile warning, no voice, melody or reverb." },
+    { "id": "sfx_radar_track", "durationSeconds": 1.0, "loop": true, "use": "Radar tracking cue", "prompt": "Seamless one-second period radar tracking tone: urgent paired analogue pulses in a mid frequency range, clean and unmistakable but not painful, no voice, melody or modern digital alarm." },
+    { "id": "sfx_missile_warning", "durationSeconds": 1.0, "loop": true, "use": "Incoming missile cue", "prompt": "Seamless one-second critical missile warning for a 1980s military cockpit: fast alternating analogue tones, higher and more urgent than radar track, readable through engine noise, no spoken words, melody or distortion." },
+    { "id": "sfx_target_lock_complete", "durationSeconds": 0.45, "loop": false, "use": "Player weapon lock", "prompt": "Concise 1980s electro-mechanical target-lock confirmation: two rising clean tones followed by a short steady chirp, 0.45 seconds, positive but restrained, no voice or arcade coin sound." },
+    { "id": "sfx_low_fuel_warning", "durationSeconds": 0.65, "loop": false, "use": "Bingo fuel threshold", "prompt": "Distinct cockpit low-fuel caution: two muted low analogue beeps, 0.65 seconds, serious but below missile-warning urgency, no spoken words, melody or harsh clipping." },
+    { "id": "sfx_master_damage_warning", "durationSeconds": 0.7, "loop": false, "use": "Critical damage", "prompt": "Short 1980s military master-warning alert: three firm mid-low electronic pulses, 0.7 seconds, clearly separate from radar and missile tones, no speech, siren sweep or melody." },
+    { "id": "sfx_radio_squelch_in", "durationSeconds": 0.18, "loop": false, "use": "Radio call opening", "prompt": "Very short analogue military-radio squelch opening: dry static snap and narrow-band carrier onset, 0.18 seconds, no speech, beep or long noise tail." },
+    { "id": "sfx_radio_squelch_out", "durationSeconds": 0.2, "loop": false, "use": "Radio call closing", "prompt": "Very short analogue military-radio squelch closing: narrow-band static release and dry click, 0.2 seconds, no speech, beep or long tail." },
+    { "id": "sfx_ui_confirm", "durationSeconds": 0.16, "loop": false, "use": "Menu confirmation", "prompt": "Compact command-console confirmation sound: short low relay click with a clean soft electronic pip, 0.16 seconds, restrained 1980s equipment character, no coin sound, voice or reverb." },
+    { "id": "sfx_ui_cancel", "durationSeconds": 0.18, "loop": false, "use": "Menu back or cancel", "prompt": "Compact command-console cancel sound: dry relay click and short descending muted pip, 0.18 seconds, distinct from confirm, no error buzzer, voice or reverb." },
+    { "id": "sfx_objective_complete", "durationSeconds": 0.8, "loop": false, "use": "Objective completion", "prompt": "Restrained tactical objective-complete cue: three concise analogue tones resolving upward with a subtle relay click, 0.8 seconds, readable but not celebratory, no voice, fanfare or arcade reward sound." }
+  ]
+}
