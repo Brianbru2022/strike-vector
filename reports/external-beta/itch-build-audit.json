@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260920-BASELINE1",
+  "buildId": "IK87-1.2.0-DEV1-20260920-GATES1",
   "releaseVersion": "1.2.0-dev.1",
-  "generatedAt": "2026-09-20T11:42:06.208Z",
+  "generatedAt": "2026-09-20T11:54:17.776Z",
   "hosting": "itch-html5-iframe-relative",
   "serviceWorkerEnabled": false,
-  "totalBytes": 37137788,
+  "totalBytes": 37137785,
   "fileCount": 106,
-  "fingerprint": "a5a4b431daf5475db02a3d59fd0f71554bac8c9b1eb3b34f808e8b9bd212d9e6",
+  "fingerprint": "c40182b112b444ed95fd1bf5337ecf1d60128d7ec7fb476e9d0f78d4f0673909",
   "configuredFeedbackUrl": null,
   "feedbackUrlEmbedded": false,
   "files": [
@@ -187,9 +187,9 @@
       "sha256": "b17a4b4e97a3baa4f248360f5329cd0d094327f6395237dc3b2afbf85c34a6d5"
     },
     {
-      "path": "assets/ChapterSelectScreen-CISZ8TE3.js",
+      "path": "assets/ChapterSelectScreen-BdRT5ogc.js",
       "bytes": 5233,
-      "sha256": "c8d7409d44835198d970e699994a3daa9db4a5cdb21b7cc49df619ecb3f1d6bd"
+      "sha256": "42202c2ead644eababe9cbf48e27997a385725f669b90ba921cf2dba6e76093d"
     },
     {
       "path": "assets/core-mPlcS5K-.js",
@@ -207,14 +207,14 @@
       "sha256": "9f8cc1fecd0917448f3b57c2320b9642f06fa4c2abeb96efac38f531ffccdcf6"
     },
     {
-      "path": "assets/index-DbnTPgQz.js",
-      "bytes": 526389,
-      "sha256": "b77f4206e3cf31d74c2a58c5b7f9a1c147d63ad51027c0c3e257b28b2cc8cb8f"
+      "path": "assets/index-BC3h_u-z.js",
+      "bytes": 526386,
+      "sha256": "11b1d7fe9e7f0bc196f200b0f3de5000780931564c1a12fe1134067c2731ed9d"
     },
     {
-      "path": "assets/LandingPracticeScreen-rZGRv5_6.js",
+      "path": "assets/LandingPracticeScreen-Lk8PZcyj.js",
       "bytes": 4387,
-      "sha256": "d4118378677f060ebe29c6a8b15b2d41f8c5eb796b32815fae2772eef106c2ec"
+      "sha256": "1937d985a59b72ce129acbaeb817715525ad6f9041bedd5be25cc7847322ce5a"
     },
     {
       "path": "assets/layers/bastion-fortress-surface-v1.webp",
@@ -272,24 +272,24 @@
       "sha256": "55c27b811365c558dd3163fc708523598cb76a87be0aaf58cbe4eeada34c1ca6"
     },
     {
-      "path": "assets/NorwegianCampaignMap-C2tmshqj.js",
+      "path": "assets/NorwegianCampaignMap-C84tUHqg.js",
       "bytes": 5933,
-      "sha256": "a49138cbf9fdf9a2d1c7a19b7e22fad4fcae50400fedaa6bd371cae518c1b478"
+      "sha256": "b979f4dfc2e1a6bd71f330c87cc29017aa7b86b3c49f80131e7c59aaf3f3a351"
     },
     {
-      "path": "assets/OperationAfterAction-cqPqaPD0.js",
+      "path": "assets/OperationAfterAction-BAn5JV2U.js",
       "bytes": 3537,
-      "sha256": "525fec4eac85c51e6dfadb643f160137f873ff5bcda5ae5307e677fdbdc091a7"
+      "sha256": "4cdb45ffbf6b1ec4a22ad2e5726c075c5704f8c0832bb091e1902b1b3cf57889"
     },
     {
-      "path": "assets/OperationDossier-CMrIIp3M.js",
+      "path": "assets/OperationDossier-DfMJG12t.js",
       "bytes": 6753,
-      "sha256": "56828c6d734953b9611dda3b1186eeaf43b2f785934dd10e27174ba728013e3f"
+      "sha256": "929c271b27babfc0be3694bae1dd15cedbf7bd0c554dea639c1e0daa350149f6"
     },
     {
-      "path": "assets/OperationsBoard-C5pHfWqY.js",
+      "path": "assets/OperationsBoard-CLmaY9L3.js",
       "bytes": 10150,
-      "sha256": "d18abcd77e56c75f37ac6c333d627021433104ac4bd33c245b11a9209e110021"
+      "sha256": "39e82ac2c72746af3d7706e97f690c5abd4a6b439e82a0ffafe1e1ffd36168ac"
     },
     {
       "path": "assets/react-vendor-DDwC_z6H.js",
@@ -509,7 +509,7 @@
     {
       "path": "index.html",
       "bytes": 883,
-      "sha256": "9ec70301c51704d5bea5864720a1ac9f691b1e7f0b52c9714ca06c4ac95770dd"
+      "sha256": "241a5c047e04968c16c2443462fe80675f4c8732c41cb055dd82cda56741dfb0"
     },
     {
       "path": "legal/AI_CONTENT_DISCLOSURE.txt",

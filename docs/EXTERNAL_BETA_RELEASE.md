@@ -1,5 +1,7 @@
 # Iron Kestrel '87 external beta release
 
+The authoritative separation between this gate and the paid-commercial gate is documented in `docs/RELEASE_GATES.md` and checked by `pnpm release:gates:audit`.
+
 The immediate release target is a free, unlisted itch.io HTML5 beta. It is deliberately separate from the paid Windows and Steam release gate. The beta exists to answer whether real people understand and enjoy flying the game before more content or final commercial production work is commissioned.
 
 ## Local preparation

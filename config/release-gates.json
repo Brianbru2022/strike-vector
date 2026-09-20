@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260920-GATES1",
+  "externalBeta": {
+    "purpose": "Safe unlisted itch.io browser testing with genuine players",
+    "preUploadCommand": "pnpm external-beta:gate",
+    "postUploadCommand": "pnpm external-beta:hosted-gate",
+    "requirements": [
+      "EB-001_AUTOMATED_PREPARATION",
+      "EB-002_INTERNAL_GUIDED_MISSION_TEST",
+      "EB-003_PHYSICAL_CONTROL_SMOKE",
+      "EB-004_READABILITY_REVIEW",
+      "EB-005_AUDIO_SMOKE",
+      "EB-006_FEEDBACK_ROUTE",
+      "EB-007_HOSTED_ITCH_SMOKE"
+    ],
+    "deliberatelyExcluded": [
+      "code signing",
+      "Steam approval",
+      "formal trademark clearance",
+      "final commercial asset approval",
+      "Windows installer lifecycle certification",
+      "Steam Auto-Cloud conflict rehearsal",
+      "commercial rollback rehearsal",
+      "three-hour hardware soak",
+      "two-week release freeze"
+    ]
+  },
+  "commercialRelease": {
+    "purpose": "Paid Windows and Steam release certification",
+    "command": "pnpm commercial:gate",
+    "requiresExternalBetaLearning": true,
+    "stage10Defects": [
+      "S10-001",
+      "S10-002",
+      "S10-003",
+      "S10-004",
+      "S10-005",
+      "S10-006",
+      "S10-007",
+      "S10-008",
+      "S10-009",
+      "S10-010",
+      "S10-011"
+    ]
+  },
+  "stage10Classification": [
+    { "id": "S10-001", "gates": ["COMMERCIAL_RELEASE"], "reason": "Code signing applies to the paid Windows artefacts, not an HTML5 beta." },
+    { "id": "S10-002", "gates": ["COMMERCIAL_RELEASE"], "reason": "Steam submission is not needed for an unlisted itch.io beta." },
+    { "id": "S10-003", "gates": ["COMMERCIAL_RELEASE"], "reason": "The long hardware soak is a paid-release certification requirement." },
+    { "id": "S10-004", "gates": ["COMMERCIAL_RELEASE"], "reason": "The release freeze starts only after beta learning and commercial scope are settled." },
+    { "id": "S10-005", "gates": ["COMMERCIAL_RELEASE"], "reason": "Rollback and Auto-Cloud rehearsals concern the commercial desktop edition." },
+    { "id": "S10-006", "gates": ["COMMERCIAL_RELEASE"], "reason": "The full campaign matrix is stricter than the focused beta safety and Mission 1 evidence." },
+    { "id": "S10-007", "gates": ["EXTERNAL_BETA", "COMMERCIAL_RELEASE"], "reason": "Major readability defects block beta exposure; full readability certification remains commercial." },
+    { "id": "S10-008", "gates": ["EXTERNAL_BETA", "COMMERCIAL_RELEASE"], "reason": "A physical smoke pass is needed for beta; the full control matrix remains commercial." },
+    { "id": "S10-009", "gates": ["EXTERNAL_BETA", "COMMERCIAL_RELEASE"], "reason": "A basic listening smoke is needed for beta; the three-device listening sign-off remains commercial." },
+    { "id": "S10-010", "gates": ["COMMERCIAL_RELEASE"], "reason": "The exhaustive paid-game balance matrix follows behavioural beta evidence." },
+    { "id": "S10-011", "gates": ["COMMERCIAL_RELEASE"], "reason": "Formal legal, title and final asset approval are paid-release requirements." }
+  ]
+}

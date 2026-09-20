@@ -65,7 +65,7 @@
     "defects:audit": "tsx scripts/audit-stage-one-defects.ts",
     "release:baseline": "tsx scripts/run-stage-one-baseline.ts",
     "baseline:verify": "tsx scripts/audit-release-engineering-baseline.ts",
-    "baseline:gate": "pnpm lint && pnpm test && pnpm simulation:audit && pnpm branding:audit && pnpm balance:certify && pnpm operations:certify && pnpm authoring:certify && pnpm build && pnpm consumer:audit && pnpm offline:verify && pnpm audio:production:audit && pnpm baseline:verify",
+    "baseline:gate": "pnpm lint && pnpm test && pnpm simulation:audit && pnpm branding:audit && pnpm balance:certify && pnpm operations:certify && pnpm authoring:certify && pnpm build && pnpm consumer:audit && pnpm offline:verify && pnpm audio:production:audit && pnpm release:gates:audit && pnpm baseline:verify",
     "visual:audit": "python scripts/audit_visual_assets.py",
     "act3:foregrounds:prepare": "python scripts/prepare_act_three_foregrounds.py",
     "stage5:art:audit": "python scripts/audit_stage5_hero_art.py",
@@ -98,6 +98,7 @@
     "external-beta:audit": "tsx scripts/audit-external-beta-gate.ts",
     "external-beta:gate": "pnpm external-beta:prepare && tsx scripts/audit-external-beta-gate.ts --strict",
     "external-beta:hosted-gate": "tsx scripts/audit-external-beta-gate.ts --strict --hosted",
+    "release:gates:audit": "tsx scripts/audit-release-gate-separation.ts",
     "effects:capture": "tsx scripts/capture-combat-effects.ts",
     "showcase:capture": "tsx scripts/capture-showcase-media.ts",
     "capture:norwegian": "tsx scripts/capture-norwegian-release.ts"
