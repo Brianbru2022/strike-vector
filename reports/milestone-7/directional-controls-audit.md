@@ -1,6 +1,6 @@
 # Milestone 7 directional-flight controls
 
-Build: `IK87-1.2.0-DEV1-20260921-DIRECTION1`
+Build: `IK87-1.2.0-DEV1-20260921-HUD1`
 
 Automated terminology audit: **PASS**
 Human wording evidence: **PENDING MILESTONE 5 SESSIONS**

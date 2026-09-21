@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T06:54:59.074Z",
-  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
+  "generatedAt": "2026-09-21T07:38:36.489Z",
+  "buildId": "IK87-1.2.0-DEV1-20260921-HUD1",
   "automatedPassed": true,
   "humanWordingStatus": "PENDING_MILESTONE_5_SESSIONS",
   "internalCompatibility": "THROTTLE_DOWN and THROTTLE_UP identifiers retained for existing binding/save compatibility.",

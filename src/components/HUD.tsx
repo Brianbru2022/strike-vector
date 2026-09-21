@@ -4,6 +4,7 @@ import { Shield, Flame, Crosshair, AlertTriangle, CloudSnow, Radio, Navigation, 
 import { bindingLabel } from '../game/inputBindings';
 import { HUD_NOTIFICATION_PRIORITY, selectHudNotification } from '../game/HudNotifications';
 import { DIRECTIONAL_FLIGHT_COPY } from '../game/DirectionalFlightCopy';
+import { activeWeaponLabel, deriveHudVisibility } from '../game/HudContext';
 
 export function getVerticalSpeedReadout(verticalVelocity: number): { feetPerMinute: number; unsafeDescent: boolean } {
   return {
@@ -70,14 +71,26 @@ export const HUD: React.FC<HUDProps> = ({
   tutorialUnderstood = false,
 }) => {
   const [controlsRecalled, setControlsRecalled] = React.useState(false);
+  const [hudExpanded, setHudExpanded] = React.useState(false);
   React.useEffect(() => {
     const recall = (event: KeyboardEvent) => {
       if (event.code === 'KeyH' && !event.repeat) setControlsRecalled((visible) => !visible);
+      if (event.code === 'KeyI' && !event.repeat) setHudExpanded((visible) => !visible);
     };
     window.addEventListener('keydown', recall);
     return () => window.removeEventListener('keydown', recall);
   }, []);
   const verticalSpeed = getVerticalSpeedReadout(s.vy);
+  const hudVisibility = deriveHudVisibility({
+    player: s,
+    flow,
+    feedback,
+    recoveryGuidance,
+    training: trainingState,
+    expanded: hudExpanded,
+    controlsRecalled,
+    tutorialUnderstood,
+  });
   const altitudeBandColor =
     s.altitudeBand === 'LOW'
       ? 'text-emerald-400 border-emerald-500/40 bg-emerald-950/40'
@@ -91,6 +104,11 @@ export const HUD: React.FC<HUDProps> = ({
   const isForwardBaseRecovery = mission.recoverySite === 'FORWARD_BASE';
   const tromsFarpOperational = mission.id === 'm13_troms_bridgehead'
     && mission.objectives.find((objective) => objective.id === 'm13_recover')?.active !== false;
+  const showColdPassagePanel = hudExpanded || Boolean(feedback && (feedback.unidentifiedContacts > 0 || feedback.identificationProgress > 0));
+  const showHammerfallPanel = hudExpanded || s.altitudeBand !== 'LOW';
+  const showTromsPanel = hudExpanded || Boolean(defendedAsset && defendedAsset.integrity <= 50) || !tromsFarpOperational;
+  const showRedTidePanel = hudExpanded || Boolean(defendedAsset && (defendedAsset.incomingMissiles > 0 || defendedAsset.integrity <= 50));
+  const showNorthCapePanel = hudExpanded || Boolean(defendedAsset && (defendedAsset.incomingMissiles > 0 || defendedAsset.integrity <= 50));
   const redTideCorvettes = mission.objectives.find((objective) => objective.id === 'm15_corvettes');
   const redTideInterceptions = mission.objectives.find((objective) => objective.id === 'm15_missiles');
   const northCapeObjectives = mission.objectives.filter((objective) => ['m16_picket', 'm16_sams', 'm16_radar', 'm16_hq', 'm16_fighter'].includes(objective.id));
@@ -116,7 +134,7 @@ export const HUD: React.FC<HUDProps> = ({
       : 'left-1/2 top-[54%] w-[min(88%,520px)] -translate-x-1/2 min-[900px]:top-[26%]';
 
   return (
-    <div id="game-hud" data-hud-scale={accessibility.hudScale} data-hud-contrast={accessibility.hudContrast} data-text-contrast={accessibility.textContrast} className={`absolute inset-0 pointer-events-none select-none flex flex-col justify-between p-2 sm:p-4 font-mono-tech ${accessibility.highContrastHud || accessibility.hudContrast === 'HIGH' ? 'contrast-125 saturate-150' : ''}`}>
+    <div id="game-hud" data-hud-mode={hudVisibility.mode} data-hud-scale={accessibility.hudScale} data-hud-contrast={accessibility.hudContrast} data-text-contrast={accessibility.textContrast} className={`absolute inset-0 pointer-events-none select-none flex flex-col justify-between p-2 sm:p-4 font-mono-tech ${accessibility.highContrastHud || accessibility.hudContrast === 'HIGH' ? 'contrast-125 saturate-150' : ''}`}>
       {primaryNotification ? <div data-hud-region={notificationRegion ?? undefined} data-notification-id={primaryNotification.id} data-training-phase={primaryNotification.id === 'training' ? trainingState?.phase : undefined} className={`pointer-events-auto absolute z-30 rounded-lg border-2 px-4 py-2.5 text-center shadow-2xl ${notificationPlacement} ${notificationTone}`} role="status" aria-live={primaryNotification.tone === 'DANGER' ? 'assertive' : 'polite'} aria-atomic="true">
         <div className="text-[10px] font-black tracking-[.2em]">{primaryNotification.label}</div><div className="mt-1 text-[11px] font-bold leading-relaxed text-white">{primaryNotification.message}</div>
         {primaryNotification.id === 'recovery' && recoveryGuidance ? <div className="mt-2 grid grid-cols-4 gap-2 border-t border-white/15 pt-1.5 text-[9px] text-zinc-300"><span>RANGE <b className="text-white">{distanceToRecovery}m</b></span><span>FWD <b className={recoveryGuidance.forwardSpeed > 4 ? 'text-amber-200' : 'text-emerald-200'}>{recoveryGuidance.forwardSpeed.toFixed(1)}</b></span><span>DESC <b className={recoveryGuidance.descentRate > 2.2 ? 'text-rose-200' : 'text-emerald-200'}>{recoveryGuidance.descentRate.toFixed(1)}</b></span><span>NOZZLE <b className="text-cyan-100">{recoveryGuidance.nozzleAngle}°</b></span></div> : null}
@@ -127,14 +145,14 @@ export const HUD: React.FC<HUDProps> = ({
       {feedback?.damageWarningTicks && feedback.threatDirection ? <div className={`absolute top-1/2 z-20 -translate-y-1/2 animate-pulse text-4xl font-black text-rose-400 ${feedback.threatDirection === 'LEFT' ? 'left-4' : 'right-4'}`}>{feedback.threatDirection === 'LEFT' ? '‹' : '›'}</div> : null}
       {feedback?.incomingMissileDirection ? <div aria-label={`Missile threat from ${feedback.incomingMissileDirection.toLowerCase()}`} className={`absolute top-[42%] z-20 rounded border-2 border-dashed border-rose-200 bg-black/90 px-2 py-1 text-[10px] font-black text-white ${feedback.incomingMissileDirection === 'LEFT' ? 'left-3' : 'right-3'}`}><span aria-hidden="true">◆ {feedback.incomingMissileDirection === 'LEFT' ? '◀' : '▶'}</span> MISSILE</div> : null}
       {feedback?.airThreatState && feedback.airThreatDirection ? <div aria-label={`Fighter ${feedback.airThreatState.toLowerCase()} from ${feedback.airThreatDirection.toLowerCase()}`} className={`absolute top-[34%] z-20 rounded border-4 border-double px-2 py-1 text-[9px] font-black tracking-wider ${feedback.airThreatState === 'FIRING' ? 'animate-pulse border-rose-200 bg-rose-950/95 text-white' : feedback.airThreatState === 'TRACKING' ? 'border-amber-200 bg-black/90 text-white' : 'border-cyan-200 bg-black/90 text-white'} ${feedback.airThreatDirection === 'LEFT' ? 'left-3' : 'right-3'}`}><span aria-hidden="true">△ {feedback.airThreatDirection === 'LEFT' ? '◀' : '▶'}</span> BANDIT {feedback.airThreatState}</div> : null}
-      {mission.id === 'm11_cold_passage' && feedback ? (
+      {mission.id === 'm11_cold_passage' && feedback && showColdPassagePanel ? (
         <div className="absolute left-2 top-[112px] z-20 w-64 rounded border border-amber-300/55 bg-slate-950/92 px-3 py-2 shadow-xl sm:left-4" aria-live="polite">
           <div className="flex items-center justify-between text-[9px] font-bold tracking-[.16em] text-cyan-200"><span>LONG-RANGE CONTACTS</span><span>{feedback.unidentifiedContacts} UNKNOWN</span></div>
           <div className="mt-2 flex items-center gap-2 text-[8px] text-slate-400"><span className="w-20">VISUAL ID</span><div className="h-1.5 flex-1 overflow-hidden rounded bg-slate-800"><div className="h-full bg-cyan-300" style={{ width: `${Math.round(feedback.identificationProgress * 100)}%` }} /></div></div>
           <div className="mt-1 flex items-center gap-2 text-[8px] text-amber-200"><span className="w-20">TARGET TRACK</span><div className="h-1.5 flex-1 overflow-hidden rounded bg-slate-800"><div className={`h-full ${feedback.targetingTrackProgress >= 0.75 ? 'animate-pulse bg-rose-400' : 'bg-amber-300'}`} style={{ width: `${Math.round(feedback.targetingTrackProgress * 100)}%` }} /></div></div>
         </div>
       ) : null}
-      {mission.id === 'm12_hammerfall_fjord' ? (
+      {mission.id === 'm12_hammerfall_fjord' && showHammerfallPanel ? (
         <div className="absolute left-2 top-[112px] z-20 w-72 rounded border border-cyan-300/55 bg-slate-950/92 px-3 py-2 shadow-xl sm:left-4" aria-live="polite">
           <div className="flex items-center justify-between text-[9px] font-bold tracking-[.14em] text-cyan-200"><span>HAMMERFALL CORRIDOR</span><span className={s.altitudeBand === 'LOW' ? 'text-emerald-300' : 'animate-pulse text-amber-300'}>{s.altitudeBand === 'LOW' ? 'TERRAIN MASKED' : 'RADAR EXPOSED'}</span></div>
           <div className="mt-2 grid grid-cols-2 gap-2 text-[8px]">
@@ -142,7 +160,7 @@ export const HUD: React.FC<HUDProps> = ({
           </div>
         </div>
       ) : null}
-      {mission.id === 'm13_troms_bridgehead' ? (
+      {mission.id === 'm13_troms_bridgehead' && showTromsPanel ? (
         <div className="absolute left-2 top-[112px] z-20 w-72 rounded border border-cyan-300/55 bg-slate-950/92 px-3 py-2 shadow-xl sm:left-4" aria-live="polite">
           <div className="flex items-center justify-between text-[8px] font-bold tracking-[.12em] text-cyan-200"><span>TROMS LANDING FORCE INTEGRITY</span><span className={defendedAsset && defendedAsset.integrity <= 30 ? 'animate-pulse text-rose-300' : 'text-emerald-300'}>{defendedAsset?.integrity ?? 100}%</span></div>
           <div className="mt-1 flex items-center justify-between text-[8px] font-bold tracking-[.14em] text-slate-400"><span>TROMS BRIDGEHEAD</span><span className={tromsFarpOperational ? 'text-emerald-300' : 'text-amber-300'}>{tromsFarpOperational ? 'FARP OPERATIONAL' : 'FARP CLOSED'}</span></div>
@@ -159,7 +177,7 @@ export const HUD: React.FC<HUDProps> = ({
           <div className="mt-1 flex items-center justify-between border-t border-cyan-100/15 pt-1 text-[8px] text-slate-400"><span className="flex items-center gap-1"><CloudSnow className="h-3 w-3" /> WHITEOUT VISIBILITY</span><span className="font-bold text-slate-100">{Math.round((arcticWeather?.visibility ?? 1) * 100)}%</span></div>
         </div>
       ) : null}
-      {mission.id === 'm15_red_tide' && defendedAsset ? (
+      {mission.id === 'm15_red_tide' && defendedAsset && showRedTidePanel ? (
         <div className="absolute left-2 top-[112px] z-20 w-72 rounded border border-rose-300/65 bg-slate-950/94 px-3 py-2 shadow-[0_0_26px_rgba(251,113,133,.16)] sm:left-4" aria-live="polite">
           <div className="flex items-center justify-between text-[8px] font-bold tracking-[.13em] text-rose-200"><span className="flex items-center gap-1"><Shield className="h-3 w-3" /> RED TIDE FLEET DEFENCE</span><span className={defendedAsset.integrity <= 50 ? 'animate-pulse text-rose-300' : 'text-emerald-300'}>{defendedAsset.integrity}%</span></div>
           <div className="mt-2 grid grid-cols-3 gap-1 text-center text-[8px]">
@@ -170,7 +188,7 @@ export const HUD: React.FC<HUDProps> = ({
           <div className="mt-1 flex items-center justify-between border-t border-white/10 pt-1 text-[8px] text-slate-400"><span>NEXT THREAT WAVE</span><span className="font-bold text-amber-200">{directorState?.nextWaveTicks === null || directorState?.nextWaveTicks === undefined ? 'ACTIVE' : `${Math.ceil(directorState.nextWaveTicks / 60)}s`}</span></div>
         </div>
       ) : null}
-      {mission.id === 'm16_north_cape_assault' && defendedAsset ? (
+      {mission.id === 'm16_north_cape_assault' && defendedAsset && showNorthCapePanel ? (
         <div className="absolute left-2 top-[112px] z-20 w-[min(92vw,360px)] rounded border border-amber-200/65 bg-slate-950/95 px-3 py-2 shadow-[0_0_28px_rgba(251,191,36,.14)] sm:left-4" aria-live="polite">
           <div className="flex items-center justify-between text-[8px] font-bold tracking-[.13em] text-amber-100"><span className="flex items-center gap-1"><Shield className="h-3 w-3" /> NORTH CAPE ASSAULT</span><span className={defendedAsset.integrity <= 50 ? 'animate-pulse text-rose-300' : 'text-emerald-300'}>INVINCIBLE {defendedAsset.integrity}%</span></div>
           <div className="mt-2 grid grid-cols-5 gap-1 text-center text-[7px]">
@@ -190,13 +208,13 @@ export const HUD: React.FC<HUDProps> = ({
               {mission.timeString}
             </span>
           </div>
-          <div className="text-[11px] text-zinc-400">
+          {hudExpanded ? <div className="text-[11px] text-zinc-400">
             LOC: <span className="text-zinc-200">{mission.theater}</span>
-          </div>
+          </div> : null}
           {directorState && mission.phases?.length ? <div className="flex flex-wrap gap-x-2 border-t border-white/10 pt-1 text-[9px] font-bold"><span className="text-emerald-300">{directorState.phaseLabel}</span>{mission.alertProfile ? <span className={directorState.alertLevel >= 80 ? 'animate-pulse text-rose-300' : 'text-amber-300'}>ALERT {Math.round(directorState.alertLevel)}%</span> : null}{directorState.nextWaveTicks !== null ? <span className="text-cyan-300">WAVE {Math.ceil(directorState.nextWaveTicks / 60)}s</span> : null}{mission.id === 'm7_bridge_strike' ? <span className="text-amber-300">CONVOY ROUTE ACTIVE</span> : null}</div> : null}
           {defendedAsset && mission.id !== 'm13_troms_bridgehead' && mission.id !== 'm15_red_tide' && mission.id !== 'm16_north_cape_assault' ? <div className="flex items-center justify-between gap-3 border-t border-white/10 pt-1 text-[9px] font-bold"><span className="text-cyan-300">{defendedAssetLabel(defendedAsset.type)} {defendedAsset.integrity}%</span>{defendedAsset.incomingMissiles > 0 ? <span className="animate-pulse text-rose-300">◆ MISSILES ×{defendedAsset.incomingMissiles}</span> : null}</div> : null}
           {currentObjective ? <div className="max-w-[360px] truncate border-t border-white/10 pt-1 text-[9px] text-emerald-100/80">OBJ: {currentObjective.description}</div> : null}
-          <div className="flex items-center gap-2 text-[10px] text-zinc-400 mt-0.5">
+          {hudVisibility.mapProgress ? <div className="flex items-center gap-2 text-[10px] text-zinc-400 mt-0.5">
             <span>MAP PROGRESS:</span>
             <div className="w-28 h-2 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">
               <div
@@ -205,12 +223,21 @@ export const HUD: React.FC<HUDProps> = ({
               />
             </div>
             <span>{Math.round(s.x)}m</span>
-          </div>
+          </div> : null}
         </div>
 
         {/* Top-Right: Combat Flow & Score + Quick Controls */}
         <div className="flex flex-col items-end gap-1.5 pointer-events-auto">
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-expanded={hudExpanded}
+              onClick={() => setHudExpanded((visible) => !visible)}
+              className="hidden lg:flex px-2.5 py-1.5 rounded bg-zinc-900/90 hover:bg-zinc-800 border border-cyan-500/40 text-cyan-300 text-[11px] font-bold shadow items-center gap-1 cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-cyan-200"
+              title="Toggle expanded HUD detail (I)"
+            >
+              {hudExpanded ? '− ESSENTIAL HUD' : '+ HUD DETAIL'} [I]
+            </button>
             {onToggleTouchControls && (
               <button
                 type="button"
@@ -233,7 +260,7 @@ export const HUD: React.FC<HUDProps> = ({
             )}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3 bg-zinc-950/85 backdrop-blur-md border border-amber-500/40 p-2.5 rounded-lg shadow-xl text-right">
+          {hudVisibility.scoreDetail ? <div className="hidden lg:flex items-center gap-3 bg-zinc-950/85 backdrop-blur-md border border-amber-500/40 p-2.5 rounded-lg shadow-xl text-right">
             <div>
               <div className="text-[10px] tracking-widest text-zinc-400 font-bold uppercase">Combat Flow</div>
               <div className="text-xl font-display font-black tracking-wider text-amber-400 flex items-center justify-end gap-1">
@@ -248,7 +275,7 @@ export const HUD: React.FC<HUDProps> = ({
                 {score.toLocaleString()}
               </div>
             </div>
-          </div>
+          </div> : null}
 
         </div>
       </div>
@@ -256,7 +283,7 @@ export const HUD: React.FC<HUDProps> = ({
       {/* --- CENTER: AVIATION PITCH LADDER, CARRIER ILS & RETICLE --- */}
       <div className="relative flex-1 flex items-center justify-center">
         {/* Left Flight Tape: Airspeed & VTOL Mode */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2 bg-zinc-950/80 backdrop-blur-sm border border-cyan-500/30 p-2.5 rounded text-xs">
+        {hudVisibility.detailedFlight ? <div className="absolute left-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2 bg-zinc-950/80 backdrop-blur-sm border border-cyan-500/30 p-2.5 rounded text-xs">
           <div className="text-zinc-400 text-[10px] font-bold">AIRSPEED</div>
           <div className="text-lg font-bold font-display text-cyan-300" aria-label={`${s.speedKnots} knots, flying ${s.facing === -1 ? 'left' : 'right'}`}>
             <span aria-hidden="true">{s.facing === -1 ? '\u25c0' : '\u25b6'} </span>{s.speedKnots} <span className="text-[10px] font-normal text-zinc-400">KTS</span>
@@ -287,10 +314,10 @@ export const HUD: React.FC<HUDProps> = ({
               {Math.round(s.vtolTransition * 98)}°
             </span>
           </div>
-        </div>
+        </div> : null}
 
         {/* Right Flight Tape: Altitude Band & Vertical Speed */}
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2 bg-zinc-950/80 backdrop-blur-sm border border-cyan-500/30 p-2.5 rounded text-xs text-right">
+        {hudVisibility.detailedFlight ? <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2 bg-zinc-950/80 backdrop-blur-sm border border-cyan-500/30 p-2.5 rounded text-xs text-right">
           <div className="text-zinc-400 text-[10px] font-bold">BARO ALTITUDE</div>
           <div className="text-lg font-bold font-display text-cyan-300">
             {Math.round(620 - s.y)} <span className="text-[10px] font-normal text-zinc-400">FT</span>
@@ -308,7 +335,7 @@ export const HUD: React.FC<HUDProps> = ({
             </div>
           </div>
 
-        </div>
+        </div> : null}
 
         {/* Target Lock Reticle (Center-Forward) */}
         {s.targetLockedId && (
@@ -328,9 +355,14 @@ export const HUD: React.FC<HUDProps> = ({
       </div>
 
       {/* --- BOTTOM BAR: SUB-SYSTEM STATUS, FUEL, CANNON HEAT, WEAPONS BAY --- */}
+      <div className="pointer-events-none absolute bottom-2 left-1/2 z-10 flex w-[min(76%,420px)] -translate-x-1/2 items-center justify-between gap-2 rounded border border-cyan-500/35 bg-zinc-950/88 px-2 py-1 text-[9px] shadow-lg backdrop-blur-sm lg:hidden" aria-label="Essential aircraft and weapon status">
+        <span className={s.health < 35 ? 'font-black text-rose-300' : 'font-bold text-cyan-200'}>AIRFRAME {Math.round(s.health)}%</span>
+        <span className={hudVisibility.dangerousFuel ? 'animate-pulse font-black text-rose-300' : 'font-bold text-amber-200'}>FUEL {Math.round(s.fuel)}%</span>
+        <span className="truncate font-black text-emerald-200">{activeWeaponLabel(s)}</span>
+      </div>
       <div className="flex items-end justify-between w-full">
         {/* Bottom-Left: Subsystem Health & Fuel Gauge */}
-        <div className="hidden lg:flex flex-col gap-2 bg-zinc-950/85 backdrop-blur-md border border-cyan-500/40 p-3 rounded-lg shadow-xl text-xs w-72">
+        <div className="hidden lg:flex flex-col gap-2 bg-zinc-950/85 backdrop-blur-md border border-cyan-500/40 p-2.5 rounded-lg shadow-xl text-xs w-56">
           {/* Main Airframe Health */}
           <div>
             <div className="flex items-center justify-between text-[11px] font-bold mb-1">
@@ -341,7 +373,7 @@ export const HUD: React.FC<HUDProps> = ({
                 {Math.round(s.health)}%
               </span>
             </div>
-            <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">
+            <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">
               <div
                 className={`h-full transition-all duration-150 ${
                   s.health < 30 ? 'bg-rose-500' : s.health < 60 ? 'bg-amber-500' : 'bg-cyan-500'
@@ -352,7 +384,7 @@ export const HUD: React.FC<HUDProps> = ({
           </div>
 
           {/* Fuel Status */}
-          <div>
+          {hudVisibility.dangerousFuel || hudExpanded ? <div>
             <div className="flex items-center justify-between text-[11px] font-bold mb-1">
               <span className="flex items-center gap-1.5 text-zinc-200">
                 <Flame className="w-3.5 h-3.5 text-amber-400" /> JET FUEL
@@ -361,16 +393,16 @@ export const HUD: React.FC<HUDProps> = ({
                 {Math.round(s.fuel)}%
               </span>
             </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">
+            <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">
               <div
                 className={`h-full transition-all duration-150 ${s.fuel < 20 ? 'bg-rose-500' : 'bg-amber-500'}`}
                 style={{ width: `${s.fuel}%` }}
               />
             </div>
-          </div>
+          </div> : <div className="flex items-center justify-between border-t border-zinc-800 pt-1 text-[10px]"><span className="flex items-center gap-1 text-zinc-400"><Flame className="h-3 w-3 text-amber-400" /> FUEL</span><span className="font-bold text-amber-300">{Math.round(s.fuel)}%</span></div>}
 
           {/* Subsystem Micro Grid Warnings */}
-          <div className="grid grid-cols-3 gap-1.5 pt-1 border-t border-zinc-800 text-[10px]">
+          {hudVisibility.subsystemDetail ? <div className="grid grid-cols-3 gap-1.5 pt-1 border-t border-zinc-800 text-[10px]" aria-label="Subsystem damage status">
             <div className={`p-1 rounded border text-center ${s.subsystems.engine < 0.6 ? 'border-rose-500 bg-rose-950/50 text-rose-300' : 'border-zinc-800 text-zinc-400'}`}>
               ENG: {Math.round(s.subsystems.engine * 100)}%
             </div>
@@ -380,12 +412,12 @@ export const HUD: React.FC<HUDProps> = ({
             <div className={`p-1 rounded border text-center ${s.subsystems.targeting < 0.6 ? 'border-rose-500 bg-rose-950/50 text-rose-300' : 'border-zinc-800 text-zinc-400'}`}>
               AVN: {Math.round(s.subsystems.targeting * 100)}%
             </div>
-          </div>
+          </div> : null}
         </div>
 
         {/* Bottom-Centre: contextual control reference. */}
         <div className="pointer-events-auto hidden lg:flex flex-col items-center gap-1">
-          {(!tutorialUnderstood || trainingState?.enabled || controlsRecalled) ? <div className="bg-zinc-950/90 backdrop-blur-sm border border-cyan-500/40 px-3 py-1.5 rounded text-[10px] text-zinc-300 shadow-lg" aria-label="Flight control reference">
+          {hudVisibility.controlReference ? <div className="bg-zinc-950/90 backdrop-blur-sm border border-cyan-500/40 px-3 py-1.5 rounded text-[10px] text-zinc-300 shadow-lg" aria-label="Flight control reference">
           <div className="flex items-center gap-3 text-cyan-300 font-semibold">
             <span><strong className="text-zinc-100">{bindingLabel(inputBindings, 'PITCH_UP', inputDevice)}/{bindingLabel(inputBindings, 'PITCH_DOWN', inputDevice)}</strong> PITCH</span>
             <span><strong className="text-zinc-100">{bindingLabel(inputBindings, 'THROTTLE_DOWN', inputDevice)}/{bindingLabel(inputBindings, 'THROTTLE_UP', inputDevice)}</strong> {DIRECTIONAL_FLIGHT_COPY.hudLabel}</span>
@@ -400,7 +432,12 @@ export const HUD: React.FC<HUDProps> = ({
         </div>
 
         {/* Bottom-Right: Weapons Loadout & Autocannon Heat */}
-        <div className="hidden lg:flex flex-col gap-2 bg-zinc-950/85 backdrop-blur-md border border-cyan-500/40 p-3 rounded-lg shadow-xl text-xs w-80 text-right">
+        <div className="hidden lg:flex flex-col gap-2 bg-zinc-950/85 backdrop-blur-md border border-cyan-500/40 p-2.5 rounded-lg shadow-xl text-xs w-56 text-right">
+          <div className="flex items-center justify-between gap-3" aria-label={`Active weapon ${activeWeaponLabel(s)}`}>
+            <span className="text-[9px] font-bold tracking-wider text-zinc-400">ACTIVE WEAPON</span>
+            <span className="font-display text-xs font-black text-cyan-200">{activeWeaponLabel(s)}</span>
+          </div>
+          {hudVisibility.weaponDetail ? <>
           {/* Twin 30mm ADEN cannon heat gauge */}
           <div>
             <div className="flex items-center justify-between text-[11px] font-bold mb-1">
@@ -422,7 +459,7 @@ export const HUD: React.FC<HUDProps> = ({
           </div>
 
           {/* Weapon Ammo Pods */}
-          <div className="grid grid-cols-4 gap-1.5 pt-1 border-t border-zinc-800 text-[10px]">
+          <div className="grid grid-cols-4 gap-1 pt-1 border-t border-zinc-800 text-[9px]">
             <div className="p-1.5 rounded border border-cyan-500/40 bg-cyan-950/20 flex flex-col items-center">
               <span className="text-zinc-400">GUN</span>
               <span className="text-cyan-300 font-bold text-xs">∞</span>
@@ -444,6 +481,7 @@ export const HUD: React.FC<HUDProps> = ({
               <span className="text-[9px] text-zinc-500">[F]</span>
             </div>
           </div>
+          </> : null}
         </div>
       </div>
     </div>

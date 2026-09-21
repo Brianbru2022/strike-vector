@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
+  "buildId": "IK87-1.2.0-DEV1-20260921-HUD1",
   "fivePlayerInternalTest": {
     "status": "PENDING_HUMAN",
     "evidence": "reports/milestone-5/control-concept-evidence.json"

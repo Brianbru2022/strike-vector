@@ -1,6 +1,6 @@
 # Milestone 5 control-concept human test
 
-Build: `IK87-1.2.0-DEV1-20260921-DIRECTION1`
+Build: `IK87-1.2.0-DEV1-20260921-HUD1`
 
 Status: **PENDING**
 
@@ -12,7 +12,7 @@ Requested another sortie without prompting: 0/5
 
 - Evidence file is missing or invalid JSON: reports\milestone-5\control-concept-evidence.json
 - Evidence export version must be 1.
-- Evidence must target current build IK87-1.2.0-DEV1-20260921-DIRECTION1.
+- Evidence must target current build IK87-1.2.0-DEV1-20260921-HUD1.
 - Evidence export does not contain an evidence array.
 - Complete all 5 current-build participant slots.
 - Three novice-player sessions are required.

@@ -15,7 +15,7 @@ const skipCalls = [...spec.matchAll(/test\.skip\(([^\n]+)\);/g)].map((match) => 
 
 check('No focused test is committed', !spec.includes('test.only(') && !spec.includes('test.describe.only('));
 check('No unresolved fixme test is committed', !spec.includes('test.fixme('));
-check('Campaign browser inventory contains 35 scenarios', declaredTests === 35);
+check('Campaign browser inventory contains 36 scenarios', declaredTests === 36);
 check('Exactly five project-inapplicable duplicates are skipped', skipCalls.length === 5);
 check('Every project skip explains why it is inapplicable', skipCalls.every((call) => /,\s*['"][^'"]{12,}['"]$/.test(call)));
 check('HMS Invincible integrity uses the current HUD contract', spec.includes("page.getByText(/HMS INVINCIBLE \\d+%/)"));

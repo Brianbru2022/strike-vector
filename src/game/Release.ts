@@ -1,7 +1,7 @@
 export const RELEASE_INFO = Object.freeze({
   version: '1.2.0-dev.1',
   displayVersion: '1.2 DEV1',
-  buildId: 'IK87-1.2.0-DEV1-20260921-DIRECTION1',
+  buildId: 'IK87-1.2.0-DEV1-20260921-HUD1',
   channel: 'DEVELOPMENT' as const,
   campaignMissionCount: 16,
   operationGenerationVersions: Object.freeze([1, 2, 3] as const),

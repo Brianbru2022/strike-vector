@@ -2,7 +2,7 @@
 
 A painted 2D, side-scrolling VTOL action-simulation set during an alternative 1987 NATO–Warsaw Pact conflict. Fly a Sea Harrier FRS.1 through a sixteen-mission North Atlantic and Norwegian Sea campaign.
 
-Current development build: **1.2 DEV1** (`IK87-1.2.0-DEV1-20260921-DIRECTION1`). The certified 1.0 RC1 campaign baseline remains frozen while beta-readiness work validates the existing game with real players and prepares an isolated itch.io browser build. See `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MILESTONE_5_CONTROL_CONCEPT_TEST.md`, `docs/MILESTONE_6_GUIDED_ONBOARDING.md`, `docs/MILESTONE_7_DIRECTIONAL_CONTROLS.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
+Current development build: **1.2 DEV1** (`IK87-1.2.0-DEV1-20260921-HUD1`). The certified 1.0 RC1 campaign baseline remains frozen while beta-readiness work validates the existing game with real players and prepares an isolated itch.io browser build. See `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MILESTONE_5_CONTROL_CONCEPT_TEST.md`, `docs/MILESTONE_6_GUIDED_ONBOARDING.md`, `docs/MILESTONE_7_DIRECTIONAL_CONTROLS.md`, `docs/MILESTONE_8_CONTEXTUAL_HUD.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
 
 ## Production vertical slice
 
@@ -86,6 +86,7 @@ Open `http://127.0.0.1:4177`. No API key or online image-generation service is r
 - `J` or `Z`: selected secondary weapon.
 - `Q` or `Tab`: cycle AIM-9L, bomb and rocket loadouts.
 - `F` or `E`: countermeasures.
+- `I`: toggle expanded HUD instrumentation; `H`: recall the learned control reference.
 - `P` or `Escape`: pause.
 
 Touch controls appear automatically on compact screens. Standard gamepads use the left stick/D-pad for flight, A for cannon, B for secondary weapon, shoulder buttons for VTOL/countermeasures and Menu to pause.

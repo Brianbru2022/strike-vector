@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-21T07:09:27.959Z",
-  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
+  "generatedAt": "2026-09-21T07:50:32.424Z",
+  "buildId": "IK87-1.2.0-DEV1-20260921-HUD1",
   "manifestBuildId": "IK87-1.2.0-DEV1-20260902-TURN9",
   "captures": 112,
   "issues": [
-    "Visual evidence belongs to IK87-1.2.0-DEV1-20260902-TURN9, not IK87-1.2.0-DEV1-20260921-DIRECTION1.",
+    "Visual evidence belongs to IK87-1.2.0-DEV1-20260902-TURN9, not IK87-1.2.0-DEV1-20260921-HUD1.",
     "Visual evidence predates the current source tree."
   ],
   "passed": false

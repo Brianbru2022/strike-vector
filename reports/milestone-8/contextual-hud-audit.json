@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-21T07:38:36.958Z",
+  "buildId": "IK87-1.2.0-DEV1-20260921-HUD1",
+  "automatedPassed": true,
+  "informationModel": {
+    "aircraftCondition": "ALWAYS_REQUIRED",
+    "currentObjective": "ALWAYS_REQUIRED",
+    "activeWeapon": "ALWAYS_REQUIRED",
+    "detailedFlightData": "CONTEXT_REQUIRED",
+    "weaponInventory": "CONTEXT_REQUIRED",
+    "recoveryGuidance": "CONTEXT_REQUIRED",
+    "subsystemDamage": "WARNING_ONLY",
+    "missileThreat": "WARNING_ONLY",
+    "dangerousFuel": "WARNING_ONLY",
+    "mapProgress": "OPTIONAL_EXPANDED",
+    "scoreBreakdown": "OPTIONAL_EXPANDED",
+    "controlReference": "OPTIONAL_EXPANDED"
+  },
+  "modes": {
+    "essential": "Aircraft condition, current objective and selected weapon remain visible.",
+    "contextual": "Flight, weapon, damage, threat and mission panels appear only when their gameplay context requires them.",
+    "expanded": "Player-requested score, map, inventory and detailed instrumentation."
+  },
+  "runtimeContracts": [
+    {
+      "label": "HUD exposes its current visibility mode",
+      "marker": "data-hud-mode={hudVisibility.mode}",
+      "present": true
+    },
+    {
+      "label": "Current objective remains visible",
+      "marker": "OBJ: {currentObjective.description}",
+      "present": true
+    },
+    {
+      "label": "Active weapon remains visible",
+      "marker": "ACTIVE WEAPON",
+      "present": true
+    },
+    {
+      "label": "Mobile essential status remains visible",
+      "marker": "Essential aircraft and weapon status",
+      "present": true
+    },
+    {
+      "label": "Expanded detail is explicitly toggleable",
+      "marker": "Toggle expanded HUD detail (I)",
+      "present": true
+    },
+    {
+      "label": "Map progress is contextual",
+      "marker": "hudVisibility.mapProgress",
+      "present": true
+    },
+    {
+      "label": "Score is contextual",
+      "marker": "hudVisibility.scoreDetail",
+      "present": true
+    },
+    {
+      "label": "Flight tapes are contextual",
+      "marker": "hudVisibility.detailedFlight",
+      "present": true
+    },
+    {
+      "label": "Subsystem detail is warning-led",
+      "marker": "hudVisibility.subsystemDetail",
+      "present": true
+    },
+    {
+      "label": "Weapon inventory is contextual",
+      "marker": "hudVisibility.weaponDetail",
+      "present": true
+    }
+  ],
+  "issues": []
+}

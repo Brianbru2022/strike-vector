@@ -19,6 +19,31 @@ test('offers guided Mission 1 as the primary first-run action', async ({ page })
   await expect(page.getByRole('button', { name: 'GUIDED', exact: true })).toHaveClass(/bg-emerald-300/);
 });
 
+test('keeps the flight HUD contextual while preserving essential status', async ({ page }, testInfo) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'START GUIDED CAMPAIGN' }).click();
+  await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
+  const hud = page.locator('#game-hud');
+  await expect(hud).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByText('MAP PROGRESS:')).toBeHidden();
+  await page.keyboard.press('KeyI');
+  await expect(hud).toHaveAttribute('data-hud-mode', 'EXPANDED');
+  await expect(page.getByText('MAP PROGRESS:')).toBeVisible();
+  await page.keyboard.press('KeyI');
+  await expect(page.getByText('MAP PROGRESS:')).toBeHidden();
+
+  const essentialStatus = page.getByLabel('Essential aircraft and weapon status');
+  if (testInfo.project.name === 'mobile-landscape') {
+    await expect(essentialStatus).toBeVisible();
+    await expect(essentialStatus).toContainText('AIRFRAME');
+    await expect(essentialStatus).toContainText('FUEL');
+    await expect(essentialStatus).toContainText('AIM-9L');
+  } else {
+    await expect(page.getByRole('button', { name: /HUD DETAIL/ })).toBeVisible();
+    await expect(essentialStatus).toBeHidden();
+  }
+});
+
 test('opens the isolated three-sortie North Atlantic showcase', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'NORTH ATLANTIC SHOWCASE' }).click();
@@ -538,6 +563,7 @@ test('unlocks and launches Hammerfall Fjord after Cold Passage', async ({ page }
   await expect(page.getByText('Norwegian fishing homes at Hammarvik are protected.')).toBeVisible();
   await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
   await expect(page.getByText('LOW-LEVEL FJORD INGRESS', { exact: true })).toBeVisible();
+  await page.keyboard.press('KeyI');
   await expect(page.getByText('HAMMERFALL CORRIDOR')).toBeVisible();
 });
 
@@ -600,6 +626,7 @@ test('unlocks and launches Red Tide after Whiteout Rescue', async ({ page }) => 
   await expect(page.getByText('Each Nanuchka corvette carries exactly two sea-skimming missiles')).toBeVisible();
   await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
   await expect(page.getByText('FORM THE FORWARD FLEET SCREEN', { exact: true })).toBeVisible();
+  await page.keyboard.press('KeyI');
   await expect(page.getByText('RED TIDE FLEET DEFENCE', { exact: true })).toBeVisible();
   await expect(page.getByText('NEXT THREAT WAVE', { exact: true })).toBeVisible();
 });
@@ -619,6 +646,7 @@ test('unlocks and launches North Cape Assault after Red Tide', async ({ page }) 
   await expect(page.getByText('The command radar and fortress core are physically present but protected')).toBeVisible();
   await page.getByRole('button', { name: 'SCRAMBLE LAUNCH' }).click();
   await expect(page.getByText('PHASE 1 — BREAK THE NAVAL PICKET', { exact: true }).first()).toBeVisible();
+  await page.keyboard.press('KeyI');
   await expect(page.getByText('NORTH CAPE ASSAULT', { exact: true })).toBeVisible();
   await expect(page.getByText('FLEET SCREEN CLEAR', { exact: true })).toBeVisible();
 });

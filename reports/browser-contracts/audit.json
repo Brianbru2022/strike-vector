@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T06:54:59.526Z",
-  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
+  "generatedAt": "2026-09-21T07:38:37.490Z",
+  "buildId": "IK87-1.2.0-DEV1-20260921-HUD1",
   "status": "PASS",
-  "declaredScenarios": 35,
-  "projectExecutions": 70,
+  "declaredScenarios": 36,
+  "projectExecutions": 72,
   "justifiedProjectSkips": 5,
   "checks": [
     {
@@ -16,7 +16,7 @@
       "passed": true
     },
     {
-      "name": "Campaign browser inventory contains 35 scenarios",
+      "name": "Campaign browser inventory contains 36 scenarios",
       "passed": true
     },
     {
