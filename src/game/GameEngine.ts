@@ -908,6 +908,8 @@ export class GameEngine {
     // 2. Render Enemies & Structures
     this.enemies.render(ctx, this.cameraX, (worldX) => this.terrain.getGroundContactY(worldX, this.currentMission), {
       selectedTargetId: this.player.stats.targetLockedId,
+      playerX: this.player.stats.x,
+      playerY: this.player.stats.y,
       ambientLight: this.currentMission.timeOfDay.ambientLight,
       gameplayCalm: this.currentMission.presentation?.gameplayCalm,
       reducedEffects: this.accessibility.reducedEffects,
@@ -942,7 +944,12 @@ export class GameEngine {
     }
 
     // 4. Render Weapons & Projectiles
-    this.weapons.render(ctx, this.cameraX, (worldX) => this.terrain.getGroundContactY(worldX, this.currentMission));
+    this.weapons.render(ctx, this.cameraX, (worldX) => this.terrain.getGroundContactY(worldX, this.currentMission), {
+      playerX: this.player.stats.x,
+      playerY: this.player.stats.y,
+      ambientLight: this.currentMission.timeOfDay.ambientLight,
+      reducedEffects: this.accessibility.reducedEffects,
+    });
 
     // 5. Render Layered Explosions & Particles
     this.effects.render(ctx, this.cameraX);

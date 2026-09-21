@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260921-DEPTH1",
+  "automatedPassed": true,
+  "depthBands": [
+    {
+      "distance": 120,
+      "expected": "FOREGROUND",
+      "actual": "FOREGROUND"
+    },
+    {
+      "distance": 400,
+      "expected": "ENGAGEMENT",
+      "actual": "ENGAGEMENT"
+    },
+    {
+      "distance": 800,
+      "expected": "DISTANT",
+      "actual": "DISTANT"
+    }
+  ],
+  "ordinaryDistantTreatment": {
+    "filter": "brightness(0.962) saturate(0.738) contrast(0.960) blur(0.18px) drop-shadow(0 2px 2px rgba(1, 5, 9, 0.82))",
+    "opacity": 0.9,
+    "shadowFootprint": 0.88,
+    "shadowOpacity": 0.58,
+    "depthBand": "DISTANT"
+  },
+  "criticalDistantTreatment": {
+    "filter": "brightness(0.962) saturate(0.838) contrast(1.040) drop-shadow(0 2px 2px rgba(1, 5, 9, 0.82)) drop-shadow(0 0 5px cyan)",
+    "opacity": 0.97,
+    "shadowFootprint": 0.88,
+    "shadowOpacity": 0.58,
+    "depthBand": "DISTANT"
+  },
+  "contracts": [
+    {
+      "label": "Enemy rendering receives player position",
+      "passed": true
+    },
+    {
+      "label": "Enemy contacts calculate presentation distance",
+      "passed": true
+    },
+    {
+      "label": "Distant contact shadows are attenuated",
+      "passed": true
+    },
+    {
+      "label": "Objective and selected contacts remain critical",
+      "passed": true
+    },
+    {
+      "label": "Projectile rendering consumes distance treatment",
+      "passed": true
+    },
+    {
+      "label": "Enemy missiles retain minimum visibility",
+      "passed": true
+    }
+  ],
+  "issues": [],
+  "manualAcceptanceRequired": [
+    "Confirm distant aircraft feel embedded in haze while remaining identifiable in motion.",
+    "Confirm distant ground installations do not appear pasted onto detailed terrain.",
+    "Confirm missile and priority-objective recognition remains immediate at every supported viewport."
+  ]
+}

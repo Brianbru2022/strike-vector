@@ -22,6 +22,8 @@ export type EnemyCombatEvent =
 
 export interface EnemyRenderReadabilityContext {
   selectedTargetId: string | null;
+  playerX?: number;
+  playerY?: number;
   ambientLight: number;
   gameplayCalm?: number;
   reducedEffects?: boolean;
@@ -744,12 +746,17 @@ export class EnemyManager {
         ? calculateTerrainPlacement(e.x, footprintHalfWidth, (worldX) => groundYAt(worldX) ?? GAME_CONSTANTS.GROUND_SURFACE_Y, Boolean(spritePlacement?.followsSlope))
         : { contactY: sitsOnLand ? GAME_CONSTANTS.GROUND_SURFACE_Y : e.y, rotation: 0 };
       const contactY = terrainPlacement.contactY;
+      const isSelected = readabilityContext?.selectedTargetId === e.id;
+      const distanceFromPlayer = Math.hypot(
+        e.x - (readabilityContext?.playerX ?? e.x),
+        e.y - (readabilityContext?.playerY ?? e.y),
+      );
       const readability = getTargetReadabilityPresentation({
         category: e.category,
         isTargetable: e.isTargetable,
         isPrimaryObjective: e.isPrimaryObjective,
         isSecondaryObjective: e.isSecondaryObjective,
-        isSelected: readabilityContext?.selectedTargetId === e.id,
+        isSelected,
         ambientLight: readabilityContext?.ambientLight ?? 0.8,
         gameplayCalm: readabilityContext?.gameplayCalm,
       });
@@ -759,6 +766,10 @@ export class EnemyManager {
         separationFilter: readability.separationFilter,
         damageStage: e.damageStage,
         reducedEffects: readabilityContext?.reducedEffects,
+        distanceFromPlayer,
+        isSelected,
+        isObjective: e.isPrimaryObjective || e.isSecondaryObjective,
+        isThreat: e.isTargetable || e.type === 'ANTI_SHIP_MISSILE',
       });
 
       if (e.isAlive && sitsOnLand) {
@@ -767,7 +778,7 @@ export class EnemyManager {
           Math.max(15, footprintHalfWidth * foregroundTreatment.shadowFootprint),
           (worldX) => groundYAt?.(worldX) ?? GAME_CONSTANTS.GROUND_SURFACE_Y,
         );
-        if (shadow) drawTerrainShadow(ctx, screenX, shadow);
+        if (shadow) drawTerrainShadow(ctx, screenX, { ...shadow, alpha: shadow.alpha * foregroundTreatment.shadowOpacity });
       }
 
       // 2.5D Dynamic Ground / Water Shadow for airborne enemies (Jets, Helis)
@@ -780,7 +791,7 @@ export class EnemyManager {
           (worldX) => groundYAt?.(worldX) ?? seaY,
           altitude,
         );
-        if (shadow) drawTerrainShadow(ctx, screenX, shadow);
+        if (shadow) drawTerrainShadow(ctx, screenX, { ...shadow, alpha: shadow.alpha * foregroundTreatment.shadowOpacity });
       }
 
       ctx.save();
@@ -788,6 +799,7 @@ export class EnemyManager {
       const navalBob = isNaval && e.isAlive ? Math.sin((e.stateTimer + stableHash(e.id)) * 0.045) * (e.type === 'MISSILE_CORVETTE' ? 1.8 : 2.5) : 0;
       ctx.translate(screenX, sitsOnLand ? contactY : isNaval ? (e.isAlive ? seaY + navalBob : e.y) : e.y);
       if (e.isAlive) {
+        ctx.globalAlpha *= foregroundTreatment.opacity;
         ctx.filter = e.type === 'ANTI_SHIP_MISSILE'
           ? `${foregroundTreatment.filter} drop-shadow(0 0 4px rgba(255, 245, 210, 0.95)) drop-shadow(0 0 7px rgba(244, 63, 94, 0.72))`
           : foregroundTreatment.filter;
@@ -1006,6 +1018,7 @@ export class EnemyManager {
       }
 
       ctx.filter = 'none';
+      ctx.globalAlpha = 1;
 
       // Objective indicators use sparse corner brackets so the painted
       // silhouette stays readable instead of being buried inside a large ring.

@@ -5,6 +5,14 @@ import { ParticleAndEffects } from './ParticleAndEffects';
 import { soundEngine } from '../audio/SoundEngine';
 import { getWeaponEffectProfile, impactSurfaceAt } from './CombatEffects';
 import { getProjectilePresentationScale } from './CombatReadability';
+import { getForegroundTreatment } from './ForegroundPresentation';
+
+export interface ProjectilePresentationContext {
+  playerX: number;
+  playerY: number;
+  ambientLight: number;
+  reducedEffects?: boolean;
+}
 
 export class WeaponsSystem {
   public projectiles: Projectile[] = [];
@@ -456,7 +464,7 @@ export class WeaponsSystem {
     }
   }
 
-  public render(ctx: CanvasRenderingContext2D, cameraX: number, groundYAt?: (worldX: number) => number | null) {
+  public render(ctx: CanvasRenderingContext2D, cameraX: number, groundYAt?: (worldX: number) => number | null, presentation?: ProjectilePresentationContext) {
     const seaY = GAME_CONSTANTS.SEA_LEVEL_Y;
 
     for (const p of this.projectiles) {
@@ -482,6 +490,16 @@ export class WeaponsSystem {
       ctx.translate(screenX, p.y);
       ctx.rotate(p.rotation);
       ctx.scale(getProjectilePresentationScale(p.type), getProjectilePresentationScale(p.type));
+      const distanceFromPlayer = presentation ? Math.hypot(p.x - presentation.playerX, p.y - presentation.playerY) : 0;
+      const projectileTreatment = getForegroundTreatment({
+        spriteKey: 'projectile',
+        ambientLight: presentation?.ambientLight ?? 0.8,
+        distanceFromPlayer,
+        reducedEffects: presentation?.reducedEffects,
+        isThreat: p.type === 'ENEMY_MISSILE' || p.type === 'ENEMY_BULLET',
+      });
+      ctx.filter = projectileTreatment.filter;
+      ctx.globalAlpha *= p.type === 'ENEMY_MISSILE' ? Math.max(0.97, projectileTreatment.opacity) : projectileTreatment.opacity;
 
       if (p.type === 'CANNON_ROUND') {
         // High-velocity bright tracer with luminescence

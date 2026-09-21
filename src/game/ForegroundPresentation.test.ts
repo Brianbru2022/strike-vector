@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FOREGROUND_PRESENTATION_PROFILES, getForegroundPresentationProfile, getForegroundTreatment } from './ForegroundPresentation';
+import { FOREGROUND_PRESENTATION_PROFILES, getAtmosphericDepthBand, getForegroundPresentationProfile, getForegroundTreatment } from './ForegroundPresentation';
 
 describe('foreground presentation authority', () => {
   it('covers every release-critical aircraft, ground, naval and recovery family', () => {
@@ -23,5 +23,22 @@ describe('foreground presentation authority', () => {
 
   it('returns conservative defaults for optional future sprites', () => {
     expect(getForegroundPresentationProfile('future_asset')).toMatchObject({ silhouetteScale: 1, contactAnchorY: 1 });
+  });
+
+  it('classifies contact distance into stable atmospheric bands', () => {
+    expect(getAtmosphericDepthBand(120)).toBe('FOREGROUND');
+    expect(getAtmosphericDepthBand(400)).toBe('ENGAGEMENT');
+    expect(getAtmosphericDepthBand(780)).toBe('DISTANT');
+  });
+
+  it('softens distant ordinary contacts without concealing critical threats', () => {
+    const ordinary = getForegroundTreatment({ spriteKey: 'enemy_sam', ambientLight: 0.7, distanceFromPlayer: 800 });
+    const threat = getForegroundTreatment({ spriteKey: 'enemy_sam', ambientLight: 0.7, distanceFromPlayer: 800, isThreat: true, isObjective: true, separationFilter: 'drop-shadow(0 0 5px cyan)' });
+    expect(ordinary.depthBand).toBe('DISTANT');
+    expect(ordinary.filter).toContain('blur(0.18px)');
+    expect(ordinary.opacity).toBeLessThan(threat.opacity);
+    expect(threat.filter).not.toContain('blur(');
+    expect(threat.filter).toContain('cyan');
+    expect(threat.opacity).toBeGreaterThanOrEqual(0.95);
   });
 });

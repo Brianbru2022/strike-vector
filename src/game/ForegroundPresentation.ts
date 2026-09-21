@@ -3,6 +3,7 @@
  * visual scale, filtering and shadows, but never collision or terrain contact.
  */
 export type ForegroundRole = 'PLAYER_AIRCRAFT' | 'ENEMY_AIRCRAFT' | 'GROUND_UNIT' | 'NAVAL_UNIT' | 'STRUCTURE' | 'RECOVERY_SITE' | 'PROJECTILE';
+export type AtmosphericDepthBand = 'FOREGROUND' | 'ENGAGEMENT' | 'DISTANT';
 
 export interface ForegroundPresentationProfile {
   role: ForegroundRole;
@@ -18,6 +19,10 @@ export interface ForegroundTreatmentInput {
   separationFilter?: string;
   damageStage?: number;
   reducedEffects?: boolean;
+  distanceFromPlayer?: number;
+  isSelected?: boolean;
+  isObjective?: boolean;
+  isThreat?: boolean;
 }
 
 const DEFAULT_PROFILE: Readonly<ForegroundPresentationProfile> = Object.freeze({
@@ -48,6 +53,7 @@ export const FOREGROUND_PRESENTATION_PROFILES: Readonly<Record<string, Readonly<
   enemy_patrol_boat: Object.freeze({ role: 'NAVAL_UNIT', silhouetteScale: 1, shadowFootprint: 0.9, contactAnchorY: 0.92, supportsDamageFrames: true }),
   enemy_corvette: Object.freeze({ role: 'NAVAL_UNIT', silhouetteScale: 1, shadowFootprint: 0.92, contactAnchorY: 0.92, supportsDamageFrames: true }),
   arctic_landing_craft: Object.freeze({ role: 'NAVAL_UNIT', silhouetteScale: 1, shadowFootprint: 0.92, contactAnchorY: 0.8, supportsDamageFrames: true }),
+  projectile: Object.freeze({ role: 'PROJECTILE', silhouetteScale: 1, shadowFootprint: 0.7, contactAnchorY: 0.5, supportsDamageFrames: false }),
 });
 
 export function getForegroundPresentationProfile(spriteKey: string): Readonly<ForegroundPresentationProfile> {
@@ -59,20 +65,45 @@ export function getForegroundPresentationProfile(spriteKey: string): Readonly<Fo
  * A dark contact shadow supplies physical separation; the existing target rim
  * remains the final, higher-priority layer when present.
  */
-export function getForegroundTreatment(input: ForegroundTreatmentInput): { filter: string; shadowFootprint: number } {
+export interface ForegroundTreatment {
+  filter: string;
+  opacity: number;
+  shadowFootprint: number;
+  shadowOpacity: number;
+  depthBand: AtmosphericDepthBand;
+}
+
+export function getAtmosphericDepthBand(distanceFromPlayer = 0): AtmosphericDepthBand {
+  if (distanceFromPlayer < 240) return 'FOREGROUND';
+  if (distanceFromPlayer < 620) return 'ENGAGEMENT';
+  return 'DISTANT';
+}
+
+export function getForegroundTreatment(input: ForegroundTreatmentInput): ForegroundTreatment {
   const profile = getForegroundPresentationProfile(input.spriteKey);
   const ambient = clamp(input.ambientLight, 0.2, 1);
   const damage = clamp(input.damageStage ?? 0, 0, 2);
-  const brightness = clamp(0.82 + ambient * 0.18 - damage * 0.035, 0.74, 1);
-  const saturation = clamp(0.84 + ambient * 0.12 - damage * 0.08, 0.68, 0.98);
-  const contrast = profile.role === 'GROUND_UNIT' || profile.role === 'STRUCTURE' ? 1.08 : 1.05;
+  const depthBand = getAtmosphericDepthBand(input.distanceFromPlayer);
+  const critical = Boolean(input.isSelected || input.isObjective || input.isThreat);
+  const depth = depthBand === 'FOREGROUND' ? 0 : depthBand === 'ENGAGEMENT' ? 0.5 : 1;
+  const groundSensitivity = profile.role === 'GROUND_UNIT' || profile.role === 'STRUCTURE' ? 1 : 0.78;
+  const haze = depth * groundSensitivity;
+  const brightness = clamp(0.82 + ambient * 0.18 - damage * 0.035 + haze * (ambient > 0.62 ? 0.025 : -0.025), 0.72, 1.02);
+  const saturation = clamp(0.84 + ambient * 0.12 - damage * 0.08 - haze * (critical ? 0.08 : 0.18), 0.62, 0.98);
+  const baseContrast = profile.role === 'GROUND_UNIT' || profile.role === 'STRUCTURE' ? 1.08 : 1.05;
+  const contrast = clamp(baseContrast - haze * (critical ? 0.04 : 0.12), 0.9, 1.08);
   const localShadow = input.reducedEffects
     ? 'drop-shadow(0 1px 1px rgba(1, 5, 9, 0.72))'
     : 'drop-shadow(0 2px 2px rgba(1, 5, 9, 0.82))';
   const separation = input.separationFilter && input.separationFilter !== 'none' ? ` ${input.separationFilter}` : '';
+  const blur = depthBand === 'DISTANT' && !critical && !input.reducedEffects ? ' blur(0.18px)' : '';
+  const opacity = depthBand === 'DISTANT' ? (critical ? 0.97 : input.isThreat ? 0.95 : 0.9) : depthBand === 'ENGAGEMENT' ? 0.97 : 1;
   return {
-    filter: `brightness(${brightness.toFixed(3)}) saturate(${saturation.toFixed(3)}) contrast(${contrast.toFixed(3)}) ${localShadow}${separation}`,
+    filter: `brightness(${brightness.toFixed(3)}) saturate(${saturation.toFixed(3)}) contrast(${contrast.toFixed(3)})${blur} ${localShadow}${separation}`,
+    opacity,
     shadowFootprint: profile.shadowFootprint,
+    shadowOpacity: depthBand === 'DISTANT' ? 0.58 : depthBand === 'ENGAGEMENT' ? 0.78 : 1,
+    depthBand,
   };
 }
 
