@@ -284,6 +284,76 @@
       "animationClips": [{ "name": "patrol", "frames": [0], "framesPerSecond": 1, "loop": true }],
       "damageFrames": { "DAMAGED": 1, "CRITICAL": 2, "DESTROYED": 2 },
       "effectAttachments": [{ "id": "bow_spray", "x": 0.95, "y": 0.78 }, { "id": "missile_launcher", "x": 0.62, "y": 0.34 }, { "id": "wake", "x": 0.04, "y": 0.8 }]
+    },
+    "enemy_heli": {
+      "contactAnchor": { "x": 0.5, "y": 0.58 },
+      "shadowFootprint": { "width": 0.82, "offsetY": 0.05 },
+      "animationClips": [{ "name": "hover", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "engine_exhaust", "x": 0.3, "y": 0.54 }, { "id": "rocket_release", "x": 0.66, "y": 0.7 }]
+    },
+    "enemy_sam": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.88, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "missile_release", "x": 0.72, "y": 0.2 }, { "id": "damage_smoke", "x": 0.52, "y": 0.48 }]
+    },
+    "enemy_flak": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.86, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "muzzle", "x": 0.7, "y": 0.27 }, { "id": "damage_smoke", "x": 0.52, "y": 0.5 }]
+    },
+    "enemy_tank": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.9, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "muzzle", "x": 0.82, "y": 0.35 }, { "id": "damage_smoke", "x": 0.5, "y": 0.46 }]
+    },
+    "enemy_radar": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.86, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "damage_smoke", "x": 0.52, "y": 0.42 }]
+    },
+    "enemy_oil": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.9, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "damage_smoke", "x": 0.52, "y": 0.35 }]
+    },
+    "enemy_ship": {
+      "contactAnchor": { "x": 0.5, "y": 0.74 },
+      "shadowFootprint": { "width": 0.92, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "bow_spray", "x": 0.95, "y": 0.73 }, { "id": "wake", "x": 0.04, "y": 0.76 }]
+    },
+    "friendly_supplies": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.9, "offsetY": 0 },
+      "animationClips": [{ "name": "idle", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": []
+    },
+    "forward_base": {
+      "contactAnchor": { "x": 0.5, "y": 0.91 },
+      "shadowFootprint": { "width": 0.94, "offsetY": 0 },
+      "animationClips": [{ "name": "landing_lights", "frames": [0], "framesPerSecond": 1, "loop": true }],
+      "damageFrames": {},
+      "effectAttachments": [{ "id": "touchdown", "x": 0.52, "y": 0.91 }]
+    },
+    "act_three_objectives": {
+      "contactAnchor": { "x": 0.5, "y": 1 },
+      "shadowFootprint": { "width": 0.92, "offsetY": 0 },
+      "animationClips": [{ "name": "objective_types", "frames": [0, 1, 2, 3, 4], "framesPerSecond": 1, "loop": false }],
+      "damageFrames": { "DAMAGED": 4, "CRITICAL": 4, "DESTROYED": 4 },
+      "effectAttachments": [{ "id": "damage_smoke", "x": 0.52, "y": 0.36 }]
     }
   }
 }

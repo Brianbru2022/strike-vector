@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260921-SPRITES1",
+  "automatedPassed": true,
+  "requiredSprites": 24,
+  "checkedSprites": 24,
+  "failures": [],
+  "warnings": [],
+  "assets": [
+    {
+      "key": "act_three_objectives",
+      "file": "act-three-objectives-v1.png",
+      "size": [
+        2156,
+        417
+      ],
+      "transparentRatio": 0.714
+    },
+    {
+      "key": "arctic_coastal_artillery",
+      "file": "coastal-artillery-damage-v1.png",
+      "size": [
+        1536,
+        205
+      ],
+      "transparentRatio": 0.8176
+    },
+    {
+      "key": "arctic_landing_craft",
+      "file": "landing-craft-damage-v1.png",
+      "size": [
+        1536,
+        204
+      ],
+      "transparentRatio": 0.7959
+    },
+    {
+      "key": "arctic_submarine_pen",
+      "file": "submarine-pen-damage-v1.png",
+      "size": [
+        1536,
+        205
+      ],
+      "transparentRatio": 0.5499
+    },
+    {
+      "key": "carrier_ship",
+      "file": "invincible-carrier-hero-v3.png",
+      "size": [
+        3600,
+        416
+      ],
+      "transparentRatio": 0.6628
+    },
+    {
+      "key": "combat_wrecks",
+      "file": "combat-wrecks-v1.png",
+      "size": [
+        2163,
+        354
+      ],
+      "transparentRatio": 0.6064
+    },
+    {
+      "key": "enemy_corvette",
+      "file": "missile-corvette-hero-v3.png",
+      "size": [
+        2700,
+        468
+      ],
+      "transparentRatio": 0.747
+    },
+    {
+      "key": "enemy_flak",
+      "file": "zsu23-4-v2.png",
+      "size": [
+        768,
+        439
+      ],
+      "transparentRatio": 0.4516
+    },
+    {
+      "key": "enemy_heli",
+      "file": "mi24d-painted-v2.png",
+      "size": [
+        768,
+        207
+      ],
+      "transparentRatio": 0.6026
+    },
+    {
+      "key": "enemy_jet",
+      "file": "mig23ml-hero-v3.png",
+      "size": [
+        2304,
+        341
+      ],
+      "transparentRatio": 0.7541
+    },
+    {
+      "key": "enemy_mig21",
+      "file": "mig21bis-hero-v3.png",
+      "size": [
+        2304,
+        224
+      ],
+      "transparentRatio": 0.6274
+    },
+    {
+      "key": "enemy_mig29",
+      "file": "mig29a-hero-v3.png",
+      "size": [
+        2304,
+        201
+      ],
+      "transparentRatio": 0.6621
+    },
+    {
+      "key": "enemy_oil",
+      "file": "fuel-depot-v2.png",
+      "size": [
+        768,
+        254
+      ],
+      "transparentRatio": 0.3256
+    },
+    {
+      "key": "enemy_patrol_boat",
+      "file": "missile-patrol-boat-hero-v3.png",
+      "size": [
+        2460,
+        328
+      ],
+      "transparentRatio": 0.7125
+    },
+    {
+      "key": "enemy_radar",
+      "file": "p19-radar-v2.png",
+      "size": [
+        768,
+        430
+      ],
+      "transparentRatio": 0.5347
+    },
+    {
+      "key": "enemy_sam",
+      "file": "sa8-gecko-v2.png",
+      "size": [
+        768,
+        409
+      ],
+      "transparentRatio": 0.4775
+    },
+    {
+      "key": "enemy_ship",
+      "file": "cargo-supply-freighter-v2.png",
+      "size": [
+        1024,
+        287
+      ],
+      "transparentRatio": 0.4956
+    },
+    {
+      "key": "enemy_su24m",
+      "file": "su24m-damage-v1.png",
+      "size": [
+        1536,
+        205
+      ],
+      "transparentRatio": 0.7973
+    },
+    {
+      "key": "enemy_tank",
+      "file": "t72m-v2.png",
+      "size": [
+        768,
+        278
+      ],
+      "transparentRatio": 0.4726
+    },
+    {
+      "key": "enemy_tu16k",
+      "file": "tu16k-damage-v1.png",
+      "size": [
+        1536,
+        205
+      ],
+      "transparentRatio": 0.8258
+    },
+    {
+      "key": "forward_base",
+      "file": "forward-base-farp-v1.png",
+      "size": [
+        1024,
+        275
+      ],
+      "transparentRatio": 0.6977
+    },
+    {
+      "key": "friendly_supplies",
+      "file": "friendly-supply-cache-v2.png",
+      "size": [
+        768,
+        281
+      ],
+      "transparentRatio": 0.1901
+    },
+    {
+      "key": "player_jet",
+      "file": "sea-harrier-frs1-hero-v3.png",
+      "size": [
+        2304,
+        225
+      ],
+      "transparentRatio": 0.6341
+    },
+    {
+      "key": "player_turn",
+      "file": "sea-harrier-turn-v1.png",
+      "size": [
+        2560,
+        256
+      ],
+      "transparentRatio": 0.7859
+    }
+  ],
+  "manualAcceptanceRequired": [
+    "Confirm target silhouettes remain readable over dark and detailed panoramas.",
+    "Confirm local tint integrates sprites without concealing selected targets.",
+    "Confirm ground contacts, carrier waterlines and FARP recovery surfaces visually align in motion."
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "version": 1,
   "releaseVersion": "1.2.0-dev.1",
-  "buildId": "IK87-1.2.0-DEV1-20260902-TURN9",
-  "generatedAt": "2026-09-02T17:32:41.075Z",
+  "buildId": "IK87-1.2.0-DEV1-20260921-SPRITES1",
+  "generatedAt": "2026-09-21T18:49:14.018Z",
   "servedTitle": "Iron Kestrel '87: North Atlantic Air War",
   "sourceUrl": "http://127.0.0.1:4177",
   "captures": [
@@ -14,7 +14,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "3a64acb618d8382864ae507c975b559fdc3c8fdd7918cb70174192fa5a4942cf"
+      "sha256": "71a47cd1fc15b22b6e9c456f83b02a909d88e3e1ce1ac6b5b89570b9123fb7fc"
     },
     {
       "file": "mission-02-objective.png",
@@ -24,7 +24,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "2c83dde5c1186494cf0fa5890cfc881eeff66721e455339ce1bae2ae10da2cca"
+      "sha256": "12ac0a910e2d90bc3582b03ac3c532714d1322a2cc99581684292239606753ee"
     },
     {
       "file": "mission-03-objective.png",
@@ -34,7 +34,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "bef7403a20ab3c50d700a29ca5b0f7fe868c9371df540fddf7c5d5b05d65f02c"
+      "sha256": "704031521f9e23d0a1a7852c4b9dcba6e8bdd0dc7a8f2ac49a258c7acf3508a6"
     },
     {
       "file": "mission-04-objective.png",
@@ -44,7 +44,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "ecf54e7e2f5466515d9bcdcd5a133b47bb14a224e11782240af833a7b2934fae"
+      "sha256": "37f86e6f9e707a4cd768d28b485da752823e84b90c6dc20ea5bfaf1a8da036ac"
     },
     {
       "file": "mission-05-objective.png",
@@ -54,7 +54,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "b7f655ae661a0bd3330b28483b48e019a897831a4b5235f50e3f8c766e05d8b0"
+      "sha256": "15f22612e4edcfc31bea458aeb37a4327ce5b738d1c426baf842ce0c057fa968"
     },
     {
       "file": "mission-06-objective.png",
@@ -64,7 +64,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "18fe01d2c55979770773fe3eb3dd50477659c3e1e6b803f7a463523075a21933"
+      "sha256": "9e6fa0c15c6e4ade1abe2003ec8868558ea1cae38fb4b4dd59d44108b1ab6cfd"
     },
     {
       "file": "mission-07-objective.png",
@@ -74,7 +74,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "105d8222f14ddd278f999c9eed79efc3d918b8cecc10daada617d9e7b1527de9"
+      "sha256": "0eca5eb82b57c9c042d5e74a51ede88af1d5947805ad949785bd00e2c44602e1"
     },
     {
       "file": "mission-08-objective.png",
@@ -84,7 +84,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "457f403876f21b7304929afb9ece7876f60ac03a2dc96f5bfe0502e9b0a16c28"
+      "sha256": "856b154029a27362444ebc9ab9b3bdea79ae71434992ff88f953a606a40fcfe3"
     },
     {
       "file": "mission-09-objective.png",
@@ -94,7 +94,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "faadbdb66bb642789bc1687c55c109a9fa9af460f09f118f958e3904017a2184"
+      "sha256": "5752a01d9b93c6293809a528918293358f3d245dbb104b60ef83627185163a76"
     },
     {
       "file": "mission-10-objective.png",
@@ -104,7 +104,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "429c33567e457b10989b45a8a3fc7f973eadef4c9e5fc5f1f510635ab86e608b"
+      "sha256": "46e0446fd077b5e1e26529a4b513083c940bbadc856cd18db7ad3d428494d0b4"
     },
     {
       "file": "mission-11-objective.png",
@@ -114,7 +114,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "90b6db0024066c78b7376b3c76d8dfcabcaf73eb070a1838a627866c21ef7550"
+      "sha256": "a107892d37d9249a787a0f89c17991336bdfdc485d05d942f8ee5544747e0dd4"
     },
     {
       "file": "mission-12-objective.png",
@@ -124,7 +124,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "f5fd164ddbde2b4cabf2a99831cd96544aaf6cc451c81e54e62deadb9d3e3b51"
+      "sha256": "01db9ac2e3934b9f055eab6a3124d8ff8c57de6d1c2f2dfcfc8bf1a4ff7d539c"
     },
     {
       "file": "mission-13-objective.png",
@@ -134,7 +134,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "5009b4789b4885ee4e16754919a1cf57c4fb52fd577f1949caae29a6078a4bcd"
+      "sha256": "013cda6c9e97248afa1723898cf37dd96c1f9c488af5e493ad785a96df78fd24"
     },
     {
       "file": "mission-14-objective.png",
@@ -144,7 +144,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "9d92f8b3e6f3d367d542a95b106666f8f0ab9be9637ecf5c0298fa1f613f10c3"
+      "sha256": "b1f526ab927367bbd1e8c3f76677fedee5f33dc537b6c14355ae615c60fb90c8"
     },
     {
       "file": "mission-15-objective.png",
@@ -154,7 +154,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "b80935637629fa71dd8e668bb39fc028d34318252dc74ba99a8108e0f36d2365"
+      "sha256": "16ab77affa34def189cd62e80d3d98ca943f033e2d20f28138292565d97dcbfd"
     },
     {
       "file": "mission-16-objective.png",
@@ -164,7 +164,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": null,
-      "sha256": "852a2093d35448d89fa89318de9c8701df367a795392fe95a8ecd4922fb761cc"
+      "sha256": "c3c4cf895a0375c8d5ecf080d59167c423dc77c5afbccdf21e1a0c0199a66a7c"
     },
     {
       "file": "mission-01-route-22.jpg",
@@ -174,7 +174,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "50a89f388f38db4208f360c3275afc33cd81bc59de5a46a51946911182bfdfaf"
+      "sha256": "44e217229f666bf60b4d7ad9ca858f4bede98f26f9bb0316d4834ff5c18b98ec"
     },
     {
       "file": "mission-01-route-50.jpg",
@@ -184,7 +184,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "945a612038b0273f3609ee84573d9512678dd38d20038a4d1ff3c0442769383f"
+      "sha256": "ba62c376737169d7f708bf912c9eb2e2ca35ed4360c28f55225065b94e65f259"
     },
     {
       "file": "mission-01-route-78.jpg",
@@ -194,7 +194,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "ddf4e6aef31f30519289c307e63aab6d58e09f236209491181e0fa11b81b45c0"
+      "sha256": "a73fd465369f1589705249271bb7ebc191a46eb1a25f909f7c54966e1513af8c"
     },
     {
       "file": "mission-02-route-22.jpg",
@@ -204,7 +204,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "2c6a397f377e4bfa2aebcc251570547407ec8cdc7b01cb243b2bcd5f1e0eb7fe"
+      "sha256": "c4a230b47a6b4ec5949c225741058219b4791a3ccf8328c2c6b71a2a8b2f4a3b"
     },
     {
       "file": "mission-02-route-50.jpg",
@@ -214,7 +214,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "e801530afc907df12406faf6fb5e217e3c62b8dec6f95506f757eca671e32ab1"
+      "sha256": "101f888930eb903f896fa0369b4df4774b7b11af98aaa996561f0fac39a2de27"
     },
     {
       "file": "mission-02-route-78.jpg",
@@ -224,7 +224,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "4aa0e2979c65b6fb6be778d243e2c9c57b7485e917b8f5bc1dd04bdc7687a37a"
+      "sha256": "91a88213fc514fd5a4f44a2eca3787b8fe01c98bea1f7affbd1aef2b1d8be435"
     },
     {
       "file": "mission-03-route-22.jpg",
@@ -234,7 +234,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "e8483821d43cf0da8a320912138e0f048acf8c9bf075757637ecb288ad78541a"
+      "sha256": "a2b9de2fc213622cf7f1b44804a00ebbfb24ef500fdc04f16d7ec248812d9e71"
     },
     {
       "file": "mission-03-route-50.jpg",
@@ -244,7 +244,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "6836e63724e3c82b462980d122a4f5a5148082e421ddbb37c1f3979018b27637"
+      "sha256": "faa43adf28dd4e1e2ff006d7f10c4eb75dbbefdf7c85f0ec7e9440f0be4c8adf"
     },
     {
       "file": "mission-03-route-78.jpg",
@@ -254,7 +254,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "439386e92fd4b06e58ff9539f8dd33ca3f8e26d02df0fd95b2c8ffd281fdcb08"
+      "sha256": "78f17804269d947d425c0f6469f94f86a4b6eea63ffa5cefd65b85d81083db2d"
     },
     {
       "file": "mission-04-route-22.jpg",
@@ -264,7 +264,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "5d9143f62b45a7d0ee6786cfd1ff25891cbc9cd554f6e171235db4ffc5ec7a1c"
+      "sha256": "f23830114c5110a444b24bb770ed4e2bf6c1e1e4bd145fd02be887e6885050f7"
     },
     {
       "file": "mission-04-route-50.jpg",
@@ -274,7 +274,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "4103f76bd2c49a0916e3b925f563b73ec1156d4b7b10e38a241776754ae74d82"
+      "sha256": "ce37b4c115c27541184e846af7bc8a6bdd6d30ad07d927451386b50ad27f4c1c"
     },
     {
       "file": "mission-04-route-78.jpg",
@@ -284,7 +284,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "2f613403a52b57b127dc035364d546964bf8f7f9057d9504c6bb246b28f9bdee"
+      "sha256": "ec007879af192fb73978463868e7e7b8696eb3c72fd7f0017f2d9480facec19a"
     },
     {
       "file": "mission-05-route-22.jpg",
@@ -294,7 +294,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "7d15ebadd97756a471647795066c2e55412fcef0bf62f5aaa86f290d07c6a115"
+      "sha256": "12d01c0bf56b17f6c470c971ef8066e09b69dbeca254e12e8ef9bc1c3d0fbb15"
     },
     {
       "file": "mission-05-route-50.jpg",
@@ -304,7 +304,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "f821b9d2456a3f8b705e39692a36c9a75298d73ade436da49e9113748e14fc75"
+      "sha256": "ca61bf701e999acdaee20719dde34d3b7a370bc73afbf69cc87c0a1682879288"
     },
     {
       "file": "mission-05-route-78.jpg",
@@ -314,7 +314,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "92103c6195793bc90781beff5721d4750370282b641249388ca2b86adb5207e1"
+      "sha256": "0fcc1654cfac6489b4d23af12e5b434295928519c4a28ffcc6cc8c51c79eeb46"
     },
     {
       "file": "mission-06-route-22.jpg",
@@ -324,7 +324,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "4047474797143bed32fd2e99b82f588761431b0608d1bc7bb27f90aac26fd499"
+      "sha256": "c3280c30f29f0dc47277f37129f06e25348a7931f7f11370c4dcd4e47d74a414"
     },
     {
       "file": "mission-06-route-50.jpg",
@@ -334,7 +334,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "60f41fa7455d70d8bccb828a7bfbe7b6e62ff15425ef18084f104e0679e576b9"
+      "sha256": "f59b1c33c643753fc3ba3c1c15f97f6555efce49505c2c104e16116ddcb7391f"
     },
     {
       "file": "mission-06-route-78.jpg",
@@ -344,7 +344,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "f4357330596b0e26ab7ef1e965b10d335a95071b05b63e311d3fd6047ea4aa89"
+      "sha256": "1756506cfbdd3a9d72178a76af7625785c21c527812e231872fa5901e837f354"
     },
     {
       "file": "mission-07-route-22.jpg",
@@ -354,7 +354,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "f9dafbba9fc7383e45506100378def4a805d8b612e9010dac03bdc0893fa1744"
+      "sha256": "a1df65d085373f4fe6e67f8e689fbea274cc1a7fbf648a8db048804fc6aac54c"
     },
     {
       "file": "mission-07-route-50.jpg",
@@ -364,7 +364,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "d0d87049e4603b3c6dac27ba019eef1b672affec9438af2b61e27b611d0497aa"
+      "sha256": "686adb80927aadd70ad7b34a167bdb6be40d5ee45e4727b64b5503d8bd257f87"
     },
     {
       "file": "mission-07-route-78.jpg",
@@ -374,7 +374,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "23bdaae1b261d2d611f2c12f646f6eba22d7207f8dc7187de00017d5b1f6acc0"
+      "sha256": "8f9c52d9644376193710b7bbd7feaa1e8a1b43b7ac76b793184c50da520b832f"
     },
     {
       "file": "mission-08-route-22.jpg",
@@ -384,7 +384,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "09aeb910cc2841664b196ae4290a90c38567e365ec1bf1fcdbfd8cb963f9de84"
+      "sha256": "472d29361a209e365e601ed1692f42f81c4c8af1db95a98be06bec41f3bd9eb6"
     },
     {
       "file": "mission-08-route-50.jpg",
@@ -394,7 +394,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "1f65861370e8bba0fd3886d075e23aabf1621a4bc69b8875ffd095a2940c587f"
+      "sha256": "79857b79e7513260a337976397c083b6f6bd6da6fc8f4a6452bf8a05dd77a74b"
     },
     {
       "file": "mission-08-route-78.jpg",
@@ -404,7 +404,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "4b15c9d4d8df373e03a336a576e131898a56d3cdf32a624955c1cbbbed74753d"
+      "sha256": "bb65801064a5d6cf4fe5228e07f6d1ab5129ec4d9144e3c29f2b755878044ed1"
     },
     {
       "file": "mission-09-route-22.jpg",
@@ -414,7 +414,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "83edd0c9f2328ad2b83fb7c8257727f070e55697243df233fb523401303aecf1"
+      "sha256": "33d3c3b59476bb3f99dcbcd3a2190ca2b181afe46d387fd15ca97942ec97169a"
     },
     {
       "file": "mission-09-route-50.jpg",
@@ -424,7 +424,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "fd967fffda8aea8579763f30f1ae8ca7ca9f6b47caa0661139ba219745bd918c"
+      "sha256": "82009ce834eee961023f2a3eecfe6ee2cd36f505110ec99380688ab07a527d69"
     },
     {
       "file": "mission-09-route-78.jpg",
@@ -434,7 +434,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "8cb52d41e839ae0b7a4f572b9fae47e8f0fcc22999233ae3633997af15964ec5"
+      "sha256": "e26e9a2a857da794e677e91e14f28569f16e03979ff7a28301ae8f0eca62d822"
     },
     {
       "file": "mission-10-route-22.jpg",
@@ -444,7 +444,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "91786d41d326d7df6e3c668bf2370b568955a8b12a27af6d7ec67cadf99d210c"
+      "sha256": "6107eac4f3718130518409c09f3b2fe0c1a47302eae4abd428f67f3bd07c2b68"
     },
     {
       "file": "mission-10-route-50.jpg",
@@ -454,7 +454,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "c3a33d6b298e311b22b9cfc0f293e9f9adc3bebddd2ccea2afd7d4987dbc3945"
+      "sha256": "af7b39f23b7b673715d3774ddc31320364995f36f768dd4771b1e32b86600d30"
     },
     {
       "file": "mission-10-route-78.jpg",
@@ -464,7 +464,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "1a9a4d444ad2e4e9d88249761ac5378a9075a9d22bd7b39e5936be236413ce22"
+      "sha256": "51e735534b9f8324c8b8d8d6917e8a19cdbdb9e8c6748b648023f81bbdf75d3d"
     },
     {
       "file": "mission-11-route-22.jpg",
@@ -474,7 +474,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "0f30526a818cdbcd600b7a71bdf3e18f6d6894fa3c3c49e9143aea1ee8412642"
+      "sha256": "6266915bc3da14c9c733e934ba3eb6d90a18c353a8190f1dad77043936e2b998"
     },
     {
       "file": "mission-11-route-50.jpg",
@@ -484,7 +484,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "a881d5c34e88fa6fa7d08038e0e10754ea688baed2b50fe040276abb424cc3d8"
+      "sha256": "4766ff0ed21e9fe6983b96cf4b8147170ac859db68d9212814134df3e6c2c63c"
     },
     {
       "file": "mission-11-route-78.jpg",
@@ -494,7 +494,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "2de7f0c6c8c96622a0e7f09a6c09fa126c8be7be4454f1ebb4807f7bc9755e72"
+      "sha256": "6f5beb8f589cfa57ee884786186e3f7fdf9458aa58ed3c67055836658223bce4"
     },
     {
       "file": "mission-12-route-22.jpg",
@@ -504,7 +504,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "7055b4ac2b8bc440bdb1071e059c3de7e487c7b8e0dbb3079272b0eb913cb51d"
+      "sha256": "fbec9208a04529d92ac9b60c41ea880e5508cb7eddfe3395fea42c870c8fd6b8"
     },
     {
       "file": "mission-12-route-50.jpg",
@@ -514,7 +514,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "2626f9d40309fc10be1402d0e4809ad475076dcfad4c6dddf6878cc7c2359596"
+      "sha256": "afd85ce8dccb06c4c212cd59d5639fb3e53d1960bd0d461e448bacf39183252b"
     },
     {
       "file": "mission-12-route-78.jpg",
@@ -524,7 +524,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "f3af9fd185cdaeb3a54912ccbac02f5ea3c48b22f0e857f7581c4bedd4b60c12"
+      "sha256": "fe4d8cccf382619bd73e4795befaa5161b80181560ad420b1788ab38ced5cef2"
     },
     {
       "file": "mission-13-route-22.jpg",
@@ -534,7 +534,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "1a7652e4502c5ecd338a929767e4fb28f0a486e64464c0e0cbb44e5ef6257a0d"
+      "sha256": "78e2b70831d77c497ea76e0590442b01e8816eb15f4d5b01058d549bc95ae622"
     },
     {
       "file": "mission-13-route-50.jpg",
@@ -544,7 +544,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "1d5cf1ca625307b0ff431362359bee69d4ce3742487eefda94da2e7d45d7ebf9"
+      "sha256": "37f074814c9279d02bd118ed6986835a3853dcd50fdd130787c48e8f2544fa3c"
     },
     {
       "file": "mission-13-route-78.jpg",
@@ -554,7 +554,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "2c6dfd727c36a45b99882e88460207322b6ba52f1314064e67d4ee7c8c126f20"
+      "sha256": "4261929cc9c116f741b6b6cfe643a421e8b0cdadac0327dc5f02b30131549b94"
     },
     {
       "file": "mission-14-route-22.jpg",
@@ -564,7 +564,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "e601f24fdc2f09ab27588de73bdec12b63253e07f3ab96cb5c1771a8a7f60287"
+      "sha256": "52305489486a5380266173e3c9f52632fe4cde14ab6addedfc022df258e72ef8"
     },
     {
       "file": "mission-14-route-50.jpg",
@@ -574,7 +574,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "35cb22068b40f8d4a4122c89ff2f72492b55c93bb54714e0d5eac3525db7eded"
+      "sha256": "b4a959d10bcba1f56f38d38b47e00a238a79713afa5e339e9e48fca6e870e9bc"
     },
     {
       "file": "mission-14-route-78.jpg",
@@ -584,7 +584,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "b1a51bfdce52c724d51d146f633e30898198216e53f5ed29998ba314f046cd26"
+      "sha256": "5298e67af8fca0c78a5f0ade2a1bb413b0619aa62225cc8c9550af3efdcea4b4"
     },
     {
       "file": "mission-15-route-22.jpg",
@@ -594,7 +594,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "5dad98da246642e817688ef9fcdfc2cea54b21092b78753e254c871b94a47a7a"
+      "sha256": "ccf1503d03a3cfe974e7e2feae81a415ce3bc95b29b3016090e58ffef2f5912d"
     },
     {
       "file": "mission-15-route-50.jpg",
@@ -604,7 +604,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "1e0d5f133bbc59caffc3d3c81667159368c26b62085881ff29a99feaea20bd84"
+      "sha256": "f1bcd59fe1e9558b7142fd3d9144597259a721728658a55302f90a8f77cf5bf7"
     },
     {
       "file": "mission-15-route-78.jpg",
@@ -614,7 +614,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "f3012f3041f44c0ac7afc57a631859bb0ff9fdfe2bbe0615fbc146f8be37134a"
+      "sha256": "889e854c64377246b633706847757a26697d281e03e8e0108556d850cb8a7845"
     },
     {
       "file": "mission-16-route-22.jpg",
@@ -624,7 +624,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.22,
-      "sha256": "3eca7b65a5896733004ee97eb83b723131ec1b588d50364d19f78af323c644e7"
+      "sha256": "18d3238fcb3a6538208e945282e0f0adb3e80e2e1fa4a9906394a09aa28fb149"
     },
     {
       "file": "mission-16-route-50.jpg",
@@ -634,7 +634,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.5,
-      "sha256": "a55abf5c762612f42de1532272e85b5578272b5085a1e2a3909bef85a4d63dff"
+      "sha256": "fe338ac245162fa059f555b38400b0d6b09c6f22d9711abc75afb0606c8d08b9"
     },
     {
       "file": "mission-16-route-78.jpg",
@@ -644,7 +644,7 @@
       "width": 1280,
       "height": 720,
       "routeProgress": 0.78,
-      "sha256": "710fdd30fe1062bf77dfb9d7214dd556df8838e5a68be7fe4972a0dd7c2c1155"
+      "sha256": "b739752558387723df157471921dfb45325016c1f59c33fae328d01c21aa4370"
     },
     {
       "file": "mission-01-desktop.jpg",
@@ -654,7 +654,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "7a8eb855ecd981aa66d1791f5d321cd7387623516cc67f66a0651ae9ec2b3495"
+      "sha256": "2d2e19730539d8730427c14c8b169689e8b7c6c971b16e660703268e2706a943"
     },
     {
       "file": "mission-02-desktop.jpg",
@@ -664,7 +664,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "6698d58e978b313d98d7e68781fbeef8da0f334f82f0956599a32d52274fcd52"
+      "sha256": "8e6f67c57c94bf19b5e766f2569c182443c78e1f42dfa5f2d143ceb22858fd3d"
     },
     {
       "file": "mission-03-desktop.jpg",
@@ -674,7 +674,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "aacd1cd5e5f735d82d94007621c6b6e2e62c9e1931cdb545aa3af0d01fab55b4"
+      "sha256": "21754feb8fd5cad60779975f8e1aed26a2336769e23be000cf87eb268541f295"
     },
     {
       "file": "mission-04-desktop.jpg",
@@ -684,7 +684,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "2695047982dd95fcd03447ae214ed5a1b8220cbe35cd513b8be2823a0e0b29a8"
+      "sha256": "a94f12ba727d0c19c7a54612e5681a8edfdc6c03ce4170f7e9701db0064fb77b"
     },
     {
       "file": "mission-05-desktop.jpg",
@@ -694,7 +694,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "f0b52c20e6877b347f1f3c9df20daeaaf09e2bdf1012b4598a9472e4390f9143"
+      "sha256": "a42662419c24cd726708ee1c2a5c5a86fc3b813888a5ec67b64c8741e71138cd"
     },
     {
       "file": "mission-06-desktop.jpg",
@@ -704,7 +704,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "6167bd59476e345f700dd6ba6b406784d96909f3138cef3dcb6dde45e3e45f49"
+      "sha256": "b9cdaf926c029d7e1a932eb743c59abf773a60354079ec5eb1fde0a6f8c35a07"
     },
     {
       "file": "mission-07-desktop.jpg",
@@ -714,7 +714,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "b49c09f5881fbc2dba232760dea446ae828fddd8b8b293596b3a15e6de424eaa"
+      "sha256": "b12b1fb01013fcffca312b38674ed657ac8f17ac85dc18c24d4056c0236b5daa"
     },
     {
       "file": "mission-08-desktop.jpg",
@@ -724,7 +724,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "276473bceee2dad930e7b59f2da7ef494169f417ad27a81cd6808e50c26c7697"
+      "sha256": "2f37c7633f6e1227aa31edc11c1cc9e1dec84ebaf08ba8f08f26ac614a502500"
     },
     {
       "file": "mission-09-desktop.jpg",
@@ -734,7 +734,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "c66a09cab09e757229654b17d97e5b2aac7c6ec92cf146ab4874e8234118d054"
+      "sha256": "ae3d42b9d3f40065f93250903ecf82976f8efcd48ac32fdb0d09ed6bd6d1c911"
     },
     {
       "file": "mission-10-desktop.jpg",
@@ -744,7 +744,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "c63b6cf1bf4a0a989ffceaae7abcf37bb7bca46072c198faaea59fb87e2a0214"
+      "sha256": "92ebd7475609c071138e874304690b4ca1c3fe8b424c5bff3ca85c9b23639c71"
     },
     {
       "file": "mission-11-desktop.jpg",
@@ -754,7 +754,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "681758ded9a9932587c5f5826f6959edb820eb98303d995706d80cfac46f759f"
+      "sha256": "2ee03e149433c963202566ad058b2e36935b1952e97b862677eeb4bdd044c204"
     },
     {
       "file": "mission-12-desktop.jpg",
@@ -764,7 +764,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "aa1f4f5061b9c52460828827fca5897a6e00d6ff911c2487bcdd21df9ee7d82e"
+      "sha256": "52ac5ead4f9caab6d1b276d3e0a659f687c7d71069169a60591f03aaf68089e4"
     },
     {
       "file": "mission-13-desktop.jpg",
@@ -774,7 +774,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "12b3bdc7a8ed487ac6ef1ec7095124ac72aacb374c6d7c148c0b93762b3dfd34"
+      "sha256": "737d5553cc94447f3b5942749800566c43c9132140eedf1764c8636e4bce4f00"
     },
     {
       "file": "mission-14-desktop.jpg",
@@ -784,7 +784,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "b319d6dee233275e1ecb33909f170cd00f3370d8ed3878b14292b88991b5d674"
+      "sha256": "19919bf57c3feea99636bbe30d0d63cd03e3ca2f715372416f17e34f83f317fe"
     },
     {
       "file": "mission-15-desktop.jpg",
@@ -794,7 +794,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "11179e3b1c586a2ada85aa053f4b7b39fd499351b284d4592fcc0217b0de32a7"
+      "sha256": "3abce072ce0ef128557c19207388f3b9b7558d6ff8ea67b8f28d721f9baa4ba5"
     },
     {
       "file": "mission-16-desktop.jpg",
@@ -804,7 +804,7 @@
       "width": 1920,
       "height": 1080,
       "routeProgress": null,
-      "sha256": "6a178d343f2f0ec61428ab193cbdb2110e981985ed85274ae6711ce8dd37f541"
+      "sha256": "88919cf622777582b4c72e1c300f0b7c16ac75abff1b9b549b318cee1c8bd859"
     },
     {
       "file": "mission-01-ultrawide.jpg",
@@ -814,7 +814,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "5d98ea7a2f273321d44c406f734804d7e69290479aa18fbc0ba4d88ce792e7ef"
+      "sha256": "a4f7a1a161e3bf2273fff45092fcdff3d92bc94f4d511ada058fc76934485530"
     },
     {
       "file": "mission-02-ultrawide.jpg",
@@ -824,7 +824,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "9e0e20ae53fe2b32d00d0dd96e9af38012ec70950dc5fd491e58201da8a04a53"
+      "sha256": "3823f9144a019b37a542008f24fa91b5ea0de69db201821fb870a9d53d8caefe"
     },
     {
       "file": "mission-03-ultrawide.jpg",
@@ -834,7 +834,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "0d80c52cb2721f898ca20113ac023f72de4fe86cd73753a8e998d8e9e97ba0fd"
+      "sha256": "01284fbb6b494ff7dc0c57e967b55801cf75ae994dc28d30cde7fc0b6f2afc70"
     },
     {
       "file": "mission-04-ultrawide.jpg",
@@ -844,7 +844,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "cf721c945ec4c084fbc8f458f358fe80db8c64bbb795225a69106f9430dbf924"
+      "sha256": "e3d201d54acc9016262bca60c87c155f6e754855dfcff57ffe5a2a0b30d0ded9"
     },
     {
       "file": "mission-05-ultrawide.jpg",
@@ -854,7 +854,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "3635be9f88f42e2b09d1308aa729b82b109981773cfe15080521eb76410fe18c"
+      "sha256": "5a2b74cabe1724e1747f0b8ae6ce461592a29aabfb0c0896aed7a49e2a75277f"
     },
     {
       "file": "mission-06-ultrawide.jpg",
@@ -864,7 +864,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "b8ae8153261dabdbc124ba7ad72e5a8c720d314b39a14828b98416e9a78dd204"
+      "sha256": "6787149dbba48f261223d3dd0cc0751be2deb8ea822c226bfee47022f1e20dc8"
     },
     {
       "file": "mission-07-ultrawide.jpg",
@@ -874,7 +874,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "63c60979789aaa058a1e7d6fe5fe41123498c8bcca04b42a7384bf183cf8a23b"
+      "sha256": "557994f8d8f6c346de82f6ea7e7d0abf2b854782e59189e7a6c261d912bfd118"
     },
     {
       "file": "mission-08-ultrawide.jpg",
@@ -884,7 +884,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "bac331718cec143c7f728ea2c4be7c301659e60544bb3e6e3abedc083f303574"
+      "sha256": "549908e7a0075dcb256475d57c5f5af02f712dd367c8706dc31ea37fd352e7b5"
     },
     {
       "file": "mission-09-ultrawide.jpg",
@@ -894,7 +894,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "73f10fb5dccac7c4e34165f6d7e4f771dd757a63b195079ada217c855ece61c2"
+      "sha256": "e594eaaf8a9e885f63eceaee2e109d93c2ea0b5dca6e263dcfc2e84339cc7dae"
     },
     {
       "file": "mission-10-ultrawide.jpg",
@@ -904,7 +904,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "8d8e64d1bd16df9312150087d5ecb3644b39cde3c1c72e551dd372929cee8668"
+      "sha256": "f4552eb32aff672e17df7002668a7a2bab7a04e4188927feb0c621e30da2477d"
     },
     {
       "file": "mission-11-ultrawide.jpg",
@@ -914,7 +914,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "e4985f099d49990e35780f8e79697bc235434ca3ff48fc7cda764e8de9ee61ba"
+      "sha256": "448c7e9f742d2c6ba0c51f27294023a4e2f55ebe7999ccce57e58035e21d45ff"
     },
     {
       "file": "mission-12-ultrawide.jpg",
@@ -924,7 +924,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "782c89c308e4fe47da8550fa694b50df3241130544062642470d2299656f09ef"
+      "sha256": "ca914ad3c60d3f8160d4ce69f05120af144461698e7278773abab5b063dd987b"
     },
     {
       "file": "mission-13-ultrawide.jpg",
@@ -934,7 +934,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "16776bb6641f68765732ca68cb8fe8e4af043a02fdbb419319fc1adc53102539"
+      "sha256": "5345cf885e9e90e1107b9d2e62bad5f3d7fc241dbdf8952a835b34c744d47398"
     },
     {
       "file": "mission-14-ultrawide.jpg",
@@ -944,7 +944,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "30b5ae08763145d8199ff64d5a63a295a89edca772e17958437800bba60929ba"
+      "sha256": "efae0e5f2f8beb31fc67fef2f6123594eddd34a1648c6fd365bccac1e9ab734d"
     },
     {
       "file": "mission-15-ultrawide.jpg",
@@ -954,7 +954,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "4b1243b7016dad160de2f0be853ca9565c0bda91619cf049419b5ded9eaf38e5"
+      "sha256": "cd8ca06fc32af6ea2cca3f30b23648fb821b377267120cdf459e13e04badfe75"
     },
     {
       "file": "mission-16-ultrawide.jpg",
@@ -964,7 +964,7 @@
       "width": 3440,
       "height": 1440,
       "routeProgress": null,
-      "sha256": "ed3ec657cd3b9ede7e9bf5833bdc430a7daaf7f2d28014f6ec9223d7f0f2e84d"
+      "sha256": "24d352f60497c04a06c33d63155915301500491a013ad7ad5a7257b4804d2638"
     },
     {
       "file": "mission-01-mobile-landscape.jpg",
@@ -974,7 +974,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "35c3d2fcc2d39ae210ae2ceab35b6a904d69abdf60f22ded7e93550379ea89cb"
+      "sha256": "a0dbfbb038cb24cf59ed400533d76fc076e73a0641e64c38e284914df8d0f33a"
     },
     {
       "file": "mission-02-mobile-landscape.jpg",
@@ -984,7 +984,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "7945c1c572ecf3f56519f54e23dad8385dea9335c81476b6374b35bec72a89a8"
+      "sha256": "39962f198446a6b593468ce0cde70c3a5aa59ffec92d53b2824c6cd77210a653"
     },
     {
       "file": "mission-03-mobile-landscape.jpg",
@@ -994,7 +994,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "19149c565bdea67ef48d17aff18074b06fdba41ea543c2a15cfca7e4d93ab5e3"
+      "sha256": "12ab2f6c06ca0fa6647ae2a681c1ace69d70b303ca357ded6fbe4b69ebf8679a"
     },
     {
       "file": "mission-04-mobile-landscape.jpg",
@@ -1004,7 +1004,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "9d6113236873324c7af07015650b3a704ff2492116f61f68938ea24468d47d24"
+      "sha256": "21b172a3103eb0786ce38e2e7a4f72c39e53cd18715cdfb5249f0321be450700"
     },
     {
       "file": "mission-05-mobile-landscape.jpg",
@@ -1014,7 +1014,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "cf30831cc4d657faab523853dbccfd9d2f28cf69cd17b91f207366299a2a237d"
+      "sha256": "f59c0da9b18e033f7316099fd0fdd6037fcbfa64c40b8d33afaaa50853515a6f"
     },
     {
       "file": "mission-06-mobile-landscape.jpg",
@@ -1024,7 +1024,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "a0e942c26c707029efcfd6f440e23ce30051ef9c07260c6ee3b7f42e6b0dd9a9"
+      "sha256": "c76b69e0ce025cce98ef1fe70f2e970a3c49dd6c24c9ab24cbfd0d742ff16486"
     },
     {
       "file": "mission-07-mobile-landscape.jpg",
@@ -1034,7 +1034,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "32cfc336f6f8219d6503cbe5b74fef08386e61fdb508a58875656994503f8a5a"
+      "sha256": "0fccb85de749c937d25766e3e48237df61fe0023b71b261a40154b64587ea5f6"
     },
     {
       "file": "mission-08-mobile-landscape.jpg",
@@ -1044,7 +1044,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "37201c8bf13eff12b878b33b73d2386255f2a69abe82b0fe8ad610af6f712a23"
+      "sha256": "9e53c03332635de60fb4b9157978f1b512bcd9dfe53bb030fbac77d91bd28596"
     },
     {
       "file": "mission-09-mobile-landscape.jpg",
@@ -1054,7 +1054,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "f32a0ab77e6ea010d82b3d1a348b8f602c3134e096207386b8ca0e3c38c92138"
+      "sha256": "0b7d4d44b814ddfc4be559f443036584e7163934b2cc3f6edcb2da32ef51d78d"
     },
     {
       "file": "mission-10-mobile-landscape.jpg",
@@ -1064,7 +1064,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "3f5b223de9342c58a9e28072c6d79538bc7a8be65a7358b6b086b39550774953"
+      "sha256": "2ba08780aa88a4bbeb1bd6b5e826fcff3c40c0c62a4b78cbdfefe0b42d7ad183"
     },
     {
       "file": "mission-11-mobile-landscape.jpg",
@@ -1074,7 +1074,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "b226748f1ac6beb0832e7c91974a282a8ff39f66bd8b5687897f7f0d878258f3"
+      "sha256": "48d8e5f663122763a88da5e032e1f8fcf539260b5ec5819ce3e0b2d044550137"
     },
     {
       "file": "mission-12-mobile-landscape.jpg",
@@ -1084,7 +1084,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "22f4d9d1e1a25fa779482200c1e6e20943765ee808f7a9b68ccae6a754b2ba56"
+      "sha256": "3069f752c634846d9305ad64633b4ef8992fb65067842d650ba3a370a371e630"
     },
     {
       "file": "mission-13-mobile-landscape.jpg",
@@ -1094,7 +1094,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "85bbff4ee381967f54877730b79aab0fcaa48a0d2756fbf02b1db703196b202e"
+      "sha256": "ab1e8ebc85696e2a138d07452467e1cd9cf8484440ae4524bdba90838ecffd39"
     },
     {
       "file": "mission-14-mobile-landscape.jpg",
@@ -1104,7 +1104,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "7d2e099dc1f6866270df534b8ee032cc17cdc86253a17b0d4f904ca62aa67f6c"
+      "sha256": "b52da4690a2dc1f843dec4b69125f9cb4421986077cbf6f30e6ed7c5b8c72ea2"
     },
     {
       "file": "mission-15-mobile-landscape.jpg",
@@ -1114,7 +1114,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "4288bd4d2c2d6008f3833b9635020dcc89b5c6fc1b931c403cb41303c24e0fb5"
+      "sha256": "93f790e85f556d90c2ae80832c9350af3a7ef3c58d96182684d534c64e10dee9"
     },
     {
       "file": "mission-16-mobile-landscape.jpg",
@@ -1124,7 +1124,7 @@
       "width": 844,
       "height": 390,
       "routeProgress": null,
-      "sha256": "9710bd0b72f5e2ffe51ed99067266aee16825f718fcfc8c1a769c17a2cd00909"
+      "sha256": "aba371b6daf9dfc88010701ed9aceafc93b17a40236328edda4b603847008c1d"
     }
   ]
 }

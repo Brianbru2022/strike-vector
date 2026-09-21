@@ -7,6 +7,7 @@ import { getCombatDifficultyProfile } from './CombatBalance';
 import { RandomSource } from './SeededRandom';
 import { PLAYER_AIRCRAFT_PRESENTATION_SCALE } from './CombatReadability';
 import { calculateTerrainShadow, drawTerrainShadow } from './TerrainShadow';
+import { getForegroundTreatment } from './ForegroundPresentation';
 
 export class PlayerAircraft {
   public stats: PlayerStats;
@@ -450,7 +451,7 @@ export class PlayerAircraft {
     }
   }
 
-  public render(ctx: CanvasRenderingContext2D, cameraX: number, groundYAt?: (worldX: number) => number | null) {
+  public render(ctx: CanvasRenderingContext2D, cameraX: number, groundYAt?: (worldX: number) => number | null, ambientLight = 0.8, reducedEffects = false) {
     const s = this.stats;
     const heading = this.getHeadingPresentation();
     const screenX = s.x - cameraX;
@@ -560,7 +561,14 @@ export class PlayerAircraft {
     // --- PAINTED SEA HARRIER FRS.1 ---
     // Presentation-only rim light: improves recognition against dark sea and
     // cloud layers without changing the aircraft's collision geometry.
-    ctx.filter = 'drop-shadow(0 1px 1px rgba(0, 7, 12, 0.95)) drop-shadow(0 0 3px rgba(216, 255, 232, 0.78))';
+    const playerTreatment = getForegroundTreatment({
+      spriteKey: 'player_jet',
+      ambientLight,
+      damageStage: s.health <= 30 ? 2 : s.health <= 65 ? 1 : 0,
+      reducedEffects,
+      separationFilter: 'drop-shadow(0 0 3px rgba(216, 255, 232, 0.78))',
+    });
+    ctx.filter = playerTreatment.filter;
     ctx.shadowColor = 'rgba(216, 255, 232, 0.78)';
     ctx.shadowBlur = 3;
     const heroDamageFrame = s.health <= 30 ? 2 : s.health <= 65 ? 1 : 0;
@@ -602,7 +610,10 @@ export class PlayerAircraft {
       ctx.save();
       ctx.translate(screenX, screenY - contactCorrection);
       ctx.rotate(s.pitchAngle * heading.blend * 0.35);
-      ctx.filter = 'drop-shadow(0 1px 1px rgba(0, 7, 12, 0.95)) drop-shadow(0 0 2px rgba(216, 255, 232, 0.48))';
+      ctx.filter = getForegroundTreatment({
+        spriteKey: 'player_turn', ambientLight, reducedEffects,
+        separationFilter: 'drop-shadow(0 0 2px rgba(216, 255, 232, 0.48))',
+      }).filter;
       const firstFrame = Math.floor(heading.turnFramePosition);
       const secondFrame = Math.min(4, firstFrame + 1);
       const frameBlend = heading.turnFramePosition - firstFrame;

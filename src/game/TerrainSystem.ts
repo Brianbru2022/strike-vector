@@ -7,6 +7,7 @@ import { getEnvironmentPresentation, SIGNATURE_PRESENTATION } from './Presentati
 import { ARCTIC_TERRAIN_HEIGHT_PROFILES, getDifficultyAdjustedArcticWeatherState, sampleAuthoredTerrainHeight } from './ArcticToolkit';
 import { DEMO_BUILD } from './ReleaseFeatures';
 import { calculateTerrainShadow, drawTerrainShadow } from './TerrainShadow';
+import { getForegroundTreatment } from './ForegroundPresentation';
 
 type ActThreeBackdropKey = 'JANUS_CAUSEWAY' | 'JANUS_AIRBASE' | 'SKELD_DEFENCE' | 'BASTION_FORTRESS';
 
@@ -1280,7 +1281,9 @@ export class TerrainSystem {
       if (shadow) drawTerrainShadow(ctx, screenX + width * 0.5, shadow);
       // The sprite's plank surface sits 127 px into its 140 px display height.
       // Align that painted surface exactly with the recovery physics ground.
+      ctx.filter = getForegroundTreatment({ spriteKey: 'forward_base', ambientLight: mission.timeOfDay.ambientLight }).filter;
       ctx.drawImage(sprite, screenX, groundY + 13 - height, width, height);
+      ctx.filter = 'none';
       ctx.restore();
     }
 
@@ -1315,6 +1318,7 @@ export class TerrainSystem {
       const waterlineY = c.DECK_Y + 43;
 
       ctx.save();
+      ctx.filter = getForegroundTreatment({ spriteKey: 'carrier_ship', ambientLight: tod.ambientLight }).filter;
 
       // Broad wake behind the hull establishes motion and surface contact.
       const wake = ctx.createLinearGradient(screenX - 150, 0, screenX + 70, 0);

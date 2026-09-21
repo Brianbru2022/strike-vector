@@ -910,6 +910,7 @@ export class GameEngine {
       selectedTargetId: this.player.stats.targetLockedId,
       ambientLight: this.currentMission.timeOfDay.ambientLight,
       gameplayCalm: this.currentMission.presentation?.gameplayCalm,
+      reducedEffects: this.accessibility.reducedEffects,
     });
 
     // Naval hulls are drawn first, then a final water mask immerses their waterline.
@@ -931,7 +932,13 @@ export class GameEngine {
         SpriteAssetManager.drawSpriteFrame(ctx, 'harrier_ejection', loss.ejectionFrame, 4, loss.pilotX - this.cameraX, loss.pilotY, loss.ejectionFrame === 3 ? 78 : 54, loss.ejectionFrame === 3 ? 105 : 70);
       }
     } else if (this.player.stats.health > 0) {
-      this.player.render(ctx, this.cameraX, (worldX) => this.terrain.getGroundContactY(worldX, this.currentMission));
+      this.player.render(
+        ctx,
+        this.cameraX,
+        (worldX) => this.terrain.getGroundContactY(worldX, this.currentMission),
+        this.currentMission.timeOfDay.ambientLight,
+        this.accessibility.reducedEffects,
+      );
     }
 
     // 4. Render Weapons & Projectiles

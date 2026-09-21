@@ -9,6 +9,7 @@ release-artifacts/
 coverage/
 test-results/
 playwright-report/
+reports/showcase-media/raw-video/
 src-tauri/target/
 .DS_Store
 *.log

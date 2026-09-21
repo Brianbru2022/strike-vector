@@ -12,6 +12,7 @@ import { blastRadiusFor, damageEmitterOffset, damageStageFor, getWeaponEffectPro
 import { RandomSource } from './SeededRandom';
 import { getAircraftPresentationScale, getProjectilePresentationScale, getTargetReadabilityPresentation } from './CombatReadability';
 import { calculateTerrainShadow, drawTerrainShadow } from './TerrainShadow';
+import { getForegroundPresentationProfile, getForegroundTreatment } from './ForegroundPresentation';
 
 export type EnemyCombatEvent =
   | { type: 'AIR_THREAT'; cue: 'DETECTED' | 'TRACKING' | 'FIRING'; enemyId: string; direction: 'LEFT' | 'RIGHT' }
@@ -23,6 +24,7 @@ export interface EnemyRenderReadabilityContext {
   selectedTargetId: string | null;
   ambientLight: number;
   gameplayCalm?: number;
+  reducedEffects?: boolean;
 }
 
 const GROUND_SPRITE_HALF_WIDTH: Partial<Record<EnemyType, number>> = {
@@ -736,6 +738,8 @@ export class EnemyManager {
       const spritePlacement = e.type === 'SEARCHLIGHT' || e.type === 'PROTECTED_SETTLEMENT'
         ? null
         : getEnemySpritePlacement(e.type);
+      const foregroundSpriteKey = spritePlacement?.key ?? getEnemyForegroundSpriteKey(e);
+      const foregroundProfile = getForegroundPresentationProfile(foregroundSpriteKey);
       const terrainPlacement = sitsOnLand && groundYAt
         ? calculateTerrainPlacement(e.x, footprintHalfWidth, (worldX) => groundYAt(worldX) ?? GAME_CONSTANTS.GROUND_SURFACE_Y, Boolean(spritePlacement?.followsSlope))
         : { contactY: sitsOnLand ? GAME_CONSTANTS.GROUND_SURFACE_Y : e.y, rotation: 0 };
@@ -749,11 +753,18 @@ export class EnemyManager {
         ambientLight: readabilityContext?.ambientLight ?? 0.8,
         gameplayCalm: readabilityContext?.gameplayCalm,
       });
+      const foregroundTreatment = getForegroundTreatment({
+        spriteKey: foregroundSpriteKey,
+        ambientLight: readabilityContext?.ambientLight ?? 0.8,
+        separationFilter: readability.separationFilter,
+        damageStage: e.damageStage,
+        reducedEffects: readabilityContext?.reducedEffects,
+      });
 
       if (e.isAlive && sitsOnLand) {
         const shadow = calculateTerrainShadow(
           e.x,
-          Math.max(15, footprintHalfWidth * 0.9),
+          Math.max(15, footprintHalfWidth * foregroundTreatment.shadowFootprint),
           (worldX) => groundYAt?.(worldX) ?? GAME_CONSTANTS.GROUND_SURFACE_Y,
         );
         if (shadow) drawTerrainShadow(ctx, screenX, shadow);
@@ -765,7 +776,7 @@ export class EnemyManager {
         const altitude = Math.max(0, shadowSurfaceY - e.y);
         const shadow = calculateTerrainShadow(
           e.x,
-          36,
+          Math.max(26, e.width * 0.5 * foregroundProfile.shadowFootprint),
           (worldX) => groundYAt?.(worldX) ?? seaY,
           altitude,
         );
@@ -776,10 +787,10 @@ export class EnemyManager {
       const isNaval = e.category === 'NAVAL';
       const navalBob = isNaval && e.isAlive ? Math.sin((e.stateTimer + stableHash(e.id)) * 0.045) * (e.type === 'MISSILE_CORVETTE' ? 1.8 : 2.5) : 0;
       ctx.translate(screenX, sitsOnLand ? contactY : isNaval ? (e.isAlive ? seaY + navalBob : e.y) : e.y);
-      if (e.isAlive && e.category === 'AIR') {
+      if (e.isAlive) {
         ctx.filter = e.type === 'ANTI_SHIP_MISSILE'
-          ? 'drop-shadow(0 0 4px rgba(255, 245, 210, 0.95)) drop-shadow(0 0 7px rgba(244, 63, 94, 0.72))'
-          : readability.separationFilter;
+          ? `${foregroundTreatment.filter} drop-shadow(0 0 4px rgba(255, 245, 210, 0.95)) drop-shadow(0 0 7px rgba(244, 63, 94, 0.72))`
+          : foregroundTreatment.filter;
       }
 
       // Dead unit charred wreckage with smoke
@@ -845,7 +856,6 @@ export class EnemyManager {
           flipX: isNaval && e.vx < 0,
           opacity: e.isTargetable || e.isFriendly ? 1 : 0.62,
         };
-        if (e.isTargetable) ctx.filter = readability.separationFilter;
         const presentationWidth = spritePlacement.width * readability.scale;
         const presentationHeight = spritePlacement.height * readability.scale;
         if (spritePlacement.frameIndex !== undefined && spritePlacement.frameCount !== undefined) {
@@ -1031,6 +1041,19 @@ export class EnemyManager {
       ctx.restore();
     }
   }
+}
+
+function getEnemyForegroundSpriteKey(enemy: EnemyUnit): string {
+  if (enemy.type === 'ATTACK_HELI') return 'enemy_heli';
+  if (enemy.type === 'ANTI_SHIP_MISSILE') return 'enemy_missile';
+  if (enemy.aircraftVariant === 'MIG_21BIS') return 'enemy_mig21';
+  if (enemy.aircraftVariant === 'MIG_29A') return 'enemy_mig29';
+  if (enemy.aircraftVariant === 'TU_16K') return 'enemy_tu16k';
+  if (enemy.aircraftVariant === 'SU_24M') return 'enemy_su24m';
+  if (enemy.category === 'AIR') return 'enemy_jet';
+  if (enemy.type === 'PROTECTED_SETTLEMENT') return 'protected_settlement';
+  if (enemy.type === 'SEARCHLIGHT') return 'enemy_searchlight';
+  return 'foreground_contact';
 }
 
 function drawObjectiveBrackets(ctx: CanvasRenderingContext2D, centreY: number, enemy: EnemyUnit, colour: string, secondary: boolean, readabilityScale = 1): void {
