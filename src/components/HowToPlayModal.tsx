@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Navigation, Crosshair, Shield, Target, Anchor, Accessibility, Award, LockKeyhole } from 'lucide-react';
 import { soundEngine } from '../audio/SoundEngine';
 import { RELEASE_INFO } from '../game/Release';
+import { DIRECTIONAL_FLIGHT_COPY } from '../game/DirectionalFlightCopy';
 
 interface HowToPlayModalProps {
   onClose: () => void;
@@ -47,11 +48,11 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ onClose, onStart
               </div>
               <div className="p-2.5 bg-zinc-950 rounded border border-zinc-800">
                 <span className="text-cyan-300 font-bold block text-sm">D / RIGHT</span>
-                <span className="text-[10px] text-zinc-400">TURN / FLY RIGHT</span>
+                <span className="text-[10px] text-zinc-400">{DIRECTIONAL_FLIGHT_COPY.rightAction.toUpperCase()}</span>
               </div>
               <div className="p-2.5 bg-zinc-950 rounded border border-zinc-800">
                 <span className="text-cyan-300 font-bold block text-sm">A / LEFT</span>
-                <span className="text-[10px] text-zinc-400">BRAKE / TURN LEFT</span>
+                <span className="text-[10px] text-zinc-400">{DIRECTIONAL_FLIGHT_COPY.leftAction.toUpperCase()}</span>
               </div>
               <div className="p-2.5 bg-zinc-950 rounded border border-amber-500/40">
                 <span className="text-amber-400 font-bold block text-sm">SHIFT / V</span>
@@ -86,9 +87,10 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ onClose, onStart
                 <span className="text-[10px] text-cyan-200">TOUCH / MOUSE D-PAD</span>
               </div>
             </div>
-            <p className="mt-2 text-[10px] leading-relaxed text-zinc-400">
-              Hold the opposite direction to bleed speed. Kestrel One turns at low speed, then accelerates in the new direction.
-            </p>
+            <div className="mt-2 rounded border border-cyan-700/40 bg-cyan-950/15 p-2 text-[10px] leading-relaxed text-zinc-300">
+              <strong className="text-cyan-200">{DIRECTIONAL_FLIGHT_COPY.concept}</strong> {DIRECTIONAL_FLIGHT_COPY.behaviour}
+              <div className="mt-1 grid gap-1 text-[9px] text-zinc-500 sm:grid-cols-3"><span>KEYBOARD: {DIRECTIONAL_FLIGHT_COPY.keyboard}</span><span>GAMEPAD: {DIRECTIONAL_FLIGHT_COPY.gamepad}</span><span>TOUCH: {DIRECTIONAL_FLIGHT_COPY.touch}</span></div>
+            </div>
           </div>
 
           {/* Tactical Systems Guide */}

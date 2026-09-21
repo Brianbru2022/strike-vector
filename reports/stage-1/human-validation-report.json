@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-20T20:55:39.893Z",
+  "generatedAt": "2026-09-21T07:09:28.117Z",
   "inputPath": "E:\\Apps\\strike-vector\\reports\\stage-1\\playtest-evidence.json",
   "passed": false,
-  "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
+  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
   "summary": {
-    "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
+    "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
     "currentBuildEvidenceCount": 0,
     "historicalEvidenceCount": 0,
     "totalScenarios": 21,
@@ -30,7 +30,7 @@
   "issues": [
     "Evidence file could not be read: ENOENT: no such file or directory, open 'E:\\Apps\\strike-vector\\reports\\stage-1\\playtest-evidence.json'",
     "Evidence export version must be 1.",
-    "Evidence build missing does not match IK87-1.2.0-DEV1-20260920-ONBOARD1.",
+    "Evidence build missing does not match IK87-1.2.0-DEV1-20260921-DIRECTION1.",
     "Evidence export does not contain an evidence array.",
     "Missing scenario coverage: V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21.",
     "Victories 0/21.",

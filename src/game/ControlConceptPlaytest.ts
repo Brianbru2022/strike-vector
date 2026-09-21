@@ -68,7 +68,7 @@ export const CONTROL_CONCEPT_SLOTS: readonly ControlConceptSlot[] = Object.freez
 
 export const CONTROL_CONCEPT_LABELS: Record<ControlConceptId, string> = {
   PITCH: 'Pitch control',
-  DIRECTION: 'Bidirectional left/right flight and throttle',
+  DIRECTION: 'Left/right flight direction and low-speed reversal',
   ALTITUDE: 'Altitude control',
   VTOL: 'VTOL transition',
   TARGET_AND_FIRE: 'Target acquisition and firing',
@@ -83,7 +83,7 @@ export const CONTROL_CONCEPT_IDS = Object.freeze(Object.keys(CONTROL_CONCEPT_LAB
 
 export const CONTROL_CONFUSION_LABELS: Record<ControlConceptConfusion, string> = {
   PITCH_VS_ALTITUDE: 'Pitch versus altitude',
-  DIRECTION_VS_THROTTLE: 'Direction versus throttle',
+  DIRECTION_VS_THROTTLE: 'Flight direction versus speed expectation',
   VTOL_TRANSITION: 'VTOL transition',
   TARGET_LOCK: 'Target lock',
   WEAPON_SELECTION: 'Weapon selection',

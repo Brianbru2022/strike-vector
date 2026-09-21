@@ -23,7 +23,7 @@ describe('guided carrier qualification', () => {
     expect(director.update(player, 100)).toBe(true);
     expect(director.getState()).toMatchObject({ phase: 'SUCCESS', completedSteps: 2, currentStep: { id: 'PITCH' } });
     settleSuccess(director, player);
-    expect(director.getState().currentStep?.id).toBe('THROTTLE');
+    expect(director.getState().currentStep?.id).toBe('DIRECTION');
   });
 
   it('skips without reporting completion', () => {

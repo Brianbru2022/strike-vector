@@ -4,8 +4,8 @@
 
 - Product: Iron Kestrel '87
 - Version: 1.2.0-dev.1 / 1.2 DEV1
-- Build: `IK87-1.2.0-DEV1-20260920-ONBOARD1`
-- Branch: `release/1.2-guided-onboarding`
+- Build: `IK87-1.2.0-DEV1-20260921-DIRECTION1`
+- Branch: `release/1.2-directional-controls`
 - Channel: development
 
 This baseline records the complete local game state as a reproducible development candidate. It is not a commercial release candidate and must continue to display `DEVELOPMENT BUILD`.

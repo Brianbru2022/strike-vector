@@ -3,11 +3,11 @@ import { join, resolve } from 'node:path';
 import { CARRIER_QUALIFICATION_STEPS, TRAINING_SUCCESS_TICKS } from '../src/game/TrainingDirector';
 import { RELEASE_INFO } from '../src/game/Release';
 
-const expectedOrder = ['LAUNCH', 'PITCH', 'THROTTLE', 'CANNON', 'TARGET', 'SIDEWINDER', 'COUNTERMEASURE', 'VTOL', 'RECOVERY'];
+const expectedOrder = ['LAUNCH', 'PITCH', 'DIRECTION', 'CANNON', 'TARGET', 'SIDEWINDER', 'COUNTERMEASURE', 'VTOL', 'RECOVERY'];
 const purpose: Record<string, string> = {
   LAUNCH: 'Establishes departure and safe separation from the carrier.',
   PITCH: 'Teaches the primary vertical flight input before combat.',
-  THROTTLE: 'Introduces power and forward acceleration before the patrol area.',
+  DIRECTION: 'Introduces the desired-direction control before the patrol area.',
   CANNON: 'Confirms primary fire while hostile aircraft remain held.',
   TARGET: 'Lets the player create a lock by flying, rather than reading a targeting manual.',
   SIDEWINDER: 'Pairs a visible lock with the selected secondary-weapon action.',

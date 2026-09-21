@@ -108,7 +108,7 @@ export type HudScalePreset = 'AUTO' | 'COMPACT' | 'STANDARD' | 'LARGE';
 export type ContrastPreset = 'STANDARD' | 'HIGH';
 export type CombatZoomPreset = 'OFF' | 'SMART';
 
-export type TrainingStepId = 'LAUNCH' | 'PITCH' | 'THROTTLE' | 'CANNON' | 'TARGET' | 'SIDEWINDER' | 'COUNTERMEASURE' | 'VTOL' | 'RECOVERY';
+export type TrainingStepId = 'LAUNCH' | 'PITCH' | 'DIRECTION' | 'CANNON' | 'TARGET' | 'SIDEWINDER' | 'COUNTERMEASURE' | 'VTOL' | 'RECOVERY';
 
 export interface TrainingStep {
   id: TrainingStepId;

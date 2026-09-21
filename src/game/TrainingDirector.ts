@@ -1,9 +1,10 @@
 import { InputAction, PlayerStats, TrainingRuntimeState, TrainingStep } from '../types/game';
+import { DIRECTIONAL_FLIGHT_COPY } from './DirectionalFlightCopy';
 
 export const CARRIER_QUALIFICATION_STEPS: TrainingStep[] = [
   { id: 'LAUNCH', title: 'Ski-jump departure', instruction: 'Leave the deck and hold a safe climb.', successMessage: 'Airborne — climb established.', completion: 'PLAYER_STATE' },
   { id: 'PITCH', action: 'PITCH_UP', title: 'Pitch control', instruction: 'Raise the nose to gain altitude.', successMessage: 'Climb response confirmed.', completion: 'PLAYER_STATE' },
-  { id: 'THROTTLE', action: 'THROTTLE_UP', title: 'Power and speed', instruction: 'Add power and accelerate towards the patrol area.', successMessage: 'Power increasing — acceleration confirmed.', completion: 'SEMANTIC_ACTION' },
+  { id: 'DIRECTION', action: 'THROTTLE_UP', title: DIRECTIONAL_FLIGHT_COPY.lessonTitle, instruction: DIRECTIONAL_FLIGHT_COPY.lessonInstruction, successMessage: DIRECTIONAL_FLIGHT_COPY.lessonSuccess, completion: 'SEMANTIC_ACTION' },
   { id: 'CANNON', action: 'PRIMARY_FIRE', title: 'ADEN cannon', instruction: 'Fire a short burst from the twin 30 mm cannon.', successMessage: 'Cannon response confirmed.', completion: 'SEMANTIC_ACTION' },
   { id: 'TARGET', title: 'Target acquisition', instruction: 'Approach the marked aircraft and hold it in the targeting circle.', successMessage: 'Target locked.', completion: 'PLAYER_STATE' },
   { id: 'SIDEWINDER', action: 'SECONDARY_FIRE', title: 'Sidewinder', instruction: 'With LOCK shown, launch the selected AIM-9L.', successMessage: 'Sidewinder away.', completion: 'SEMANTIC_ACTION' },

@@ -1,9 +1,10 @@
 import React from 'react';
 import { InputAction, InputBindingProfile } from '../types/game';
 import { bindGamepad, bindKeyboard, DEFAULT_INPUT_BINDINGS, formatGamepadButton, formatKeyboardCode, INPUT_ACTIONS, cloneBindings } from '../game/inputBindings';
+import { DIRECTIONAL_FLIGHT_COPY } from '../game/DirectionalFlightCopy';
 
 const ACTION_LABELS: Record<InputAction, string> = {
-  PITCH_UP: 'Pitch up', PITCH_DOWN: 'Pitch down', THROTTLE_DOWN: 'Turn / fly left', THROTTLE_UP: 'Turn / fly right',
+  PITCH_UP: 'Pitch up', PITCH_DOWN: 'Pitch down', THROTTLE_DOWN: DIRECTIONAL_FLIGHT_COPY.leftAction, THROTTLE_UP: DIRECTIONAL_FLIGHT_COPY.rightAction,
   VTOL: 'VTOL vectoring', PRIMARY_FIRE: 'ADEN cannon', SECONDARY_FIRE: 'Selected weapon', CYCLE_WEAPON: 'Cycle weapon',
   COUNTERMEASURE: 'Countermeasure', PAUSE: 'Pause',
 };
@@ -50,7 +51,7 @@ export const ControlBindingsPanel: React.FC<ControlBindingsPanelProps> = ({ bind
           </div>
         ))}
       </div>
-      <p className={`mt-2 min-h-4 text-[9px] ${conflict ? 'text-rose-300' : 'text-zinc-500'}`}>{conflict || 'Left stick and D-pad remain assigned to flight axes.'}</p>
+      <p className={`mt-2 min-h-4 text-[9px] ${conflict ? 'text-rose-300' : 'text-zinc-500'}`}>{conflict || `${DIRECTIONAL_FLIGHT_COPY.concept} ${DIRECTIONAL_FLIGHT_COPY.behaviour}`}</p>
     </section>
   );
 };

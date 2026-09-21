@@ -161,7 +161,10 @@ test('launches guided carrier qualification with device-aware training prompts',
   if (testInfo.project.name === 'desktop') {
     await expect(page.getByRole('button', { name: 'CONTROLS [H]' })).toHaveAttribute('aria-expanded', 'false');
     await page.getByRole('button', { name: 'CONTROLS [H]' }).click();
-    await expect(page.getByLabel('Flight control reference')).toBeVisible();
+    const controls = page.getByLabel('Flight control reference');
+    await expect(controls).toBeVisible();
+    await expect(controls).toContainText('FLY LEFT / RIGHT');
+    await expect(controls).not.toContainText('TURN / SPEED');
   } else {
     await expect(page.getByRole('button', { name: 'Fire twin 30mm ADEN cannon' })).toBeVisible();
   }
@@ -335,6 +338,11 @@ test('provides the corrected flight manual, accessibility guide and release cred
   await expect(page.getByText(RELEASE_INFO.buildId)).toBeVisible();
   await expect(page.getByText(/FIRE SELECTED SECONDARY/).first()).toBeVisible();
   await expect(page.getByText(/Smart Combat Camera/)).toBeVisible();
+  await expect(page.getByText('Choose the direction you want to fly.')).toBeVisible();
+  await expect(page.getByText(/turns at low speed, then accelerates in the new direction/)).toBeVisible();
+  await expect(page.getByText(/KEYBOARD: A \/ D or LEFT \/ RIGHT arrows/)).toBeVisible();
+  await expect(page.getByText(/GAMEPAD: LEFT STICK or D-PAD left \/ right/)).toBeVisible();
+  await expect(page.getByText(/TOUCH: On-screen LEFT \/ RIGHT flight arrows/)).toBeVisible();
 });
 
 test('offers presentation-only smart combat framing', async ({ page }) => {

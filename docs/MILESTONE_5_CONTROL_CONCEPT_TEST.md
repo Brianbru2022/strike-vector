@@ -9,7 +9,7 @@ This milestone tests the control concept before the larger commercial validation
 
 Open a local development build and select **Early Control Test**. Choose the physical control method, assign the correct anonymous participant slot and start the clean run. Every run uses an isolated Pilot-difficulty Guided Mission 1 snapshot with the Fleet CAP loadout. It cannot alter campaign, showcase, operation, diagnostics or the existing 21-run validation evidence.
 
-Do not explain controls beyond what an ordinary player receives in the game. Observe whether the player understands pitch, bidirectional flight and throttle, altitude, VTOL, target acquisition and firing, threat warnings, countermeasures, fuel and damage, carrier recovery and the reason for failure. Record demonstrated comprehension time and structured confusion categories after the sortie.
+Do not explain controls beyond what an ordinary player receives in the game. Observe whether the player understands pitch, left/right flight direction and low-speed reversal, altitude, VTOL, target acquisition and firing, threat warnings, countermeasures, fuel and damage, carrier recovery and the reason for failure. Record demonstrated comprehension time and structured confusion categories after the sortie.
 
 Before suggesting Mission 2, ask whether the player wants another sortie and record whether they requested it without prompting. This is the primary behavioural measure; it must not be inferred from an automated profile.
 

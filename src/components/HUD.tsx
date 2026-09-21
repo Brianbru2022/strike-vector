@@ -3,6 +3,7 @@ import { AccessibilitySettings, ArcticWeatherState, CombatFeedbackState, PlayerS
 import { Shield, Flame, Crosshair, AlertTriangle, CloudSnow, Radio, Navigation, Gauge, Zap } from 'lucide-react';
 import { bindingLabel } from '../game/inputBindings';
 import { HUD_NOTIFICATION_PRIORITY, selectHudNotification } from '../game/HudNotifications';
+import { DIRECTIONAL_FLIGHT_COPY } from '../game/DirectionalFlightCopy';
 
 export function getVerticalSpeedReadout(verticalVelocity: number): { feetPerMinute: number; unsafeDescent: boolean } {
   return {
@@ -387,7 +388,7 @@ export const HUD: React.FC<HUDProps> = ({
           {(!tutorialUnderstood || trainingState?.enabled || controlsRecalled) ? <div className="bg-zinc-950/90 backdrop-blur-sm border border-cyan-500/40 px-3 py-1.5 rounded text-[10px] text-zinc-300 shadow-lg" aria-label="Flight control reference">
           <div className="flex items-center gap-3 text-cyan-300 font-semibold">
             <span><strong className="text-zinc-100">{bindingLabel(inputBindings, 'PITCH_UP', inputDevice)}/{bindingLabel(inputBindings, 'PITCH_DOWN', inputDevice)}</strong> PITCH</span>
-            <span><strong className="text-zinc-100">{bindingLabel(inputBindings, 'THROTTLE_DOWN', inputDevice)}/{bindingLabel(inputBindings, 'THROTTLE_UP', inputDevice)}</strong> TURN / SPEED</span>
+            <span><strong className="text-zinc-100">{bindingLabel(inputBindings, 'THROTTLE_DOWN', inputDevice)}/{bindingLabel(inputBindings, 'THROTTLE_UP', inputDevice)}</strong> {DIRECTIONAL_FLIGHT_COPY.hudLabel}</span>
             <span><strong className="text-amber-300">{bindingLabel(inputBindings, 'VTOL', inputDevice)}</strong> VTOL</span>
             <span><strong className="text-cyan-200">{bindingLabel(inputBindings, 'PRIMARY_FIRE', inputDevice)}</strong> ADEN</span>
             <span><strong className="text-rose-300">{bindingLabel(inputBindings, 'SECONDARY_FIRE', inputDevice)}</strong> SECONDARY</span>

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260920-ONBOARD1",
+  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
   "externalBeta": {
     "purpose": "Safe unlisted itch.io browser testing with genuine players",
     "preUploadCommand": "pnpm external-beta:gate",

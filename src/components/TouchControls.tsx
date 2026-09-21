@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Crosshair, Zap, Repeat2, Shield, ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from 'lucide-react';
 import { InputAction, WeaponType } from '../types/game';
 import { TouchInputTracker } from '../game/TouchInputTracker';
+import { DIRECTIONAL_FLIGHT_COPY } from '../game/DirectionalFlightCopy';
 
 interface TouchControlsProps {
   onInput: (action: InputAction, pressed: boolean) => void;
@@ -90,7 +91,7 @@ export const TouchControls: React.FC<TouchControlsProps> = ({ onInput, visible =
         <button
           type="button"
           {...bindButton('THROTTLE_DOWN')}
-          aria-label="Brake / Turn / Fly Left"
+          aria-label={DIRECTIONAL_FLIGHT_COPY.leftAction}
           className="w-12 h-12 rounded-lg bg-zinc-900/90 active:bg-cyan-600 hover:bg-zinc-800 border border-cyan-500/40 active:border-cyan-400 flex items-center justify-center text-cyan-300 active:text-zinc-950 cursor-pointer shadow transition-colors"
         >
           <ArrowLeft className="w-6 h-6" />
@@ -106,7 +107,7 @@ export const TouchControls: React.FC<TouchControlsProps> = ({ onInput, visible =
         <button
           type="button"
           {...bindButton('THROTTLE_UP')}
-          aria-label="Turn / Fly Right"
+          aria-label={DIRECTIONAL_FLIGHT_COPY.rightAction}
           className="w-12 h-12 rounded-lg bg-zinc-900/90 active:bg-cyan-600 hover:bg-zinc-800 border border-cyan-500/40 active:border-cyan-400 flex items-center justify-center text-cyan-300 active:text-zinc-950 cursor-pointer shadow transition-colors"
         >
           <ArrowRight className="w-6 h-6" />

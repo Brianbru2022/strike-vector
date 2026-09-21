@@ -2,7 +2,7 @@
 
 A painted 2D, side-scrolling VTOL action-simulation set during an alternative 1987 NATO–Warsaw Pact conflict. Fly a Sea Harrier FRS.1 through a sixteen-mission North Atlantic and Norwegian Sea campaign.
 
-Current development build: **1.2 DEV1** (`IK87-1.2.0-DEV1-20260920-ONBOARD1`). The certified 1.0 RC1 campaign baseline remains frozen while beta-readiness work validates the existing game with real players and prepares an isolated itch.io browser build. See `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MILESTONE_5_CONTROL_CONCEPT_TEST.md`, `docs/MILESTONE_6_GUIDED_ONBOARDING.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
+Current development build: **1.2 DEV1** (`IK87-1.2.0-DEV1-20260921-DIRECTION1`). The certified 1.0 RC1 campaign baseline remains frozen while beta-readiness work validates the existing game with real players and prepares an isolated itch.io browser build. See `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MILESTONE_5_CONTROL_CONCEPT_TEST.md`, `docs/MILESTONE_6_GUIDED_ONBOARDING.md`, `docs/MILESTONE_7_DIRECTIONAL_CONTROLS.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
 
 ## Production vertical slice
 
@@ -80,7 +80,7 @@ Open `http://127.0.0.1:4177`. No API key or online image-generation service is r
 ## Controls
 
 - `W/S` or arrows: pitch.
-- `A/D` or arrows: throttle.
+- `A/D` or left/right arrows: choose the direction to fly. Holding the opposite direction slows the aircraft, turns it at low speed and then accelerates in the new direction.
 - `V` or `Shift`: hold VTOL vectoring.
 - `Space`: twin 30 mm ADEN cannon.
 - `J` or `Z`: selected secondary weapon.
