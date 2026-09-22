@@ -31,4 +31,4 @@ For each device confirm warnings remain clear under engine and weapon load, radi
 
 ## Current candidate status
 
-Build `IK87-1.2.0-DEV1-20260831-BAL7` passes TypeScript, 238 unit tests, the 13-cue audio audit, the refreshed 112-capture visual-manifest audit, production/PWA build, consumer audit and offline-cache verification. The complete browser suite last passed 63 applicable tests with five device-specific skips; the Stage 7 diagnostics extension additionally passes on desktop and mobile. Commercial Stage 6 sign-off remains pending until the three genuine listening records are completed; automated work must not fill those judgements.
+Build `IK87-1.2.0-DEV1-20260922-PLAY1` passes TypeScript, 284 unit tests, the 13-cue audio audit, the refreshed 112-capture visual-manifest audit, production/PWA build, consumer audit and offline-cache verification. The complete consumer browser suite passes 59 applicable tests with five device-specific skips; the V4 playability diagnostics also pass on desktop and mobile. Commercial Stage 6 sign-off remains pending until the three genuine listening records are completed; automated work must not fill those judgements.

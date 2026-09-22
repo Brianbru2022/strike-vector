@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart3, CheckCircle2, Download, Trash2 } from 'lucide-react';
-import { aggregateDiagnostics, aggregateDifficultyDiagnostics, buildBalanceCoverage, clearDiagnostics, exportDiagnosticsJson, loadDiagnostics } from '../game/Diagnostics';
+import { aggregateDiagnostics, aggregateDifficultyDiagnostics, aggregatePlayabilityDiagnostics, buildBalanceCoverage, clearDiagnostics, exportDiagnosticsJson, loadDiagnostics } from '../game/Diagnostics';
 import { CAMPAIGN_MISSIONS } from '../game/Missions';
 import { CampaignSave, InputDevice, PerformanceSnapshot } from '../types/game';
 import { buildIssueReport, exportIssueReportJson } from '../game/IssueReport';
@@ -33,9 +33,10 @@ export const DiagnosticsPanel: React.FC<DiagnosticsPanelProps> = ({ campaign, pe
   const difficultyAggregates = React.useMemo(() => aggregateDifficultyDiagnostics(sessions), [sessions]);
   const balanceCoverage = React.useMemo(() => buildBalanceCoverage(sessions, CAMPAIGN_MISSION_IDS), [sessions]);
   const currentBuildMetrics = React.useMemo(() => aggregateStage7Metrics(sessions.filter((session) => session.buildId === RELEASE_INFO.buildId)), [sessions]);
+  const playabilityMetrics = React.useMemo(() => aggregatePlayabilityDiagnostics(sessions.filter((session) => session.buildId === RELEASE_INFO.buildId)), [sessions]);
 
   const exportData = () => {
-    downloadJson(exportDiagnosticsJson(sessions), 'iron-kestrel-diagnostics-v3.json');
+    downloadJson(exportDiagnosticsJson(sessions), 'iron-kestrel-diagnostics-v4.json');
   };
 
   const exportStage7 = () => {
@@ -69,6 +70,11 @@ export const DiagnosticsPanel: React.FC<DiagnosticsPanelProps> = ({ campaign, pe
         <div className="rounded border border-white/10 bg-black/35 p-2 text-[8px]"><div className="font-bold text-cyan-300">CURRENT BUILD</div><div className="mt-1 text-zinc-400">{currentBuildMetrics.victories}/{currentBuildMetrics.attempts} victories · {currentBuildMetrics.completionRate}%</div><div className="text-zinc-500">{currentBuildMetrics.averageSortieSeconds}s sortie · {currentBuildMetrics.averageCombatSeconds}s combat</div></div>
         <div className="rounded border border-white/10 bg-black/35 p-2 text-[8px]"><div className="font-bold text-amber-300">ORDNANCE USED</div><div className="mt-1 text-zinc-400">Cannon {currentBuildMetrics.ammunitionUsed.CANNON} · AIM-9L {currentBuildMetrics.ammunitionUsed.MISSILE}</div><div className="text-zinc-500">Bomb {currentBuildMetrics.ammunitionUsed.BOMB} · Rocket {currentBuildMetrics.ammunitionUsed.ROCKET} · Flare {currentBuildMetrics.ammunitionUsed.FLARE}</div></div>
         <div className="rounded border border-white/10 bg-black/35 p-2 text-[8px]"><div className="font-bold text-rose-300">THREAT & RECOVERY</div><div className="mt-1 text-zinc-400">Warnings answered {currentBuildMetrics.warningAcknowledgementRate}% · Landings P {currentBuildMetrics.landingGrades.PERFECT ?? 0} / S {currentBuildMetrics.landingGrades.SAFE ?? 0} / H {currentBuildMetrics.landingGrades.HARD ?? 0}</div><div className="text-zinc-500">Damage gun {Math.round(currentBuildMetrics.damageBySource.AIRCRAFT_GUN + currentBuildMetrics.damageBySource.GROUND_FIRE)} · SAM {Math.round(currentBuildMetrics.damageBySource.SAM_MISSILE)} · flak {Math.round(currentBuildMetrics.damageBySource.FLAK)} · impact {Math.round(currentBuildMetrics.damageBySource.IMPACT)}</div></div>
+      </div>
+      <div className="mt-2 grid gap-1 border-t border-white/10 pt-2 sm:grid-cols-3" aria-label="Current-build playability measurements">
+        <div className="rounded border border-white/10 bg-black/35 p-2 text-[8px]"><div className="font-bold text-cyan-300">FLIGHT REVERSALS</div><div className="mt-1 text-zinc-400">{playabilityMetrics.reversals} completed · {playabilityMetrics.averageReversalTicks} ticks average</div></div>
+        <div className="rounded border border-white/10 bg-black/35 p-2 text-[8px]"><div className="font-bold text-amber-300">INPUT & PACING</div><div className="mt-1 text-zinc-400">{playabilityMetrics.deviceTransitions} device changes · {playabilityMetrics.averageIdleSeconds}s average idle</div></div>
+        <div className="rounded border border-white/10 bg-black/35 p-2 text-[8px]"><div className="font-bold text-rose-300">RECOVERY & WARNINGS</div><div className="mt-1 text-zinc-400">Warnings answered {playabilityMetrics.warningResponsePercent}%</div><div className="text-zinc-500">Failures {Object.entries(playabilityMetrics.recoveryFailures).map(([reason, count]) => `${reason.replaceAll('_', ' ')} ${count}`).join(' · ') || 'none recorded'}</div></div>
       </div>
       <p className="mt-2 text-[9px] leading-relaxed text-zinc-500">Stores mission results and simulation statistics on this device only. No raw inputs, identity or network transmission.</p>
       <div className="mt-2 flex flex-wrap gap-2"><button type="button" disabled={!sessions.length} onClick={exportData} className="flex items-center gap-1 rounded border border-emerald-600/50 px-2 py-1 text-[9px] text-emerald-300 disabled:opacity-30"><Download className="h-3 w-3" /> EXPORT SESSIONS</button><button type="button" disabled={!sessions.length} onClick={exportStage7} className="flex items-center gap-1 rounded border border-amber-600/50 px-2 py-1 text-[9px] text-amber-300 disabled:opacity-30"><Download className="h-3 w-3" /> EXPORT STAGE 7 EVIDENCE</button><button type="button" onClick={exportIssueReport} className="flex items-center gap-1 rounded border border-cyan-600/50 px-2 py-1 text-[9px] text-cyan-300"><Download className="h-3 w-3" /> EXPORT ISSUE REPORT</button><button type="button" disabled={!sessions.length} onClick={() => { clearDiagnostics(); setSessions([]); }} className="flex items-center gap-1 rounded border border-rose-700/50 px-2 py-1 text-[9px] text-rose-300 disabled:opacity-30"><Trash2 className="h-3 w-3" /> CLEAR DATA</button></div>

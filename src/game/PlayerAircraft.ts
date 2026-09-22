@@ -8,6 +8,7 @@ import { RandomSource } from './SeededRandom';
 import { PLAYER_AIRCRAFT_PRESENTATION_SCALE } from './CombatReadability';
 import { calculateTerrainShadow, drawTerrainShadow } from './TerrainShadow';
 import { getForegroundTreatment } from './ForegroundPresentation';
+import { getRecoveryAssistProfile, PLAYER_FLIGHT_PROFILE } from './PlayabilityProfiles';
 
 export class PlayerAircraft {
   public stats: PlayerStats;
@@ -22,6 +23,10 @@ export class PlayerAircraft {
   private recoveryToleranceModifier = 1;
   private lowFuelWarningPlayed = false;
   private visualFacing = 1;
+  private flightTicks = 0;
+  private reversalStartTick: number | null = null;
+  private reversalsCompleted = 0;
+  private reversalTicksTotal = 0;
 
   constructor(private random?: RandomSource) {
     this.stats = this.getDefaultStats();
@@ -109,7 +114,7 @@ export class PlayerAircraft {
   private updateHeadingPresentation() {
     const target = this.stats.facing;
     const delta = target - this.visualFacing;
-    const step = 0.12;
+    const step = PLAYER_FLIGHT_PROFILE.visualHeadingStep;
     if (Math.abs(delta) <= step) this.visualFacing = target;
     else this.visualFacing += Math.sign(delta) * step;
   }
@@ -132,6 +137,17 @@ export class PlayerAircraft {
     this.touchdownTicks = 0;
     this.skiJumpTicks = 0;
     this.lowFuelWarningPlayed = false;
+    this.flightTicks = 0;
+    this.reversalStartTick = null;
+    this.reversalsCompleted = 0;
+    this.reversalTicksTotal = 0;
+  }
+
+  public getFlightTelemetrySnapshot(): { reversalsCompleted: number; averageReversalTicks: number } {
+    return {
+      reversalsCompleted: this.reversalsCompleted,
+      averageReversalTicks: this.reversalsCompleted ? Math.round(this.reversalTicksTotal / this.reversalsCompleted) : 0,
+    };
   }
 
   public beginLandingPractice(site: 'CARRIER' | 'FORWARD_BASE', technique: 'ROLLING' | 'VERTICAL', landingX: number, deckY: number) {
@@ -212,6 +228,7 @@ export class PlayerAircraft {
     const p = GAME_CONSTANTS.PLAYER;
     const s = this.stats;
     const desiredDirection: -1 | 0 | 1 = input.right === input.left ? 0 : input.right ? 1 : -1;
+    this.flightTicks++;
 
     // Fuel depletion
     const fuelRate = s.vtolMode ? p.FUEL_BURN_VTOL : p.FUEL_BURN_NORMAL;
@@ -259,38 +276,44 @@ export class PlayerAircraft {
       if (desiredDirection !== 0 && desiredDirection !== s.facing) {
         // The opposite direction first acts as an air brake. The aircraft only
         // changes heading once it has shed enough speed for a readable turn.
-        const reversalThreshold = nozzleBlend > 0.65 ? 1.1 : 0.35;
-        forwardSpeed = Math.max(0, forwardSpeed - p.DECEL * 1.85 * controlFactor);
+        if (this.reversalStartTick === null) this.reversalStartTick = this.flightTicks;
+        const reversalThreshold = nozzleBlend > 0.65 ? PLAYER_FLIGHT_PROFILE.reversalThresholdVtol : PLAYER_FLIGHT_PROFILE.reversalThresholdCtol;
+        forwardSpeed = Math.max(0, forwardSpeed - PLAYER_FLIGHT_PROFILE.deceleration * PLAYER_FLIGHT_PROFILE.reversalBrakeMultiplier * controlFactor);
         if (forwardSpeed <= reversalThreshold) {
           s.facing = desiredDirection;
           forwardSpeed = Math.max(0.45, forwardSpeed);
+          this.reversalsCompleted++;
+          this.reversalTicksTotal += Math.max(1, this.flightTicks - (this.reversalStartTick ?? this.flightTicks) + 1);
+          this.reversalStartTick = null;
         }
       } else if (desiredDirection === s.facing) {
-        forwardSpeed = Math.min(maxForwardSpeed, forwardSpeed + p.ACCEL * engineFactor);
+        this.reversalStartTick = null;
+        forwardSpeed = Math.min(maxForwardSpeed, forwardSpeed + PLAYER_FLIGHT_PROFILE.acceleration * engineFactor);
       } else {
-        forwardSpeed += (p.CRUISE_SPEED * engineFactor - forwardSpeed) * 0.032;
+        this.reversalStartTick = null;
+        forwardSpeed += (p.CRUISE_SPEED * engineFactor - forwardSpeed) * PLAYER_FLIGHT_PROFILE.cruiseSettlingRate;
       }
       const excessSpeed = Math.max(0, forwardSpeed - p.CRUISE_SPEED);
-      forwardSpeed -= excessSpeed * excessSpeed * 0.0018;
+      forwardSpeed -= excessSpeed * excessSpeed * PLAYER_FLIGHT_PROFILE.excessSpeedDrag;
       const aerodynamicVx = s.facing * forwardSpeed;
 
       let aerodynamicVy = s.vy;
-      if (input.up) aerodynamicVy = Math.max(-p.CLIMB_SPEED * engineFactor, aerodynamicVy - 0.35 * controlFactor);
-      else if (input.down) aerodynamicVy = Math.min(p.DIVE_SPEED, aerodynamicVy + 0.38 * controlFactor);
-      else aerodynamicVy *= 0.94;
+      if (input.up) aerodynamicVy = Math.max(-p.CLIMB_SPEED * engineFactor, aerodynamicVy - PLAYER_FLIGHT_PROFILE.climbResponse * controlFactor);
+      else if (input.down) aerodynamicVy = Math.min(p.DIVE_SPEED, aerodynamicVy + PLAYER_FLIGHT_PROFILE.diveResponse * controlFactor);
+      else aerodynamicVy *= PLAYER_FLIGHT_PROFILE.verticalDamping;
 
       const hoverTargetVx = (desiredDirection !== 0 ? desiredDirection * 4.5 : s.facing * 1.2) * engineFactor;
       const hoverTargetVy = (input.down ? 4.0 : input.up ? -4.5 : 0.4) * engineFactor;
-      const hoverVx = s.vx + (hoverTargetVx - s.vx) * 0.09 * controlFactor;
-      const hoverVy = s.vy + (hoverTargetVy - s.vy) * 0.12 * controlFactor;
+      const hoverVx = s.vx + (hoverTargetVx - s.vx) * PLAYER_FLIGHT_PROFILE.hoverHorizontalResponse * controlFactor;
+      const hoverVy = s.vy + (hoverTargetVy - s.vy) * PLAYER_FLIGHT_PROFILE.hoverVerticalResponse * controlFactor;
       s.vx = aerodynamicVx * (1 - nozzleBlend) + hoverVx * nozzleBlend;
       s.vy = aerodynamicVy * (1 - nozzleBlend) + hoverVy * nozzleBlend;
 
       const flightPitch = input.up ? -0.35 : input.down ? 0.42 : 0;
       const hoverPitch = input.up ? -0.18 : input.down ? 0.15 : 0;
       const pitchTarget = flightPitch * (1 - nozzleBlend) + hoverPitch * nozzleBlend;
-      s.pitchAngle += (pitchTarget - s.pitchAngle) * (0.075 + nozzleBlend * 0.035) * controlFactor;
-      s.pitchAngle = Math.max(-0.42, Math.min(0.42, s.pitchAngle));
+      s.pitchAngle += (pitchTarget - s.pitchAngle) * (PLAYER_FLIGHT_PROFILE.pitchResponse + nozzleBlend * 0.035) * controlFactor;
+      s.pitchAngle = Math.max(-PLAYER_FLIGHT_PROFILE.maximumPitchRadians, Math.min(PLAYER_FLIGHT_PROFILE.maximumPitchRadians, s.pitchAngle));
       const directionalThrust = desiredDirection === s.facing ? 1 : desiredDirection === 0 ? 0.58 : 0.34;
       s.thrust += ((input.up ? 1 : directionalThrust) - s.thrust) * 0.045;
 
@@ -429,9 +452,10 @@ export class PlayerAircraft {
     const center = (carrier.startX + carrier.endX) * 0.5;
     const distFromCenter = Math.abs(x - center);
 
-    const tolerance = getCombatDifficultyProfile(this.difficulty).landingTolerance * this.recoveryToleranceModifier;
+    const recovery = getRecoveryAssistProfile(this.difficulty);
+    const tolerance = recovery.toleranceMultiplier * this.recoveryToleranceModifier;
     const forwardSpeed = Math.abs(vx);
-    if (vy <= 1.2 * tolerance && forwardSpeed <= 2.8 * tolerance && distFromCenter < 90 * tolerance) {
+    if (vy <= recovery.perfectDescentRate * tolerance && forwardSpeed <= recovery.perfectForwardSpeed * tolerance && distFromCenter < recovery.perfectCentreOffset * tolerance) {
       this.stats.carrierLandingGrade = 'PERFECT';
       soundEngine.playTouchdown('PERFECT');
       if (!soundEngine.playMissionRadio('RECOVERY')) {
@@ -439,7 +463,7 @@ export class PlayerAircraft {
           ? 'FARP TOUCHDOWN CONFIRMED. FORWARD SITE SECURE.'
           : '3 WIRE! PERFECT TRAP. WELCOME BACK, KESTREL ONE.');
       }
-    } else if (vy <= 2.2 * tolerance && forwardSpeed <= 4.0 * tolerance) {
+    } else if (vy <= recovery.safeDescentRate * tolerance && forwardSpeed <= recovery.safeForwardSpeed * tolerance) {
       this.stats.carrierLandingGrade = 'SAFE';
       soundEngine.playTouchdown('SAFE');
       if (!soundEngine.playMissionRadio('RECOVERY')) soundEngine.playRadioCall('RECOVERY CONFIRMED. SAFE LANDING.');

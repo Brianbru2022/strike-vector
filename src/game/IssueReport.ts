@@ -1,4 +1,4 @@
-import { CampaignSave, DiagnosticSession, InputDevice, IssueReportV1, OperationRunState, PerformanceSnapshot } from '../types/game';
+import { CampaignSave, DiagnosticSession, DiagnosticSessionV1, DiagnosticSessionV2, DiagnosticSessionV3, InputDevice, IssueReportV1, OperationRunState, PerformanceSnapshot } from '../types/game';
 import { sanitiseDiagnosticSession } from './Diagnostics';
 import { RELEASE_INFO } from './Release';
 
@@ -13,7 +13,7 @@ export interface IssueReportRuntimeInput {
 
 export const buildIssueReport = (
   campaign: CampaignSave,
-  diagnostics: DiagnosticSession[],
+  diagnostics: Array<DiagnosticSessionV1 | DiagnosticSessionV2 | DiagnosticSessionV3 | DiagnosticSession>,
   performance: PerformanceSnapshot | null,
   operation: OperationRunState | null,
   runtime: IssueReportRuntimeInput,

@@ -1,6 +1,6 @@
 # Stage 7 — Complete-game balance validation
 
-Candidate build: `IK87-1.2.0-DEV1-20260831-BAL7`
+Candidate build: `IK87-1.2.0-DEV1-20260922-PLAY1`
 
 Stage 7 separates automated certification from human play evidence. Automated tests prove deterministic encounter behaviour, authoritative shared tuning, valid recovery geometry, sufficient capacity for every loadout the servicing screen offers, and complete procedural-archetype coverage. They do not claim that a human completed a sortie.
 

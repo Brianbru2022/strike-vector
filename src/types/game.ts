@@ -19,6 +19,60 @@ export interface CombatDifficultyProfile {
   enemyLaunchWarningTicks: number;
 }
 
+/** Shared, immutable player-aircraft response authority. Values are simulation ticks. */
+export interface PlayerFlightProfile {
+  acceleration: number;
+  deceleration: number;
+  reversalBrakeMultiplier: number;
+  reversalThresholdCtol: number;
+  reversalThresholdVtol: number;
+  cruiseSettlingRate: number;
+  excessSpeedDrag: number;
+  climbResponse: number;
+  diveResponse: number;
+  verticalDamping: number;
+  hoverHorizontalResponse: number;
+  hoverVerticalResponse: number;
+  pitchResponse: number;
+  maximumPitchRadians: number;
+  visualHeadingStep: number;
+}
+
+/** Difficulty-specific recovery authority used by guidance and touchdown grading. */
+export interface RecoveryAssistProfile {
+  difficulty: DifficultyPreset;
+  toleranceMultiplier: number;
+  perfectDescentRate: number;
+  perfectForwardSpeed: number;
+  perfectCentreOffset: number;
+  safeDescentRate: number;
+  safeForwardSpeed: number;
+  approachInterceptDistance: number;
+  alignmentOffset: number;
+}
+
+/** Durations for temporary combat cues; keeps essential feedback consistent. */
+export interface CombatFeedbackProfile {
+  hitGlancingTicks: number;
+  hitCriticalTicks: number;
+  hitDestroyedTicks: number;
+  damageWarningTicks: number;
+  radioCaptionTicks: number;
+  fighterDetectedTicks: number;
+  fighterTrackingTicks: number;
+  fighterFiringTicks: number;
+}
+
+/** Shared timing and spacing policy for every authored and generated encounter. */
+export interface EncounterPacingProfile {
+  minimumDecisionDelayTicks: number;
+  attackCommitTicks: number;
+  maximumAttackPassTicks: number;
+  reengageRangeFactor: number;
+  baseStrikeEgressTicks: number;
+  activeCombatRange: number;
+}
+
 export type RenderQuality = 'LOW' | 'MEDIUM' | 'HIGH';
 export type RenderQualityPreference = 'AUTO' | RenderQuality;
 
@@ -55,7 +109,7 @@ export interface IssueReportV1 {
   };
   operation: { active: boolean; generationVersion: OperationGenerationVersion | null; sortieIndex: number | null };
   performance: PerformanceSnapshot | null;
-  recentDiagnostics: Omit<DiagnosticSessionV3, 'operationSeed'>[];
+  recentDiagnostics: Omit<DiagnosticSessionV4, 'operationSeed'>[];
 }
 
 export type LoadoutPreset = 'FLEET_CAP' | 'STRIKE' | 'CLOSE_SUPPORT';
@@ -1059,7 +1113,22 @@ export interface DiagnosticSessionV3 extends Omit<DiagnosticSessionV2, 'version'
   buildId?: string | null;
 }
 
-export type DiagnosticSession = DiagnosticSessionV3;
+export type RecoveryFailureReason = 'EXCESS_FORWARD_SPEED' | 'EXCESS_DESCENT_RATE' | 'MISALIGNED' | 'NOZZLE_NOT_VECTORED' | 'AIRCRAFT_LOST' | null;
+
+export interface PlayabilityDiagnosticMetrics {
+  reversalsCompleted: number;
+  averageReversalTicks: number;
+  controlDeviceTransitions: number;
+  recoveryFailureReason: RecoveryFailureReason;
+  warningResponsePercent: number;
+  encounterIdleTicks: number;
+}
+
+export interface DiagnosticSessionV4 extends Omit<DiagnosticSessionV3, 'version'>, PlayabilityDiagnosticMetrics {
+  version: 4;
+}
+
+export type DiagnosticSession = DiagnosticSessionV4;
 
 export type ValidationDeviceClass = 'DESKTOP_KEYBOARD' | 'DESKTOP_GAMEPAD' | 'MOBILE_TOUCH';
 export type ValidationInputProfile = 'DEFAULT' | 'REMAPPED';

@@ -151,6 +151,7 @@ export default function App() {
 
   useEffect(() => {
     inputDeviceRef.current = inputDevice;
+    engineRef.current?.noteInputDevice(inputDevice);
   }, [inputDevice]);
 
   useEffect(() => {
@@ -164,6 +165,7 @@ export default function App() {
   // Initialize Game Engine on mount
   useEffect(() => {
     const engine = new GameEngine(CAMPAIGN_MISSIONS[0]);
+    engine.noteInputDevice(inputDeviceRef.current);
     engineRef.current = engine;
     setHighScore(engine.combatFlow.getBestScore());
 

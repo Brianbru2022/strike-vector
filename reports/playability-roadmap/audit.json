@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "buildId": "IK87-1.2.0-DEV1-20260922-PLAY1",
+  "generatedAt": "2026-09-22T07:25:47.743Z",
+  "engineeringPassed": true,
+  "releaseGatePassed": false,
+  "results": [
+    {
+      "milestone": 11,
+      "title": "Formative playability baseline",
+      "status": "HUMAN_PENDING",
+      "contracts": [
+        {
+          "label": "Five-slot novice/experienced evidence flow exists",
+          "passed": true
+        },
+        {
+          "label": "Evidence remains build-bound",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 12,
+      "title": "Flight handling and directional control",
+      "status": "ENGINEERING_PASS",
+      "contracts": [
+        {
+          "label": "Player flight authority is consumed by simulation",
+          "passed": true
+        },
+        {
+          "label": "Reversal telemetry records completion time",
+          "passed": true
+        },
+        {
+          "label": "Visual heading transitions remain separate from physics heading",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 13,
+      "title": "VTOL and recovery refinement",
+      "status": "ENGINEERING_PASS",
+      "contracts": [
+        {
+          "label": "Recovery profiles are shared by guidance and touchdown grading",
+          "passed": true
+        },
+        {
+          "label": "All three landing-practice techniques remain available",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 14,
+      "title": "Weapons and combat feedback",
+      "status": "ENGINEERING_PASS",
+      "contracts": [
+        {
+          "label": "Temporary feedback durations use one authority",
+          "passed": true
+        },
+        {
+          "label": "Reduced-effects mode remains represented in accessibility state",
+          "passed": true
+        },
+        {
+          "label": "Damage and weapon-hit diagnostics remain source-specific",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 15,
+      "title": "Enemy tactics and encounter pacing",
+      "status": "ENGINEERING_PASS",
+      "contracts": [
+        {
+          "label": "Enemy AI consumes the encounter-pacing authority",
+          "passed": true
+        },
+        {
+          "label": "Phase restart guidance remains whole-sortie only",
+          "passed": true
+        },
+        {
+          "label": "Sixteen campaign missions remain frozen",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 16,
+      "title": "Controls, HUD and accessibility",
+      "status": "ENGINEERING_PASS",
+      "contracts": [
+        {
+          "label": "HUD uses prioritised contextual notifications",
+          "passed": true
+        },
+        {
+          "label": "Touch controls use pointer capture and cancellation",
+          "passed": true
+        },
+        {
+          "label": "Twenty-one physical validation scenarios are defined",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 17,
+      "title": "Production audio and mixing",
+      "status": "HUMAN_PENDING",
+      "contracts": [
+        {
+          "label": "All seven mixer categories are represented",
+          "passed": true
+        },
+        {
+          "label": "Priority warning and radio ducking are configured",
+          "passed": true
+        },
+        {
+          "label": "Production manifest is present",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 18,
+      "title": "Performance, persistence and desktop reliability",
+      "status": "HUMAN_PENDING",
+      "contracts": [
+        {
+          "label": "Adaptive render-quality controller exists",
+          "passed": true
+        },
+        {
+          "label": "Desktop storage uses queued persistence",
+          "passed": true
+        },
+        {
+          "label": "Desktop mode excludes service-worker registration",
+          "passed": true
+        },
+        {
+          "label": "Tauri project is configured",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 19,
+      "title": "Final balance and physical hardware certification",
+      "status": "HUMAN_PENDING",
+      "contracts": [
+        {
+          "label": "All 48 campaign difficulty combinations are automated",
+          "passed": true
+        },
+        {
+          "label": "Twenty-one candidate-bound human scenarios exist",
+          "passed": true
+        },
+        {
+          "label": "Diagnostics V4 records playability evidence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "milestone": 20,
+      "title": "Signed Windows and Steam release candidate",
+      "status": "EXTERNAL_PENDING",
+      "contracts": [
+        {
+          "label": "Windows signing tool exists",
+          "passed": true
+        },
+        {
+          "label": "Steam and lifecycle approval remains fail-closed",
+          "passed": true
+        },
+        {
+          "label": "Release remains labelled development",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "engineeringIssues": [],
+  "externalPending": [
+    "M11: Formative playability baseline",
+    "M17: Production audio and mixing",
+    "M18: Performance, persistence and desktop reliability",
+    "M19: Final balance and physical hardware certification",
+    "M20: Signed Windows and Steam release candidate"
+  ]
+}

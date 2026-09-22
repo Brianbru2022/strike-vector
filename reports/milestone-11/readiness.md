@@ -1,6 +1,6 @@
 # Milestone 11 Validation Readiness
 
-Build: **IK87-1.2.0-DEV1-20260902-BETA-PREP2**
+Build: **IK87-1.2.0-DEV1-20260922-PLAY1**
 Tooling: **READY**
 Human sign-off: **PENDING**
 

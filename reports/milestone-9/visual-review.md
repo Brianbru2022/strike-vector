@@ -1,6 +1,6 @@
 # Milestone 9 rendered implementation review
 
-Build: `IK87-1.2.0-DEV1-20260921-SPRITES1`
+Build: `IK87-1.2.0-DEV1-20260922-PLAY1`
 
 The current-build visual matrix contains 112 screenshots covering all 16 missions at objective focus, route positions 22%, 50% and 78%, and desktop, ultrawide and compact mobile-landscape viewports. Its checksum manifest passed the build-bound visual audit.
 

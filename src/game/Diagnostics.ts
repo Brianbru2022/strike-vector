@@ -1,7 +1,8 @@
-import { DiagnosticSession, DiagnosticSessionV1, DiagnosticSessionV2, DiagnosticSessionV3, DifficultyPreset, OperationArchetype, WeaponType } from '../types/game';
+import { DiagnosticSession, DiagnosticSessionV1, DiagnosticSessionV2, DiagnosticSessionV3, DiagnosticSessionV4, DifficultyPreset, OperationArchetype, RecoveryFailureReason, WeaponType } from '../types/game';
 import { getPlatformStorage } from './PlatformRuntime';
 
-export const DIAGNOSTICS_STORAGE_KEY = 'STRIKE_VECTOR_DIAGNOSTICS_V3';
+export const DIAGNOSTICS_STORAGE_KEY = 'IRON_KESTREL_DIAGNOSTICS_V4';
+export const LEGACY_DIAGNOSTICS_V3_STORAGE_KEY = 'STRIKE_VECTOR_DIAGNOSTICS_V3';
 export const LEGACY_DIAGNOSTICS_V2_STORAGE_KEY = 'STRIKE_VECTOR_DIAGNOSTICS_V2';
 export const LEGACY_DIAGNOSTICS_STORAGE_KEY = 'STRIKE_VECTOR_DIAGNOSTICS_V1';
 export const MAX_DIAGNOSTIC_SESSIONS = 100;
@@ -29,17 +30,26 @@ export interface BalanceCoverageByDifficulty {
   complete: boolean;
 }
 
+export interface PlayabilityDiagnosticAggregate {
+  reversals: number;
+  averageReversalTicks: number;
+  deviceTransitions: number;
+  warningResponsePercent: number;
+  averageIdleSeconds: number;
+  recoveryFailures: Partial<Record<Exclude<RecoveryFailureReason, null>, number>>;
+}
+
 export function sanitiseDiagnosticSession(value: unknown): DiagnosticSession | null {
   if (!value || typeof value !== 'object') return null;
-  const item = value as Partial<Omit<DiagnosticSessionV1, 'version'>> & Partial<Omit<DiagnosticSessionV2, 'version'>> & Partial<Omit<DiagnosticSessionV3, 'version'>> & { version?: number };
-  if (![1, 2, 3].includes(item.version ?? 0) || typeof item.missionId !== 'string') return null;
+  const item = value as Partial<Omit<DiagnosticSessionV1, 'version'>> & Partial<Omit<DiagnosticSessionV2, 'version'>> & Partial<Omit<DiagnosticSessionV3, 'version'>> & Partial<Omit<DiagnosticSessionV4, 'version'>> & { version?: number };
+  if (![1, 2, 3, 4].includes(item.version ?? 0) || typeof item.missionId !== 'string') return null;
   if (!['ARCADE', 'PILOT', 'VETERAN'].includes(item.difficulty || '')) return null;
   if (!['VICTORY', 'FAILURE', 'ABORTED'].includes(item.result || '')) return null;
   const weaponsUsed = sanitiseWeaponRecord(item.weaponsUsed, true);
-  const weaponHits = sanitiseWeaponRecord(item.version === 3 ? item.weaponHits : undefined, false);
-  const damage = item.version === 3 && item.damageReceived && typeof item.damageReceived === 'object' ? item.damageReceived : undefined;
+  const weaponHits = sanitiseWeaponRecord(item.version >= 3 ? item.weaponHits : undefined, false);
+  const damage = item.version >= 3 && item.damageReceived && typeof item.damageReceived === 'object' ? item.damageReceived : undefined;
   return {
-    version: 3,
+    version: 4,
     buildId: typeof item.buildId === 'string' && item.buildId.length > 0 ? item.buildId : null,
     missionId: item.missionId,
     difficulty: item.difficulty as DifficultyPreset,
@@ -60,24 +70,30 @@ export function sanitiseDiagnosticSession(value: unknown): DiagnosticSession | n
       FLAK: positiveNumber(damage?.FLAK), GROUND_FIRE: positiveNumber(damage?.GROUND_FIRE), IMPACT: positiveNumber(damage?.IMPACT),
     },
     weaponHits: { CANNON: weaponHits.CANNON, MISSILE: weaponHits.MISSILE, BOMB: weaponHits.BOMB, ROCKET: weaponHits.ROCKET },
-    enemyAircraftDestroyed: item.version === 3 ? positiveInteger(item.enemyAircraftDestroyed) : 0,
-    missileWarnings: item.version === 3 ? positiveInteger(item.missileWarnings) : 0,
-    warningAcknowledgements: item.version === 3 ? positiveInteger(item.warningAcknowledgements) : 0,
-    countermeasureSuccesses: item.version === 3 ? positiveInteger(item.countermeasureSuccesses) : 0,
-    combatTicks: item.version === 3 ? positiveInteger(item.combatTicks) : 0,
-    aircraftLossPhase: item.version === 3 && ['NONE', 'EJECTION', 'LOW_ALTITUDE_IMPACT'].includes(item.aircraftLossPhase || '') ? item.aircraftLossPhase as DiagnosticSessionV3['aircraftLossPhase'] : 'NONE',
+    enemyAircraftDestroyed: item.version >= 3 ? positiveInteger(item.enemyAircraftDestroyed) : 0,
+    missileWarnings: item.version >= 3 ? positiveInteger(item.missileWarnings) : 0,
+    warningAcknowledgements: item.version >= 3 ? positiveInteger(item.warningAcknowledgements) : 0,
+    countermeasureSuccesses: item.version >= 3 ? positiveInteger(item.countermeasureSuccesses) : 0,
+    combatTicks: item.version >= 3 ? positiveInteger(item.combatTicks) : 0,
+    aircraftLossPhase: item.version >= 3 && ['NONE', 'EJECTION', 'LOW_ALTITUDE_IMPACT'].includes(item.aircraftLossPhase || '') ? item.aircraftLossPhase as DiagnosticSessionV3['aircraftLossPhase'] : 'NONE',
+    reversalsCompleted: item.version === 4 ? positiveInteger(item.reversalsCompleted) : 0,
+    averageReversalTicks: item.version === 4 ? positiveInteger(item.averageReversalTicks) : 0,
+    controlDeviceTransitions: item.version === 4 ? positiveInteger(item.controlDeviceTransitions) : 0,
+    recoveryFailureReason: item.version === 4 && isRecoveryFailureReason(item.recoveryFailureReason) ? item.recoveryFailureReason : null,
+    warningResponsePercent: item.version === 4 ? Math.max(0, Math.min(100, positiveInteger(item.warningResponsePercent))) : 0,
+    encounterIdleTicks: item.version === 4 ? positiveInteger(item.encounterIdleTicks) : 0,
   };
 }
 
 export function loadDiagnostics(storage: Pick<Storage, 'getItem'> = getPlatformStorage()): DiagnosticSession[] {
   try {
-    const parsed = JSON.parse(storage.getItem(DIAGNOSTICS_STORAGE_KEY) || storage.getItem(LEGACY_DIAGNOSTICS_V2_STORAGE_KEY) || storage.getItem(LEGACY_DIAGNOSTICS_STORAGE_KEY) || '[]');
+    const parsed = JSON.parse(storage.getItem(DIAGNOSTICS_STORAGE_KEY) || storage.getItem(LEGACY_DIAGNOSTICS_V3_STORAGE_KEY) || storage.getItem(LEGACY_DIAGNOSTICS_V2_STORAGE_KEY) || storage.getItem(LEGACY_DIAGNOSTICS_STORAGE_KEY) || '[]');
     if (!Array.isArray(parsed)) return [];
     return parsed.map(sanitiseDiagnosticSession).filter((item): item is DiagnosticSession => item !== null).slice(-MAX_DIAGNOSTIC_SESSIONS);
   } catch { return []; }
 }
 
-export function appendDiagnostic(session: DiagnosticSessionV1 | DiagnosticSessionV2 | DiagnosticSessionV3, storage: Pick<Storage, 'getItem' | 'setItem'> = getPlatformStorage()): DiagnosticSession[] {
+export function appendDiagnostic(session: DiagnosticSessionV1 | DiagnosticSessionV2 | DiagnosticSessionV3 | DiagnosticSessionV4, storage: Pick<Storage, 'getItem' | 'setItem'> = getPlatformStorage()): DiagnosticSession[] {
   const normalised = sanitiseDiagnosticSession(session);
   const sessions = normalised ? [...loadDiagnostics(storage as Storage), normalised].slice(-MAX_DIAGNOSTIC_SESSIONS) : loadDiagnostics(storage as Storage);
   try { storage.setItem(DIAGNOSTICS_STORAGE_KEY, JSON.stringify(sessions)); } catch { /* Storage failure must never interrupt play. */ }
@@ -85,7 +101,7 @@ export function appendDiagnostic(session: DiagnosticSessionV1 | DiagnosticSessio
 }
 
 export function clearDiagnostics(storage: Pick<Storage, 'removeItem'> = getPlatformStorage()): void {
-  try { storage.removeItem(DIAGNOSTICS_STORAGE_KEY); storage.removeItem(LEGACY_DIAGNOSTICS_V2_STORAGE_KEY); storage.removeItem(LEGACY_DIAGNOSTICS_STORAGE_KEY); } catch { /* Ignore restricted storage. */ }
+  try { storage.removeItem(DIAGNOSTICS_STORAGE_KEY); storage.removeItem(LEGACY_DIAGNOSTICS_V3_STORAGE_KEY); storage.removeItem(LEGACY_DIAGNOSTICS_V2_STORAGE_KEY); storage.removeItem(LEGACY_DIAGNOSTICS_STORAGE_KEY); } catch { /* Ignore restricted storage. */ }
 }
 
 export function aggregateDiagnostics(sessions: DiagnosticSession[]): MissionDiagnosticAggregate[] {
@@ -143,8 +159,26 @@ export function buildBalanceCoverage(sessions: DiagnosticSession[], campaignMiss
   });
 }
 
-export function exportDiagnosticsJson(sessions: Array<DiagnosticSessionV1 | DiagnosticSessionV2 | DiagnosticSessionV3>): string {
-  return JSON.stringify({ version: 3, exportedSessions: sessions.map(sanitiseDiagnosticSession).filter((session): session is DiagnosticSession => session !== null) }, null, 2);
+export function aggregatePlayabilityDiagnostics(sessions: DiagnosticSession[]): PlayabilityDiagnosticAggregate {
+  const reversals = sessions.reduce((sum, item) => sum + item.reversalsCompleted, 0);
+  const weightedReversalTicks = sessions.reduce((sum, item) => sum + item.averageReversalTicks * item.reversalsCompleted, 0);
+  const warned = sessions.filter((item) => item.missileWarnings > 0 || item.warningResponsePercent > 0);
+  const recoveryFailures: PlayabilityDiagnosticAggregate['recoveryFailures'] = {};
+  for (const item of sessions) {
+    if (item.recoveryFailureReason) recoveryFailures[item.recoveryFailureReason] = (recoveryFailures[item.recoveryFailureReason] ?? 0) + 1;
+  }
+  return {
+    reversals,
+    averageReversalTicks: reversals ? Math.round(weightedReversalTicks / reversals) : 0,
+    deviceTransitions: sessions.reduce((sum, item) => sum + item.controlDeviceTransitions, 0),
+    warningResponsePercent: warned.length ? Math.round(warned.reduce((sum, item) => sum + item.warningResponsePercent, 0) / warned.length) : 0,
+    averageIdleSeconds: sessions.length ? Math.round(sessions.reduce((sum, item) => sum + item.encounterIdleTicks / 60, 0) / sessions.length) : 0,
+    recoveryFailures,
+  };
+}
+
+export function exportDiagnosticsJson(sessions: Array<DiagnosticSessionV1 | DiagnosticSessionV2 | DiagnosticSessionV3 | DiagnosticSessionV4>): string {
+  return JSON.stringify({ version: 4, exportedSessions: sessions.map(sanitiseDiagnosticSession).filter((session): session is DiagnosticSession => session !== null) }, null, 2);
 }
 
 function calculateAccuracy(items: DiagnosticSession[]): number {
@@ -161,3 +195,4 @@ function positiveInteger(value: unknown): number { return Math.max(0, Math.round
 function positiveNumber(value: unknown): number { return Math.max(0, Number(value) || 0); }
 function countValues(values: string[]): Record<string, number> { return values.reduce<Record<string, number>>((result, value) => ({ ...result, [value]: (result[value] || 0) + 1 }), {}); }
 function isOperationArchetype(value: unknown): value is OperationArchetype { return value === 'FLEET_CAP' || value === 'SEAD' || value === 'ARMOURED_INTERDICTION' || value === 'PILOT_RESCUE' || value === 'FARP_DEFENCE' || value === 'DEEP_STRIKE'; }
+function isRecoveryFailureReason(value: unknown): value is Exclude<RecoveryFailureReason, null> { return value === 'EXCESS_FORWARD_SPEED' || value === 'EXCESS_DESCENT_RATE' || value === 'MISALIGNED' || value === 'NOZZLE_NOT_VECTORED' || value === 'AIRCRAFT_LOST'; }

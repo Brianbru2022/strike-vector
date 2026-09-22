@@ -1,6 +1,6 @@
 # Milestone 10 rendered implementation review
 
-Build: `IK87-1.2.0-DEV1-20260921-DEPTH1`
+Build: `IK87-1.2.0-DEV1-20260922-PLAY1`
 
 The current-build visual matrix contains 112 screenshots covering all 16 missions, three route positions, desktop, ultrawide and compact mobile landscape.
 
@@ -23,10 +23,10 @@ Final recognition in motion remains part of the existing current-build human evi
 ## Verification record
 
 - Type-check and lint: passed.
-- Deterministic/unit suite: 278 tests passed across 61 files.
+- Deterministic/unit suite: 284 tests passed across 62 files.
 - Milestone 10 depth audit: passed, 6 runtime contracts.
 - Visual-manifest audit: passed, 112 current-build captures.
 - Internal browser suite: 8 of 8 scenarios passed.
 - Production/PWA build and consumer audit: passed.
-- Full consumer browser suite: 58 passed and 5 expected skips. One controller-disconnection scenario exceeded its suite timeout; its immediate isolated rerun passed 1 of 1. This is recorded as a transient timing observation rather than silently reported as a clean full-suite pass.
+- Full consumer browser suite: 59 passed and 5 expected platform-specific skips.
 - Human evidence: pending, 0 of 5 current-build sessions. Automated work does not satisfy this judgement-based gate.

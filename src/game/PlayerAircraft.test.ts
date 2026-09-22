@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ParticleAndEffects } from './ParticleAndEffects';
 import { PlayerAircraft } from './PlayerAircraft';
+import { FixedStepClock } from './FixedStepClock';
 
 describe('carrier recovery', () => {
   it('brakes into a controlled turn before flying in the opposite direction', () => {
@@ -54,6 +55,28 @@ describe('carrier recovery', () => {
     expect(aircraft.stats.facing).toBe(1);
     expect(aircraft.stats.vx).toBeGreaterThan(0);
     expect(aircraft.getHeadingPresentation().blend).toBe(1);
+    expect(aircraft.getFlightTelemetrySnapshot()).toMatchObject({ reversalsCompleted: 2 });
+  });
+
+  it('completes the same controlled reversal at 30, 60 and 120 Hz rendering', () => {
+    const simulate = (renderHz: 30 | 60 | 120) => {
+      const aircraft = new PlayerAircraft();
+      const effects = new ParticleAndEffects();
+      const clock = new FixedStepClock(1 / 60);
+      aircraft.stats.isTakingOff = false;
+      aircraft.stats.vx = 7;
+      for (let frame = 0; frame < renderHz * 3; frame++) {
+        clock.advance(1 / renderHz, () => aircraft.update(
+          { up: false, down: false, left: true, right: false, vtol: false, fireCannon: false },
+          effects,
+        ));
+      }
+      return { facing: aircraft.stats.facing, vx: aircraft.stats.vx, telemetry: aircraft.getFlightTelemetrySnapshot() };
+    };
+    const outcomes = ([30, 60, 120] as const).map(simulate);
+    expect(outcomes[1]).toEqual(outcomes[0]);
+    expect(outcomes[2]).toEqual(outcomes[0]);
+    expect(outcomes[0].telemetry.reversalsCompleted).toBe(1);
   });
 
   it('blends through nozzle transition without an instantaneous speed reversal', () => {

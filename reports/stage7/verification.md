@@ -1,6 +1,6 @@
 # Stage 7 human balance verification
 
-Build: **IK87-1.2.0-DEV1-20260831-BAL7**
+Build: **IK87-1.2.0-DEV1-20260922-PLAY1**
 
 Result: **PENDING**
 

@@ -1,4 +1,4 @@
-import { AccessibilitySettings, AircraftCondition, AirCombatSnapshot, ArcticWeatherState, CombatDiagnosticMetrics, CombatFeedbackState, DefendedAssetState, DiagnosticSessionV3, EnemyUnit, GameScoreBreakdown, GameState, InputAction, LoadoutPreset, MissionAction, MissionDefinition, MissionDirectorState, MissionLaunchContext, OperationArchetype, PerformanceSnapshot, RecoveryGuidance, RenderQuality, RenderQualityPreference, DifficultyPreset, RescueBeaconState, TrainingRuntimeState, WeaponType } from '../types/game';
+import { AccessibilitySettings, AircraftCondition, AirCombatSnapshot, ArcticWeatherState, CombatDiagnosticMetrics, CombatFeedbackState, DefendedAssetState, DiagnosticSessionV3, DiagnosticSessionV4, EnemyUnit, GameScoreBreakdown, GameState, InputAction, InputDevice, LoadoutPreset, MissionAction, MissionDefinition, MissionDirectorState, MissionLaunchContext, OperationArchetype, PerformanceSnapshot, RecoveryFailureReason, RecoveryGuidance, RenderQuality, RenderQualityPreference, DifficultyPreset, RescueBeaconState, TrainingRuntimeState, WeaponType } from '../types/game';
 import { buildPhaseRestartGuidance, PhaseRestartGuidance } from './PhaseRestartGuidance';
 import { GAME_CONSTANTS } from './constants';
 import { PlayerAircraft } from './PlayerAircraft';
@@ -25,6 +25,7 @@ import { AdaptiveQualityController } from './PerformanceManager';
 import { hashSeed, SimulationRandom } from './SeededRandom';
 import { RELEASE_INFO } from './Release';
 import { calculateSmartCombatZoom } from './CombatReadability';
+import { COMBAT_FEEDBACK_PROFILE, ENCOUNTER_PACING_PROFILE, getRecoveryAssistProfile } from './PlayabilityProfiles';
 
 export class GameEngine {
   public player: PlayerAircraft;
@@ -71,6 +72,9 @@ export class GameEngine {
   private combatZoomFocusX = GAME_CONSTANTS.VIEWPORT_WIDTH * 0.5;
   private combatZoomFocusY = GAME_CONSTANTS.VIEWPORT_HEIGHT * 0.5;
   private combatZoomContacts = 0;
+  private lastInputDevice: InputDevice | null = null;
+  private controlDeviceTransitions = 0;
+  private encounterIdleTicks = 0;
 
   // Active keyboard / touch inputs
   public input = {
@@ -105,7 +109,7 @@ export class GameEngine {
     this.missionDirector = new MissionDirector(this.currentMission);
     soundEngine.onRadioCall = (phrase) => {
       this.feedback.radioCaption = phrase;
-      this.feedback.radioCaptionTicks = 210;
+      this.feedback.radioCaptionTicks = COMBAT_FEEDBACK_PROFILE.radioCaptionTicks;
       this.onHUDUpdate?.();
     };
   }
@@ -154,6 +158,9 @@ export class GameEngine {
     this.rescueCrewLocated = false;
     this.missionContactRadioPlayed = false;
     this.lockAcquiredCuePlayed = false;
+    this.lastInputDevice = null;
+    this.controlDeviceTransitions = 0;
+    this.encounterIdleTicks = 0;
     this.defendedAsset = mission.defendedAsset ? {
       type: mission.defendedAsset.type,
       worldX: mission.defendedAsset.worldX,
@@ -197,12 +204,13 @@ export class GameEngine {
     const s = this.player.stats;
     const deckOffset = centre - s.x;
     const distance = Math.max(0, Math.abs(deckOffset) - (endX - startX) * 0.5);
-    const tolerance = getCombatDifficultyProfile(this.difficulty).landingTolerance * (mission.operationModifiers?.includes('DAMAGED_RUNWAY') ? 0.88 : 1);
+    const recovery = getRecoveryAssistProfile(this.difficulty);
+    const tolerance = recovery.toleranceMultiplier * (mission.operationModifiers?.includes('DAMAGED_RUNWAY') ? 0.88 : 1);
     let status: RecoveryGuidance['status'] = 'STABLE';
-    if (distance > 700) status = 'INTERCEPT';
-    else if (Math.abs(deckOffset) > 230 && distance < 40) status = 'ALIGN';
-    else if (Math.abs(s.vx) > 4 * tolerance) status = 'REDUCE_SPEED';
-    else if (s.vy > 2.2 * tolerance) status = 'CHECK_SINK';
+    if (distance > recovery.approachInterceptDistance) status = 'INTERCEPT';
+    else if (Math.abs(deckOffset) > recovery.alignmentOffset && distance < 40) status = 'ALIGN';
+    else if (Math.abs(s.vx) > recovery.safeForwardSpeed * tolerance) status = 'REDUCE_SPEED';
+    else if (s.vy > recovery.safeDescentRate * tolerance) status = 'CHECK_SINK';
     return { site, distance: Math.round(distance), deckOffset: Math.round(deckOffset), forwardSpeed: Math.abs(s.vx), descentRate: s.vy, nozzleAngle: Math.round(s.vtolTransition * 90), status };
   }
 
@@ -433,7 +441,7 @@ export class GameEngine {
     const handleEnemyKilled = (killedEnemy: EnemyUnit, weaponType: string) => {
       this.combatFlow.onEnemyKilled(killedEnemy, weaponType);
       this.checkObjectivesOnKill(killedEnemy);
-      this.feedback.hitMarkerTicks = Math.max(this.feedback.hitMarkerTicks, 18);
+      this.feedback.hitMarkerTicks = Math.max(this.feedback.hitMarkerTicks, COMBAT_FEEDBACK_PROFILE.hitGlancingTicks);
       if (killedEnemy.category === 'AIR' && killedEnemy.type !== 'ANTI_SHIP_MISSILE') this.combatMetrics.enemyAircraftDestroyed++;
     };
     for (const blast of this.weapons.drainBlastEvents()) {
@@ -445,7 +453,7 @@ export class GameEngine {
     this.enemies.update(this.player, this.weapons, this.effects, handleEnemyKilled, this.defendedAsset || undefined, (worldX) => this.terrain.getGroundY(worldX, mission), (event) => this.handleEnemyCombatEvent(event));
     if (s.health < healthBeforeEnemyUpdate) {
       const nearestThreat = this.enemies.getEnemies().filter((enemy) => enemy.isAlive).sort((a, b) => Math.abs(a.x - s.x) - Math.abs(b.x - s.x))[0];
-      this.feedback.damageWarningTicks = 45;
+      this.feedback.damageWarningTicks = COMBAT_FEEDBACK_PROFILE.damageWarningTicks;
       this.feedback.threatDirection = nearestThreat ? (nearestThreat.x < s.x ? 'LEFT' : 'RIGHT') : null;
     }
     const nearestMissile = this.enemies.getEnemies().filter((enemy) => enemy.isAlive && enemy.type === 'ANTI_SHIP_MISSILE').sort((a, b) => Math.abs(a.x - s.x) - Math.abs(b.x - s.x))[0];
@@ -495,8 +503,11 @@ export class GameEngine {
       this.feedback.airThreatState = null;
       this.feedback.airThreatDirection = null;
     }
-    if (this.enemies.getEnemies().some((enemy) => enemy.isAlive && ((enemy.category === 'AIR' && Math.abs(enemy.x - s.x) < 1100) || enemy.type === 'ANTI_SHIP_MISSILE'))) {
+    const activeCombat = this.enemies.getEnemies().some((enemy) => enemy.isAlive && ((enemy.category === 'AIR' && Math.abs(enemy.x - s.x) < ENCOUNTER_PACING_PROFILE.activeCombatRange) || enemy.type === 'ANTI_SHIP_MISSILE'));
+    if (activeCombat) {
       this.combatMetrics.combatTicks++;
+    } else if (!s.isOnCarrier && !this.trainingDirector.getState().enabled) {
+      this.encounterIdleTicks++;
     }
 
     // Rescue Objective evaluation
@@ -792,11 +803,18 @@ export class GameEngine {
     return this.enemies.getAirCombatSnapshots();
   }
 
-  public getDiagnosticSession(result: DiagnosticSessionV3['result'], operation?: { seed: number; archetype: OperationArchetype; sortieIndex: number; retries: number }): DiagnosticSessionV3 {
+  public noteInputDevice(device: InputDevice): void {
+    if (this.lastInputDevice && this.lastInputDevice !== device) this.controlDeviceTransitions++;
+    this.lastInputDevice = device;
+  }
+
+  public getDiagnosticSession(result: DiagnosticSessionV4['result'], operation?: { seed: number; archetype: OperationArchetype; sortieIndex: number; retries: number }): DiagnosticSessionV4 {
     const training = this.trainingDirector.getState();
     const weaponTelemetry = this.weapons.getTelemetrySnapshot();
+    const flightTelemetry = this.player.getFlightTelemetrySnapshot();
+    const warningCount = weaponTelemetry.missileWarnings;
     return {
-      version: 3,
+      version: 4,
       buildId: RELEASE_INFO.buildId,
       missionId: this.currentMission.id,
       difficulty: this.difficulty,
@@ -820,7 +838,26 @@ export class GameEngine {
       countermeasureSuccesses: weaponTelemetry.countermeasureSuccesses,
       combatTicks: this.combatMetrics.combatTicks,
       aircraftLossPhase: this.combatMetrics.aircraftLossPhase,
+      reversalsCompleted: flightTelemetry.reversalsCompleted,
+      averageReversalTicks: flightTelemetry.averageReversalTicks,
+      controlDeviceTransitions: this.controlDeviceTransitions,
+      recoveryFailureReason: this.getRecoveryFailureReason(result),
+      warningResponsePercent: warningCount ? Math.round(Math.min(warningCount, weaponTelemetry.warningAcknowledgements) / warningCount * 100) : 0,
+      encounterIdleTicks: this.encounterIdleTicks,
     };
+  }
+
+  private getRecoveryFailureReason(result: DiagnosticSessionV4['result']): RecoveryFailureReason {
+    if (result === 'VICTORY' || this.player.stats.carrierLandingGrade) return null;
+    if (this.combatMetrics.aircraftLossPhase !== 'NONE') return 'AIRCRAFT_LOST';
+    if (!this.player.stats.isLanding) return null;
+    const guidance = this.getRecoveryGuidance();
+    if (!guidance) return null;
+    if (this.player.stats.vtolTransition <= 0.22) return 'NOZZLE_NOT_VECTORED';
+    if (guidance.status === 'REDUCE_SPEED') return 'EXCESS_FORWARD_SPEED';
+    if (guidance.status === 'CHECK_SINK') return 'EXCESS_DESCENT_RATE';
+    if (guidance.status === 'ALIGN') return 'MISALIGNED';
+    return null;
   }
 
   public getValidationWarningExposure(): { fighterWarnings: number; missileWarnings: number } {
@@ -837,7 +874,11 @@ export class GameEngine {
     }
     if (event.type === 'PLAYER_WEAPON_HIT') {
       this.combatMetrics.weaponHits[event.weapon]++;
-      this.feedback.hitMarkerTicks = event.outcome === 'DESTROYED' ? 32 : event.outcome === 'CRITICAL' ? 24 : 18;
+      this.feedback.hitMarkerTicks = event.outcome === 'DESTROYED'
+        ? COMBAT_FEEDBACK_PROFILE.hitDestroyedTicks
+        : event.outcome === 'CRITICAL'
+          ? COMBAT_FEEDBACK_PROFILE.hitCriticalTicks
+          : COMBAT_FEEDBACK_PROFILE.hitGlancingTicks;
       this.feedback.hitWeapon = event.weapon;
       this.feedback.hitOutcome = event.outcome;
       this.feedback.hitAspect = event.aspect;
@@ -850,7 +891,11 @@ export class GameEngine {
     }
     this.feedback.airThreatState = event.cue;
     this.feedback.airThreatDirection = event.direction;
-    this.feedback.airThreatTicks = event.cue === 'DETECTED' ? 90 : event.cue === 'TRACKING' ? 60 : 45;
+    this.feedback.airThreatTicks = event.cue === 'DETECTED'
+      ? COMBAT_FEEDBACK_PROFILE.fighterDetectedTicks
+      : event.cue === 'TRACKING'
+        ? COMBAT_FEEDBACK_PROFILE.fighterTrackingTicks
+        : COMBAT_FEEDBACK_PROFILE.fighterFiringTicks;
     if (event.cue === 'DETECTED') {
       this.fighterWarnings++;
       soundEngine.playThreatWarning('FIGHTER');

@@ -1,6 +1,6 @@
 # Milestone 11 human playtesting and balance closure
 
-Build identifier: **release-m11-2026.08.30**
+Build identifier: **IK87-1.2.0-DEV1-20260922-PLAY1**
 
 Status: **PENDING HUMAN RUNS**
 

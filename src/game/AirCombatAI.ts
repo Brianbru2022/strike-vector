@@ -9,6 +9,7 @@ import {
   FormationRole,
   PlayerStats,
 } from '../types/game';
+import { ENCOUNTER_PACING_PROFILE } from './PlayabilityProfiles';
 
 export type AirCombatCue = 'DETECTED' | 'TRACKING' | 'FIRING';
 
@@ -71,7 +72,7 @@ export function updateAirCombat(
   const dy = player.y - enemy.y;
   const distance = Math.hypot(dx, dy);
   const facingPlayer = Math.sign(dx || enemy.vx || 1) === Math.sign(enemy.vx || 1);
-  const decisionDelay = Math.max(18, Math.round(profile.decisionDelayTicks * difficulty.decisionDelay));
+  const decisionDelay = Math.max(ENCOUNTER_PACING_PROFILE.minimumDecisionDelayTicks, Math.round(profile.decisionDelayTicks * difficulty.decisionDelay));
   let cue: AirCombatCue | null = null;
   let firedGun = false;
   let hitDefendedAsset = false;
@@ -89,7 +90,7 @@ export function updateAirCombat(
       transition(runtime, 'ATTACK_PASS', tick);
       runtime.firedThisPass = false;
       cue = 'TRACKING';
-    } else if (runtime.state === 'REJOIN' && distance < profile.detectionRange * 0.7) {
+    } else if (runtime.state === 'REJOIN' && distance < profile.detectionRange * ENCOUNTER_PACING_PROFILE.reengageRangeFactor) {
       transition(runtime, 'PURSUIT', tick);
     }
   }
@@ -113,7 +114,7 @@ export function updateAirCombat(
     targetX = enemy.x + direction * 800;
     targetY = clamp(enemy.y - 130, 75, 360);
     targetSpeed = profile.attackSpeed;
-    if (tick - runtime.stateEnteredTick > 120) {
+    if (tick - runtime.stateEnteredTick > ENCOUNTER_PACING_PROFILE.baseStrikeEgressTicks) {
       runtime.firedThisPass = false;
       transition(runtime, 'BASE_STRIKE', tick);
     }
@@ -131,12 +132,12 @@ export function updateAirCombat(
   } else if (runtime.state === 'ATTACK_PASS') {
     targetX = player.x + player.vx * 10;
     targetY = player.y + player.vy * 6;
-    if (!runtime.firedThisPass && distance >= profile.minimumAttackRange && distance <= profile.attackRange && facingPlayer && hasTerrainLineOfSight(enemy.x, enemy.y, player.x, player.y, groundYAt) && tick - runtime.stateEnteredTick >= Math.round(24 * difficulty.decisionDelay)) {
+    if (!runtime.firedThisPass && distance >= profile.minimumAttackRange && distance <= profile.attackRange && facingPlayer && hasTerrainLineOfSight(enemy.x, enemy.y, player.x, player.y, groundYAt) && tick - runtime.stateEnteredTick >= Math.round(ENCOUNTER_PACING_PROFILE.attackCommitTicks * difficulty.decisionDelay)) {
       runtime.firedThisPass = true;
       firedGun = true;
       cue = 'FIRING';
     }
-    if (distance < profile.minimumAttackRange || tick - runtime.stateEnteredTick > 72) transition(runtime, 'OVERSHOOT', tick);
+    if (distance < profile.minimumAttackRange || tick - runtime.stateEnteredTick > ENCOUNTER_PACING_PROFILE.maximumAttackPassTicks) transition(runtime, 'OVERSHOOT', tick);
   }
 
   const desiredHeading = Math.atan2(targetY - enemy.y, targetX - enemy.x);
