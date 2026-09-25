@@ -2,6 +2,7 @@ import { copyFileSync, existsSync, mkdirSync, rmSync, statSync, writeFileSync } 
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { dirname, resolve, sep } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { RELEASE_INFO } from '../src/game/Release';
 
 const root = resolve('.');
@@ -33,8 +34,8 @@ const assets = [
   'assets/sprites/explosion-stages-stage6-v1.png',
   'assets/sprites/combat-wrecks-v1.png',
   'assets/sprites/harrier-ejection-v1.png',
-  'assets/audio/aden-cannon-v1.wav',
-  'assets/audio/sidewinder-motor-v1.wav',
+  'assets/audio/elevenlabs/aden-cannon-v2.wav',
+  'assets/audio/elevenlabs/sidewinder-launch-v2.wav',
   'assets/audio/heavy-impact-v1.wav',
   'assets/audio/north-atlantic-wind-v1.wav',
   'assets/audio/elevenlabs/pegasus-idle-loop-v1.wav',
@@ -42,6 +43,9 @@ const assets = [
   'assets/audio/elevenlabs/airframe-wind-loop-v1.wav',
   'assets/audio/elevenlabs/vtol-downwash-loop-v2.wav',
   'assets/audio/elevenlabs/nozzle-transition-v1.wav',
+  'assets/audio/elevenlabs/landing-gear-cycle-v1.wav',
+  'assets/audio/elevenlabs/compressor-stall-v1.wav',
+  'assets/audio/elevenlabs/engine-damaged-loop-v1.wav',
   'assets/audio/rocket-motor-v1.wav',
   'assets/audio/bomb-release-v1.wav',
   'assets/audio/flare-eject-v1.wav',
@@ -64,11 +68,16 @@ for (const relative of assets) {
   if (!existsSync(source)) throw new Error(`Missing required demo asset: ${relative}`);
   const destination = resolve(outputRoot, relative);
   mkdirSync(dirname(destination), { recursive: true });
-  copyFileSync(source, destination);
+  if (relative.endsWith('.wav')) {
+    const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', source, '-ac', '1', '-ar', '15000', '-c:a', 'pcm_s16le', destination], { stdio: 'inherit' });
+    if (result.error || result.status !== 0) throw new Error(`Could not prepare compact demo audio: ${relative}`);
+  } else {
+    copyFileSync(source, destination);
+  }
 }
 copyFileSync(resolve(sourceRoot, 'demo-commercial-edition.html'), resolve(outputRoot, 'commercial-edition.html'));
-const bytes = assets.reduce((sum, relative) => sum + statSync(resolve(sourceRoot, relative)).size, 0) + statSync(resolve(sourceRoot, 'demo-commercial-edition.html')).size;
-const sha256ByAsset = Object.fromEntries(assets.map((relative) => [relative, createHash('sha256').update(readFileSync(resolve(sourceRoot, relative))).digest('hex')]));
+const bytes = assets.reduce((sum, relative) => sum + statSync(resolve(outputRoot, relative)).size, 0) + statSync(resolve(outputRoot, 'commercial-edition.html')).size;
+const sha256ByAsset = Object.fromEntries(assets.map((relative) => [relative, createHash('sha256').update(readFileSync(resolve(outputRoot, relative))).digest('hex')]));
 const fingerprint = createHash('sha256').update(JSON.stringify({ assets, sha256ByAsset })).digest('hex');
 writeFileSync(resolve(outputRoot, 'demo-asset-manifest.json'), JSON.stringify({ version: 1, buildId: RELEASE_INFO.buildId, budgetBytes: 15 * 1024 * 1024, assets, bytes, sha256ByAsset, fingerprint }, null, 2));
 console.log(`Prepared ${assets.length} focused demo assets (${(bytes / 1024 / 1024).toFixed(2)} MB).`);

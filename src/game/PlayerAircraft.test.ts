@@ -19,6 +19,37 @@ describe('carrier recovery', () => {
     nozzleCue.mockRestore();
   });
 
+  it('plays one gear cue for extension and one for retraction', () => {
+    const aircraft = new PlayerAircraft();
+    const effects = new ParticleAndEffects();
+    aircraft.stats.isTakingOff = false;
+    aircraft.stats.y = 180;
+    aircraft.stats.vtolTransition = 1;
+    aircraft.stats.gearDown = false;
+    aircraft.stats.gearProgress = 0;
+    const gearCue = vi.spyOn(soundEngine, 'playLandingGearCycle').mockImplementation(() => undefined);
+
+    aircraft.update({ up: false, down: false, left: false, right: false, vtol: true, fireCannon: false }, effects);
+    for (let tick = 0; tick < 40; tick++) {
+      aircraft.update({ up: false, down: false, left: false, right: false, vtol: false, fireCannon: false }, effects);
+    }
+
+    expect(gearCue.mock.calls).toEqual([[true], [false]]);
+    gearCue.mockRestore();
+  });
+
+  it('plays the compressor-stall cue only when engine condition crosses the threshold', () => {
+    const aircraft = new PlayerAircraft();
+    aircraft.stats.subsystems.engine = 0.72;
+    const stallCue = vi.spyOn(soundEngine, 'playCompressorStall').mockImplementation(() => undefined);
+
+    aircraft.applyDamage(5, 'engine');
+    aircraft.applyDamage(5, 'engine');
+
+    expect(stallCue).toHaveBeenCalledTimes(1);
+    stallCue.mockRestore();
+  });
+
   it('brakes into a controlled turn before flying in the opposite direction', () => {
     const aircraft = new PlayerAircraft();
     const effects = new ParticleAndEffects();

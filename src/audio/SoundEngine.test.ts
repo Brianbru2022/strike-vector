@@ -18,7 +18,7 @@ describe('showcase audio catalogue', () => {
 
   it('uses distinct checked-in recordings for the production-critical cues', () => {
     const sampled = Object.values(AUDIO_CUE_DEFINITIONS).filter((cue) => cue.samplePath);
-    expect(sampled).toHaveLength(16);
+    expect(sampled).toHaveLength(19);
     expect(new Set(sampled.map((cue) => cue.samplePath)).size).toBe(sampled.length);
     expect(AUDIO_CUE_DEFINITIONS.missile_launch.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.rocket_launch.samplePath);
     expect(AUDIO_CUE_DEFINITIONS.bomb_release.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.combat_impact.samplePath);
@@ -29,13 +29,17 @@ describe('showcase audio catalogue', () => {
     expect(AUDIO_CUE_DEFINITIONS.jet_power.samplePath).toBe('/assets/audio/elevenlabs/pegasus-power-loop-v1.wav');
     expect(AUDIO_CUE_DEFINITIONS.airframe_wind.samplePath).toBe('/assets/audio/elevenlabs/airframe-wind-loop-v1.wav');
     expect(AUDIO_CUE_DEFINITIONS.vtol_thrust.samplePath).toBe('/assets/audio/elevenlabs/vtol-downwash-loop-v2.wav');
-    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust']) {
+    expect(AUDIO_CUE_DEFINITIONS.landing_gear.samplePath).toBe('/assets/audio/elevenlabs/landing-gear-cycle-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.compressor_stall.samplePath).toBe('/assets/audio/elevenlabs/compressor-stall-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.aden_cannon.samplePath).toBe('/assets/audio/elevenlabs/aden-cannon-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.missile_launch.samplePath).toBe('/assets/audio/elevenlabs/sidewinder-launch-v2.wav');
+    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'engine_damaged']) {
       expect(AUDIO_CUE_DEFINITIONS[id].loop).toBe(true);
     }
   });
 
   it('limits continuous beds to a single looping voice', () => {
-    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'north_atlantic_wind']) {
+    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'engine_damaged', 'north_atlantic_wind']) {
       expect(AUDIO_CUE_DEFINITIONS[id].loop).toBe(true);
       expect(AUDIO_CUE_DEFINITIONS[id].maximumVoices).toBe(1);
     }

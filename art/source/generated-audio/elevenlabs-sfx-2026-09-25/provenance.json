@@ -7,7 +7,7 @@
     "generationHistoryRetainedExternally": true,
     "commercialEntitlementEvidence": "USER_ATTESTATION_PAID_ELEVENLABS_ACCOUNT",
     "commercialEntitlementAttestedAt": "2026-09-25",
-    "commercialEntitlementScope": "All twenty source candidates and the five edited runtime cues in this archive were generated under the user's paid ElevenLabs account."
+    "commercialEntitlementScope": "All forty-one source files and the ten edited runtime cues in this archive were generated under the user's paid ElevenLabs account."
   },
   "assets": [
     {
@@ -84,11 +84,88 @@
         "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209",
         "processing": "Candidate 03; tempo-adjusted to retain the complete action in 1.2 seconds; centred mono 22.05 kHz 16-bit PCM; 12 ms fade-in, 90 ms fade-out and 2 dB attenuation."
       }
+    },
+    {
+      "asset": "Landing gear cycle",
+      "prompt": "Military combat jet landing gear extending and locking, heard from close exterior range. Smooth hydraulic actuator whine, solid undercarriage movement, restrained metal linkage and two distinct mechanical locking clunks. Approximately 1.6 seconds. Dry isolated recording. No engine, speech, warning tones, tyre impact, exaggerated metallic crash, music or ambience.",
+      "candidates": [
+        { "file": "landing-gear-candidate-00.wav", "sha256": "f077b8f321c815f80c3f61c33748a0ed37dab989b357120ca69fc630ae8a9afa", "selected": false },
+        { "file": "landing-gear-candidate-01.wav", "sha256": "edcba70e5529acd9784f88e7125595dcc56c7dc1e8d617f81284bc191f3ac10c", "selected": false },
+        { "file": "landing-gear-candidate-02.wav", "sha256": "381d7e00e14880dd07e891e20ad36db668c2112ab896c224b8748be807c8310a", "selected": true, "selectionReason": "Cleanest opening, distinct mechanical action and a quiet editable tail." },
+        { "file": "landing-gear-candidate-03.wav", "sha256": "3768d0e33bc25497b4540f735e66e8d630f48c6d419b9b7a50b6a58bc15473b3", "selected": false },
+        { "file": "landing-gear-candidate-04.wav", "sha256": "337d463210e41aeca7b222b139b04c012adcdf5a14d99525d5aeac773e852e2b", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/landing-gear-cycle-v1.wav",
+        "sha256": "c714e362670858c1f1275f60664b9dc94efe77d310264275caf955b213687f0b",
+        "processing": "Candidate 02; trimmed to 1.18 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 4 dB attenuation."
+      }
+    },
+    {
+      "asset": "Compressor stall",
+      "prompt": "Compact military turbofan compressor stall under load. Abrupt deep engine cough, uneven exhaust surge, brief metallic flutter and decaying turbine instability. Forceful mechanical failure but not an explosion. Approximately 1.4 seconds. No speech, cockpit alarm, fire, impact, music or background ambience.",
+      "candidates": [
+        { "file": "compressor-stall-candidate-01.wav", "sha256": "77640fe43b9463a9f1abcf7d2d34f3b022a299a933880a27e5b3468f3c098914", "selected": true, "selectionReason": "Best peak headroom, convincing initial surge and natural decay." },
+        { "file": "compressor-stall-candidate-02.wav", "sha256": "f365b5061b850851020e9fb96e988f2ab7bcfbed99ff12cd375749ca025771f6", "selected": false },
+        { "file": "compressor-stall-candidate-03.wav", "sha256": "d973a30722309fa45e8545d4aa1434d1a03e6d67bbeab5a7d06c61463522832a", "selected": false },
+        { "file": "compressor-stall-candidate-04.wav", "sha256": "21acbedc108a87dd9d54debb92d8cb8aedbdd57a6c5618fc2987f5e3fd146698", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/compressor-stall-v1.wav",
+        "sha256": "81c82d18944a842290d7ecbb911ed4d509028810d5eeed2ec9c74687e0f66bef",
+        "processing": "Candidate 01; retained at 1.36 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 3 dB attenuation."
+      }
+    },
+    {
+      "asset": "Damaged engine loop",
+      "prompt": "Seamless damaged military turbofan loop with irregular compressor flutter, subtle bearing rasp and intermittent low exhaust surges. The engine should remain operational but clearly unhealthy. Stable overall volume, restrained enough to layer beneath the normal engine. Seven seconds with seamless beginning and end. No fire, explosion, warning tone, speech, music or external ambience.",
+      "candidates": [
+        { "file": "damaged-engine-candidate-01a.wav", "sha256": "7d7f8bb5f184be1b06c728a8a92876e94aa2be3a5f8b8cdaf23302b89dce1d6c", "selected": false },
+        { "file": "damaged-engine-candidate-01b.wav", "sha256": "7d7f8bb5f184be1b06c728a8a92876e94aa2be3a5f8b8cdaf23302b89dce1d6c", "selected": false, "note": "Duplicate service download retained for provenance." },
+        { "file": "damaged-engine-candidate-02.wav", "sha256": "aaeccc3d7c6170f6b80111054e5270932842613917e79e2259efb94a9c995973", "selected": true, "selectionReason": "Best technical loop boundary and most controlled sustained level among the unique candidates." },
+        { "file": "damaged-engine-candidate-03.wav", "sha256": "6c3114eafd3e65cfa2632eb0b410193acfa920b937ba3bb95bf86178c37d5dac", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/engine-damaged-loop-v1.wav",
+        "sha256": "da99b76c2bcfabefaebbaad36332fde315ba261c971ab22e901d568c1a3d1b5d",
+        "processing": "Candidate 02; selected four-second stable cycle with a circular 300 ms equal-gain seam, centred mono 22.05 kHz 16-bit PCM and 7 dB attenuation. Complete source retained."
+      }
+    },
+    {
+      "asset": "ADEN cannon burst",
+      "prompt": "Close exterior burst from twin 30 mm aircraft cannon pods. Five to seven heavy, rapid reports with mechanical action, compact pressure cracks and powerful low-mid body. Approximately 0.8 seconds. No shell impacts, ricochets, explosion, aircraft engine, speech, music or battlefield ambience.",
+      "candidates": [
+        { "file": "aden-cannon-candidate-01.wav", "sha256": "e9b8fa6c4af0f7508b90d14baf178a20ce1ad99c58878964432a9745e3d65048", "selected": false },
+        { "file": "aden-cannon-candidate-02.wav", "sha256": "7ca779f1dd3429c999751b49046676de83e224c85de3c9d221b1aa66970a3522", "selected": false },
+        { "file": "aden-cannon-candidate-03.wav", "sha256": "93e20dbdfca87e770c74b21b167e138b04c662f9021ca48aaec4c3d23727a9ae", "selected": false },
+        { "file": "aden-cannon-candidate-04.wav", "sha256": "5733d66204b306c80a235dcfaac16f3d8be20bd24eb41de9a2b99c031fcd9cd8", "selected": true, "selectionReason": "Cleanest opening and tail for a compact five-to-seven-report gameplay burst." }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/aden-cannon-v2.wav",
+        "sha256": "5026c23a05b1f9c68c7c18198bbf5892b69b3e2fea6606ae645e34fecb0309da",
+        "processing": "Candidate 04; isolated and tempo-adjusted to approximately 0.91 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 5 dB attenuation."
+      }
+    },
+    {
+      "asset": "Sidewinder rail launch",
+      "prompt": "Close exterior launch of a short-range air-to-air missile from an aircraft rail. Sharp ignition snap, immediate rocket-motor build, brief mounting vibration and rapidly receding motor hiss. Approximately 1.2 seconds. No explosion, missile impact, lock tone, aircraft engine, speech, music or cinematic bass hit.",
+      "candidates": [
+        { "file": "sidewinder-launch-candidate-01.wav", "sha256": "afdb8d2f3196b2294b84c682de6ffa23c26f4ebd28f5fbf5f38f62e0ba94c1c3", "selected": true, "selectionReason": "Clearest isolated launch with usable space around the event." },
+        { "file": "sidewinder-launch-candidate-02.wav", "sha256": "9508f26caa73576282773e5ab201ef97edd16e13bb008a34864dad8c36eaa2c8", "selected": false },
+        { "file": "sidewinder-launch-candidate-03.wav", "sha256": "3bf25feb7c61dab7e1360db30ed4c9d64251a7e281671d48d431c93d385a966d", "selected": false },
+        { "file": "sidewinder-launch-candidate-04.wav", "sha256": "e6b7b713d41894db453f7df1147df33656131114030b9dc8077f7f480cd6ccaf", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/sidewinder-launch-v2.wav",
+        "sha256": "ebadfdf065f5611e2ff821101ddd215cd9065079a39d4686984ac61251126908",
+        "processing": "Candidate 01; isolated and tempo-adjusted to approximately 1.2 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 5 dB attenuation."
+      }
     }
   ],
   "releaseStatus": "COMMERCIALLY_LICENSED_PENDING_HUMAN_LISTENING",
   "reproduction": [
     "scripts/prepare-flight-loop-audio.ps1",
-    "scripts/prepare-nozzle-transition-audio.ps1"
+    "scripts/prepare-nozzle-transition-audio.ps1",
+    "scripts/prepare-aircraft-action-audio.ps1"
   ]
 }

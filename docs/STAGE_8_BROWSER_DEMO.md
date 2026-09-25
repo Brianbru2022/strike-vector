@@ -22,7 +22,7 @@ The demo can export `IRON_KESTREL_DEMO_TRANSFER` V1 JSON. The paid edition has a
 
 ## Delivery budget
 
-`scripts/prepare-demo-assets.ts` creates a temporary `.demo-public` directory from an explicit allow-list. The current build contains 42 approved content files totalling 13.43 MB; the complete built demo is 14.27 MB and the PWA precache is 14.25 MB. It includes every authored audio cue used by the shared sound engine, so the demo does not silently fall back to synthetic audio for missing release samples.
+`scripts/prepare-demo-assets.ts` creates a temporary `.demo-public` directory from an explicit allow-list. The current build contains 49 approved content files totalling 14.08 MB; the complete built demo is 14.96 MB and the PWA precache is 14.94 MB. It includes every authored audio cue used by the shared sound engine, so the demo does not silently fall back to synthetic audio for missing release samples. Demo-only WAV copies are converted to mono 15 kHz PCM to remain below the download ceiling; the paid browser, PWA and Windows builds retain the 22.05 kHz release masters.
 
 The 15 MB limit is enforced by `pnpm demo:audit`. The build-bound manifest records each asset's SHA-256 checksum and a combined fingerprint. The audit rejects changed or missing files, duplicate entries, late-game asset names, incomplete offline precaching, the wrong build or title, and missing PWA or commercial-edition files.
 

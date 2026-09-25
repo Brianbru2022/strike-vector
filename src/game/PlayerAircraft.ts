@@ -201,6 +201,7 @@ export class PlayerAircraft {
 
   public applyDamage(amount: number, hitSubsystem?: keyof AircraftSubsystems) {
     const damageScale = getCombatDifficultyProfile(this.difficulty).incomingDamage;
+    const engineWasAboveStallThreshold = this.stats.subsystems.engine >= 0.5;
     this.stats.health = Math.max(0, this.stats.health - amount * damageScale);
     
     // Subsystem damage chance
@@ -210,6 +211,10 @@ export class PlayerAircraft {
       const systems: (keyof AircraftSubsystems)[] = ['engine', 'flightControls', 'targeting', 'weapons', 'hydraulics', 'fuelTank'];
       const randomSys = systems[this.random?.nextInt(systems.length) ?? 0];
       this.stats.subsystems[randomSys] = Math.max(0.15, this.stats.subsystems[randomSys] - 0.25);
+    }
+
+    if (engineWasAboveStallThreshold && this.stats.subsystems.engine < 0.5) {
+      soundEngine.playCompressorStall();
     }
 
     // Radio warning
@@ -350,6 +355,7 @@ export class PlayerAircraft {
     }
 
     // Landing Gear animation
+    const wasGearDown = s.gearDown;
     const nearGround = s.y > GAME_CONSTANTS.SEA_LEVEL_Y - 120 || s.isOnCarrier;
     if (nearGround || s.vtolTransition > 0.7) {
       s.gearProgress = Math.min(1.0, s.gearProgress + 0.05);
@@ -358,6 +364,7 @@ export class PlayerAircraft {
       s.gearProgress = Math.max(0.0, s.gearProgress - 0.05);
       s.gearDown = s.gearProgress > 0.1;
     }
+    if (s.gearDown !== wasGearDown) soundEngine.playLandingGearCycle(s.gearDown);
     if (this.touchdownTicks > 0) this.touchdownTicks--;
     this.gearCompression += ((s.isOnCarrier ? 0.42 : 0) - this.gearCompression) * 0.18;
 

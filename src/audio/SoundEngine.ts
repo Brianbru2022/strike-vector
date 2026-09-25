@@ -14,8 +14,11 @@ export const AUDIO_CUE_DEFINITIONS: Readonly<Record<string, AudioCueDefinition>>
   airframe_wind: { id: 'airframe_wind', category: 'ENGINE', gain: 0.58, playbackRateMin: 0.9, playbackRateMax: 1.12, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/airframe-wind-loop-v1.wav', loop: true },
   vtol_thrust: { id: 'vtol_thrust', category: 'ENGINE', gain: 0.7, playbackRateMin: 0.9, playbackRateMax: 1.12, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/vtol-downwash-loop-v2.wav', loop: true },
   nozzle_transition: { id: 'nozzle_transition', category: 'ENGINE', gain: 0.62, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/nozzle-transition-v1.wav' },
-  aden_cannon: { id: 'aden_cannon', category: 'WEAPONS', gain: 0.86, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 4, samplePath: '/assets/audio/aden-cannon-v1.wav' },
-  missile_launch: { id: 'missile_launch', category: 'WEAPONS', gain: 0.9, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/sidewinder-motor-v1.wav' },
+  landing_gear: { id: 'landing_gear', category: 'ENGINE', gain: 0.58, playbackRateMin: 0.96, playbackRateMax: 1.05, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/landing-gear-cycle-v1.wav' },
+  compressor_stall: { id: 'compressor_stall', category: 'ENGINE', gain: 0.76, playbackRateMin: 0.96, playbackRateMax: 1.03, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/compressor-stall-v1.wav' },
+  engine_damaged: { id: 'engine_damaged', category: 'ENGINE', gain: 0.5, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/engine-damaged-loop-v1.wav', loop: true },
+  aden_cannon: { id: 'aden_cannon', category: 'WEAPONS', gain: 0.86, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 4, samplePath: '/assets/audio/elevenlabs/aden-cannon-v2.wav' },
+  missile_launch: { id: 'missile_launch', category: 'WEAPONS', gain: 0.9, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/sidewinder-launch-v2.wav' },
   rocket_launch: { id: 'rocket_launch', category: 'WEAPONS', gain: 0.82, playbackRateMin: 0.95, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/rocket-motor-v1.wav' },
   bomb_release: { id: 'bomb_release', category: 'WEAPONS', gain: 0.72, playbackRateMin: 0.97, playbackRateMax: 1.03, maximumVoices: 2, samplePath: '/assets/audio/bomb-release-v1.wav' },
   countermeasure: { id: 'countermeasure', category: 'WEAPONS', gain: 0.7, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 2, samplePath: '/assets/audio/flare-eject-v1.wav' },
@@ -69,6 +72,8 @@ class SoundEngine {
   private jetPowerSampleGain: GainNode | null = null;
   private airframeWindSampleNode: AudioBufferSourceNode | null = null;
   private airframeWindSampleGain: GainNode | null = null;
+  private engineDamageSampleNode: AudioBufferSourceNode | null = null;
+  private engineDamageSampleGain: GainNode | null = null;
   private vtolSampleNode: AudioBufferSourceNode | null = null;
   private vtolSampleGain: GainNode | null = null;
   private isEngineRunning = false;
@@ -314,6 +319,19 @@ class SoundEngine {
         this.airframeWindSampleNode.start();
       }
     }
+    if (!this.engineDamageSampleNode) {
+      const buffer = this.sampleBuffers.get('engine_damaged');
+      if (buffer) {
+        this.engineDamageSampleNode = this.ctx.createBufferSource();
+        this.engineDamageSampleNode.buffer = buffer;
+        this.engineDamageSampleNode.loop = true;
+        this.engineDamageSampleGain = this.ctx.createGain();
+        this.engineDamageSampleGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        this.engineDamageSampleNode.connect(this.engineDamageSampleGain);
+        this.engineDamageSampleGain.connect(output);
+        this.engineDamageSampleNode.start();
+      }
+    }
     if (!this.vtolSampleNode) {
       const buffer = this.sampleBuffers.get('vtol_thrust');
       if (buffer) {
@@ -512,10 +530,12 @@ class SoundEngine {
     this.jetIdleSampleGain?.gain.setTargetAtTime((0.13 - throttle * 0.085) * (1 - vtol * 0.2), now, 0.14);
     this.jetPowerSampleGain?.gain.setTargetAtTime(0.025 + mix.exhaustGain * 0.52, now, 0.12);
     this.airframeWindSampleGain?.gain.setTargetAtTime(speed * speed * 0.13, now, 0.14);
+    this.engineDamageSampleGain?.gain.setTargetAtTime(mix.damageGain * 0.86, now, 0.08);
     this.vtolSampleGain?.gain.setTargetAtTime(mix.vtolGain * 0.58, now, 0.08);
     this.jetIdleSampleNode?.playbackRate.setTargetAtTime(0.95 + throttle * 0.05, now, 0.14);
     this.jetPowerSampleNode?.playbackRate.setTargetAtTime(0.9 + throttle * 0.2, now, 0.12);
     this.airframeWindSampleNode?.playbackRate.setTargetAtTime(0.9 + speed * 0.18, now, 0.14);
+    this.engineDamageSampleNode?.playbackRate.setTargetAtTime(0.96 + throttle * 0.08, now, 0.1);
     this.vtolSampleNode?.playbackRate.setTargetAtTime(0.92 + throttle * 0.12, now, 0.08);
   }
 
@@ -529,6 +549,7 @@ class SoundEngine {
       this.jetIdleSampleNode?.stop();
       this.jetPowerSampleNode?.stop();
       this.airframeWindSampleNode?.stop();
+      this.engineDamageSampleNode?.stop();
       this.vtolSampleNode?.stop();
       this.jetOsc1?.disconnect();
       this.jetOsc2?.disconnect();
@@ -536,6 +557,7 @@ class SoundEngine {
       this.jetIdleSampleNode?.disconnect();
       this.jetPowerSampleNode?.disconnect();
       this.airframeWindSampleNode?.disconnect();
+      this.engineDamageSampleNode?.disconnect();
       this.vtolSampleNode?.disconnect();
     } catch {
       // ignore
@@ -559,11 +581,51 @@ class SoundEngine {
     this.jetPowerSampleGain = null;
     this.airframeWindSampleNode = null;
     this.airframeWindSampleGain = null;
+    this.engineDamageSampleNode = null;
+    this.engineDamageSampleGain = null;
     this.vtolSampleNode = null;
     this.vtolSampleGain = null;
   }
 
   // --- WEAPON & COMBAT SFX ---
+
+  public playLandingGearCycle(extending: boolean) {
+    if (!this.ctx) return;
+    if (this.playBundledSample('landing_gear', 'ENGINE', 0.42, extending ? 0.98 : 1.04)) return;
+    const now = this.ctx.currentTime;
+    const output = this.getCategoryBus('ENGINE');
+    if (!output) return;
+    const actuator = this.ctx.createOscillator();
+    actuator.type = 'triangle';
+    actuator.frequency.setValueAtTime(extending ? 230 : 165, now);
+    actuator.frequency.exponentialRampToValueAtTime(extending ? 105 : 285, now + 0.38);
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.055, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.42);
+    actuator.connect(gain);
+    gain.connect(output);
+    actuator.start(now);
+    actuator.stop(now + 0.44);
+  }
+
+  public playCompressorStall() {
+    if (!this.ctx) return;
+    if (this.playBundledSample('compressor_stall', 'ENGINE', 0.58, 1)) return;
+    const now = this.ctx.currentTime;
+    const output = this.getCategoryBus('ENGINE');
+    if (!output) return;
+    const cough = this.ctx.createOscillator();
+    cough.type = 'sawtooth';
+    cough.frequency.setValueAtTime(118, now);
+    cough.frequency.exponentialRampToValueAtTime(34, now + 0.26);
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.16, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.48);
+    cough.connect(gain);
+    gain.connect(output);
+    cough.start(now);
+    cough.stop(now + 0.5);
+  }
 
   public playNozzleTransition(vectoring: boolean) {
     if (!this.ctx) return;

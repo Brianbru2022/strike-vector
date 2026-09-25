@@ -2,7 +2,7 @@ IRON KESTREL '87 — AI-ASSISTED CONTENT DISCLOSURE
 
 Iron Kestrel '87 contains pre-generated visual material created with assistance from OpenAI image-generation tools during development. This includes source artwork used for painted environments, aircraft, vehicles, ships, interface illustrations, effects and store key art. Selected output was cleaned, composited, resized, integrated and reviewed by the project before being bundled with the game.
 
-The Pegasus idle, Pegasus high-power, airframe-wind, VTOL-downwash and nozzle-transition sounds are pre-generated ElevenLabs Sound Effects outputs selected and edited locally. The project owner confirmed that they were generated under a paid ElevenLabs account. Their source candidates, prompts, checksums and processing records are retained by the project.
+Ten foundational aircraft sounds—including flight, VTOL, landing gear, engine damage, cannon and missile cues—are pre-generated ElevenLabs Sound Effects outputs selected and edited locally. The project owner confirmed that they were generated under a paid ElevenLabs account. Their source candidates, prompts, checksums and processing records are retained by the project.
 
 The game does not generate artwork, dialogue, audio or other content with generative AI while it is running. It does not send player prompts or gameplay data to an AI service.
 

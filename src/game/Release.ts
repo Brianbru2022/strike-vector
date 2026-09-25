@@ -1,7 +1,7 @@
 export const RELEASE_INFO = Object.freeze({
   version: '1.2.0-dev.1',
   displayVersion: '1.2 DEV1',
-  buildId: 'IK87-1.2.0-DEV1-20260925-AUDIO3',
+  buildId: 'IK87-1.2.0-DEV1-20260925-AUDIO4',
   channel: 'DEVELOPMENT' as const,
   campaignMissionCount: 16,
   operationGenerationVersions: Object.freeze([1, 2, 3] as const),
@@ -14,5 +14,5 @@ export const RELEASE_FREEZE_RULES = Object.freeze([
   'Campaign V1-V4 migration and operation V1/V2 seeds remain compatible.',
   'Dynamic Operations 2.0 data is isolated in V3 blueprints and V2 persistence stores.',
   'Campaign content remains frozen; the playability-profile refactor requires fresh balance, recovery and physical-input evidence.',
-  'The ElevenLabs flight and nozzle cues are commercially licensed by paid-account user attestation; build-bound listening approval remains pending.',
+  'Ten ElevenLabs aircraft cues are commercially licensed by paid-account user attestation; build-bound listening approval remains pending.',
 ]);

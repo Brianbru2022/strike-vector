@@ -2,7 +2,7 @@
 
 ## Production standard
 
-Milestone 15 established a single offline sound authority for all sixteen campaign sorties. Stage 6 extends it to sixteen checked-in recordings covering separate Pegasus idle and power beds, airframe wind, VTOL downwash, nozzle movement, ADEN cannon, Sidewinder, rockets, bomb release, countermeasures, naval gunfire, carrier touchdown, heavy impacts, threat warnings, radio chirps and North Atlantic wind. Web Audio remains the universal fallback and supplies flight-state modulation.
+Milestone 15 established a single offline sound authority for all sixteen campaign sorties. Stage 6 extends it to nineteen checked-in recordings covering separate Pegasus idle and power beds, airframe wind, VTOL downwash, nozzle and landing-gear movement, compressor failure, damaged-engine operation, ADEN cannon, Sidewinder, rockets, bomb release, countermeasures, naval gunfire, carrier touchdown, heavy impacts, threat warnings, radio chirps and North Atlantic wind. Web Audio remains the universal fallback and supplies flight-state modulation.
 
 The Pegasus mix now separates low core, compressor turbine, exhaust roar, airframe wind, vectored-thrust downwash and damaged-compressor flutter. The pure `calculatePegasusLayerMix` function derives every layer from throttle, speed, nozzle position and engine condition, allowing automated checks without an AudioContext.
 

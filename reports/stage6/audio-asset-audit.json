@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-25T14:34:07.362Z",
-  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO3",
+  "generatedAt": "2026-09-25T15:04:18.469Z",
+  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO4",
   "passed": true,
-  "cueCount": 16,
-  "totalBytes": 807022,
+  "cueCount": 19,
+  "totalBytes": 1149850,
   "files": [
     {
       "id": "jet_idle",
@@ -57,24 +57,54 @@
       "rms": 0.10811807238401387
     },
     {
-      "id": "aden_cannon",
-      "path": "public/assets/audio/aden-cannon-v1.wav",
-      "bytes": 7982,
+      "id": "landing_gear",
+      "path": "public/assets/audio/elevenlabs/landing-gear-cycle-v1.wav",
+      "bytes": 52116,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.999969482421875,
-      "rms": 0.20198206865877594
+      "peak": 0.628173828125,
+      "rms": 0.09097456916143845
+    },
+    {
+      "id": "compressor_stall",
+      "path": "public/assets/audio/elevenlabs/compressor-stall-v1.wav",
+      "bytes": 60054,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.573516845703125,
+      "rms": 0.14701246782683583
+    },
+    {
+      "id": "engine_damaged",
+      "path": "public/assets/audio/elevenlabs/engine-damaged-loop-v1.wav",
+      "bytes": 176478,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.461822509765625,
+      "rms": 0.190718970649842
+    },
+    {
+      "id": "aden_cannon",
+      "path": "public/assets/audio/elevenlabs/aden-cannon-v2.wav",
+      "bytes": 40312,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.573150634765625,
+      "rms": 0.1734436574506947
     },
     {
       "id": "missile_launch",
-      "path": "public/assets/audio/sidewinder-motor-v1.wav",
-      "bytes": 31796,
+      "path": "public/assets/audio/elevenlabs/sidewinder-launch-v2.wav",
+      "bytes": 53646,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.598541259765625,
-      "rms": 0.14077380368820885
+      "peak": 0.6148681640625,
+      "rms": 0.1792496652309626
     },
     {
       "id": "rocket_launch",

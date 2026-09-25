@@ -95,6 +95,7 @@
     "stage6:audio:generate": "python scripts/generate_showcase_audio.py",
     "audio:nozzle:prepare": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-nozzle-transition-audio.ps1",
     "audio:flight:prepare": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-flight-loop-audio.ps1",
+    "audio:actions:prepare": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-aircraft-action-audio.ps1",
     "stage6:audio:audit": "tsx scripts/audit-stage6-audio.ts",
     "audio:production:audit": "tsx scripts/audit-audio-production-manifest.ts",
     "stage6:gate": "pnpm lint && pnpm test && pnpm stage6:audio:audit && pnpm visual:manifest:audit && tsx scripts/verify-stage6-release.ts",
