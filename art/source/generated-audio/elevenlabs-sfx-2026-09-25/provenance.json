@@ -1,41 +1,92 @@
 {
   "schemaVersion": 1,
-  "asset": "VTOL nozzle transition",
   "generatedAt": "2026-09-25",
   "source": {
     "service": "ElevenLabs Sound Effects",
     "model": "ElevenLabs Sound Effects model selected by the service",
-    "prompt": "Short close mechanical sound of four vectored-thrust jet nozzles rotating together under engine load. Heavy hydraulic actuator movement, precise metal linkage, restrained mechanical lock and a brief natural change in exhaust resonance as the nozzle angle changes. Approximately 1.2 seconds with a clean editable tail. No speech, warning beep, explosion, landing gear, exaggerated machinery or cinematic bass hit.",
     "generationHistoryRetainedExternally": true,
     "commercialEntitlementEvidence": "PENDING_ACCOUNT_PLAN_RECORD"
   },
-  "candidates": [
+  "assets": [
     {
-      "file": "nozzle-transition-candidate-01.wav",
-      "sha256": "23a8e6c6a7ec9ce7f7375c5d7803e30b8c0bc91ec2a751f3b1620543fa7a8fc1",
-      "selected": false
+      "asset": "Pegasus idle loop",
+      "prompt": "Seamless close exterior loop of a late-1980s vectored-thrust turbofan at stable idle on a carrier deck: deep compressor body, fine turbine whine, restrained intake hiss, no voices, birds, music or deck announcements, constant level, clean 8-second loop.",
+      "candidates": [
+        { "file": "pegasus-idle-candidate-01.wav", "sha256": "49274a144c00649750ee69123189f5009f166bdaacefc0b152a605807e01141a", "selected": false },
+        { "file": "pegasus-idle-candidate-02.wav", "sha256": "b58b232b4f68bbf0e55a74f16554145012b17b9042c4cdca1d62e943d98eae55", "selected": false },
+        { "file": "pegasus-idle-candidate-03.wav", "sha256": "b92f65cee5799b8b2b8fa0599f011bc7386130d9d75d8a1859ca03c0ed4dd9bc", "selected": true, "selectionReason": "Strongest stable turbine character with useful headroom and no full-scale peak." },
+        { "file": "pegasus-idle-candidate-04.wav", "sha256": "c622e19cd1fdb21c07b873badf82784cc156ace1e3c1a8104eeba663847c4709", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/pegasus-idle-loop-v1.wav",
+        "sha256": "16d9e57cb59868e7febae3484c26b9d1bb14748fc11d93fcb5ef6ffb6953f031",
+        "processing": "Candidate 03; selected three-second stable cycle with a circular 250 ms equal-gain seam, centred mono 22.05 kHz 16-bit PCM and 2 dB attenuation. The complete seven-second source remains archived."
+      }
     },
     {
-      "file": "nozzle-transition-candidate-02.wav",
-      "sha256": "633d5f7492afd71606f857a51b4e9d5003b20343f8bac88d33e0618b41527007",
-      "selected": false
+      "asset": "Pegasus high-power loop",
+      "prompt": "Seamless exterior loop of a compact military turbofan at high dry thrust, dense exhaust roar, intake rush and controlled turbine layer, no afterburner, no doppler pass, no clipping, no voices, steady 8-second loop suitable for pitch modulation.",
+      "candidates": [
+        { "file": "pegasus-power-candidate-01.wav", "sha256": "2f752e0e2da20140b4f0713cfdcd5281a08e3c9717820b28135aeef114f6f3d0", "selected": false },
+        { "file": "pegasus-power-candidate-02.wav", "sha256": "3f358b76c17ef9f7ad4954399b567d0df7743cae9bcc7c254ff0fa8ed0710f98", "selected": true, "selectionReason": "Best balance of dense dry-thrust body, controlled turbine detail and peak headroom." },
+        { "file": "pegasus-power-candidate-03.wav", "sha256": "f4800b5d37630a18a2321ae0bbf1d9c801fda1a05823f6e91d6f5cd80c3ddf4b", "selected": false },
+        { "file": "pegasus-power-candidate-04.wav", "sha256": "6a6a6b11f3ee58ce2d9c32a76dc9c9fcfa62d44e9396edb60fedc6ca15e7fbcd", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/pegasus-power-loop-v1.wav",
+        "sha256": "a85b090642285115b8453f47aeff8d8bc19940c999a8a82d5da7092ee16d817c",
+        "processing": "Candidate 02; circular 150 ms equal-gain seam, centred mono 22.05 kHz 16-bit PCM and 2 dB attenuation. The short 1.5-second source remains subject to in-game repetition listening approval."
+      }
     },
     {
-      "file": "nozzle-transition-candidate-03.wav",
-      "sha256": "e6b0ddd4c83b75ed33a523cf23c401eb4c8d0b07062dd1d8b8dd904a1b430024",
-      "selected": true,
-      "selectionReason": "Best combination of useful level and peak headroom without reaching digital full scale."
+      "asset": "Airframe wind loop",
+      "prompt": "Seamless cockpit-adjacent airframe wind loop for fast low-altitude jet flight, broad turbulent rush with light panel vibration, no engine, rain, whistles, speech or impacts, neutral constant intensity, clean 8-second loop.",
+      "candidates": [
+        { "file": "airframe-wind-candidate-01.wav", "sha256": "79f2504ec33c3cf671f9004b1caef3f5ab45893c35ec717bf959c66dab0d5bc4", "selected": false },
+        { "file": "airframe-wind-candidate-02.wav", "sha256": "4735d9a18e3f7d8ba4b131781b3d518bec1a60132a2a251a122449fec2a4a2cb", "selected": false },
+        { "file": "airframe-wind-candidate-03.wav", "sha256": "66efe338a0c427d5b79d38676976c933b214205130cd3da192dca63eaa8bda3a", "selected": true, "selectionReason": "Broadest usable airflow texture with the least limiting and sufficient peak headroom." },
+        { "file": "airframe-wind-candidate-04.wav", "sha256": "366182e2fc7b9b2bf1f313f604e3c6c9cc5bc81e9d0cfec751e8617c1bcbd51a", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/airframe-wind-loop-v1.wav",
+        "sha256": "7c65489af2aea4a6528e4988229f8e2bf4145bb66efcfa30cd8904b669ca3293",
+        "processing": "Candidate 03; selected three-second stable cycle with a circular 300 ms equal-gain seam, centred mono 22.05 kHz 16-bit PCM and 4 dB attenuation. The complete eight-second source remains archived."
+      }
     },
     {
-      "file": "nozzle-transition-candidate-04.wav",
-      "sha256": "2699e18f59d47719d2d9ffae00482764d97bacdf19c1287ba54bc03819dde990",
-      "selected": false
+      "asset": "VTOL downwash loop",
+      "prompt": "Seamless vectored-thrust hover downwash loop above a steel carrier deck: powerful low jet wash, turbulent reflected roar and light deck rattle, no voices or alarms, no rhythmic pulsing, stable 8-second loop.",
+      "candidates": [
+        { "file": "vtol-downwash-candidate-01.wav", "sha256": "7b25a813b5b68d42d09cfded637aa41084a3ad49e1306620334e649f6151c568", "selected": false },
+        { "file": "vtol-downwash-candidate-02.wav", "sha256": "695bb564a7517d47e3c1d12b152e4cfae732c598263dec50e316559e00d19b01", "selected": true, "selectionReason": "Most convincing sustained downwash and reflected deck body; attenuation restores safe mix headroom." },
+        { "file": "vtol-downwash-candidate-03.wav", "sha256": "1a30e70200c91a055348b7bf167878033396bb0aed45d05ded60bc713af8c7a7", "selected": false },
+        { "file": "vtol-downwash-candidate-04.wav", "sha256": "b22a1549111270c38a41bb4f011a4bdd6421cc121d355538029d108b8eb1b6f3", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/vtol-downwash-loop-v2.wav",
+        "sha256": "e17fe52c75799d5b61bd19235001b8ad4db94239d147007522d502a2862d0b68",
+        "processing": "Candidate 02; selected three-second stable cycle with a circular 300 ms equal-gain seam, centred mono 22.05 kHz 16-bit PCM and 5 dB attenuation. The complete eight-second source remains archived."
+      }
+    },
+    {
+      "asset": "VTOL nozzle transition",
+      "prompt": "Short close mechanical sound of four vectored-thrust jet nozzles rotating together under engine load. Heavy hydraulic actuator movement, precise metal linkage, restrained mechanical lock and a brief natural change in exhaust resonance as the nozzle angle changes. Approximately 1.2 seconds with a clean editable tail. No speech, warning beep, explosion, landing gear, exaggerated machinery or cinematic bass hit.",
+      "candidates": [
+        { "file": "nozzle-transition-candidate-01.wav", "sha256": "23a8e6c6a7ec9ce7f7375c5d7803e30b8c0bc91ec2a751f3b1620543fa7a8fc1", "selected": false },
+        { "file": "nozzle-transition-candidate-02.wav", "sha256": "633d5f7492afd71606f857a51b4e9d5003b20343f8bac88d33e0618b41527007", "selected": false },
+        { "file": "nozzle-transition-candidate-03.wav", "sha256": "e6b0ddd4c83b75ed33a523cf23c401eb4c8d0b07062dd1d8b8dd904a1b430024", "selected": true, "selectionReason": "Best combination of useful level and peak headroom without reaching digital full scale." },
+        { "file": "nozzle-transition-candidate-04.wav", "sha256": "2699e18f59d47719d2d9ffae00482764d97bacdf19c1287ba54bc03819dde990", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/nozzle-transition-v1.wav",
+        "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209",
+        "processing": "Candidate 03; tempo-adjusted to retain the complete action in 1.2 seconds; centred mono 22.05 kHz 16-bit PCM; 12 ms fade-in, 90 ms fade-out and 2 dB attenuation."
+      }
     }
   ],
-  "runtime": {
-    "file": "public/assets/audio/elevenlabs/nozzle-transition-v1.wav",
-    "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209",
-    "processing": "Candidate 03; tempo-adjusted to retain the complete action in 1.2 seconds; converted to centred mono 22.05 kHz 16-bit PCM; 12 ms fade-in, 90 ms fade-out and 2 dB attenuation. Reproducible with scripts/prepare-nozzle-transition-audio.ps1.",
-    "releaseStatus": "CONDITIONAL_PENDING_COMMERCIAL_ENTITLEMENT_AND_HUMAN_LISTENING"
-  }
+  "releaseStatus": "CONDITIONAL_PENDING_COMMERCIAL_ENTITLEMENT_AND_HUMAN_LISTENING",
+  "reproduction": [
+    "scripts/prepare-flight-loop-audio.ps1",
+    "scripts/prepare-nozzle-transition-audio.ps1"
+  ]
 }

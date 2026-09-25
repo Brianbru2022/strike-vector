@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T14:09:14.149Z",
+  "generatedAt": "2026-09-25T14:26:32.833Z",
   "product": "Iron Kestrel '87: North Atlantic Air War",
   "registerReviewedAt": "2026-08-30",
   "passed": true,
   "totals": {
-    "assets": 88,
-    "bytes": 35158724,
+    "assets": 92,
+    "bytes": 35615472,
     "approved": 16,
-    "conditional": 72,
+    "conditional": 76,
     "unresolved": 0
   },
   "evidenceMissing": [],
@@ -77,9 +77,81 @@
       "matchingRuleCount": 1
     },
     {
+      "path": "public/assets/audio/elevenlabs/airframe-wind-loop-v1.wav",
+      "bytes": 132378,
+      "sha256": "7c65489af2aea4a6528e4988229f8e2bf4145bb66efcfa30cd8904b669ca3293",
+      "ruleId": "elevenlabs-project-audio",
+      "category": "AUDIO",
+      "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
+      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json",
+        "scripts/prepare-nozzle-transition-audio.ps1",
+        "docs/AUDIO_PRODUCTION_BRIEF.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
       "path": "public/assets/audio/elevenlabs/nozzle-transition-v1.wav",
       "bytes": 52998,
       "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209",
+      "ruleId": "elevenlabs-project-audio",
+      "category": "AUDIO",
+      "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
+      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json",
+        "scripts/prepare-nozzle-transition-audio.ps1",
+        "docs/AUDIO_PRODUCTION_BRIEF.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/elevenlabs/pegasus-idle-loop-v1.wav",
+      "bytes": 132378,
+      "sha256": "16d9e57cb59868e7febae3484c26b9d1bb14748fc11d93fcb5ef6ffb6953f031",
+      "ruleId": "elevenlabs-project-audio",
+      "category": "AUDIO",
+      "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
+      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json",
+        "scripts/prepare-nozzle-transition-audio.ps1",
+        "docs/AUDIO_PRODUCTION_BRIEF.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/elevenlabs/pegasus-power-loop-v1.wav",
+      "bytes": 59614,
+      "sha256": "a85b090642285115b8453f47aeff8d8bc19940c999a8a82d5da7092ee16d817c",
+      "ruleId": "elevenlabs-project-audio",
+      "category": "AUDIO",
+      "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
+      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json",
+        "scripts/prepare-nozzle-transition-audio.ps1",
+        "docs/AUDIO_PRODUCTION_BRIEF.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/elevenlabs/vtol-downwash-loop-v2.wav",
+      "bytes": 132378,
+      "sha256": "e17fe52c75799d5b61bd19235001b8ad4db94239d147007522d502a2862d0b68",
       "ruleId": "elevenlabs-project-audio",
       "category": "AUDIO",
       "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",

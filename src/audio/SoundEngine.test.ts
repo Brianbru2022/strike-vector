@@ -18,17 +18,24 @@ describe('showcase audio catalogue', () => {
 
   it('uses distinct checked-in recordings for the production-critical cues', () => {
     const sampled = Object.values(AUDIO_CUE_DEFINITIONS).filter((cue) => cue.samplePath);
-    expect(sampled).toHaveLength(14);
+    expect(sampled).toHaveLength(16);
     expect(new Set(sampled.map((cue) => cue.samplePath)).size).toBe(sampled.length);
     expect(AUDIO_CUE_DEFINITIONS.missile_launch.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.rocket_launch.samplePath);
     expect(AUDIO_CUE_DEFINITIONS.bomb_release.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.combat_impact.samplePath);
     for (const cue of sampled) expect(cue.samplePath).toMatch(/^\/assets\/audio\/.+\.wav$/);
     expect(AUDIO_CUE_DEFINITIONS.nozzle_transition.samplePath).toBe('/assets/audio/elevenlabs/nozzle-transition-v1.wav');
     expect(AUDIO_CUE_DEFINITIONS.nozzle_transition.loop).not.toBe(true);
+    expect(AUDIO_CUE_DEFINITIONS.jet_idle.samplePath).toBe('/assets/audio/elevenlabs/pegasus-idle-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.jet_power.samplePath).toBe('/assets/audio/elevenlabs/pegasus-power-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.airframe_wind.samplePath).toBe('/assets/audio/elevenlabs/airframe-wind-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.vtol_thrust.samplePath).toBe('/assets/audio/elevenlabs/vtol-downwash-loop-v2.wav');
+    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust']) {
+      expect(AUDIO_CUE_DEFINITIONS[id].loop).toBe(true);
+    }
   });
 
   it('limits continuous beds to a single looping voice', () => {
-    for (const id of ['jet_engine', 'vtol_thrust', 'north_atlantic_wind']) {
+    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'north_atlantic_wind']) {
       expect(AUDIO_CUE_DEFINITIONS[id].loop).toBe(true);
       expect(AUDIO_CUE_DEFINITIONS[id].maximumVoices).toBe(1);
     }

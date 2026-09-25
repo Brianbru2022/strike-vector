@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-25T14:16:02.062Z",
-  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO1",
+  "generatedAt": "2026-09-25T14:31:21.471Z",
+  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO2",
   "passed": false,
   "issues": [
     "HEADPHONES listening sign-off is incomplete or failed.",

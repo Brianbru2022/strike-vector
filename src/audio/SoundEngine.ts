@@ -9,8 +9,10 @@ import { formatRadioCaption, getMissionRadioCall } from './RadioProduction';
  */
 
 export const AUDIO_CUE_DEFINITIONS: Readonly<Record<string, AudioCueDefinition>> = Object.freeze({
-  jet_engine: { id: 'jet_engine', category: 'ENGINE', gain: 0.78, playbackRateMin: 0.78, playbackRateMax: 1.28, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/pegasus-engine-loop-v2.wav', loop: true },
-  vtol_thrust: { id: 'vtol_thrust', category: 'ENGINE', gain: 0.7, playbackRateMin: 0.9, playbackRateMax: 1.12, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/vtol-downwash-loop-v1.wav', loop: true },
+  jet_idle: { id: 'jet_idle', category: 'ENGINE', gain: 0.72, playbackRateMin: 0.92, playbackRateMax: 1.06, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/pegasus-idle-loop-v1.wav', loop: true },
+  jet_power: { id: 'jet_power', category: 'ENGINE', gain: 0.82, playbackRateMin: 0.88, playbackRateMax: 1.16, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/pegasus-power-loop-v1.wav', loop: true },
+  airframe_wind: { id: 'airframe_wind', category: 'ENGINE', gain: 0.58, playbackRateMin: 0.9, playbackRateMax: 1.12, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/airframe-wind-loop-v1.wav', loop: true },
+  vtol_thrust: { id: 'vtol_thrust', category: 'ENGINE', gain: 0.7, playbackRateMin: 0.9, playbackRateMax: 1.12, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/vtol-downwash-loop-v2.wav', loop: true },
   nozzle_transition: { id: 'nozzle_transition', category: 'ENGINE', gain: 0.62, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/nozzle-transition-v1.wav' },
   aden_cannon: { id: 'aden_cannon', category: 'WEAPONS', gain: 0.86, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 4, samplePath: '/assets/audio/aden-cannon-v1.wav' },
   missile_launch: { id: 'missile_launch', category: 'WEAPONS', gain: 0.9, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/sidewinder-motor-v1.wav' },
@@ -61,8 +63,12 @@ class SoundEngine {
   private jetWindFilter: BiquadFilterNode | null = null;
   private vtolGain: GainNode | null = null;
   private vtolFilter: BiquadFilterNode | null = null;
-  private jetSampleNode: AudioBufferSourceNode | null = null;
-  private jetSampleGain: GainNode | null = null;
+  private jetIdleSampleNode: AudioBufferSourceNode | null = null;
+  private jetIdleSampleGain: GainNode | null = null;
+  private jetPowerSampleNode: AudioBufferSourceNode | null = null;
+  private jetPowerSampleGain: GainNode | null = null;
+  private airframeWindSampleNode: AudioBufferSourceNode | null = null;
+  private airframeWindSampleGain: GainNode | null = null;
   private vtolSampleNode: AudioBufferSourceNode | null = null;
   private vtolSampleGain: GainNode | null = null;
   private isEngineRunning = false;
@@ -269,17 +275,43 @@ class SoundEngine {
     if (!this.ctx || !this.isEngineRunning) return;
     const output = this.getCategoryBus('ENGINE');
     if (!output) return;
-    if (!this.jetSampleNode) {
-      const buffer = this.sampleBuffers.get('jet_engine');
+    if (!this.jetIdleSampleNode) {
+      const buffer = this.sampleBuffers.get('jet_idle');
       if (buffer) {
-        this.jetSampleNode = this.ctx.createBufferSource();
-        this.jetSampleNode.buffer = buffer;
-        this.jetSampleNode.loop = true;
-        this.jetSampleGain = this.ctx.createGain();
-        this.jetSampleGain.gain.setValueAtTime(0, this.ctx.currentTime);
-        this.jetSampleNode.connect(this.jetSampleGain);
-        this.jetSampleGain.connect(output);
-        this.jetSampleNode.start();
+        this.jetIdleSampleNode = this.ctx.createBufferSource();
+        this.jetIdleSampleNode.buffer = buffer;
+        this.jetIdleSampleNode.loop = true;
+        this.jetIdleSampleGain = this.ctx.createGain();
+        this.jetIdleSampleGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        this.jetIdleSampleNode.connect(this.jetIdleSampleGain);
+        this.jetIdleSampleGain.connect(output);
+        this.jetIdleSampleNode.start();
+      }
+    }
+    if (!this.jetPowerSampleNode) {
+      const buffer = this.sampleBuffers.get('jet_power');
+      if (buffer) {
+        this.jetPowerSampleNode = this.ctx.createBufferSource();
+        this.jetPowerSampleNode.buffer = buffer;
+        this.jetPowerSampleNode.loop = true;
+        this.jetPowerSampleGain = this.ctx.createGain();
+        this.jetPowerSampleGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        this.jetPowerSampleNode.connect(this.jetPowerSampleGain);
+        this.jetPowerSampleGain.connect(output);
+        this.jetPowerSampleNode.start();
+      }
+    }
+    if (!this.airframeWindSampleNode) {
+      const buffer = this.sampleBuffers.get('airframe_wind');
+      if (buffer) {
+        this.airframeWindSampleNode = this.ctx.createBufferSource();
+        this.airframeWindSampleNode.buffer = buffer;
+        this.airframeWindSampleNode.loop = true;
+        this.airframeWindSampleGain = this.ctx.createGain();
+        this.airframeWindSampleGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        this.airframeWindSampleNode.connect(this.airframeWindSampleGain);
+        this.airframeWindSampleGain.connect(output);
+        this.airframeWindSampleNode.start();
       }
     }
     if (!this.vtolSampleNode) {
@@ -474,8 +506,17 @@ class SoundEngine {
     this.jetWindGain?.gain.setTargetAtTime(mix.windGain, now, 0.1);
     this.jetDamageGain?.gain.setTargetAtTime(mix.damageGain, now, 0.05);
     this.vtolGain.gain.setTargetAtTime(mix.vtolGain, now, 0.06);
-    this.jetSampleGain?.gain.setTargetAtTime(0.045 + mix.exhaustGain * 0.42, now, 0.12);
+    const throttle = Math.max(0, Math.min(1, state.throttleRatio));
+    const speed = Math.max(0, Math.min(1, state.speedRatio));
+    const vtol = Math.max(0, Math.min(1, state.vtolRatio));
+    this.jetIdleSampleGain?.gain.setTargetAtTime((0.13 - throttle * 0.085) * (1 - vtol * 0.2), now, 0.14);
+    this.jetPowerSampleGain?.gain.setTargetAtTime(0.025 + mix.exhaustGain * 0.52, now, 0.12);
+    this.airframeWindSampleGain?.gain.setTargetAtTime(speed * speed * 0.13, now, 0.14);
     this.vtolSampleGain?.gain.setTargetAtTime(mix.vtolGain * 0.58, now, 0.08);
+    this.jetIdleSampleNode?.playbackRate.setTargetAtTime(0.95 + throttle * 0.05, now, 0.14);
+    this.jetPowerSampleNode?.playbackRate.setTargetAtTime(0.9 + throttle * 0.2, now, 0.12);
+    this.airframeWindSampleNode?.playbackRate.setTargetAtTime(0.9 + speed * 0.18, now, 0.14);
+    this.vtolSampleNode?.playbackRate.setTargetAtTime(0.92 + throttle * 0.12, now, 0.08);
   }
 
   public stopJetEngine() {
@@ -485,12 +526,16 @@ class SoundEngine {
       this.jetOsc1?.stop();
       this.jetOsc2?.stop();
       this.jetNoiseNode?.stop();
-      this.jetSampleNode?.stop();
+      this.jetIdleSampleNode?.stop();
+      this.jetPowerSampleNode?.stop();
+      this.airframeWindSampleNode?.stop();
       this.vtolSampleNode?.stop();
       this.jetOsc1?.disconnect();
       this.jetOsc2?.disconnect();
       this.jetNoiseNode?.disconnect();
-      this.jetSampleNode?.disconnect();
+      this.jetIdleSampleNode?.disconnect();
+      this.jetPowerSampleNode?.disconnect();
+      this.airframeWindSampleNode?.disconnect();
       this.vtolSampleNode?.disconnect();
     } catch {
       // ignore
@@ -508,8 +553,12 @@ class SoundEngine {
     this.jetWindFilter = null;
     this.vtolGain = null;
     this.vtolFilter = null;
-    this.jetSampleNode = null;
-    this.jetSampleGain = null;
+    this.jetIdleSampleNode = null;
+    this.jetIdleSampleGain = null;
+    this.jetPowerSampleNode = null;
+    this.jetPowerSampleGain = null;
+    this.airframeWindSampleNode = null;
+    this.airframeWindSampleGain = null;
     this.vtolSampleNode = null;
     this.vtolSampleGain = null;
   }
