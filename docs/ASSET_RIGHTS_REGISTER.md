@@ -9,7 +9,7 @@ The register distinguishes two release states:
 - **Approved:** project-authored metadata or deterministic audio synthesised by `scripts/generate_showcase_audio.py`.
 - **Conditional:** AI-assisted visual output generated for this project, archived under `art/source`, then cleaned, composed or optimised locally. Conditional means internally cleared for the current build but still subject to the final similarity, trade-mark, livery and legal review required before commercial publication.
 
-No stock library, third-party music, external photograph or runtime generation service is declared in the shipped asset pack. Five foundational flight cues are user-directed ElevenLabs Sound Effects outputs edited locally for the project; their source files and generation records are archived, and their commercial release status remains conditional until the applicable paid-plan entitlement is retained with the final rights evidence.
+No stock library, third-party music, external photograph or runtime generation service is declared in the shipped asset pack. Five foundational flight cues are user-directed ElevenLabs Sound Effects outputs edited locally for the project. The user confirmed on 25 September 2026 that they were generated under their paid ElevenLabs account; source files, generation records and that entitlement attestation are retained in the project provenance record.
 
 ## AI-output basis and limitation
 

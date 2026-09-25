@@ -4,7 +4,7 @@
 
 - Product: Iron Kestrel '87
 - Version: 1.2.0-dev.1 / 1.2 DEV1
-- Build: `IK87-1.2.0-DEV1-20260925-AUDIO2`
+- Build: `IK87-1.2.0-DEV1-20260925-AUDIO3`
 - Branch: `release/1.2-playability-roadmap`
 - Channel: development
 

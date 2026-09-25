@@ -1,6 +1,6 @@
 # Milestone 11 human playtesting and balance closure
 
-Build identifier: **IK87-1.2.0-DEV1-20260925-AUDIO2**
+Build identifier: **IK87-1.2.0-DEV1-20260925-AUDIO3**
 
 Status: **PENDING HUMAN RUNS**
 

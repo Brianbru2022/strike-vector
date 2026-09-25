@@ -27,8 +27,8 @@
       "category": "AUDIO",
       "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
       "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
-      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
-      "releaseStatus": "CONDITIONAL",
+      "rightsBasis": "User-directed generated output created under the user's paid ElevenLabs account, selected and edited locally; account entitlement confirmed by the user on 2026-09-25 with generation history retained",
+      "releaseStatus": "APPROVED",
       "attributionRequired": false,
       "sourceEvidence": ["art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json", "scripts/prepare-nozzle-transition-audio.ps1", "docs/AUDIO_PRODUCTION_BRIEF.md"]
     },

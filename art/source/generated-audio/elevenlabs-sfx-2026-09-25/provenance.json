@@ -5,7 +5,9 @@
     "service": "ElevenLabs Sound Effects",
     "model": "ElevenLabs Sound Effects model selected by the service",
     "generationHistoryRetainedExternally": true,
-    "commercialEntitlementEvidence": "PENDING_ACCOUNT_PLAN_RECORD"
+    "commercialEntitlementEvidence": "USER_ATTESTATION_PAID_ELEVENLABS_ACCOUNT",
+    "commercialEntitlementAttestedAt": "2026-09-25",
+    "commercialEntitlementScope": "All twenty source candidates and the five edited runtime cues in this archive were generated under the user's paid ElevenLabs account."
   },
   "assets": [
     {
@@ -84,7 +86,7 @@
       }
     }
   ],
-  "releaseStatus": "CONDITIONAL_PENDING_COMMERCIAL_ENTITLEMENT_AND_HUMAN_LISTENING",
+  "releaseStatus": "COMMERCIALLY_LICENSED_PENDING_HUMAN_LISTENING",
   "reproduction": [
     "scripts/prepare-flight-loop-audio.ps1",
     "scripts/prepare-nozzle-transition-audio.ps1"
