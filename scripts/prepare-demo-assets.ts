@@ -39,6 +39,7 @@ const assets = [
   'assets/audio/north-atlantic-wind-v1.wav',
   'assets/audio/pegasus-engine-loop-v2.wav',
   'assets/audio/vtol-downwash-loop-v1.wav',
+  'assets/audio/elevenlabs/nozzle-transition-v1.wav',
   'assets/audio/rocket-motor-v1.wav',
   'assets/audio/bomb-release-v1.wav',
   'assets/audio/flare-eject-v1.wav',

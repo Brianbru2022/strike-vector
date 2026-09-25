@@ -11,6 +11,7 @@ import { formatRadioCaption, getMissionRadioCall } from './RadioProduction';
 export const AUDIO_CUE_DEFINITIONS: Readonly<Record<string, AudioCueDefinition>> = Object.freeze({
   jet_engine: { id: 'jet_engine', category: 'ENGINE', gain: 0.78, playbackRateMin: 0.78, playbackRateMax: 1.28, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/pegasus-engine-loop-v2.wav', loop: true },
   vtol_thrust: { id: 'vtol_thrust', category: 'ENGINE', gain: 0.7, playbackRateMin: 0.9, playbackRateMax: 1.12, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/vtol-downwash-loop-v1.wav', loop: true },
+  nozzle_transition: { id: 'nozzle_transition', category: 'ENGINE', gain: 0.62, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/nozzle-transition-v1.wav' },
   aden_cannon: { id: 'aden_cannon', category: 'WEAPONS', gain: 0.86, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 4, samplePath: '/assets/audio/aden-cannon-v1.wav' },
   missile_launch: { id: 'missile_launch', category: 'WEAPONS', gain: 0.9, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/sidewinder-motor-v1.wav' },
   rocket_launch: { id: 'rocket_launch', category: 'WEAPONS', gain: 0.82, playbackRateMin: 0.95, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/rocket-motor-v1.wav' },
@@ -514,6 +515,29 @@ class SoundEngine {
   }
 
   // --- WEAPON & COMBAT SFX ---
+
+  public playNozzleTransition(vectoring: boolean) {
+    if (!this.ctx) return;
+    const playbackRate = vectoring ? 0.98 : 1.03;
+    if (this.playBundledSample('nozzle_transition', 'ENGINE', 0.46, playbackRate)) return;
+
+    // Short mechanical fallback keeps the transition readable if a sample
+    // cannot be decoded or is deliberately omitted from a constrained build.
+    const now = this.ctx.currentTime;
+    const output = this.getCategoryBus('ENGINE');
+    if (!output) return;
+    const osc = this.ctx.createOscillator();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(vectoring ? 150 : 118, now);
+    osc.frequency.exponentialRampToValueAtTime(vectoring ? 88 : 164, now + 0.34);
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.09, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.38);
+    osc.connect(gain);
+    gain.connect(output);
+    osc.start(now);
+    osc.stop(now + 0.4);
+  }
 
   public playCannon() {
     if (!this.ctx || !this.sfxGain) return;

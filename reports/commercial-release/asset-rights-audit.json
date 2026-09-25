@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T10:43:46.672Z",
+  "generatedAt": "2026-09-25T14:09:14.149Z",
   "product": "Iron Kestrel '87: North Atlantic Air War",
   "registerReviewedAt": "2026-08-30",
   "passed": true,
   "totals": {
-    "assets": 87,
-    "bytes": 35102160,
+    "assets": 88,
+    "bytes": 35158724,
     "approved": 16,
-    "conditional": 71,
+    "conditional": 72,
     "unresolved": 0
   },
   "evidenceMissing": [],
@@ -73,6 +73,24 @@
       "sourceEvidence": [
         "scripts/generate_showcase_audio.py",
         "docs/SOUNDSCAPE_RADIO_V1.md"
+      ],
+      "matchingRuleCount": 1
+    },
+    {
+      "path": "public/assets/audio/elevenlabs/nozzle-transition-v1.wav",
+      "bytes": 52998,
+      "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209",
+      "ruleId": "elevenlabs-project-audio",
+      "category": "AUDIO",
+      "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
+      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": [
+        "art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json",
+        "scripts/prepare-nozzle-transition-audio.ps1",
+        "docs/AUDIO_PRODUCTION_BRIEF.md"
       ],
       "matchingRuleCount": 1
     },
@@ -1204,8 +1222,8 @@
     },
     {
       "path": "public/assets/sprites/manifest.json",
-      "bytes": 14461,
-      "sha256": "89e0f9ed5894f3678d3d7b5f83eb524e43979186efee56f61caaa4057f259f77",
+      "bytes": 18027,
+      "sha256": "3bb9ed212024ec88877503b3cd3fe001ae0f52b78e4623860e16e558a1e3ef1b",
       "ruleId": "project-metadata",
       "category": "METADATA",
       "provenance": "PROJECT_AUTHORED",

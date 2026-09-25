@@ -24,5 +24,5 @@ Generated from http://127.0.0.1:4178. Includes objective contact checks and rout
 Viewport coverage captures: 48 across desktop, ultrawide and mobile landscape.
 
 Route coverage captures: 48.
-Build: IK87-1.2.0-DEV1-20260922-PLAY1. Manifest: [manifest.json](./manifest.json).
+Build: IK87-1.2.0-DEV1-20260925-AUDIO1. Manifest: [manifest.json](./manifest.json).
 

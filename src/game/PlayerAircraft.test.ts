@@ -1,9 +1,24 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { ParticleAndEffects } from './ParticleAndEffects';
 import { PlayerAircraft } from './PlayerAircraft';
 import { FixedStepClock } from './FixedStepClock';
+import { soundEngine } from '../audio/SoundEngine';
 
 describe('carrier recovery', () => {
+  it('plays one nozzle cue for each commanded VTOL mode transition', () => {
+    const aircraft = new PlayerAircraft();
+    const effects = new ParticleAndEffects();
+    aircraft.stats.isTakingOff = false;
+    const nozzleCue = vi.spyOn(soundEngine, 'playNozzleTransition').mockImplementation(() => undefined);
+
+    aircraft.update({ up: false, down: false, left: false, right: false, vtol: true, fireCannon: false }, effects);
+    aircraft.update({ up: false, down: false, left: false, right: false, vtol: true, fireCannon: false }, effects);
+    aircraft.update({ up: false, down: false, left: false, right: false, vtol: false, fireCannon: false }, effects);
+
+    expect(nozzleCue.mock.calls).toEqual([[true], [false]]);
+    nozzleCue.mockRestore();
+  });
+
   it('brakes into a controlled turn before flying in the opposite direction', () => {
     const aircraft = new PlayerAircraft();
     const effects = new ParticleAndEffects();

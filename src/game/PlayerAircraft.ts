@@ -246,7 +246,9 @@ export class PlayerAircraft {
     const hydraulicRate = 0.05 * (0.3 + 0.7 * s.subsystems.hydraulics);
 
     // VTOL Mode Transition
+    const wasVtolMode = s.vtolMode;
     s.vtolMode = input.vtol;
+    if (s.vtolMode !== wasVtolMode) soundEngine.playNozzleTransition(s.vtolMode);
     if (s.vtolMode) {
       s.vtolTransition = Math.min(1.0, s.vtolTransition + hydraulicRate);
     } else {

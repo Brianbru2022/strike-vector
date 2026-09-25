@@ -43,7 +43,7 @@ for (const cue of assets) {
   }
 }
 
-if (assets.length !== 13) issues.push(`Expected 13 authored cues, found ${assets.length}.`);
+if (assets.length !== 14) issues.push(`Expected 14 authored cues, found ${assets.length}.`);
 if (new Set(assets.map((cue) => cue.samplePath)).size !== assets.length) issues.push('Audio cue paths must be unique.');
 if (totalBytes > 1_500_000) issues.push(`Authored audio pack is ${totalBytes} bytes; budget is 1500000.`);
 if (MIXER_BASE_GAINS.WARNINGS <= MIXER_BASE_GAINS.ENGINE || MIXER_BASE_GAINS.RADIO <= MIXER_BASE_GAINS.AMBIENCE) issues.push('Critical buses do not remain above background buses.');

@@ -9,7 +9,7 @@ The register distinguishes two release states:
 - **Approved:** project-authored metadata or deterministic audio synthesised by `scripts/generate_showcase_audio.py`.
 - **Conditional:** AI-assisted visual output generated for this project, archived under `art/source`, then cleaned, composed or optimised locally. Conditional means internally cleared for the current build but still subject to the final similarity, trade-mark, livery and legal review required before commercial publication.
 
-No stock library, third-party music, downloaded sound effect, external photograph or runtime generation service is declared in the shipped asset pack. This statement is based on the repository evidence currently available; it must be amended if externally sourced material is introduced.
+No stock library, third-party music, external photograph or runtime generation service is declared in the shipped asset pack. The nozzle-transition cue is a user-directed ElevenLabs Sound Effects output edited locally for the project; its source files and generation record are archived, and its commercial release status remains conditional until the applicable paid-plan entitlement is retained with the final rights evidence.
 
 ## AI-output basis and limitation
 

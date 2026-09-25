@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "asset": "VTOL nozzle transition",
+  "generatedAt": "2026-09-25",
+  "source": {
+    "service": "ElevenLabs Sound Effects",
+    "model": "ElevenLabs Sound Effects model selected by the service",
+    "prompt": "Short close mechanical sound of four vectored-thrust jet nozzles rotating together under engine load. Heavy hydraulic actuator movement, precise metal linkage, restrained mechanical lock and a brief natural change in exhaust resonance as the nozzle angle changes. Approximately 1.2 seconds with a clean editable tail. No speech, warning beep, explosion, landing gear, exaggerated machinery or cinematic bass hit.",
+    "generationHistoryRetainedExternally": true,
+    "commercialEntitlementEvidence": "PENDING_ACCOUNT_PLAN_RECORD"
+  },
+  "candidates": [
+    {
+      "file": "nozzle-transition-candidate-01.wav",
+      "sha256": "23a8e6c6a7ec9ce7f7375c5d7803e30b8c0bc91ec2a751f3b1620543fa7a8fc1",
+      "selected": false
+    },
+    {
+      "file": "nozzle-transition-candidate-02.wav",
+      "sha256": "633d5f7492afd71606f857a51b4e9d5003b20343f8bac88d33e0618b41527007",
+      "selected": false
+    },
+    {
+      "file": "nozzle-transition-candidate-03.wav",
+      "sha256": "e6b0ddd4c83b75ed33a523cf23c401eb4c8d0b07062dd1d8b8dd904a1b430024",
+      "selected": true,
+      "selectionReason": "Best combination of useful level and peak headroom without reaching digital full scale."
+    },
+    {
+      "file": "nozzle-transition-candidate-04.wav",
+      "sha256": "2699e18f59d47719d2d9ffae00482764d97bacdf19c1287ba54bc03819dde990",
+      "selected": false
+    }
+  ],
+  "runtime": {
+    "file": "public/assets/audio/elevenlabs/nozzle-transition-v1.wav",
+    "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209",
+    "processing": "Candidate 03; tempo-adjusted to retain the complete action in 1.2 seconds; converted to centred mono 22.05 kHz 16-bit PCM; 12 ms fade-in, 90 ms fade-out and 2 dB attenuation. Reproducible with scripts/prepare-nozzle-transition-audio.ps1.",
+    "releaseStatus": "CONDITIONAL_PENDING_COMMERCIAL_ENTITLEMENT_AND_HUMAN_LISTENING"
+  }
+}

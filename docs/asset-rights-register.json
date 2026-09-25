@@ -22,6 +22,17 @@
       "sourceEvidence": ["scripts/generate_showcase_audio.py", "docs/SOUNDSCAPE_RADIO_V1.md"]
     },
     {
+      "id": "elevenlabs-project-audio",
+      "pattern": "audio/elevenlabs/*.wav",
+      "category": "AUDIO",
+      "provenance": "USER_DIRECTED_ELEVENLABS_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using ElevenLabs Sound Effects",
+      "rightsBasis": "User-directed generated output, selected and edited locally; commercial entitlement remains conditional on the generating ElevenLabs account plan and retained generation history",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json", "scripts/prepare-nozzle-transition-audio.ps1", "docs/AUDIO_PRODUCTION_BRIEF.md"]
+    },
+    {
       "id": "ai-backgrounds",
       "pattern": "backgrounds/*.webp",
       "category": "ARTWORK_BACKGROUND",

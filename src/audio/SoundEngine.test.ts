@@ -18,11 +18,13 @@ describe('showcase audio catalogue', () => {
 
   it('uses distinct checked-in recordings for the production-critical cues', () => {
     const sampled = Object.values(AUDIO_CUE_DEFINITIONS).filter((cue) => cue.samplePath);
-    expect(sampled).toHaveLength(13);
+    expect(sampled).toHaveLength(14);
     expect(new Set(sampled.map((cue) => cue.samplePath)).size).toBe(sampled.length);
     expect(AUDIO_CUE_DEFINITIONS.missile_launch.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.rocket_launch.samplePath);
     expect(AUDIO_CUE_DEFINITIONS.bomb_release.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.combat_impact.samplePath);
     for (const cue of sampled) expect(cue.samplePath).toMatch(/^\/assets\/audio\/.+\.wav$/);
+    expect(AUDIO_CUE_DEFINITIONS.nozzle_transition.samplePath).toBe('/assets/audio/elevenlabs/nozzle-transition-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.nozzle_transition.loop).not.toBe(true);
   });
 
   it('limits continuous beds to a single looping voice', () => {

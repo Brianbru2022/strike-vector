@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-22T07:24:08.913Z",
-  "buildId": "IK87-1.2.0-DEV1-20260922-PLAY1",
+  "generatedAt": "2026-09-25T14:09:13.640Z",
+  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO1",
   "passed": true,
-  "cueCount": 13,
-  "totalBytes": 473764,
+  "cueCount": 14,
+  "totalBytes": 526762,
   "files": [
     {
       "id": "jet_engine",
@@ -25,6 +25,16 @@
       "bitsPerSample": 16,
       "peak": 0.378570556640625,
       "rms": 0.1656629244175005
+    },
+    {
+      "id": "nozzle_transition",
+      "path": "public/assets/audio/elevenlabs/nozzle-transition-v1.wav",
+      "bytes": 52998,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.50732421875,
+      "rms": 0.10811807238401387
     },
     {
       "id": "aden_cannon",
