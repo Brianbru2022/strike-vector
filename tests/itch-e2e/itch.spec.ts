@@ -44,6 +44,10 @@ test('loads lazy screens, persists saves and registers no service worker', async
   await page.reload();
   await expect(page.getByRole('heading', { name: 'IRON KESTREL' })).toBeVisible();
   await page.getByRole('button', { name: 'SYSTEM SETTINGS' }).click();
+  await expect(page.getByRole('link', { name: 'SEND BETA FEEDBACK' })).toHaveAttribute(
+    'href',
+    'https://github.com/Brianbru2022/strike-vector/issues/new?template=beta-feedback.yml',
+  );
   const betaRecordDownload = page.waitForEvent('download');
   await page.getByRole('button', { name: 'EXPORT BETA PLAY RECORD' }).click();
   expect((await betaRecordDownload).suggestedFilename()).toBe('iron-kestrel-87-beta-evidence-v1.json');
@@ -59,10 +63,12 @@ test('serves every packaged file and transitions into the next campaign mission'
   test.skip(testInfo.project.name !== 'desktop-itch', 'The complete package inventory is downloaded once in the desktop itch project.');
   const manifestResponse = await page.request.get('/games/iron-kestrel/itch-build-manifest.json');
   expect(manifestResponse.ok()).toBe(true);
-  const manifest = await manifestResponse.json() as { files: Array<{ path: string; bytes: number }>; assetClasses: { images: number; audio: number; scripts: number } };
+  const manifest = await manifestResponse.json() as { files: Array<{ path: string; bytes: number }>; assetClasses: { images: number; audio: number; scripts: number }; configuredFeedbackUrl: string | null; feedbackUrlEmbedded: boolean };
   expect(manifest.assetClasses.images).toBeGreaterThan(0);
   expect(manifest.assetClasses.audio).toBeGreaterThan(0);
   expect(manifest.assetClasses.scripts).toBeGreaterThan(0);
+  expect(manifest.configuredFeedbackUrl).toBe('https://github.com/Brianbru2022/strike-vector/issues/new?template=beta-feedback.yml');
+  expect(manifest.feedbackUrlEmbedded).toBe(true);
 
   const failedFiles: string[] = [];
   for (const entry of manifest.files) {

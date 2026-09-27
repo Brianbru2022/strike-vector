@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-27T16:03:04.720Z",
-  "buildId": "IK87-1.2.0-BETA1-20260927-A",
+  "generatedAt": "2026-09-27T16:26:36.575Z",
+  "buildId": "IK87-1.2.0-BETA2-20260927-A",
   "mode": "UPLOAD_GATE",
   "status": "BLOCKED",
   "automatedBlockers": [],
@@ -11,8 +11,7 @@
     "Physical xboxController smoke test is pending.",
     "Physical touchDevice smoke test is pending.",
     "Human readability review is pending.",
-    "Basic human audio smoke is pending.",
-    "Tester feedback route is pending."
+    "Basic human audio smoke is pending."
   ],
   "blockers": [
     "Five-player internal Guided Mission 1 evidence is pending or incomplete.",
@@ -20,8 +19,7 @@
     "Physical xboxController smoke test is pending.",
     "Physical touchDevice smoke test is pending.",
     "Human readability review is pending.",
-    "Basic human audio smoke is pending.",
-    "Tester feedback route is pending."
+    "Basic human audio smoke is pending."
   ],
   "commercialGateDeliberatelyExcluded": true,
   "hostedItchSmokeRequired": false

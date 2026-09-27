@@ -1,0 +1,171 @@
+name: Iron Kestrel '87 beta feedback
+description: Report your experience with the restricted Iron Kestrel '87 itch.io beta.
+title: "[Beta feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing Iron Kestrel '87. Do not include your real name, email address, account details or other personal information.
+
+        If you exported a Beta Play Record, review it first. You may drag the file into a text box below; if GitHub rejects the JSON file type, place it in a ZIP archive before attaching it.
+
+  - type: input
+    id: build
+    attributes:
+      label: Build identifier
+      description: Copy the build shown on the title or settings screen.
+      placeholder: IK87-1.2.0-BETA2-20260927-A
+    validations:
+      required: true
+
+  - type: dropdown
+    id: experience
+    attributes:
+      label: Previous game experience
+      options:
+        - Little or no flight-game experience
+        - Action-game experience
+        - Flight-game experience
+    validations:
+      required: true
+
+  - type: dropdown
+    id: input
+    attributes:
+      label: Main input method
+      options:
+        - Keyboard
+        - Xbox-compatible controller
+        - Touch controls
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device class
+      description: Do not provide a serial number, network address or advertising identifier.
+      options:
+        - Desktop or laptop
+        - Phone
+        - Tablet
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: progress
+    attributes:
+      label: Did the game start and retain progress after a reload?
+      options:
+        - Yes
+        - No
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: flight_controls
+    attributes:
+      label: Were pitch, altitude and left/right flight controls understandable?
+      options:
+        - Yes
+        - Partly
+        - No
+    validations:
+      required: true
+
+  - type: dropdown
+    id: vtol
+    attributes:
+      label: Was the VTOL transition understandable?
+      options:
+        - Yes
+        - Partly
+        - No
+        - Not reached
+    validations:
+      required: true
+
+  - type: dropdown
+    id: combat
+    attributes:
+      label: Did you acquire and attack a target?
+      options:
+        - Yes
+        - No
+    validations:
+      required: true
+
+  - type: dropdown
+    id: warnings
+    attributes:
+      label: Which fighter, radar or missile warnings did you notice before impact?
+      options:
+        - All warnings encountered
+        - Some warnings encountered
+        - None
+        - No warnings encountered
+    validations:
+      required: true
+
+  - type: dropdown
+    id: failure
+    attributes:
+      label: If the sortie failed, did you understand why?
+      options:
+        - Yes
+        - No
+        - Not applicable
+    validations:
+      required: true
+
+  - type: dropdown
+    id: recovery
+    attributes:
+      label: Did carrier or FARP recovery feel achievable?
+      options:
+        - Yes
+        - No
+        - Not reached
+    validations:
+      required: true
+
+  - type: dropdown
+    id: continue
+    attributes:
+      label: After Mission 1, did you want another sortie?
+      options:
+        - Yes, and I started Mission 2
+        - Yes, but I did not start Mission 2
+        - Unsure
+        - No
+    validations:
+      required: true
+
+  - type: textarea
+    id: best_moment
+    attributes:
+      label: Best moment
+      description: Optional. Describe the most enjoyable or convincing part of the sortie.
+
+  - type: textarea
+    id: stop_reason
+    attributes:
+      label: What nearly made you stop?
+      description: Optional. Include reproduction steps for crashes, save loss, input loss, unreadable warnings or impossible recovery.
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Optional Beta Play Record or supporting evidence
+      description: Drag a reviewed export, ZIP archive, screenshot or short video here. Nothing is uploaded by the game itself.
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I allow this response to be used to improve Iron Kestrel '87, and I have not included personal or sensitive information.
+          required: true

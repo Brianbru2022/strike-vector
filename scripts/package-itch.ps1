@@ -3,7 +3,7 @@ $source = Resolve-Path -LiteralPath 'dist-itch'
 $manifestPath = Join-Path $source 'itch-build-manifest.json'
 if (-not (Test-Path -LiteralPath $manifestPath)) { throw 'Run pnpm itch:audit before packaging.' }
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
-$outputDirectory = Join-Path (Resolve-Path -LiteralPath '.') 'release-artifacts\itch-1.2.0-beta.1'
+$outputDirectory = Join-Path (Resolve-Path -LiteralPath '.') 'release-artifacts\itch-1.2.0-beta.2'
 New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
 $zipPath = Join-Path $outputDirectory 'iron-kestrel-87-itch-beta.zip'
 if (Test-Path -LiteralPath $zipPath) { Remove-Item -LiteralPath $zipPath -Force }

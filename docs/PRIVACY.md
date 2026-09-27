@@ -19,11 +19,11 @@ The browser edition stores this information in local site storage. The Windows e
 
 Normal consumer builds do not record playtest diagnostic sessions or expose validation and mission-authoring tools. Internal diagnostics and Early Control Test evidence do not include names, email addresses, account identifiers, precise location, IP addresses, raw key presses, free-form messages or browsing history. Operation seed values are removed from the issue-report export.
 
-The restricted itch.io beta records at most 250 coarse events locally: session started, mission started, sortie result, retry requested and continue requested. Events contain the build, UTC calendar day, mission, difficulty, simulation ticks and result where applicable. They contain no raw controls, free text, account, advertising identifier or network address. Nothing is transmitted automatically. **Export Beta Play Record** creates a JSON file only when the player asks for it, so the player can review and voluntarily attach it to the separately configured feedback route.
+The restricted itch.io beta records at most 250 coarse events locally: session started, mission started, sortie result, retry requested and continue requested. Events contain the build, UTC calendar day, mission, difficulty, simulation ticks and result where applicable. They contain no raw controls, free text, account, advertising identifier or network address. Nothing is transmitted automatically. **Export Beta Play Record** creates a JSON file only when the player asks for it, so the player can review and voluntarily attach it to the GitHub beta-feedback form.
 
 ## Network use
 
-After initial download, the complete campaign can run offline. Network requests are limited to loading or updating the application files and the local server health check used by development and deployment environments. The game contains no developer-operated telemetry endpoint and does not automatically upload exported files.
+After initial download, the complete campaign can run offline. Network requests are limited to loading or updating the application files and the local server health check used by development and deployment environments. The game contains no developer-operated telemetry endpoint and does not automatically upload exported files. Selecting **Send Beta Feedback** opens GitHub in a new browser tab. Submitting the form requires a GitHub account and sends the answers and any voluntarily attached evidence to GitHub under GitHub's own privacy terms. The form tells testers not to provide names, email addresses or sensitive information.
 
 Browser or operating-system speech synthesis may be used for optional radio speech. Processing behaviour depends on the browser or operating system; captions remain available and speech can be muted.
 
@@ -32,13 +32,14 @@ Browser or operating-system speech synthesis may be used for optional radio spee
 - Internal-development diagnostics can be disabled, exported or cleared in **System Settings**.
 - An issue report is created only when the player presses **Export Issue Report**. Exporting downloads a JSON file to the device; it does not send it anywhere.
 - In the restricted itch.io beta, **Export Beta Play Record** downloads the local coarse-event record. It is not uploaded automatically.
+- **Send Beta Feedback** opens an external GitHub Issue Form only when selected. The player decides what to enter and whether to attach the reviewed play record.
 - **Export Progress** creates a versioned save archive containing campaign, operation, showcase and score progress. It excludes diagnostics and validation evidence and is never uploaded automatically.
 - Importing a save validates its format and checksum before replacement. The prior progression is retained locally as a rollback backup.
 - Browser data and offline files can be removed using clear-site-data or installed-app controls. Windows save archives may be retained when uninstalling so progress can survive reinstallation; they can be removed from the application's per-user roaming-data directory after exporting any wanted backup.
 
 ## Children and sensitive information
 
-The game does not ask players to submit personal or sensitive information. Players should not add personal information when sending an exported issue report through an external support channel.
+The game and beta form tell players not to submit personal or sensitive information. A GitHub account is nevertheless required by the external feedback service; account processing is controlled by GitHub rather than the game developer.
 
 ## Changes and contact
 

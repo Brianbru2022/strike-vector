@@ -1,7 +1,7 @@
 # Milestone 19 Mission Authoring Certification
 
-Build: **IK87-1.2.0-BETA1-20260927-A**
-Generated: 2026-09-27T16:02:28.342Z
+Build: **IK87-1.2.0-BETA2-20260927-A**
+Generated: 2026-09-27T16:26:02.487Z
 Result: **PASS**
 
 - Campaign missions round-tripped: **16**

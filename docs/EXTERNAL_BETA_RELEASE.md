@@ -8,7 +8,7 @@ The immediate release target is a free, unlisted itch.io HTML5 beta. It is delib
 
 Run `pnpm external-beta:prepare`. This checks the current source, deterministic tests, consumer build, PWA build, desktop source, missions, operations and balance simulation. It also builds, audits, browser-tests and packages the dedicated itch target.
 
-The upload archive is `release-artifacts/itch-1.2.0-beta.1/iron-kestrel-87-itch-beta.zip`. Its `index.html` is at the archive root. The itch target uses relative URLs, runs under an arbitrary nested path and does not register a service worker inside the host iframe. The normal PWA and Tauri builds are unchanged.
+The upload archive is `release-artifacts/itch-1.2.0-beta.2/iron-kestrel-87-itch-beta.zip`. Its `index.html` is at the archive root. The itch target uses relative URLs, runs under an arbitrary nested path and does not register a service worker inside the host iframe. The normal PWA and Tauri builds are unchanged.
 
 `pnpm itch:gate` now treats the ZIP as the product under test. It rejects unsafe archive paths, absolute application URLs, service-worker or web-manifest files, missing asset classes and any mismatch between the audited build and packaged file inventory. It then extracts that exact ZIP into a clean staging directory. The browser certification serves the extracted package at `/games/iron-kestrel/`, both directly and inside an itch-style iframe; downloads every packaged file; confirms image and audio delivery; exercises lazy chunks, save/reload and the Mission 1-to-2 campaign transition; and fails on request, HTTP, console or page errors.
 

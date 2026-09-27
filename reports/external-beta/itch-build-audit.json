@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-BETA1-20260927-A",
-  "releaseVersion": "1.2.0-beta.1",
-  "generatedAt": "2026-09-27T16:02:32.194Z",
+  "buildId": "IK87-1.2.0-BETA2-20260927-A",
+  "releaseVersion": "1.2.0-beta.2",
+  "generatedAt": "2026-09-27T16:26:06.438Z",
   "hosting": "itch-html5-iframe-relative",
   "serviceWorkerEnabled": false,
-  "totalBytes": 47702809,
+  "totalBytes": 47703572,
   "fileCount": 165,
-  "fingerprint": "677570de7e80b96d87c28e3b0ff5b1f4bd828250023b63cf90109b7449ecb390",
-  "configuredFeedbackUrl": null,
-  "feedbackUrlEmbedded": false,
+  "fingerprint": "fabc490881b5048a9451cbad97f81670abebddbdefaf7b58358878bd5c30249a",
+  "configuredFeedbackUrl": "https://github.com/Brianbru2022/strike-vector/issues/new?template=beta-feedback.yml",
+  "feedbackUrlEmbedded": true,
   "assetClasses": {
     "images": 71,
     "audio": 61,
@@ -487,9 +487,9 @@
       "sha256": "b17a4b4e97a3baa4f248360f5329cd0d094327f6395237dc3b2afbf85c34a6d5"
     },
     {
-      "path": "assets/ChapterSelectScreen-Dwxxdqwd.js",
+      "path": "assets/ChapterSelectScreen-BcPyUnh6.js",
       "bytes": 5233,
-      "sha256": "ce1c3b0c567829ae17099f349a9e6829e4fb20408a9556b92449eb28d5532382"
+      "sha256": "7f4d254a8c8560223d9844a933bafa7d1efd341212144ba5887bb81727c34d6c"
     },
     {
       "path": "assets/core-mPlcS5K-.js",
@@ -507,14 +507,14 @@
       "sha256": "8b4f15f129e89e1e7f0c4aa6797862a91a9242410bb4b311b7dc59c94a1f9d33"
     },
     {
-      "path": "assets/index-CCQhfw-d.js",
-      "bytes": 572623,
-      "sha256": "00c1f6946eb03c661a54c8e98496b161bebd5ebffaea0436daa19b170c37b19a"
+      "path": "assets/index-BpAn38b8.js",
+      "bytes": 572712,
+      "sha256": "c809a7d5e86bfe612dc5310487c54aad4b5e0403f6117731248ad7b7e6778013"
     },
     {
-      "path": "assets/LandingPracticeScreen-fGjs-e2h.js",
+      "path": "assets/LandingPracticeScreen-r2r-ZqMr.js",
       "bytes": 4387,
-      "sha256": "5b68fdd9a7ac7329a3c39005dfc21ad7511899173c1b33bba480080379cea0b8"
+      "sha256": "b582486acd43a61620421b71a2eb0a570c371c11f79c2093b3768422c04b4c0d"
     },
     {
       "path": "assets/layers/bastion-fortress-surface-v1.webp",
@@ -572,24 +572,24 @@
       "sha256": "55c27b811365c558dd3163fc708523598cb76a87be0aaf58cbe4eeada34c1ca6"
     },
     {
-      "path": "assets/NorwegianCampaignMap-B-nADKXn.js",
+      "path": "assets/NorwegianCampaignMap-B0eiC2R_.js",
       "bytes": 5933,
-      "sha256": "7539cf9315dd1bd9b4187f4a011b3a664ef239305193a7c111766cd52c13d6de"
+      "sha256": "19bcc12581575812ce8e49b36c695f38a32b2ea57796417055d57cc907ebb478"
     },
     {
-      "path": "assets/OperationAfterAction-CSdVjwf3.js",
+      "path": "assets/OperationAfterAction-NHEM8P8p.js",
       "bytes": 3537,
-      "sha256": "56082fb511f78f7abcbca2bf091e4aa6d4af752d5ffe77f22002c9eaa6e5f8c4"
+      "sha256": "5b554e7e0d6fdd6d4e9a19b422e1eb6b144c9145192379e527bc00698d849c2e"
     },
     {
-      "path": "assets/OperationDossier-tPpfsJLu.js",
+      "path": "assets/OperationDossier-BcLHm0vl.js",
       "bytes": 6753,
-      "sha256": "5af3b3eae67298f6fbe778a2298b217bde8510607bade72e085108ef3c2a4bfb"
+      "sha256": "7927cd70b648b8716d83da3aafea26380f06e610e71fa4da21cd3d8d3384ddc7"
     },
     {
-      "path": "assets/OperationsBoard-etZiSqJ8.js",
+      "path": "assets/OperationsBoard-DJhfmeBV.js",
       "bytes": 10150,
-      "sha256": "93cc7f21a755dd56b70ebd23581611fe853c19a8828ec51c5086f63e6b4880cc"
+      "sha256": "bed5ce18d255a099731fdbec5b44ae1c9cc029f024ef3d14e20e85eb1fb4bac0"
     },
     {
       "path": "assets/react-vendor-DDwC_z6H.js",
@@ -809,7 +809,7 @@
     {
       "path": "index.html",
       "bytes": 883,
-      "sha256": "6bbc77f4df3e309d2700ba02ed204ce4d66a834df1eacd91bf4f976c422a5039"
+      "sha256": "f046559e671241d74a8619c2360d3978069d01b17c8bca290cc13c94ab01026b"
     },
     {
       "path": "legal/AI_CONTENT_DISCLOSURE.txt",
@@ -823,8 +823,8 @@
     },
     {
       "path": "legal/PRIVACY.txt",
-      "bytes": 2954,
-      "sha256": "00acda8d8114ebb6de81a2b02b697e6f13f29cd25caefc4fa696c336131a3446"
+      "bytes": 3351,
+      "sha256": "2607cb3593475a943a6c02ce7328565b583bba37a3302829f60937cf554e9a5f"
     },
     {
       "path": "legal/RUST_THIRD_PARTY_NOTICES.txt",
@@ -833,8 +833,8 @@
     },
     {
       "path": "legal/SUPPORT.txt",
-      "bytes": 1580,
-      "sha256": "001639eea4c4f51dde3532302c4bf474fd2eb9596e74987cae018ccfc3c8b4ba"
+      "bytes": 1857,
+      "sha256": "d2f78df28477444071feb0ab367c895474708059a07c6f2c15a8dd2a34c6d2d9"
     },
     {
       "path": "legal/THIRD_PARTY_NOTICES.txt",

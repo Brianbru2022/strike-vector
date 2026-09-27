@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-BETA1-20260927-A",
+  "buildId": "IK87-1.2.0-BETA2-20260927-A",
   "defects": [
     { "id": "S10-001", "severity": "BLOCKER", "title": "Windows artefacts are not code-signed", "status": "EXTERNAL", "affectedBuild": "IK87-1.2.0-DEV1-20260921-HUD1", "reproduction": "Inspect the current Windows release manifest signed field.", "resolution": null, "verificationEvidence": null },
     { "id": "S10-002", "severity": "BLOCKER", "title": "Steam store page and product build are not approved", "status": "EXTERNAL", "affectedBuild": "IK87-1.2.0-DEV1-20260921-HUD1", "reproduction": "Run pnpm stage9:gate.", "resolution": null, "verificationEvidence": null },

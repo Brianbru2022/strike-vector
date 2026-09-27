@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-BETA1-20260927-A",
+  "buildId": "IK87-1.2.0-BETA2-20260927-A",
   "fivePlayerInternalTest": {
     "status": "PENDING_HUMAN",
     "evidence": "reports/milestone-5/control-concept-evidence.json"
@@ -19,8 +19,8 @@
     "evidence": null
   },
   "feedbackRoute": {
-    "status": "PENDING",
-    "url": null
+    "status": "APPROVED",
+    "url": "https://github.com/Brianbru2022/strike-vector/issues/new?template=beta-feedback.yml"
   },
   "hostedItchSmoke": {
     "status": "PENDING_EXTERNAL",

@@ -1,6 +1,6 @@
 # Milestone 11 human playtesting and balance closure
 
-Build identifier: **IK87-1.2.0-BETA1-20260927-A**
+Build identifier: **IK87-1.2.0-BETA2-20260927-A**
 
 Status: **PENDING HUMAN RUNS**
 

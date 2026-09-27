@@ -3,8 +3,8 @@
 ## Candidate identity
 
 - Product: Iron Kestrel '87
-- Version: 1.2.0-beta.1 / 1.2 BETA 1
-- Build: `IK87-1.2.0-BETA1-20260927-A`
+- Version: 1.2.0-beta.2 / 1.2 BETA 2
+- Build: `IK87-1.2.0-BETA2-20260927-A`
 - Branch: `release/1.2-playability-roadmap`
 - Channel: development
 

@@ -5,6 +5,8 @@ Iron Kestrel '87 is an offline-capable game with no account system, advertising 
 
 The restricted itch.io beta keeps at most 250 coarse events locally: session start, mission start, sortie result, retry request and continue request. These include the build, UTC day, mission, difficulty, simulation ticks and result where applicable. They contain no raw controls, free text, account, advertising identifier or network address. Export Beta Play Record downloads this JSON only when the player requests it; nothing is transmitted automatically.
 
+Selecting Send Beta Feedback opens an external GitHub Issue Form in a new browser tab. GitHub requires an account and processes the submitted answers and any voluntarily attached evidence under its own privacy terms. The game does not transmit the play record automatically. Review exports before attaching them and do not enter names, email addresses or other personal or sensitive information.
+
 Explicit internal-development builds can enable local diagnostics containing mission results, simulation timing, objectives, aggregate weapon use and hits, damage categories, warnings, landing grade and difficulty. They do not contain names, email addresses, account identifiers, precise location, IP addresses, raw key presses, free-form messages or browsing history. A maximum of 100 sessions is retained.
 
 Internal diagnostics can be disabled, inspected through JSON export or cleared in System Settings. Export Issue Report remains available in consumer builds and only downloads a sanitised JSON file to the device; it does not send the file anywhere. Consumer issue reports contain no diagnostic-session history. Operation seed values are removed from that export.

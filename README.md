@@ -2,7 +2,7 @@
 
 A painted 2D, side-scrolling VTOL action-simulation set during an alternative 1987 NATO–Warsaw Pact conflict. Fly a Sea Harrier FRS.1 through a sixteen-mission North Atlantic and Norwegian Sea campaign.
 
-Current unlisted-beta candidate: **1.2 BETA 1** (`IK87-1.2.0-BETA1-20260927-A`). The build remains on the `DEVELOPMENT` channel until its build-bound human, physical-device and hosted itch.io evidence passes. See `docs/PLAYABILITY_TO_RELEASE_ROADMAP.md`, `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MILESTONE_5_CONTROL_CONCEPT_TEST.md`, `docs/MILESTONE_6_GUIDED_ONBOARDING.md`, `docs/MILESTONE_7_DIRECTIONAL_CONTROLS.md`, `docs/MILESTONE_8_CONTEXTUAL_HUD.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
+Current unlisted-beta candidate: **1.2 BETA 2** (`IK87-1.2.0-BETA2-20260927-A`). The build remains on the `DEVELOPMENT` channel until its build-bound human, physical-device and hosted itch.io evidence passes. See `docs/PLAYABILITY_TO_RELEASE_ROADMAP.md`, `docs/EXTERNAL_BETA_RELEASE.md`, `docs/MILESTONE_5_CONTROL_CONCEPT_TEST.md`, `docs/MILESTONE_6_GUIDED_ONBOARDING.md`, `docs/MILESTONE_7_DIRECTIONAL_CONTROLS.md`, `docs/MILESTONE_8_CONTEXTUAL_HUD.md`, `docs/MISSION_AUTHORING.md` and the archived `docs/RELEASE_NOTES_1.0_RC1.md`.
 
 ## Production vertical slice
 

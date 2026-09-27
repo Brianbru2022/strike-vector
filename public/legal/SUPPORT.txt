@@ -1,12 +1,15 @@
 IRON KESTREL '87 SUPPORT
 
-Use the support or community channel on the storefront or distribution page from which Iron Kestrel '87 was obtained. A dedicated public address must be added before standalone commercial distribution without a storefront support route.
+Restricted itch.io beta feedback: https://github.com/Brianbru2022/strike-vector/issues/new?template=beta-feedback.yml
+
+The GitHub form requires a free GitHub account. Do not include names, email addresses, account details or other personal or sensitive information. For a later standalone commercial release, a dedicated support address must be approved separately.
 
 ISSUE REPORT
 1. Open System Settings.
 2. Select Export Issue Report under Support & Issue Report.
 3. Review the downloaded JSON before sharing it.
-4. Include the displayed build identifier and a short description.
+4. Select Send Beta Feedback and include the displayed build identifier and a short description.
+5. Optionally attach the reviewed Beta Play Record. If GitHub rejects the JSON type, place it in a ZIP archive first.
 
 The consumer export contains non-identifying runtime, settings and performance information. Internal builds may also include recent sanitised diagnostics. It excludes operation seeds, raw keys, names, contact details, IP addresses and account identifiers. Nothing is uploaded automatically.
 

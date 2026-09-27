@@ -1,6 +1,6 @@
 # Restricted beta feedback form
 
-Configure the final form URL as `VITE_BETA_FEEDBACK_URL` when building the itch package. The form must not require a name, email address or account unless the privacy notice and consent flow are deliberately changed.
+The restricted beta uses the repository's structured GitHub Issue Form at `https://github.com/Brianbru2022/strike-vector/issues/new?template=beta-feedback.yml`. The itch build reads the approved route from `config/external-beta-approval.json` and embeds it at build time. GitHub requires testers to sign in, so the privacy notice and consent wording explicitly describe that external account boundary. The form does not request a name or email address.
 
 ## Required questions
 

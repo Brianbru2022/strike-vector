@@ -2,8 +2,17 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import {VitePWA} from 'vite-plugin-pwa';
 import path from 'path';
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, readFileSync, rmSync } from 'node:fs';
 import {defineConfig} from 'vite';
+
+const configuredBetaFeedbackUrl = (() => {
+  try {
+    const approval = JSON.parse(readFileSync(path.resolve(__dirname, 'config/external-beta-approval.json'), 'utf8')) as { feedbackRoute?: { url?: unknown } };
+    return typeof approval.feedbackRoute?.url === 'string' ? approval.feedbackRoute.url.trim() : '';
+  } catch {
+    return '';
+  }
+})();
 
 export default defineConfig(({mode}) => {
   const desktop = mode === 'desktop';
@@ -17,6 +26,7 @@ export default defineConfig(({mode}) => {
       'import.meta.env.VITE_DESKTOP': JSON.stringify(desktop ? '1' : '0'),
       'import.meta.env.VITE_DEMO': JSON.stringify(demo ? '1' : '0'),
       'import.meta.env.VITE_ITCH': JSON.stringify(itch ? '1' : '0'),
+      'import.meta.env.VITE_BETA_FEEDBACK_URL': JSON.stringify(itch ? configuredBetaFeedbackUrl : ''),
     },
     plugins: [
       react(),
