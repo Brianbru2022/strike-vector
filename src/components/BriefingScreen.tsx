@@ -37,6 +37,7 @@ export const BriefingScreen: React.FC<BriefingScreenProps> = ({ mission, onLaunc
         handleLaunch();
       } else if (event.key === 'Escape') {
         event.preventDefault();
+        soundEngine.playUICancel();
         onBack();
       }
     };

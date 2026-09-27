@@ -22,4 +22,4 @@ The authoritative individual prompts are in `config/audio-production-manifest.js
 6. Mission-specific Fleet Defence and Bastion music.
 7. Carrier/FARP ambience, servicing music and secondary interface sounds.
 
-The existing thirteen bundled WAV files remain functional fallbacks until replacements pass headphones, ordinary speakers and laptop/mobile listening checks. They should not be removed merely because a new generated candidate exists.
+All forty-eight production sound-effect definitions now have checked-in runtime recordings. The former Sony Woosh canopy and parachute recordings were replaced on 26 September 2026 with paid-account ElevenLabs candidates; their original source archive remains only as historical provenance and is not shipped. Every production recording still requires final listening approval on headphones, ordinary speakers and laptop/mobile hardware before release sign-off.

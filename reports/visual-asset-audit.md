@@ -1,6 +1,6 @@
 # Visual Asset Audit
 
-- Runtime pack: **34.55 MiB** / 45 MiB
+- Runtime pack: **39.31 MiB** / 45 MiB
 - Presentation sprites checked: **23**
 - Signature assets checked: **4**
 - Failures: **0**

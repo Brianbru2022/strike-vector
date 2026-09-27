@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { blastRadiusFor, damageAspectFor, damageEmitterOffset, damageStageFor, getWeaponEffectProfile, impactSurfaceAt, resolveDirectionalDamage, secondaryDetonationInterval } from './CombatEffects';
 import { CAMPAIGN_MISSIONS } from './Missions';
-import { EnemyManager } from './EnemyManager';
+import { AIRCRAFT_WRECK_LIFETIME_TICKS, EnemyManager, getAircraftWreckOpacity } from './EnemyManager';
 import { ParticleAndEffects } from './ParticleAndEffects';
 import { PlayerAircraft } from './PlayerAircraft';
 import { WeaponsSystem } from './WeaponsSystem';
@@ -80,6 +80,31 @@ describe('combat effects authority', () => {
     expect(fighter.deathStage).toBe(0);
     expect(effects.explosions.some((explosion) => explosion.kind === 'AIRCRAFT_BREAKUP')).toBe(true);
     expect(effects.particles.filter((particle) => particle.type === 'DEBRIS').length).toBeGreaterThanOrEqual(4);
+  });
+
+  it('expires an aircraft wreck and stops its smoke emitter after impact', () => {
+    const fighter = CAMPAIGN_MISSIONS[5].spawnEnemies().find((enemy) => enemy.category === 'AIR')!;
+    Object.assign(fighter, { y: 508, vy: 3 });
+    const manager = new EnemyManager();
+    const effects = new ParticleAndEffects();
+    manager.reset([fighter]);
+    manager.killEnemy(fighter, 'MISSILE', effects);
+
+    const player = new PlayerAircraft();
+    const weapons = new WeaponsSystem();
+    manager.update(player, weapons, effects, undefined, undefined, () => 510);
+    expect(fighter.deathStage).toBe(2);
+    expect(fighter.deathTimer).toBe(AIRCRAFT_WRECK_LIFETIME_TICKS - 1);
+
+    for (let tick = 1; tick < AIRCRAFT_WRECK_LIFETIME_TICKS; tick++) {
+      manager.update(player, weapons, effects, undefined, undefined, () => 510);
+    }
+    expect(fighter.deathTimer).toBe(0);
+    expect(getAircraftWreckOpacity(fighter)).toBe(0);
+
+    const smokeCount = effects.particles.filter((particle) => particle.type === 'SMOKE').length;
+    for (let tick = 0; tick < 30; tick++) manager.update(player, weapons, effects, undefined, undefined, () => 510);
+    expect(effects.particles.filter((particle) => particle.type === 'SMOKE')).toHaveLength(smokeCount);
   });
 
   it('sinks damaged ships progressively with flooding and list', () => {

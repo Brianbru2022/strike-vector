@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-25T15:04:18.469Z",
-  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO4",
+  "generatedAt": "2026-09-26T17:43:38.851Z",
+  "buildId": "IK87-1.2.0-DEV1-20260926-AUDIO10",
   "passed": true,
-  "cueCount": 19,
-  "totalBytes": 1149850,
+  "cueCount": 48,
+  "totalBytes": 4993408,
   "files": [
     {
       "id": "jet_idle",
@@ -107,94 +107,384 @@
       "rms": 0.1792496652309626
     },
     {
-      "id": "rocket_launch",
-      "path": "public/assets/audio/rocket-motor-v1.wav",
-      "bytes": 25622,
+      "id": "missile_flyby",
+      "path": "public/assets/audio/elevenlabs/sidewinder-flyby-v1.wav",
+      "bytes": 44746,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.65057373046875,
-      "rms": 0.16150467698880439
+      "peak": 0.4014892578125,
+      "rms": 0.05505717000293599
+    },
+    {
+      "id": "rocket_launch",
+      "path": "public/assets/audio/elevenlabs/rocket-pod-salvo-v1.wav",
+      "bytes": 44356,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.5428466796875,
+      "rms": 0.1289860699127587
     },
     {
       "id": "bomb_release",
-      "path": "public/assets/audio/bomb-release-v1.wav",
-      "bytes": 15038,
+      "path": "public/assets/audio/elevenlabs/bomb-release-v2.wav",
+      "bytes": 30948,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.71484375,
-      "rms": 0.14435174385954902
+      "peak": 0.417266845703125,
+      "rms": 0.03869978514769154
     },
     {
       "id": "countermeasure",
-      "path": "public/assets/audio/flare-eject-v1.wav",
-      "bytes": 11510,
+      "path": "public/assets/audio/elevenlabs/flare-eject-v2.wav",
+      "bytes": 30948,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.673675537109375,
-      "rms": 0.1120414613657352
+      "peak": 0.4921875,
+      "rms": 0.0748036140774779
     },
     {
-      "id": "combat_impact",
-      "path": "public/assets/audio/heavy-impact-v1.wav",
-      "bytes": 46348,
+      "id": "aircraft_gun_hit",
+      "path": "public/assets/audio/elevenlabs/aircraft-gun-hit-v1.wav",
+      "bytes": 20174,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.999969482421875,
-      "rms": 0.16204293174032233
+      "peak": 0.4180908203125,
+      "rms": 0.09867447663697164
+    },
+    {
+      "id": "ground_armour_hit",
+      "path": "public/assets/audio/elevenlabs/ground-armour-hit-v1.wav",
+      "bytes": 25154,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.454376220703125,
+      "rms": 0.07434756330681823
+    },
+    {
+      "id": "ground_soft_hit",
+      "path": "public/assets/audio/elevenlabs/ground-soft-hit-v1.wav",
+      "bytes": 26960,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.444580078125,
+      "rms": 0.03432681569531813
+    },
+    {
+      "id": "water_impact",
+      "path": "public/assets/audio/elevenlabs/water-impact-v1.wav",
+      "bytes": 35752,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.462127685546875,
+      "rms": 0.1041009352005855
+    },
+    {
+      "id": "explosion_small",
+      "path": "public/assets/audio/elevenlabs/explosion-small-v1.wav",
+      "bytes": 44178,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.447021484375,
+      "rms": 0.08540528282747742
+    },
+    {
+      "id": "explosion_medium",
+      "path": "public/assets/audio/elevenlabs/explosion-medium-v1.wav",
+      "bytes": 79084,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.4671630859375,
+      "rms": 0.12364453725643029
+    },
+    {
+      "id": "explosion_large",
+      "path": "public/assets/audio/elevenlabs/explosion-large-v1.wav",
+      "bytes": 123294,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.405853271484375,
+      "rms": 0.1621555461225445
+    },
+    {
+      "id": "fuel_cookoff",
+      "path": "public/assets/audio/elevenlabs/fuel-cookoff-v1.wav",
+      "bytes": 199210,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.42633056640625,
+      "rms": 0.15502650891406608
+    },
+    {
+      "id": "aircraft_breakup",
+      "path": "public/assets/audio/elevenlabs/aircraft-breakup-v1.wav",
+      "bytes": 97502,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.4422607421875,
+      "rms": 0.07340738527121182
+    },
+    {
+      "id": "aircraft_ground_crash",
+      "path": "public/assets/audio/elevenlabs/aircraft-ground-crash-v1.wav",
+      "bytes": 105918,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.408355712890625,
+      "rms": 0.09991598684231322
+    },
+    {
+      "id": "aircraft_sea_crash",
+      "path": "public/assets/audio/elevenlabs/aircraft-sea-crash-v1.wav",
+      "bytes": 114914,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.41217041015625,
+      "rms": 0.10817027685786104
+    },
+    {
+      "id": "ejection_canopy",
+      "path": "public/assets/audio/elevenlabs/ejection-canopy-v2.wav",
+      "bytes": 28744,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.58740234375,
+      "rms": 0.06977770462647513
+    },
+    {
+      "id": "ejection_seat",
+      "path": "public/assets/audio/elevenlabs/ejection-seat-v1.wav",
+      "bytes": 52338,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.415435791015625,
+      "rms": 0.11393043537300286
+    },
+    {
+      "id": "parachute_open",
+      "path": "public/assets/audio/elevenlabs/parachute-open-v2.wav",
+      "bytes": 39768,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.690765380859375,
+      "rms": 0.0410694576017863
     },
     {
       "id": "ship_weapon",
-      "path": "public/assets/audio/naval-gun-v1.wav",
-      "bytes": 31796,
+      "path": "public/assets/audio/elevenlabs/naval-gun-v2.wav",
+      "bytes": 60054,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.999969482421875,
-      "rms": 0.19178881976078216
+      "peak": 0.412841796875,
+      "rms": 0.04601281873010659
+    },
+    {
+      "id": "ship_missile",
+      "path": "public/assets/audio/elevenlabs/antiship-missile-launch-v1.wav",
+      "bytes": 88840,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.367279052734375,
+      "rms": 0.12330050504715004
+    },
+    {
+      "id": "ship_sinking",
+      "path": "public/assets/audio/elevenlabs/ship-sinking-v1.wav",
+      "bytes": 247038,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.45135498046875,
+      "rms": 0.17743638888454674
     },
     {
       "id": "carrier_touchdown",
-      "path": "public/assets/audio/carrier-touchdown-v1.wav",
-      "bytes": 27386,
+      "path": "public/assets/audio/elevenlabs/carrier-touchdown-v2.wav",
+      "bytes": 66578,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.764556884765625,
-      "rms": 0.14023628894609508
+      "peak": 0.381439208984375,
+      "rms": 0.06388537601423913
     },
     {
       "id": "missile_warning",
-      "path": "public/assets/audio/threat-warning-v1.wav",
-      "bytes": 15038,
+      "path": "public/assets/audio/elevenlabs/missile-warning-loop-v1.wav",
+      "bytes": 44178,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.419403076171875,
-      "rms": 0.1714470187787037
+      "peak": 0.51953125,
+      "rms": 0.11369589079039893
     },
     {
-      "id": "north_atlantic_wind",
-      "path": "public/assets/audio/north-atlantic-wind-v1.wav",
-      "bytes": 79424,
+      "id": "carrier_deck_ambience",
+      "path": "public/assets/audio/elevenlabs/carrier-deck-ambience-v1.wav",
+      "bytes": 529278,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.82171630859375,
-      "rms": 0.1598764557038206
+      "peak": 0.17120361328125,
+      "rms": 0.03332675766135132
     },
     {
-      "id": "radio_call",
-      "path": "public/assets/audio/radio-chirp-v1.wav",
-      "bytes": 5336,
+      "id": "farp_ambience",
+      "path": "public/assets/audio/elevenlabs/farp-ambience-v1.wav",
+      "bytes": 492234,
       "sampleRate": 22050,
       "channels": 1,
       "bitsPerSample": 16,
-      "peak": 0.32757568359375,
-      "rms": 0.1103282360922893
+      "peak": 0.149505615234375,
+      "rms": 0.0327115151877035
+    },
+    {
+      "id": "storm_rain",
+      "path": "public/assets/audio/elevenlabs/storm-rain-loop-v1.wav",
+      "bytes": 492234,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.2904052734375,
+      "rms": 0.060367500502438824
+    },
+    {
+      "id": "thunder_distant",
+      "path": "public/assets/audio/elevenlabs/thunder-distant-v1.wav",
+      "bytes": 199004,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.374176025390625,
+      "rms": 0.0459372264570274
+    },
+    {
+      "id": "radar_search",
+      "path": "public/assets/audio/elevenlabs/radar-search-v1.wav",
+      "bytes": 16220,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.40985107421875,
+      "rms": 0.2067720828892081
+    },
+    {
+      "id": "coastal_surf",
+      "path": "public/assets/audio/elevenlabs/coastal-surf-loop-v1.wav",
+      "bytes": 529278,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.42974853515625,
+      "rms": 0.05793971710382333
+    },
+    {
+      "id": "radar_track",
+      "path": "public/assets/audio/elevenlabs/radar-track-loop-v1.wav",
+      "bytes": 44178,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.3797607421875,
+      "rms": 0.13253493115167597
+    },
+    {
+      "id": "target_lock",
+      "path": "public/assets/audio/elevenlabs/target-lock-v1.wav",
+      "bytes": 20428,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.403717041015625,
+      "rms": 0.07779788995769056
+    },
+    {
+      "id": "low_fuel",
+      "path": "public/assets/audio/elevenlabs/low-fuel-warning-v1.wav",
+      "bytes": 28744,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.469635009765625,
+      "rms": 0.0858475981309557
+    },
+    {
+      "id": "master_damage",
+      "path": "public/assets/audio/elevenlabs/master-damage-warning-v1.wav",
+      "bytes": 30948,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.521484375,
+      "rms": 0.18097678995507746
+    },
+    {
+      "id": "radio_squelch_in",
+      "path": "public/assets/audio/elevenlabs/radio-squelch-in-v1.wav",
+      "bytes": 8460,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.392608642578125,
+      "rms": 0.09860354049717676
+    },
+    {
+      "id": "radio_squelch_out",
+      "path": "public/assets/audio/elevenlabs/radio-squelch-out-v1.wav",
+      "bytes": 9406,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.489532470703125,
+      "rms": 0.05568356358167098
+    },
+    {
+      "id": "ui_confirm",
+      "path": "public/assets/audio/elevenlabs/ui-confirm-v1.wav",
+      "bytes": 7112,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.339385986328125,
+      "rms": 0.1213359539514842
+    },
+    {
+      "id": "ui_cancel",
+      "path": "public/assets/audio/elevenlabs/ui-cancel-v1.wav",
+      "bytes": 8202,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.44696044921875,
+      "rms": 0.04705948592514669
+    },
+    {
+      "id": "objective_complete",
+      "path": "public/assets/audio/elevenlabs/objective-complete-v1.wav",
+      "bytes": 34654,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.5465087890625,
+      "rms": 0.05784482583064318
     }
   ],
   "issues": []

@@ -3,7 +3,7 @@
   "release": {
     "version": "1.2.0-dev.1",
     "displayVersion": "1.2 DEV1",
-    "buildId": "IK87-1.2.0-DEV1-20260830",
+    "buildId": "IK87-1.2.0-DEV1-20260926-AUDIO10",
     "channel": "DEVELOPMENT",
     "campaignMissionCount": 16,
     "operationGenerationVersions": [
@@ -12,9 +12,9 @@
       3
     ],
     "saveVersion": 4,
-    "freezeStarted": "2026-08-30"
+    "freezeStarted": "2026-08-31"
   },
-  "generatedAt": "2026-08-30T18:16:04.315Z",
+  "generatedAt": "2026-09-26T21:00:05.387Z",
   "passed": true,
   "campaign": {
     "missions": 16,
@@ -129,7 +129,7 @@
       "validSorties": true
     }
   ],
-  "runtimePackMiB": 33.84,
+  "runtimePackMiB": 44.58,
   "runtimePackLimitMiB": 45,
   "media": [
     {
@@ -177,7 +177,8 @@
     "The 1.0 campaign objectives, formations and progression remain frozen.",
     "Campaign V1-V4 migration and operation V1/V2 seeds remain compatible.",
     "Dynamic Operations 2.0 data is isolated in V3 blueprints and V2 persistence stores.",
-    "Bundled 1.0 gameplay assets remain unchanged."
+    "Campaign content remains frozen; the playability-profile refactor requires fresh balance, recovery and physical-input evidence.",
+    "Thirty-nine ElevenLabs aircraft, weapon, impact, environment and warning cues are commercially licensed by paid-account user attestation; build-bound listening approval remains pending."
   ],
   "issues": []
 }

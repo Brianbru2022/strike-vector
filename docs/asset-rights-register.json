@@ -30,7 +30,18 @@
       "rightsBasis": "User-directed generated output created under the user's paid ElevenLabs account, selected and edited locally; account entitlement confirmed by the user on 2026-09-25 with generation history retained",
       "releaseStatus": "APPROVED",
       "attributionRequired": false,
-      "sourceEvidence": ["art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json", "scripts/prepare-nozzle-transition-audio.ps1", "docs/AUDIO_PRODUCTION_BRIEF.md"]
+      "sourceEvidence": ["art/source/generated-audio/elevenlabs-sfx-2026-09-25/provenance.json", "scripts/prepare-nozzle-transition-audio.ps1", "scripts/prepare-aircraft-action-audio.ps1", "scripts/prepare-weapon-feedback-audio.ps1", "scripts/prepare-final-production-audio.ps1", "docs/AUDIO_PRODUCTION_BRIEF.md"]
+    },
+    {
+      "id": "suno-project-music",
+      "pattern": "audio/music/*.ogg",
+      "category": "MUSIC",
+      "provenance": "USER_DIRECTED_SUNO_GENERATION_AND_PROJECT_EDITED",
+      "creator": "Iron Kestrel project using Suno",
+      "rightsBasis": "Original instrumental outputs generated and downloaded on 2026-09-26 under the user's active Suno Premier annual subscription, selected and edited locally; embedded Suno generation IDs, source files and processing records are retained",
+      "releaseStatus": "CONDITIONAL",
+      "attributionRequired": false,
+      "sourceEvidence": ["art/source/generated-audio/suno-music-2026-09-26/provenance.json", "scripts/prepare-suno-music.ps1", "config/audio-production-manifest.json", "docs/AUDIO_PRODUCTION_BRIEF.md"]
     },
     {
       "id": "ai-backgrounds",

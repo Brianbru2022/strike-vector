@@ -5,7 +5,7 @@ const root = process.cwd();
 const serviceWorker = await readFile(join(root, 'dist', 'sw.js'), 'utf8');
 const cachedUrls = [...serviceWorker.matchAll(/\{url:"([^"]+)"/g)].map((match) => match[1]);
 const duplicates = [...new Set(cachedUrls.filter((url, index) => cachedUrls.indexOf(url) !== index))];
-const eligibleExtensions = new Set(['.js', '.css', '.html', '.json', '.jpg', '.png', '.webp', '.wav', '.svg', '.woff2']);
+const eligibleExtensions = new Set(['.js', '.css', '.html', '.json', '.jpg', '.png', '.webp', '.wav', '.ogg', '.svg', '.woff2']);
 const publicFiles = (await walk(join(root, 'public')))
   .filter((path) => eligibleExtensions.has(extname(path).toLowerCase()))
   .map((path) => relative(join(root, 'public'), path).replaceAll('\\', '/'));

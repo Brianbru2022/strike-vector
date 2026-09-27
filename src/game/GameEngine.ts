@@ -50,6 +50,7 @@ export class GameEngine {
   public defendedAsset: DefendedAssetState | null = null;
   private lossSequence: AircraftLossSequence | null = null;
   private lossSnapshot: AircraftLossSnapshot | null = null;
+  private lossImpactSurface: 'GROUND' | 'WATER' = 'WATER';
   private missionDirector: MissionDirector;
   private trainingDirector = new TrainingDirector(false);
   private trainingHeldEnemies = new Map<string, Pick<EnemyUnit, 'vx' | 'vy' | 'state' | 'isTargetable'>>();
@@ -171,6 +172,7 @@ export class GameEngine {
     } : null;
     this.lossSequence = null;
     this.lossSnapshot = null;
+    this.lossImpactSurface = 'WATER';
     this.gameState = 'PLAYING';
     this.clearInput();
 
@@ -179,7 +181,7 @@ export class GameEngine {
     soundEngine.setMissionContext(this.currentMission.id);
     soundEngine.startJetEngine();
     soundEngine.setAtmosphere(this.currentMission.weather.condition, this.currentMission.weather.windSpeed);
-    soundEngine.startMusic();
+    soundEngine.startMusic(this.currentMission.launchSite !== 'FORWARD_BASE');
   }
 
   public beginLandingPractice(technique: 'ROLLING' | 'VERTICAL') {
@@ -402,6 +404,8 @@ export class GameEngine {
     for (const action of directorActions) {
       if (this.executeMissionAction(action)) return;
     }
+    const pendingPrimaryObjectives = mission.objectives.filter((objective) => objective.isPrimary && objective.active !== false && !objective.completed);
+    soundEngine.setRecoveryMusic(pendingPrimaryObjectives.length > 0 && pendingPrimaryObjectives.every((objective) => objective.targetType === 'LANDING'));
 
     // Low altitude combat flow score bonus
     if (s.altitudeBand === 'LOW' && !s.isOnCarrier && s.health > 0) {
@@ -455,6 +459,7 @@ export class GameEngine {
       const nearestThreat = this.enemies.getEnemies().filter((enemy) => enemy.isAlive).sort((a, b) => Math.abs(a.x - s.x) - Math.abs(b.x - s.x))[0];
       this.feedback.damageWarningTicks = COMBAT_FEEDBACK_PROFILE.damageWarningTicks;
       this.feedback.threatDirection = nearestThreat ? (nearestThreat.x < s.x ? 'LEFT' : 'RIGHT') : null;
+      if (healthBeforeEnemyUpdate >= 50 && s.health < 50) soundEngine.playMasterDamageWarning();
     }
     const nearestMissile = this.enemies.getEnemies().filter((enemy) => enemy.isAlive && enemy.type === 'ANTI_SHIP_MISSILE').sort((a, b) => Math.abs(a.x - s.x) - Math.abs(b.x - s.x))[0];
     this.feedback.incomingMissileDirection = nearestMissile ? (nearestMissile.x < s.x ? 'LEFT' : 'RIGHT') : null;
@@ -486,6 +491,7 @@ export class GameEngine {
 
     // Terrain & Particle Updates
     this.terrain.update(mission.weather);
+    if (this.terrain.consumeLightningStarted()) soundEngine.playThunder();
     this.effects.update();
     this.combatFlow.update();
     this.feedback.hitMarkerTicks = Math.max(0, this.feedback.hitMarkerTicks - 1);
@@ -666,24 +672,32 @@ export class GameEngine {
     if (this.lossSequence) return;
     const stats = this.player.stats;
     if (!this.deathCause) this.deathCause = stats.fuel <= 0 ? 'FUEL' : 'ENEMY_FIRE';
-    const impactY = this.terrain.getGroundContactY(stats.x, this.currentMission) ?? GAME_CONSTANTS.SEA_LEVEL_Y;
+    const groundContactY = this.terrain.getGroundContactY(stats.x, this.currentMission);
+    const impactY = groundContactY ?? GAME_CONSTANTS.SEA_LEVEL_Y;
+    this.lossImpactSurface = groundContactY === null ? 'WATER' : 'GROUND';
     this.lossSequence = new AircraftLossSequence(stats.x, stats.y, stats.vx, stats.vy, stats.rotation, impactY, stats.facing);
     this.combatMetrics.aircraftLossPhase = impactY - stats.y >= 80 ? 'EJECTION' : 'LOW_ALTITUDE_IMPACT';
     this.gameState = 'EJECTING';
     this.clearInput();
     soundEngine.playRadioCall('MAYDAY! KESTREL ONE DOWN. EJECTING.');
     this.effects.createExplosion(stats.x, stats.y, 'LARGE');
-    soundEngine.playExplosion('LARGE');
+    soundEngine.playAircraftBreakup();
   }
 
   private updateLossSequence() {
     if (!this.lossSequence) return;
     this.lossSnapshot = this.lossSequence.update();
+    if (this.lossSnapshot.pilotSurvived && this.lossSnapshot.frame === 15) {
+      soundEngine.playEjectionCanopy();
+      soundEngine.playEjectionSeat();
+    }
+    if (this.lossSnapshot.pilotSurvived && this.lossSnapshot.frame === 42) soundEngine.playParachuteOpen();
     if (this.lossSnapshot.impactStarted) {
       this.effects.createExplosion(this.lossSnapshot.aircraftX, this.lossSnapshot.aircraftY, 'COLOSSAL');
-      soundEngine.playExplosion('COLOSSAL');
+      soundEngine.playAircraftCrash(this.lossImpactSurface);
     }
     this.terrain.update(this.currentMission.weather);
+    if (this.terrain.consumeLightningStarted()) soundEngine.playThunder();
     this.effects.update();
     if (this.lossSnapshot.complete) {
       const scoreData = this.finalizeScore(false, this.lossSnapshot.pilotSurvived);
@@ -712,6 +726,7 @@ export class GameEngine {
         if (obj.currentCount >= obj.requiredCount) {
           obj.completed = true;
           this.combatFlow.addAction(`OBJECTIVE COMPLETE: ${obj.description}`, 25);
+          soundEngine.playObjectiveComplete();
           soundEngine.playRadioCall('OBJECTIVE COMPLETE.');
         }
       }
@@ -733,10 +748,11 @@ export class GameEngine {
       if (objective) objective.active = true;
     } else if (action.type === 'COMPLETE_OBJECTIVE') {
       const objective = this.currentMission.objectives.find((item) => item.id === action.objectiveId);
-      if (objective) {
+      if (objective && !objective.completed) {
         objective.active = true;
         objective.completed = true;
         objective.currentCount = objective.requiredCount;
+        soundEngine.playObjectiveComplete();
       }
     } else if (action.type === 'RADIO') {
       soundEngine.playRadioCall(action.message);
@@ -870,6 +886,7 @@ export class GameEngine {
   private handleEnemyCombatEvent(event: EnemyCombatEvent) {
     if (event.type === 'PLAYER_DAMAGED') {
       this.combatMetrics.damageReceived[event.source] += event.amount;
+      if ((event.source === 'AIRCRAFT_GUN' || event.source === 'GROUND_FIRE') && event.amount > 0) soundEngine.playAircraftGunHit();
       return;
     }
     if (event.type === 'PLAYER_WEAPON_HIT') {
@@ -929,8 +946,13 @@ export class GameEngine {
   }
 
   public render(ctx: CanvasRenderingContext2D) {
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
+    const renderScale = Math.max(0.35, Number(ctx.canvas.dataset.renderScale) || 1);
+
+    ctx.save();
+    ctx.setTransform(renderScale, 0, 0, renderScale, 0, 0);
+    ctx.clearRect(0, 0, width, height);
 
     // Apply Screen Shake
     ctx.save();
@@ -1009,6 +1031,7 @@ export class GameEngine {
       ctx.globalAlpha = 1.0;
     }
 
+    ctx.restore();
     ctx.restore();
   }
 }

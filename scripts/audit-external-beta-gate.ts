@@ -37,7 +37,7 @@ if (!preparation || preparation.buildId !== RELEASE_INFO.buildId || preparation.
 }
 const itchAudit = readJson<{ buildId?: string; passed?: boolean; configuredFeedbackUrl?: string | null; feedbackUrlEmbedded?: boolean }>('reports/external-beta/itch-build-audit.json');
 if (!itchAudit || itchAudit.buildId !== RELEASE_INFO.buildId || itchAudit.passed !== true) blockers.push('The current itch build audit is missing or failed.');
-if (!existsSync(resolve('release-artifacts/itch-1.2.0-dev.1/iron-kestrel-87-itch-beta.zip'))) blockers.push('The upload-ready itch ZIP is missing.');
+if (!existsSync(resolve(`release-artifacts/itch-${RELEASE_INFO.version}/iron-kestrel-87-itch-beta.zip`))) blockers.push('The upload-ready itch ZIP is missing.');
 
 const approval = readJson<Approval>('config/external-beta-approval.json');
 if (!approval || approval.schemaVersion !== 1 || approval.buildId !== RELEASE_INFO.buildId) blockers.push('External-beta approval configuration does not match the current build.');

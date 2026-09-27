@@ -45,6 +45,15 @@ const GROUND_SPRITE_HALF_WIDTH: Partial<Record<EnemyType, number>> = {
   PROTECTED_SETTLEMENT: 86,
 };
 
+export const AIRCRAFT_WRECK_LIFETIME_TICKS = 180;
+const AIRCRAFT_WRECK_FADE_TICKS = 60;
+
+export function getAircraftWreckOpacity(enemy: EnemyUnit): number {
+  if (enemy.isAlive || enemy.category !== 'AIR' || enemy.type === 'ANTI_SHIP_MISSILE' || (enemy.deathStage ?? 0) < 2) return 1;
+  const remaining = Math.max(0, enemy.deathTimer ?? 0);
+  return Math.min(1, remaining / AIRCRAFT_WRECK_FADE_TICKS);
+}
+
 export class EnemyManager {
   public enemies: EnemyUnit[] = [];
   private radarActive = true;
@@ -162,6 +171,7 @@ export class EnemyManager {
             e.vx = 0;
             e.vy = 0;
             e.deathStage = 2;
+            e.deathTimer = AIRCRAFT_WRECK_LIFETIME_TICKS;
             effects.createExplosion(e.x, e.y - 8, 'LARGE', 'AIRCRAFT_BREAKUP', impactY >= GAME_CONSTANTS.SEA_LEVEL_Y ? 'WATER' : 'GROUND');
             soundEngine.playExplosion('LARGE');
           }
@@ -176,7 +186,7 @@ export class EnemyManager {
           if (e.deathTimer !== undefined && e.deathTimer % 20 === 0) effects.createNavalSinking(e.x, e.y, e.width, e.sinkProgress);
           if (e.sinkProgress >= 0.98) e.deathStage = 2;
         }
-        if (e.type !== 'ANTI_SHIP_MISSILE' && e.deathTimer !== undefined && e.deathTimer % 14 === 0) {
+        if (e.type !== 'ANTI_SHIP_MISSILE' && e.deathTimer !== undefined && e.deathTimer > 0 && e.deathTimer % 14 === 0) {
           const emitter = damageEmitterOffset(e, e.deathTimer);
           effects.createDamagePlume(e.x + emitter.x, e.y + emitter.y, 2, e.category === 'NAVAL');
         }
@@ -567,6 +577,12 @@ export class EnemyManager {
           effects.createWeaponImpact(proj.x, proj.y, proj.type, 'TARGET');
           effects.createDirectionalImpact(proj.x, proj.y, proj.vx, proj.vy, resolution.outcome);
 
+          if (proj.type === 'CANNON_ROUND') {
+            if (enemy.category === 'AIR') soundEngine.playAircraftGunHit();
+            else if (enemy.category === 'STRUCTURE') soundEngine.playSurfaceImpact('GROUND');
+            else soundEngine.playArmourHit();
+          }
+
           // Bomb AoE explosion
           if (proj.type === 'BOMB' || proj.type === 'MISSILE' || proj.type === 'ROCKET') {
             soundEngine.playExplosion(getWeaponEffectProfile(proj.type).intensity);
@@ -697,7 +713,7 @@ export class EnemyManager {
       soundEngine.playExplosion('LARGE');
     } else if (enemy.type === 'FUEL_DEPOT') {
       effects.createExplosion(enemy.x, enemy.y, 'COLOSSAL', 'SECONDARY', 'GROUND');
-      soundEngine.playExplosion('COLOSSAL');
+      soundEngine.playFuelCookoff();
       soundEngine.playRadioCall('FUEL DEPOT DETONATED.');
     } else if (enemy.type === 'COMMAND_VEHICLE') {
       this.commandDazedTimer = 360; // 6 seconds dazed
@@ -713,10 +729,11 @@ export class EnemyManager {
       soundEngine.playExplosion('SMALL');
     } else if (enemy.category === 'AIR') {
       effects.createAircraftBreakup(enemy.x, enemy.y, enemy.vx, enemy.vy);
-      soundEngine.playExplosion('MEDIUM');
+      soundEngine.playAircraftBreakup();
     } else if (enemy.category === 'NAVAL') {
       effects.createExplosion(enemy.x, enemy.y - enemy.height * 0.25, 'LARGE', 'NAVAL_BLAST', 'WATER');
       soundEngine.playExplosion('LARGE');
+      soundEngine.playShipSinking();
     } else {
       const expSize = enemy.category === 'GROUND' ? 'MEDIUM' : 'LARGE';
       effects.createExplosion(enemy.x, enemy.y, expSize, 'GENERIC', enemy.category === 'GROUND' || enemy.category === 'STRUCTURE' ? 'GROUND' : 'TARGET');
@@ -733,7 +750,8 @@ export class EnemyManager {
 
     for (const e of this.enemies) {
       const screenX = e.x - cameraX;
-      if (screenX < -140 || screenX > ctx.canvas.width + 140) continue;
+      if (screenX < -140 || screenX > GAME_CONSTANTS.VIEWPORT_WIDTH + 140) continue;
+      if (!e.isAlive && e.category === 'AIR' && e.type !== 'ANTI_SHIP_MISSILE' && (e.deathStage ?? 0) >= 2 && (e.deathTimer ?? 0) <= 0) continue;
 
       const sitsOnLand = e.category === 'GROUND' || e.category === 'STRUCTURE';
       const footprintHalfWidth = GROUND_SPRITE_HALF_WIDTH[e.type] ?? e.width * 0.5;
@@ -807,6 +825,7 @@ export class EnemyManager {
 
       // Dead unit charred wreckage with smoke
       if (!e.isAlive) {
+        ctx.globalAlpha *= getAircraftWreckOpacity(e);
         if (e.category === 'AIR' && e.type !== 'ANTI_SHIP_MISSILE' && (e.deathStage ?? 0) < 2) {
           const fallingSprite = e.type === 'ATTACK_HELI'
             ? 'enemy_heli'

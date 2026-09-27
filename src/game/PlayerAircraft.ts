@@ -242,6 +242,7 @@ export class PlayerAircraft {
 
     if (s.fuel < 10 && !this.lowFuelWarningPlayed) {
       this.lowFuelWarningPlayed = true;
+      soundEngine.playLowFuelWarning();
       soundEngine.playRadioCall('BINGO FUEL. RETURN TO CARRIER.');
     }
 

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-25T14:59:12.930Z",
-  "buildId": "IK87-1.2.0-DEV1-20260925-AUDIO4",
+  "generatedAt": "2026-09-26T07:27:21.145Z",
+  "buildId": "IK87-1.2.0-DEV1-20260926-AUDIO10",
   "passed": true,
-  "totalBytes": 15689140,
+  "totalBytes": 15682868,
   "budgetBytes": 15728640,
-  "assetBytes": 14768810,
-  "assetCount": 49,
-  "outputFileCount": 62,
-  "fingerprint": "3bf67828c9f7ee2d16f8fb458522d45ce433df24fd4eb540030739770a23a1e8",
+  "assetBytes": 14746918,
+  "assetCount": 72,
+  "outputFileCount": 85,
+  "fingerprint": "113c37a0cea5c0de67b37dcd0a81cfffbddd78ba7dbbb83ce130e8cfce2a25eb",
   "issues": []
 }

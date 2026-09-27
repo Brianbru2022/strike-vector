@@ -1,6 +1,7 @@
 import { CombatEffectKind, ImpactSurface, Particle, Explosion, Projectile, RenderQuality } from '../types/game';
 import { SpriteAssetManager } from './SpriteAssetManager';
 import { getWeaponEffectProfile } from './CombatEffects';
+import { GAME_CONSTANTS } from './constants';
 
 export class ParticleAndEffects {
   public particles: Particle[] = [];
@@ -556,7 +557,7 @@ export class ParticleAndEffects {
     // Render explosions
     for (const exp of this.explosions) {
       const screenX = exp.x - cameraX;
-      if (screenX < -150 || screenX > ctx.canvas.width + 150) continue;
+      if (screenX < -150 || screenX > GAME_CONSTANTS.VIEWPORT_WIDTH + 150) continue;
 
       const progress = 1 - exp.life / exp.maxLife;
       ctx.save();
@@ -635,7 +636,7 @@ export class ParticleAndEffects {
     // Render particles
     for (const p of this.particles) {
       const screenX = p.x - cameraX;
-      if (screenX < -60 || screenX > ctx.canvas.width + 60) continue;
+      if (screenX < -60 || screenX > GAME_CONSTANTS.VIEWPORT_WIDTH + 60) continue;
 
       ctx.save();
       ctx.globalAlpha = p.alpha;

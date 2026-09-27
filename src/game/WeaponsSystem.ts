@@ -448,10 +448,12 @@ export class WeaponsSystem {
       if (p.y >= impactY) {
         if (p.type !== 'FLARE' && p.type !== 'ENEMY_FLAK') {
           const profile = getWeaponEffectProfile(p.type);
-          effects.createWeaponImpact(p.x, impactY, p.type, impactSurfaceAt(sampledGround, GAME_CONSTANTS.SEA_LEVEL_Y));
+          const impactSurface = impactSurfaceAt(sampledGround, GAME_CONSTANTS.SEA_LEVEL_Y);
+          effects.createWeaponImpact(p.x, impactY, p.type, impactSurface);
+          soundEngine.playSurfaceImpact(impactSurface === 'WATER' ? 'WATER' : 'GROUND');
           if (p.type === 'BOMB' || p.type === 'MISSILE' || p.type === 'ROCKET' || p.type === 'ENEMY_MISSILE') {
             soundEngine.playExplosion(profile.intensity);
-            if (p.source === 'PLAYER') this.blastEvents.push({ projectile: { ...p }, x: p.x, y: impactY, surface: impactSurfaceAt(sampledGround, GAME_CONSTANTS.SEA_LEVEL_Y) });
+            if (p.source === 'PLAYER') this.blastEvents.push({ projectile: { ...p }, x: p.x, y: impactY, surface: impactSurface });
           }
         }
         this.projectiles.splice(i, 1);
@@ -469,7 +471,7 @@ export class WeaponsSystem {
 
     for (const p of this.projectiles) {
       const screenX = p.x - cameraX;
-      if (screenX < -50 || screenX > ctx.canvas.width + 50) continue;
+      if (screenX < -50 || screenX > GAME_CONSTANTS.VIEWPORT_WIDTH + 50) continue;
 
       // 2.5D Ground / Sea Shadow for Falling Bombs & Heavy Ordnance
       if (p.type === 'BOMB' && p.y < seaY) {

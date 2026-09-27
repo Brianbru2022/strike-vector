@@ -21,7 +21,7 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ onClose, onStart
           </div>
           <button
             onClick={() => {
-              soundEngine.playUIClick();
+              soundEngine.playUICancel();
               onClose();
             }}
             className="p-1.5 rounded hover:bg-zinc-800 text-zinc-400 hover:text-white transition"

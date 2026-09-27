@@ -43,9 +43,9 @@ for (const cue of assets) {
   }
 }
 
-if (assets.length !== 19) issues.push(`Expected 19 authored cues, found ${assets.length}.`);
+if (assets.length !== 48) issues.push(`Expected all 48 production-manifest SFX to use authored cues; found ${assets.length}.`);
 if (new Set(assets.map((cue) => cue.samplePath)).size !== assets.length) issues.push('Audio cue paths must be unique.');
-if (totalBytes > 1_500_000) issues.push(`Authored audio pack is ${totalBytes} bytes; budget is 1500000.`);
+if (totalBytes > 5_000_000) issues.push(`Authored audio pack is ${totalBytes} bytes; budget is 5000000.`);
 if (MIXER_BASE_GAINS.WARNINGS <= MIXER_BASE_GAINS.ENGINE || MIXER_BASE_GAINS.RADIO <= MIXER_BASE_GAINS.AMBIENCE) issues.push('Critical buses do not remain above background buses.');
 if (PRIORITY_DUCKING.WARNING.engine >= MIXER_BASE_GAINS.ENGINE || PRIORITY_DUCKING.RADIO.ambience >= MIXER_BASE_GAINS.AMBIENCE) issues.push('Priority ducking does not create sufficient warning/radio space.');
 

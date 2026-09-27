@@ -3,8 +3,8 @@
 ## Candidate identity
 
 - Product: Iron Kestrel '87
-- Version: 1.2.0-dev.1 / 1.2 DEV1
-- Build: `IK87-1.2.0-DEV1-20260925-AUDIO4`
+- Version: 1.2.0-beta.1 / 1.2 BETA 1
+- Build: `IK87-1.2.0-BETA1-20260927-A`
 - Branch: `release/1.2-playability-roadmap`
 - Channel: development
 

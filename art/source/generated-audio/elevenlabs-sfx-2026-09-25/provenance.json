@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25",
+  "generatedAt": "2026-09-26",
   "source": {
     "service": "ElevenLabs Sound Effects",
     "model": "ElevenLabs Sound Effects model selected by the service",
     "generationHistoryRetainedExternally": true,
     "commercialEntitlementEvidence": "USER_ATTESTATION_PAID_ELEVENLABS_ACCOUNT",
     "commercialEntitlementAttestedAt": "2026-09-25",
-    "commercialEntitlementScope": "All forty-one source files and the ten edited runtime cues in this archive were generated under the user's paid ElevenLabs account."
+    "commercialEntitlementScope": "All one hundred and eighty-seven source files and the forty-eight edited runtime cues in this archive were generated under the user's paid ElevenLabs account."
   },
   "assets": [
     {
@@ -160,12 +160,446 @@
         "sha256": "ebadfdf065f5611e2ff821101ddd215cd9065079a39d4686984ac61251126908",
         "processing": "Candidate 01; isolated and tempo-adjusted to approximately 1.2 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 5 dB attenuation."
       }
+    },
+    {
+      "asset": "Sidewinder flyby",
+      "prompt": "Fast small air-to-air missile flyby passing close to the listener, sharp directional Doppler whoosh with a compact rocket-motor hiss, rapid approach and receding tail, approximately 1 second. No launch transient, impact, explosion, aircraft engine, voice, music, cinematic bass hit, clipping or long reverb.",
+      "candidates": [
+        { "file": "sidewinder-flyby-candidate-01.wav", "sha256": "d1a8da6b36e569511f033200572f27430a36f21d9f8cf14fbd2745b6e7563b09", "selected": false },
+        { "file": "sidewinder-flyby-candidate-02.wav", "sha256": "909f10571a631ff60f6d593356bf3c8e98cdf7f954345d0059d9411b7c9a4405", "selected": true, "selectionReason": "Smoothest continuous approach and receding spectral tail without the pronounced discontinuities visible in candidates 03 and 04." },
+        { "file": "sidewinder-flyby-candidate-03.wav", "sha256": "a647a4a8dc7565acc802edac43726b04f69c2a46d2ca3c33f9eb9414427c7460", "selected": false },
+        { "file": "sidewinder-flyby-candidate-04.wav", "sha256": "38b0181375b7a0e6d5da584d24c81900cfe14f01f0c527a8baF44b06eb3814ff", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/sidewinder-flyby-v1.wav",
+        "sha256": "aa1cbc558edb1a32f9b68d32bdb6895bab9fc6a3393feda2c3eb11375c8f7280",
+        "processing": "Candidate 02; compacted to one second, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 7 dB attenuation; layered 120 ms after rail ignition. Human mix approval remains pending."
+      }
+    },
+    {
+      "asset": "Rocket-pod salvo",
+      "prompt": "Close exterior recording of four unguided aircraft rockets firing from a military aircraft rocket pod in rapid succession. Distinct ignition pops, gritty rocket motors and short receding exhaust tails, approximately 1 second. No impacts, explosions, aircraft engine, voice, music, clipping or cinematic processing.",
+      "candidates": [
+        { "file": "rocket-salvo-candidate-01.wav", "sha256": "927182648a51055a8a29ab911d8f54dd46649942c00a48ad9f9f5734b3a4f9fd", "selected": false },
+        { "file": "rocket-salvo-candidate-02.wav", "sha256": "c921818b29e161115b9e6e872ee76408fb97b5462af3300463a29eec3cf82392", "selected": false },
+        { "file": "rocket-salvo-candidate-03.wav", "sha256": "fb4cd39f535bab6400626c21b26826c8f46d8bb37b7b41439c398e9de7fac71d", "selected": true, "selectionReason": "Clearest sequence of discrete ignition transients with useful peak headroom and a controlled tail." },
+        { "file": "rocket-salvo-candidate-04.wav", "sha256": "a89a08b14a98ddffc1c48b81c56c76ba917bf4c09cc051570721ddeDB95a66e4", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/rocket-pod-salvo-v1.wav",
+        "sha256": "87dde4136b8ce077eb7b2a7e9229ac7925a077e10a6ef801785897afce588ef0",
+        "processing": "Candidate 03; compacted to one second, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 5 dB attenuation. Human mix approval remains pending."
+      }
+    },
+    {
+      "asset": "Bomb-rack release",
+      "prompt": "Close airframe recording of a military aircraft bomb rack releasing one bomb. Firm mechanical ejector clunk, brief pneumatic snap, metal vibration and subtle airflow departure, approximately 0.7 seconds. No explosion, falling whistle, engine, warning tone, voice, music or long reverb.",
+      "candidates": [
+        { "file": "bomb-release-candidate-01.wav", "sha256": "4a89a5eb7640079f579f139322480e5db3b4b1ee5398c28494138ffcc1da7af4", "selected": false },
+        { "file": "bomb-release-candidate-02.wav", "sha256": "52e1f43a69f031f89cce103d81c6d60e70b8bd4282671edab66fce20bc6a922e", "selected": false },
+        { "file": "bomb-release-candidate-03.wav", "sha256": "f18327e6f453d07b3f3c947ba6f5eff3fc6a2e093c84108aa460d6858b05b756", "selected": false },
+        { "file": "bomb-release-candidate-04.wav", "sha256": "e6b5cc7e5fa233fff5757d09be9daa2683dc93730342964c3ea9b1043ffbf629", "selected": true, "selectionReason": "Most compact isolated mechanical event, strongest peak headroom and least persistent background energy." }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/bomb-release-v2.wav",
+        "sha256": "0097db0626676834b091e77e289b60213e8516bf78a997f190940e8218fa5c90",
+        "processing": "Candidate 04; retained at 0.7 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 2 dB attenuation. Human mix approval remains pending."
+      }
+    },
+    {
+      "asset": "Countermeasure flare ejection",
+      "prompt": "Close exterior recording of an aircraft countermeasure flare cartridge ejecting. Sharp mechanical thump followed by several brief, bright pyrotechnic crackles travelling away through the airflow, approximately 0.7 seconds. No missile alarm, explosion, voice, music, engine or cinematic bass.",
+      "candidates": [
+        { "file": "flare-eject-candidate-01.wav", "sha256": "665619d3d376ff2ef2d314a52a87e927adbbda0f1f0535bae34fd6c3a3dfd592", "selected": false },
+        { "file": "flare-eject-candidate-02.wav", "sha256": "e236cb20158016af4be79ac9928316fdd9e4e4c28b7d206cd1abaAB6110464a5", "selected": false },
+        { "file": "flare-eject-candidate-03.wav", "sha256": "5acb7df2814d8b3220ec79ebf79dd8a59d2ca45f9c34e593972c8bda6e510503", "selected": true, "selectionReason": "Best separation between the initial ejector transient, pyrotechnic body and receding tail." },
+        { "file": "flare-eject-candidate-04.wav", "sha256": "eec0fb3878f6879d0b612c48da6e09353bfdce0e7f44b7f9228d24e3e316ede2", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/flare-eject-v2.wav",
+        "sha256": "f5fe241edb847436cf85c2788f01272c4c232398129ea16a27f0c830632a8e7e",
+        "processing": "Candidate 03; retained at 0.7 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 7 dB attenuation. Human mix approval remains pending."
+      }
+    },
+    {
+      "asset": "Aircraft cannon hit",
+      "prompt": "Brief cannon-shell strike against the aluminium skin of a military aircraft. Hard metallic punch, tearing sheet metal, small debris scatter and a very short airframe resonance, approximately 0.45 seconds. No weapon firing sound, large explosion, voice, music, long reverb or exaggerated cinematic impact.",
+      "candidates": [
+        { "file": "aircraft-gun-hit-candidate-01.wav", "sha256": "533ddd18c62733eb68a9aef8a84a9968e521db8a34c2e2dd0ecbee3735c8be95", "selected": true, "selectionReason": "Cleanest single broadband strike and shortest natural decay; other candidates contain more pronounced tonal or repeated artefacts." },
+        { "file": "aircraft-gun-hit-candidate-02.wav", "sha256": "726e213378ad7475a2ed80efb208f26b271ce891562d857e78f826babcd5052d", "selected": false },
+        { "file": "aircraft-gun-hit-candidate-03.wav", "sha256": "96a2c67fb02fa74bbd77510960b0fe418ad49cfc0ffc3d90d9c4beb7a71d54f8", "selected": false },
+        { "file": "aircraft-gun-hit-candidate-04.wav", "sha256": "c7039d9806cef4777bba8a65edb50a622a35368a534cc92254f026f91dc4ac3f", "selected": false }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/elevenlabs/aircraft-gun-hit-v1.wav",
+        "sha256": "6f34cc29ab7716fa845e2b292510fcc2e55742b6dd3347664d318e90d38d47e1",
+        "processing": "Candidate 01; compacted to approximately 0.45 seconds, centred mono 22.05 kHz 16-bit PCM, short boundary fades and 8 dB attenuation. Human mix approval remains pending."
+      }
+    },
+    {
+      "asset": "Ground armour hit",
+      "prompt": "Heavy projectile striking thick armoured steel at close range. Dense metallic slam, sharp armour plate impact, brief internal spall rattle and short low-frequency hull resonance. Approximately 0.55 seconds. Dry isolated recording. No weapon firing sound, ricochet whistle, large explosion, engine, voice, music, battlefield ambience or long reverb.",
+      "candidates": [
+        { "file": "ground-armour-hit-candidate-01.wav", "sha256": "b7395d13292e52112a454cbb59e41a66c86244b868541fa5d9650a4b686e826b", "selected": false },
+        { "file": "ground-armour-hit-candidate-02.wav", "sha256": "f89aae8ea43b3557471c043aa8cae94683a9e206e41ef9e4a51e45798e619035", "selected": true, "selectionReason": "Most coherent dense strike and decay, with less discontinuity and repeated ringing than the alternatives." },
+        { "file": "ground-armour-hit-candidate-03.wav", "sha256": "4beae027ad2e334acaa64100f6e9c3b771f22177385db3a518e1ce9103a92854", "selected": false },
+        { "file": "ground-armour-hit-candidate-04.wav", "sha256": "efeebc533943c0bd281f8507ece8011905a731607581357652c700ab68f7b685", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ground-armour-hit-v1.wav", "sha256": "3d17355bc945a5852a1d235ffa5ac077354995126ce79fa81ace49ae340c244e", "processing": "Candidate 02; compacted to approximately 0.55 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Rock and concrete hit",
+      "prompt": "Compact military projectile striking rocky soil and broken concrete. Sharp initial crack, dense dirt burst, fragments scattering and a brief natural debris fall. Approximately 0.6 seconds. Dry isolated recording. No large explosion, weapon launch, gunshot, voice, music, sustained fire or cinematic bass.",
+      "candidates": [
+        { "file": "ground-soft-hit-candidate-01.wav", "sha256": "d23f554e819be7a53685fd17a5c0af5bb194c817bed500d6233713bca1436a4b", "selected": false },
+        { "file": "ground-soft-hit-candidate-02.wav", "sha256": "8fa3f0dd7c387c58e58a29f571997c7cac79015634cece81e5f33bcbc754a48c", "selected": false },
+        { "file": "ground-soft-hit-candidate-03.wav", "sha256": "0edbe4ef3377913a20567d83d355895dc9547ec02e8b17c6a4046ffff08bcde7", "selected": true, "selectionReason": "Clearest initial crack followed by irregular debris rather than a rhythmic sequence of repeated transients." },
+        { "file": "ground-soft-hit-candidate-04.wav", "sha256": "68595effbc541af92866f80a08f9844bcf028cda88cf205bf852e3012d55f9d4", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ground-soft-hit-v1.wav", "sha256": "13616168d80430eaf4ea8003ce90bae44538c3b50dc38a2fafb307b252ee73ca", "processing": "Candidate 03; compacted to 0.6 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Open-sea projectile impact",
+      "prompt": "Fast projectile or compact aircraft rocket striking cold open sea at high speed. Hard initial water slap, narrow vertical plume, dense splash and brief falling spray. Approximately 0.8 seconds. Dry isolated recording. No explosion, thunder, ship sounds, breaking coastal wave, voice, music or long water ambience.",
+      "candidates": [
+        { "file": "water-impact-candidate-01.wav", "sha256": "eb96f8be521b7a09228b8f624e04b794829b30483b3adec211a903416d1d9471", "selected": false },
+        { "file": "water-impact-candidate-02.wav", "sha256": "bb8e9459da4d886a79b11f74d7a00c1fe01d5301097330eb041c8fb304177678", "selected": true, "selectionReason": "Best-defined initial slap with a broad, continuously decaying spray tail." },
+        { "file": "water-impact-candidate-03.wav", "sha256": "f9ffe2c3c0c513a5511791770f40226c277550c5ce960df5ab73b8cec1eac4cf", "selected": false },
+        { "file": "water-impact-candidate-04.wav", "sha256": "9b379afd1ae1b228707c78036aa5c9ff1fc4def5b0b2bd70ba67b1fcd24d0f4a", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/water-impact-v1.wav", "sha256": "2b177208633d3cfa63f89fabfe63dba8fe04e9aea014b36fc646b841c33ffa8c", "processing": "Candidate 02; compacted to 0.8 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Small combat explosion",
+      "prompt": "Small military fuel-and-metal explosion suitable for a light vehicle, missile or exposed equipment. Tight initial detonation crack, compact low-frequency thump, several short metal debris ticks and a minimal fading tail. Approximately 1 second. No gunfire, voice, music, cinematic sub-bass drop, long fire ambience or exaggerated Hollywood blast.",
+      "candidates": [
+        { "file": "explosion-small-candidate-01.wav", "sha256": "02ce26b19416844321795926abc56e74c465d1973f27d43e15449a506a7300d7", "selected": true, "selectionReason": "Most compact single detonation with a short natural decay and minimal tonal or repeated artefacts." },
+        { "file": "explosion-small-candidate-02.wav", "sha256": "665d25d189037d86778ffd22d39226fcd92b94af7bf2bfafad6f8b2d219a926c", "selected": false },
+        { "file": "explosion-small-candidate-03.wav", "sha256": "acebb1e2336b1fb38a8a437af36648d0ac876e1a730c161fd62ab41ac0ab08a3", "selected": false },
+        { "file": "explosion-small-candidate-04.wav", "sha256": "7695660e3181b7c2b89809bcb9619351159d23f0499af53fad9b98c742a82203", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/explosion-small-v1.wav", "sha256": "70b5d294990a7ac564f84ace0d893a5a2cb7e95ea7bdb9e72d2c380650989a27", "processing": "Candidate 01; retained at one second, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Medium combat explosion",
+      "prompt": "Medium combat explosion involving a military aircraft or armoured vehicle. Sharp primary detonation, strong controlled pressure body, tearing sheet metal, scattered fragments and a natural debris tail lasting approximately 1.8 seconds. Powerful but clean and unclipped. No cinematic braam, secondary gunfire, voice, music, siren or exaggerated sub-bass.",
+      "candidates": [
+        { "file": "explosion-medium-candidate-01.wav", "sha256": "da8f0692e8bdd5d0785a3be3aae977f3859ffa8e4b5f199c787543117d55a589", "selected": false },
+        { "file": "explosion-medium-candidate-02.wav", "sha256": "f5820316c19619ab50448117b774d8e0e7341d176c3ad03155babf98467f01eb", "selected": false },
+        { "file": "explosion-medium-candidate-03.wav", "sha256": "287af9d6cf21662a8dfed36eab45d3123e9cad8be1778674ea86e9cb6efe042e", "selected": false },
+        { "file": "explosion-medium-candidate-04.wav", "sha256": "38d22914b4487bf0d4c42fd7666a6f92f10b03558c6f32b06e8b31b3115c0bd0", "selected": true, "selectionReason": "Strong layered initial body followed by the most useful sustained breakup and debris decay." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/explosion-medium-v1.wav", "sha256": "10b07872131728aa0233d35e97a5663e03cbc4edec75220194cb4322275039e4", "processing": "Candidate 04; compacted to approximately 1.8 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Large structure or ship explosion",
+      "prompt": "Large military structure or small warship exploding at close-to-medium range. Layered primary detonation, deep controlled pressure wave, heavy steel breakup, structural collapse and substantial falling debris over approximately 2.8 seconds. Powerful but clean and unclipped. No music, voice, alarm, secondary gunfire, cinematic braam or exaggerated Hollywood sub-bass.",
+      "candidates": [
+        { "file": "explosion-large-candidate-01.wav", "sha256": "f4857b8446aeb25636a24dd226b60b9d3e1a4073e289aa358e0ba4b8e442e5e2", "selected": false },
+        { "file": "explosion-large-candidate-02.wav", "sha256": "07f6be3d536a4f69f38966049c1e947082e8d8a369baf30b2c624cb86c423ceb", "selected": true, "selectionReason": "Most coherent layered blast and sustained debris decay without the abrupt energy transitions visible in other candidates." },
+        { "file": "explosion-large-candidate-03.wav", "sha256": "5b489dfcceee3f867ade2bd88fe6ef6b56b398b74883fbb6af7e4943e9a06aee", "selected": false },
+        { "file": "explosion-large-candidate-04.wav", "sha256": "096800a2b1b6713fde35a2e2e7dc4c8cbb8d9a603a10f6bfd451186d4316c887", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/explosion-large-v1.wav", "sha256": "2e617da4c57f56ea638c9550d4acac539139834a74aaf2d2fa265b432a3c0693", "processing": "Candidate 02; compacted to approximately 2.8 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 8 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Fuel-storage cook-off",
+      "prompt": "Military fuel-storage depot cooking off. Strong primary explosion followed by rushing fuel ignition, two irregular secondary detonations, collapsing metal tanks and a sustained burning roar that fades naturally over approximately 4.5 seconds. The secondary blasts must not form a regular rhythm. No siren, voice, music, gunfire or cinematic bass drop.",
+      "candidates": [
+        { "file": "fuel-cookoff-candidate-01.wav", "sha256": "7ebb76e0fb3274e307ac3cf7a7c268871396217a5d7d5e190385fb4e4401f52c", "selected": true, "selectionReason": "Best sequence of primary ignition, irregular secondary energy and sustained decay without a long discontinuity." },
+        { "file": "fuel-cookoff-candidate-02.wav", "sha256": "3c1b76ec03c55d4b9008f13c5b08ed21df27a560db6a0eb014da8b6e8e42b037", "selected": false },
+        { "file": "fuel-cookoff-candidate-03.wav", "sha256": "45ae85c4b84d07c28d31b1d0b6b6ac765f9c77f765c41ee22f81412fcb43e080", "selected": false },
+        { "file": "fuel-cookoff-candidate-04.wav", "sha256": "4544a279ee3d0c2f021dad3a3a836fe0e4fcb8015d5de5fdd6fffb41a3f0b8d5", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/fuel-cookoff-v1.wav", "sha256": "18691bd05efb59e3c1ec7da62eadca3d84ce4c17971393009e01f6c3079f0624", "processing": "Candidate 01; compacted to approximately 4.5 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 8 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Aircraft structural breakup",
+      "prompt": "Damaged military jet breaking apart while airborne. Violent structural snap, tearing aluminium, separating panels, spinning metal debris and forceful rushing air over approximately 2.2 seconds. The aircraft remains in the air throughout the sound. No pilot voice, ejection seat, ground impact, water impact, music or oversized explosion.",
+      "candidates": [
+        { "file": "aircraft-breakup-candidate-01.wav", "sha256": "e3ff796d93c2cd840610253839f55a5c1446e340539758cc1d39ed6f38d66607", "selected": false },
+        { "file": "aircraft-breakup-candidate-02.wav", "sha256": "f5e405e475655a914abe01548a06eee6d411d0cd78e274b590f6317728100121", "selected": false },
+        { "file": "aircraft-breakup-candidate-03.wav", "sha256": "cc921f8ba23c4ef1ec6a24247e540e90160f171c1d1a0998327d1d59e20cc725", "selected": false },
+        { "file": "aircraft-breakup-candidate-04.wav", "sha256": "567edcbcfaa514e75951b1983bb7b028f3b8c1962837bc913f29a35a52c53b68", "selected": true, "selectionReason": "Clearest succession of structural tearing events and debris separation with the most dynamic headroom." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/aircraft-breakup-v1.wav", "sha256": "d6b14914c386743a65105102179e8dbdfca3b185c3b26cd13b1c0666c4b555a7", "processing": "Candidate 04; compacted to approximately 2.2 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Aircraft ground crash",
+      "prompt": "Fast military aircraft crashing into rocky ground. Brutal initial terrain strike, tearing and scraping metal, compact fuel-fire thump, scattered wreckage and a short debris fall over approximately 2.4 seconds. Heavy and convincing but not cinematic. No pilot scream, radio message, music, prolonged fire, siren or secondary gunfire.",
+      "candidates": [
+        { "file": "ground-crash-candidate-01.wav", "sha256": "8136f61e0baffc3620ff985a1278d0fa8585bc2d3b2ff89003eea169e9a9d158", "selected": true, "selectionReason": "Best staged sequence of initial strike, scrape, secondary body and scattered debris." },
+        { "file": "ground-crash-candidate-02.wav", "sha256": "0556c8359ffdf0370ecf6f45355df0468b903c3e90a96c5301ee01fe72787d95", "selected": false },
+        { "file": "ground-crash-candidate-03.wav", "sha256": "baa9895295399abfd4b7742b0a05b8cc637267b0207344d8fd57b65f93f290b6", "selected": false },
+        { "file": "ground-crash-candidate-04.wav", "sha256": "6467f5673d8a3fc6bed826f917a184c66608455f5df0f397fc6ff63de0c0d63b", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/aircraft-ground-crash-v1.wav", "sha256": "87b1e15e0286ca4e60efb2387818bc412d5bb4a74e1446ca0f9e5d4b885ed40d", "processing": "Candidate 01; retained at approximately 2.4 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 8 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Aircraft sea crash",
+      "prompt": "Fast military aircraft crashing into cold open sea. Heavy initial water slam, tearing airframe metal, broad high-energy spray, sinking wreckage and a short bubbling debris tail over approximately 2.6 seconds. No pilot voice, music, ship ambience, coastal surf, thunder or prolonged underwater sound.",
+      "candidates": [
+        { "file": "sea-crash-candidate-01.wav", "sha256": "04e982742aaf372bbebc78527a8d7c2a0f4e496c286a529c0f45deea793c97cb", "selected": true, "selectionReason": "Strongest distinct water-slam transient followed by a continuous broad spray and sinking tail." },
+        { "file": "sea-crash-candidate-02.wav", "sha256": "e8243dfecf738621b8544c71a23a9b58c04beb3945b468a7c258c61e589a2c4b", "selected": false },
+        { "file": "sea-crash-candidate-03.wav", "sha256": "03401c15a1e211fce784bd44989da59614233f18a9c94ceb44701b0ea21ef41f", "selected": false },
+        { "file": "sea-crash-candidate-04.wav", "sha256": "a93a8d49127d4bb5bcba3868a55bf5312e7777059f0f9db37baa38031dc703f6", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/aircraft-sea-crash-v1.wav", "sha256": "b8d1c06628bb17fcb40058f73fca5203d64e8688a9bb702a5a5ae806022523f6", "processing": "Candidate 01; compacted to approximately 2.6 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 8 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Ejection-seat launch",
+      "prompt": "Close exterior recording of a late-1980s military aircraft ejection seat firing. Begin with a sharp pyrotechnic initiator bang, immediately followed by a powerful short-duration seat-rocket blast, mechanical rail movement and rapidly increasing rushing air as the seat clears the aircraft. Violent and urgent but compact, ending with a clean editable tail at approximately 1.1 seconds. No canopy-jettison sound, pilot voice, scream, aircraft explosion, crash impact, warning alarm, music, cinematic bass drop or long reverberation.",
+      "candidates": [
+        { "file": "ejection-seat-candidate-01.wav", "sha256": "5346cecd1b887f1e1f81169e864fa5d2c70f7589ff33c4735548e84ba892e0c9", "selected": false },
+        { "file": "ejection-seat-candidate-02.wav", "sha256": "0421f53f262981698700f5074fce363ea015f376d6b96d04b9d5b91c0b239e00", "selected": false },
+        { "file": "ejection-seat-candidate-03.wav", "sha256": "26adf5fb5d1da5e88de9255f75695a299f920fdf51966a48bc742a666c0286c8", "selected": true, "selectionReason": "Best transient-to-tail contrast and the most useful dynamic separation for the timed survival sequence." },
+        { "file": "ejection-seat-candidate-04.wav", "sha256": "8a09914205c385f481358df7937658c73b18a497e32147fc01f9571b96dd2b68", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ejection-seat-v1.wav", "sha256": "a2bec9d93a43822f4332ebcdfb401b0941291627db95b9ba7526556232fc2a94", "processing": "Candidate 03; trimmed to the ejection event, centred mono 22.05 kHz 16-bit PCM, boundary fades and 8 dB attenuation to control source limiting. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Naval autocannon burst",
+      "prompt": "Close-to-medium exterior recording of a late-Cold-War naval autocannon firing a short controlled burst from a small military patrol vessel on open water. Four to six heavy mechanical reports with dense pressure cracks, restrained steel-deck resonance and subtle distant reflection from the sea surface. Powerful and clearly larger than an infantry weapon, but smaller and faster than a battleship gun. Approximately 1.4 seconds. No shell impacts, explosions, missile launch, engine noise, ocean ambience, crew voices, music, cinematic processing or long echo.",
+      "candidates": [
+        { "file": "naval-gun-candidate-01.wav", "sha256": "94186fa809a082926991b56943963c5406884e2dfea80761089e028107171667", "selected": true, "selectionReason": "Cleanest unclipped burst with the greatest peak headroom and a restrained deck tail." },
+        { "file": "naval-gun-candidate-02.wav", "sha256": "4baa7dfcd06b339116db560e4effbf79d302d4247b9dd98698130ee5640bde2a", "selected": false },
+        { "file": "naval-gun-candidate-03.wav", "sha256": "7eefcb8528f43787bd70b7575b2958cd1962aad3ef310a68f3e2d59f978d8faa", "selected": false },
+        { "file": "naval-gun-candidate-04.wav", "sha256": "d41f19d36ba6b9e6763a578b74086e509c1b83ffe637df99506279c379c9f4dc", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/naval-gun-v2.wav", "sha256": "ac1b157a85b5bc0a4d03ea614c00e0673fa802c15c69dd7217dbf32fbc3d96c2", "processing": "Candidate 01; retained at approximately 1.36 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 3 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Anti-ship missile launch",
+      "prompt": "Close exterior recording of a sea-skimming anti-ship missile launching from an angled canister aboard a small late-1980s missile corvette. Start with a heavy canister mechanism and hatch clunk, followed by violent booster ignition, dense deck-reflected rocket roar, metal vibration and a fast directional departure over the sea. The motor should rapidly recede rather than remain stationary. Approximately 2 seconds with a clean natural tail. No missile impact, explosion, warning alarm, radar tone, crew voice, ship engine, music or exaggerated cinematic sub-bass.",
+      "candidates": [
+        { "file": "antiship-missile-candidate-01.wav", "sha256": "426d45d1d673599e0b8d09fe32d043e2531a34a11c7901b8320ff8f7b9f3c585", "selected": false },
+        { "file": "antiship-missile-candidate-02.wav", "sha256": "d0885efee8053136cf2e9d9443fc4744a8d391dc3ab9fbfcef646738e895a345", "selected": true, "selectionReason": "Lowest source flat-factor of the four with the clearest departure-shaped energy decay." },
+        { "file": "antiship-missile-candidate-03.wav", "sha256": "ef37abcbb48afb1a7997f09e80742992645cb64b4a5bd338b5c675fb5c853bf6", "selected": false },
+        { "file": "antiship-missile-candidate-04.wav", "sha256": "186da8bfb2bd88a2a8b28054c471910dd9773d5c4401e88ba733445f204e7afd", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/antiship-missile-launch-v1.wav", "sha256": "a66e3f2aa7b1552af101b18ae7bd32cf881c5af3ce836fa23bc81dc78d325243", "processing": "Candidate 02; compacted to approximately 2 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 9 dB attenuation to control source limiting. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Carrier touchdown",
+      "prompt": "Close exterior recording of a Sea Harrier-style military jet making a controlled rolling or near-vertical landing on the steel flight deck of a light aircraft carrier. Firm rubber tyre contact, immediate landing-gear compression, short heavy deck rumble, restrained airframe rattle and a small hydraulic suspension response. Solid but safe rather than a crash. Approximately 1.5 seconds. No arrestor cable, tyre screech, applause, crew voices, aircraft engine loop, warning alarm, explosion, music or exaggerated impact.",
+      "candidates": [
+        { "file": "carrier-touchdown-candidate-01.wav", "sha256": "3688818102239da0df8908505d1045f0881f4c9b74ed1d20e762e8e28573e6ae", "selected": false },
+        { "file": "carrier-touchdown-candidate-02.wav", "sha256": "311b7f84f2159f738823698909ffa457a00980211c7698ae931e37526d839568", "selected": true, "selectionReason": "Strongest controlled contact transient and deck body while retaining ample unclipped headroom." },
+        { "file": "carrier-touchdown-candidate-03.wav", "sha256": "5fe8253a302b3d60d788b6fd19af2c294167587ac05f3edeae65dec4d28a72ed", "selected": false },
+        { "file": "carrier-touchdown-candidate-04.wav", "sha256": "80e045fe9c68799303876c5ad2218165dfc682b262dcc8019f6d25505b00ded9", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/carrier-touchdown-v2.wav", "sha256": "740cb8ba6081f3665a03a4c552e366dfebcc088ec94abc529c3d4a741316f248", "processing": "Candidate 02; compacted to approximately 1.5 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 1 dB gain. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Carrier-deck ambience",
+      "prompt": "Stable exterior ambience on the flight deck of a late-1980s North Atlantic light aircraft carrier. Cold maritime wind, distant restrained military turbine wash, occasional hydraulic servicing-trolley movement, subtle steel-deck vibration and sparse small metal equipment sounds. Activity should remain distant and evenly distributed, with no prominent event or rhythmic repetition. Maintain a consistent level and texture suitable for editing into a seamless 12-second loop. No intelligible speech, deck announcements, alarms, music, nearby aircraft launch, helicopter blades, weapons, explosions, gulls, thunder or dramatic wave crashes.",
+      "candidates": [
+        { "file": "carrier-deck-ambience-candidate-01.wav", "sha256": "90d8afb1468587ec033ff98870875026ae0c8c22f0ea836d97dfe4ffa6229efc", "selected": false },
+        { "file": "carrier-deck-ambience-candidate-02.wav", "sha256": "f67f2dd86d3a0b86cb626a6d13c3b9e76ae764bce2db45eb142d1741ef23a6f4", "selected": true, "selectionReason": "Most even low-level bed without detected full-scale flattening, leaving the cleanest material for a loop seam." },
+        { "file": "carrier-deck-ambience-candidate-03.wav", "sha256": "012537da15dc0e07cbbc891db6c1e3d3153edb30b578259b6002413da8c9344a", "selected": false },
+        { "file": "carrier-deck-ambience-candidate-04.wav", "sha256": "49886e9981314b8afde9de04eb347f1a58210689cf731767f22d41289cb6f7d9", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/carrier-deck-ambience-v1.wav", "sha256": "c2b425fad1509bedeaafa08c191b9f99736d711e1f93fa59c671dcaa422db529", "processing": "Candidate 02; edited into a 12-second wraparound crossfade loop, centred mono 22.05 kHz 16-bit PCM and raised 5 dB for controlled ambience-bus use. Human loop and mix approval remains pending." }
+    },
+    {
+      "asset": "FARP servicing ambience",
+      "prompt": "Stable exterior ambience at an austere late-1980s military forward arming and refuelling point in a cold North Atlantic island environment. Persistent light wind, distant portable diesel generator, occasional canvas shelter movement, restrained hand-tool sounds, hydraulic servicing equipment and sparse wooden or metal storage-crate contact. Keep all activity distant, irregular and evenly balanced for conversion into a seamless 12-second loop. No intelligible voices, aircraft engine, weapons, alarms, music, vehicles passing close, explosions, birds or rhythmic repetition.",
+      "candidates": [
+        { "file": "farp-ambience-candidate-01.wav", "sha256": "d7ec5d201aca8ea58a969a094b63bc5dbe65d2ceddb0a3ecdf02eb2e4a389dd1", "selected": false },
+        { "file": "farp-ambience-candidate-02.wav", "sha256": "ea9473c244021f85f9ac0c5d872da35096bbc7510d0f0535081f3d884088cd67", "selected": true, "selectionReason": "Balanced continuous bed with clean headroom and a stronger usable environmental floor than the quieter alternatives." },
+        { "file": "farp-ambience-candidate-03.wav", "sha256": "28f2bac41fd38450551f3b17afc42fe152b218551037f2ab3b496375ee3edc9a", "selected": false },
+        { "file": "farp-ambience-candidate-04.wav", "sha256": "9e650918330dc5929a06dd2f8283b8a2073ede4a9301e07c0c7c598770f58276", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/farp-ambience-v1.wav", "sha256": "e1af185d997911b843ed42f255e43d50ae62e7ee2574ef6e5f97da7a9710ae2a", "processing": "Candidate 02; edited into an approximately 11.2-second wraparound crossfade loop, centred mono 22.05 kHz 16-bit PCM and raised 7 dB for controlled ambience-bus use. Human loop and mix approval remains pending." }
+    },
+    {
+      "asset": "Maritime storm and rain",
+      "prompt": "Continuous exposed North Atlantic storm heard from an open coastal or carrier-deck position. Hard wind-driven rain, dense airborne spray, powerful broad gale texture and occasional stronger gusts, maintaining a stable overall intensity suitable for a seamless 12-second loop. Cold, hostile and natural without becoming cinematic. No thunder, ocean-wave crashes, engines, ship horns, aircraft, voices, weapons, music, rhythmic pulsing or sudden isolated impacts.",
+      "candidates": [
+        { "file": "storm-rain-candidate-01.wav", "sha256": "6e36ff28ff0138edbf53f1fc474e228ada7732a9fcd68f6adac2b825ce55d3c8", "selected": false },
+        { "file": "storm-rain-candidate-02.wav", "sha256": "acc896a1277d2e34137a9d316fe6e86e886ac870ba91d8d9c4fe38dafbb00af7", "selected": false },
+        { "file": "storm-rain-candidate-03.wav", "sha256": "4091134ba74638780d6bf6739cfb7a44ed84f0616ac8f38b462c7cc74cfd6b1b", "selected": true, "selectionReason": "Clean unclipped storm bed with the best headroom and restrained average energy for mixing under combat." },
+        { "file": "storm-rain-candidate-04.wav", "sha256": "fbf570d9511edaf834beede9fffd6a1df515f00ea351cb8e2f95e18ad3a54a0d", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/storm-rain-loop-v1.wav", "sha256": "9ada4cb002ea9ffda591c63abb71aedb73c5c626f4cb618b1fa1fe9dbe23cce8", "processing": "Candidate 03; edited into an approximately 11.2-second wraparound crossfade loop, centred mono 22.05 kHz 16-bit PCM and attenuated 6 dB. Human loop and mix approval remains pending." }
+    },
+    {
+      "asset": "Distant thunder",
+      "prompt": "A single distant thunder event behind heavy North Atlantic storm clouds. Begin with a restrained, softened atmospheric crack followed by a broad natural low-frequency rumble that rolls unevenly across the horizon and fades completely over approximately 4.5 seconds. Distant and meteorological rather than explosive. No rain bed, nearby lightning strike, weapon explosion, metallic debris, ship sounds, voices, music, cinematic bass drop or clipping.",
+      "candidates": [
+        { "file": "thunder-distant-candidate-01.wav", "sha256": "4ac2a15a61777f909e87ea8be79b7837a089591dd9012b28c343392f2ebf3566", "selected": false },
+        { "file": "thunder-distant-candidate-02.wav", "sha256": "75491a73b8aad6d99f736b4a8eaa95a0769b3525bcbf7de3d45d290b3fe8c5c4", "selected": true, "selectionReason": "Strong natural roll with no detected flat-topping and enough presence to survive the storm mix." },
+        { "file": "thunder-distant-candidate-03.wav", "sha256": "e0dbc5b3f9d9d41de2d41843774c7350cff7fc6595f9b495e4d03fe0fad7c29e", "selected": false },
+        { "file": "thunder-distant-candidate-04.wav", "sha256": "9996cb6aa30770d7986f6defd74427f19dafaa989d31174521dded346775b95e", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/thunder-distant-v1.wav", "sha256": "83a81bc30a74f8b1d62f0d881f7eefd00275ceb5b300a99b399de428daa4eeda", "processing": "Candidate 02; compacted to approximately 4.5 seconds, centred mono 22.05 kHz 16-bit PCM, natural boundary fades and 7 dB attenuation. Human mix approval remains pending." }
+    },
+    {
+      "asset": "Radar search cue",
+      "prompt": "Very brief late-1980s military radar-search notification heard inside a combat-aircraft cockpit. One dry low electronic pip with subtle analogue oscillator instability, a firm immediate attack and an extremely short clean decay. Functional and restrained rather than musical or futuristic. Approximately 0.35 seconds. No voice, radar sweep ambience, repeated beeps, missile-warning urgency, lock-on tone, arcade sound, reverb, distortion or music.",
+      "candidates": [
+        { "file": "radar-search-candidate-04.wav", "sha256": "67e834f9e2e2a6afa7ba710dd100329e202d5df9967ec8d6b6a5016ce0448de5", "selected": true, "selectionReason": "Only supplied candidate; the isolated pip is technically clean after removing its long leading silence and compacting its decay." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/radar-search-v1.wav", "sha256": "9111489764f6d7242de27b18bbd88abde1d5426102f4a6c1b56ca3a72bd44635", "processing": "Candidate 04; removed approximately 0.54 seconds of leading silence, compacted to approximately 0.36 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 3 dB attenuation. Human warning-mix approval remains pending." }
+    },
+    {
+      "asset": "Rocky coastal surf",
+      "prompt": "Natural cold-water surf along a rugged North Atlantic basalt coastline. Irregular medium breakers striking dark rocks, spreading foam wash, receding water moving through loose stones and a restrained layer of cold coastal wind. Maintain varied timing with no obvious repeating wave rhythm, providing stable material for editing into a seamless environmental loop. No gulls, boats, people, engines, foghorn, thunder, rain, weapons, music or enormous cinematic waves.",
+      "candidates": [
+        { "file": "coastal-surf-candidate-01.wav", "sha256": "cdfdbf1ea2047cb33c08c50f6973106e2a8f6c131f7e592a6a1302f6c0b5580d", "selected": false },
+        { "file": "coastal-surf-candidate-02.wav", "sha256": "2e936fb09c8d852dd1f969a8675fec8b358cdf1a682fdee1b2f57004cd07c3be", "selected": false },
+        { "file": "coastal-surf-candidate-03.wav", "sha256": "d99bd967565af05bb6f85c41d3a75ec57b465f2a49603ed19dc5d9e7e5ebd7f2", "selected": false },
+        { "file": "coastal-surf-candidate-04.wav", "sha256": "6e6bc24af632840353c935379a03d98f0b3959e1a6a34de059a0ff0d89406c1f", "selected": true, "selectionReason": "Best unclipped headroom and restrained average energy for a background layer beneath combat." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/coastal-surf-loop-v1.wav", "sha256": "c7c44566306fc931b45235cd9784c20cd47807fe244eea38f6e43477a7974e2f", "processing": "Candidate 04; edited into a 12-second wraparound crossfade loop, centred mono 22.05 kHz 16-bit PCM and attenuated 1 dB. Human loop and mix approval remains pending." }
+    },
+    {
+      "asset": "Radar tracking warning",
+      "prompt": "Original fictional late-1980s military cockpit radar-tracking warning. Urgent paired analogue electronic pulses in a clear middle-frequency range, repeating at a steady operational rhythm. More serious than a radar-search pip but distinctly less urgent and lower in pitch than a missile-launch warning. Dry, compact and clearly audible through aircraft engine noise. No speech, melody, modern digital alarm, siren, distortion, background cockpit ambience or imitation of a recognisable real aircraft warning.",
+      "candidates": [
+        { "file": "radar-track-candidate-01.wav", "sha256": "b346d33544987ed321d4680e2e5075147b90401fd822a654c9595db180032472", "selected": true, "selectionReason": "Cleanest unclipped candidate with comfortable peak headroom and a less fatiguing average level." },
+        { "file": "radar-track-candidate-02.wav", "sha256": "10ba8870fc3a9440675eab60ecd9c3c52e9dd994be10f119c63e970a3055486c", "selected": false },
+        { "file": "radar-track-candidate-03.wav", "sha256": "d79e5e49d8d7347c72b279b72055578311b5c7fe9377defea6c794aae9779766", "selected": false },
+        { "file": "radar-track-candidate-04.wav", "sha256": "21d459f0c58ed14521d43e3472d1b4b8da36a5ca7782bfe0aa2f31e6ab0f0ec3", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/radar-track-loop-v1.wav", "sha256": "62b942afd6d0eabf25b67347bc2bf8e867def2fad78716bbb22223bb1b90da88", "processing": "Candidate 01; isolated as a one-second repeating warning segment, centred mono 22.05 kHz 16-bit PCM, short seam fades and 4 dB attenuation. Human cockpit-mix approval remains pending." }
+    },
+    {
+      "asset": "Incoming missile warning",
+      "prompt": "Original fictional critical missile-warning alarm for a late-1980s military cockpit. Fast alternating analogue electronic tones with a sharp attack, high urgency and a higher frequency than the radar-tracking warning. Repeating consistently and remaining intelligible through loud jet-engine and combat noise without becoming painfully shrill. No spoken words, siren sweep, melody, modern digital sound, distortion, reverb, background ambience or imitation of a recognisable real aircraft warning.",
+      "candidates": [
+        { "file": "missile-warning-candidate-01.wav", "sha256": "7ea531e4b299df59c679b14bd02a727eea48ae02ae68f613eb6da2a4259b5311", "selected": false },
+        { "file": "missile-warning-candidate-02.wav", "sha256": "07a9206b2fe74b6f04de2d4215e98e47966b384db1f1015820682f59b80a63dc", "selected": false },
+        { "file": "missile-warning-candidate-03.wav", "sha256": "fb4b583c1b5614c5db2efef615b037fa4ae2270a6eb852d41d5436bb123574e5", "selected": false },
+        { "file": "missile-warning-candidate-04.wav", "sha256": "d27f228ff681f272cb60713311229998e5987375aa3256b518d839b0971a4e89", "selected": true, "selectionReason": "Only fully unclipped option with enough crest factor to remain urgent without excessive loudness." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/missile-warning-loop-v1.wav", "sha256": "c8ee8bcfcc097f5939b5e91caa5505cbc956ed267054bd07e18a1166accd6c58", "processing": "Candidate 04; isolated as a one-second repeating warning segment, centred mono 22.05 kHz 16-bit PCM, short seam fades and 5 dB attenuation. Human cockpit-mix approval remains pending." }
+    },
+    {
+      "asset": "Target-lock confirmation",
+      "prompt": "Concise original late-1980s electro-mechanical target-lock confirmation heard inside a military cockpit. Two very short rising clean analogue tones followed immediately by one restrained steady confirmation chirp. Positive, precise and functional rather than celebratory. Approximately 0.45 seconds with an immediate attack and clean ending. No speech, missile launch, warning alarm, arcade reward sound, coin sound, melody, reverb or modern science-fiction interface styling.",
+      "candidates": [
+        { "file": "target-lock-candidate-01.wav", "sha256": "d38f5d0dd52c2e1d9818d7962b71c19624d4967abff66371ca822678a3ebcf10", "selected": true, "selectionReason": "Best dynamic separation between the short confirmation elements with the lowest average level." },
+        { "file": "target-lock-candidate-02.wav", "sha256": "73a6a909b592d668ae21000922b331a85509f4bae6a9234366674970bcb63f61", "selected": false },
+        { "file": "target-lock-candidate-03.wav", "sha256": "1283c831e40d5873b47c1356d2fca395a61eeec86fb4d56ada77ee4f728a88d9", "selected": false },
+        { "file": "target-lock-candidate-04.wav", "sha256": "83ab95f9b7c7ff7da76c924fd86a701058fb75555386716193c5727be077d103", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/target-lock-v1.wav", "sha256": "35518ee5c75673c96b6ae0bd4bd3016466cea8c543fe5292acb6e681b6c9c53e", "processing": "Candidate 01; compacted to approximately 0.45 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human cockpit-mix approval remains pending." }
+    },
+    {
+      "asset": "Low-fuel caution",
+      "prompt": "Original late-1980s military cockpit low-fuel caution. Two muted low-frequency analogue electronic beeps with firm attacks and short clean decays. Serious and unmistakable but deliberately calmer and lower in urgency than radar tracking, missile warning or master damage alarms. Approximately 0.65 seconds. No spoken warning, melody, siren, engine noise, cockpit ambience, distortion, reverb or imitation of a recognisable real aircraft alert.",
+      "candidates": [
+        { "file": "low-fuel-candidate-01.wav", "sha256": "a218999dd5b8e001320d07435a9bd9a636ef76a5113e17d7e51851788d86b1b4", "selected": false },
+        { "file": "low-fuel-candidate-02.wav", "sha256": "4c382f51e1c8cad24047354c59852e5b9b62d632f39225a3467d78c11af381f9", "selected": false },
+        { "file": "low-fuel-candidate-03.wav", "sha256": "1e4f16b779692006c75ff22c4ef1448b4ba19d1bc873050c909721cdfc62e3f0", "selected": true, "selectionReason": "Only candidate with substantial clean headroom and a suitably restrained caution level." },
+        { "file": "low-fuel-candidate-04.wav", "sha256": "075f58da56e6ed1efaa2d9937aa36192641eddde3dfbdee759600d449fee98ba", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/low-fuel-warning-v1.wav", "sha256": "1927ac4f8e400d19b367675a18bb5ea87c3eb70b1d8c04fe6d37a344806f14fd", "processing": "Candidate 03; retained within a 0.65-second one-shot window, centred mono 22.05 kHz 16-bit PCM, boundary fades and 4 dB attenuation. Human cockpit-mix approval remains pending." }
+    },
+    {
+      "asset": "Ship sinking",
+      "prompt": "Close-to-medium exterior recording of a damaged small late-Cold-War military warship progressively settling and rolling into rough cold water. Begin with strained hull groans and loose metal movement, followed by restrained steam release, increasing water ingress, internal structural collapse and a final heavy wash as the hull disappears lower into the sea. Natural six-second event with clear progression. No explosion, weapons, alarm, intelligible voices, music, cinematic bass drop or enormous wave crash.",
+      "candidates": [
+        { "file": "ship-sinking-candidate-01.wav", "sha256": "3e61ff615a97dc319fdd9e47c623753f86ebc698c049eb8ce8af4e34c090e446", "selected": true, "selectionReason": "Only supplied candidate; it contains the full staged six-second sinking event and remains usable after conservative attenuation." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ship-sinking-v1.wav", "sha256": "3356770d48ad926fc3d9f05d333a056931ba808a9237606278fcd3a5c66a860b", "processing": "Candidate 01; retained the complete 5.6-second staged event, centred mono 22.05 kHz 16-bit PCM, boundary fades and 7 dB attenuation. Human mix approval remains pending because the supplied master reaches digital full scale." }
+    },
+    {
+      "asset": "Master damage warning",
+      "prompt": "Original fictional late-1980s military cockpit master-damage warning. Three firm mid-low analogue electronic pulses with immediate attacks and short dry decays. Urgent and unmistakable through engine noise, but lower in pitch than the incoming-missile warning and distinctly different from radar-tracking tones. Approximately 0.7 seconds. No speech, siren sweep, melody, modern digital alarm, cockpit ambience, distortion, reverb or imitation of a recognisable real aircraft warning.",
+      "candidates": [
+        { "file": "master-damage-candidate-01.wav", "sha256": "13228c5658f408b7543bb0e56cb4d9b48bb231ac8c2bcab534db20f3f0b728cc", "selected": false },
+        { "file": "master-damage-candidate-02.wav", "sha256": "bffdc4ad907414ce388d55e87684f09e97e6d967a4d776bc7c4d0c213244658e", "selected": true, "selectionReason": "Only candidate retaining useful peak headroom while preserving the complete three-pulse warning." },
+        { "file": "master-damage-candidate-03.wav", "sha256": "c2e4f52a5dead03d673ffe89ce439e78d3f7d2bd93e67cee86c6c33e7c6e25ff", "selected": false },
+        { "file": "master-damage-candidate-04.wav", "sha256": "3c27776ab7b9e7c97daa9a98d2667622011d79231efbfb17c7d189c5ddfa896e", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/master-damage-warning-v1.wav", "sha256": "add9dcc5548b7e16d40e46279c6afec49ad0ad2924fa6ca22785135c9718c2c0", "processing": "Candidate 02; trimmed to 0.7 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 5 dB attenuation. Human cockpit-mix approval remains pending." }
+    },
+    {
+      "asset": "Radio squelch opening",
+      "prompt": "Extremely short opening transient from a late-1980s military VHF radio. A dry narrow-band static snap, tiny electrical click and immediate radio-carrier onset, suitable for placing directly before a spoken transmission. Clean isolated recording with no silence before the event. No speech, confirmation beep, Morse code, continuous static, modern digital interference, reverb or music.",
+      "candidates": [
+        { "file": "radio-squelch-in-candidate-01.wav", "sha256": "ce73f78d32001dfc0d1b86b031c3b3b4e0d93adc11aba146b6beed51e0f2b9d0", "selected": false },
+        { "file": "radio-squelch-in-candidate-02.wav", "sha256": "1bedd1b0c9c148d426fcdde1e6c02e1b4998944ab127caa6ceca77cf88007ce5", "selected": true, "selectionReason": "Cleanest candidate with peak headroom and a compact complete carrier-onset shape." },
+        { "file": "radio-squelch-in-candidate-03.wav", "sha256": "3c55cf3623540365950552197dc1ffde919c8e9560ddd7f566ca5dd7aa815ca0", "selected": false },
+        { "file": "radio-squelch-in-candidate-04.wav", "sha256": "8f7c9cc14ed30dd090631d44ba590f176c2117642e9b33c97be47ff68eeb56e3", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/radio-squelch-in-v1.wav", "sha256": "e75637d53a240afb0793b1b4c4de368f80afb028f1f93c328f2db2d42c36e514", "processing": "Candidate 02; compacted to approximately 0.18 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 5 dB attenuation. Human radio-mix approval remains pending." }
+    },
+    {
+      "asset": "Radio squelch closing",
+      "prompt": "Extremely short closing transient from a late-1980s military VHF radio. Narrow-band carrier noise collapses into a brief static release and dry mechanical-electrical click, suitable for placing immediately after a spoken transmission. Clean isolated recording. No speech, confirmation beep, Morse code, extended static, modern digital interference, reverb or music.",
+      "candidates": [
+        { "file": "radio-squelch-out-candidate-01.wav", "sha256": "edca39549641227a10953cdb35a2aa2f769d8ac9d6e1ee0f877795b1a9e4eb93", "selected": false },
+        { "file": "radio-squelch-out-candidate-02.wav", "sha256": "92abddac3a98f4a5b8eba8cf9811fa736b5083c298508cd9648336a79f6a6029", "selected": false },
+        { "file": "radio-squelch-out-candidate-03.wav", "sha256": "22fb8c1d6c52679eeffd28f4d00e29f25fee92a12afd50bfe02a456d1b96db46", "selected": false },
+        { "file": "radio-squelch-out-candidate-04.wav", "sha256": "bea4421b75cd8e5235b3551b023d23800011ebf853bee0bad57fd6f38f5201e3", "selected": true, "selectionReason": "Shortest restrained release with the lowest average energy, best suited to following speech." }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/radio-squelch-out-v1.wav", "sha256": "d13dc5f3ac3442b425513a0486fe795a7b7a028599ca5a0f7d93ca04d39ccEBF", "processing": "Candidate 04; compacted to approximately 0.2 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 6 dB attenuation. Human radio-mix approval remains pending." }
+    },
+    {
+      "asset": "UI confirmation",
+      "prompt": "Compact confirmation sound from a rugged late-1980s military command console. One short low relay click immediately accompanied by a soft, clean analogue electronic pip. Precise, restrained and functional, with a dry instant ending. No arcade coin sound, computer melody, spoken word, modern touchscreen sound, error buzzer, reverb or background ambience.",
+      "candidates": [
+        { "file": "ui-confirm-candidate-01.wav", "sha256": "b8b16ef564cbec7a29ee6a8c4f7fd8426c7635016209011c8989a0206daefd6b", "selected": false },
+        { "file": "ui-confirm-candidate-02.wav", "sha256": "b0b0b8a69ac46c5f1e6fb7f44ad39328ecfbebe5bbf3b8922ed4c4e837d1612d", "selected": false },
+        { "file": "ui-confirm-candidate-03.wav", "sha256": "ee135641937a02953b57144e915880b034e019b7caadd059101d1df7d21dfcae", "selected": true, "selectionReason": "Best balance of audible relay character, clean peak headroom and compact useful event." },
+        { "file": "ui-confirm-candidate-04.wav", "sha256": "339d5e169ace616e22f7d0e6d611a7350da2a45223264a498e6bb0915ea5b731", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ui-confirm-v1.wav", "sha256": "351e372d2a81cf2e38cf34bd19db3e92821faa05a2d78290f7bf12085f16fbd3", "processing": "Candidate 03; compacted to approximately 0.16 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 2 dB attenuation. Human interface-mix approval remains pending." }
+    },
+    {
+      "asset": "UI cancel",
+      "prompt": "Compact cancel or back sound from a rugged late-1980s military command console. A dry relay click followed immediately by one short descending muted analogue pip. Restrained and functional, clearly different from the positive confirmation sound, with a clean ending. No harsh error buzzer, arcade sound, speech, modern touchscreen effect, melody, reverb or background ambience.",
+      "candidates": [
+        { "file": "ui-cancel-candidate-01.wav", "sha256": "a3c202c45f9a2f2dabdf446e3775670077505cbba646051476d6945de9f0a0fc", "selected": false },
+        { "file": "ui-cancel-candidate-02.wav", "sha256": "a341480aef06228efdec7ac24b90b2958c2c9d8a4e289b0cd684a420ec4359fa", "selected": false },
+        { "file": "ui-cancel-candidate-03.wav", "sha256": "62b33d2c9672dc67b2305ad25006bffde6339bd703b02948f0aa14d1b3774232", "selected": true, "selectionReason": "Most restrained average level and a distinct two-part cancel gesture suitable for compacting." },
+        { "file": "ui-cancel-candidate-04.wav", "sha256": "57046ddaa41b5b20008b9bcbc633eab77df262f91c5c97c7f275c0d11a93a3a9", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ui-cancel-v1.wav", "sha256": "74c099b321071f15cd62fba3409820fe72a450590715069dc741d092e0bf2f59", "processing": "Candidate 03; compacted to approximately 0.18 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 5 dB attenuation. Human interface-mix approval remains pending." }
+    },
+    {
+      "asset": "Objective complete",
+      "prompt": "Original restrained tactical objective-complete notification for a late-1980s military combat interface. Three concise analogue electronic tones resolving upward, ending with a subtle electromechanical relay click. Positive and clearly readable through combat noise, but professional rather than celebratory. Approximately 0.8 seconds with an immediate start and clean ending. No voice, fanfare, arcade reward sound, coin sound, musical flourish, modern science-fiction styling or reverb.",
+      "candidates": [
+        { "file": "objective-complete-candidate-01.wav", "sha256": "194f2ed1a3f77d0562ddeb78c943c8ab6ac8e560e4bfbad0cf94129b2169ee23", "selected": false },
+        { "file": "objective-complete-candidate-02.wav", "sha256": "790d0e928d435d8718f67baa0bfbd09180f74174019548150dc111981a127380", "selected": true, "selectionReason": "Only candidate with clean peak headroom and a useful event length close to the target duration." },
+        { "file": "objective-complete-candidate-03.wav", "sha256": "9d4e8f977ed72b9b35dd531e2fe0d45fe5c1ad5786a0aa15229bf439b5dbf96e", "selected": false },
+        { "file": "objective-complete-candidate-04.wav", "sha256": "ed6b6a2d4a67cc069081802d337edf603464babfe513c5d6fcb0335e4c24c920", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/objective-complete-v1.wav", "sha256": "7a4e9069cb89d21e5334a26aecb08573fb01e25707d77780a0ce53222ff71773", "processing": "Candidate 02; adjusted to approximately 0.8 seconds, centred mono 22.05 kHz 16-bit PCM, boundary fades and 3 dB attenuation. Human combat-mix approval remains pending." }
+    },
+    {
+      "asset": "Ejection canopy separation",
+      "prompt": "Close exterior recording of a late-1980s military jet canopy being jettisoned during emergency ejection. Begin with an extremely sharp explosive-cord crack and compact pressure pop, immediately followed by a lightweight metal-and-acrylic canopy frame snapping free and rushing away through fast airflow. Violent, mechanical and realistic, with a very short natural tail. No ejection-seat rocket, aircraft explosion, crash, alarm, speech, music, cinematic boom, exaggerated bass or background ambience. Duration approximately 0.65 seconds. Clean isolated sound effect, strong audible level, no clipping.",
+      "candidates": [
+        { "file": "ejection-canopy-elevenlabs-candidate-01.wav", "sha256": "60fb71782a24fde2f6ba46bccdd16a6e335203bc09d3fd6aa6271fca1c9cc713", "selected": true, "selectionReason": "Most compact broadband crack and natural short decay, without the repetitive pulsing or sustained tonal content visible in the alternatives." },
+        { "file": "ejection-canopy-elevenlabs-candidate-02.wav", "sha256": "84f95110561ae5453e021b193d994ea7ba1e38b4d24be44caa3d5168b4ef0075", "selected": false },
+        { "file": "ejection-canopy-elevenlabs-candidate-03.wav", "sha256": "1e8c8b1e8378812369115ea170192f32d3a776423cf55fc9a70d34d4eb52fa91", "selected": false },
+        { "file": "ejection-canopy-elevenlabs-candidate-04.wav", "sha256": "23a442c523da672bf6081f7ef6b8d9bd42e324a844d33953509cfb8352a8c5b5", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/ejection-canopy-v2.wav", "sha256": "f21c5c9fda25773047720eba3c6559203416429f71c0c6570288816de94d1e22", "processing": "Candidate 01; trimmed to approximately 0.65 seconds, high-pass filtered at 70 Hz, centred mono 22.05 kHz 16-bit PCM, boundary fades and 6 dB attenuation. Human sequence-mix approval remains pending." }
+    },
+    {
+      "asset": "Parachute opening",
+      "prompt": "Close exterior recording of an emergency pilot parachute deploying at high speed. Begin with a sudden tightly packed fabric snap, followed by rapid suspension-line tension, harness pull and a short heavy canopy billow catching the air. Realistic military ejection sequence, forceful but not explosive, with a brief rushing-air tail. No voice, scream, aircraft engine, ejection-seat rocket, continuous wind ambience, impact, music or cinematic bass. Duration approximately 0.9 seconds. Clean isolated sound effect, strong audible level, no clipping.",
+      "candidates": [
+        { "file": "parachute-open-elevenlabs-candidate-01.wav", "sha256": "60e0412d196c98abc9f9bd068e23c84f081fc0eabd64b160c47e1762b320e68f", "selected": false },
+        { "file": "parachute-open-elevenlabs-candidate-02.wav", "sha256": "92a17f4b6bc4f5e25011148d3a628bd579cf2d75bd1cb85d1501ba5819a7a775", "selected": false },
+        { "file": "parachute-open-elevenlabs-candidate-03.wav", "sha256": "2d5a082a4729891293e04d239e6ccd4b48cb1addb02dadc0c2fd46d70ade4c9e", "selected": true, "selectionReason": "Best transient-to-body separation: a defined opening snap followed by sustained broadband fabric and airflow energy, with the highest useful crest factor of the batch." },
+        { "file": "parachute-open-elevenlabs-candidate-04.wav", "sha256": "a21d20d9e854d1dd8c8a4c8a2f36f2210c8ebf71df19ca8b33fe623c51b50a89", "selected": false }
+      ],
+      "runtime": { "file": "public/assets/audio/elevenlabs/parachute-open-v2.wav", "sha256": "e6c41c89e0a383db74fad9063566317bf09b9ac7a80f0cf1b3ec7d1d94ebca39", "processing": "Candidate 03; trimmed to 0.9 seconds, high-pass filtered at 55 Hz, centred mono 22.05 kHz 16-bit PCM, boundary fades and 5 dB attenuation. Human sequence-mix approval remains pending." }
     }
   ],
   "releaseStatus": "COMMERCIALLY_LICENSED_PENDING_HUMAN_LISTENING",
   "reproduction": [
     "scripts/prepare-flight-loop-audio.ps1",
     "scripts/prepare-nozzle-transition-audio.ps1",
-    "scripts/prepare-aircraft-action-audio.ps1"
+    "scripts/prepare-aircraft-action-audio.ps1",
+    "scripts/prepare-weapon-feedback-audio.ps1",
+    "scripts/prepare-final-production-audio.ps1"
   ]
 }

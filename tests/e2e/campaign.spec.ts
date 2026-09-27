@@ -11,7 +11,7 @@ const completedCampaign = {
 test('offers guided Mission 1 as the primary first-run action', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'IRON KESTREL' })).toBeVisible();
-  await expect(page.getByText('1.2 DEV1')).toBeVisible();
+  await expect(page.getByText('1.2 BETA 1')).toBeVisible();
   await expect(page.getByText('DEVELOPMENT BUILD')).toBeVisible();
   await expect(page.getByRole('button', { name: 'START GUIDED CAMPAIGN' })).toBeFocused();
   await page.getByRole('button', { name: 'START GUIDED CAMPAIGN' }).click();

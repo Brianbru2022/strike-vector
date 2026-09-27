@@ -1,6 +1,6 @@
 # Playability-to-release roadmap audit
 
-Build: `IK87-1.2.0-DEV1-20260925-AUDIO4`
+Build: `IK87-1.2.0-DEV1-20260926-AUDIO10`
 
 Engineering contracts: **PASS**
 Commercial gate: **PENDING**

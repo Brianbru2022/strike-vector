@@ -34,7 +34,7 @@ const diagnostic = (missionId: string): DiagnosticSessionV3 => ({
 
 describe('1.0 release-candidate contracts', () => {
   it('freezes one release identity and the sixteen authored campaign missions', () => {
-    expect(RELEASE_INFO).toMatchObject({ version: '1.2.0-dev.1', saveVersion: 4, campaignMissionCount: 16, operationGenerationVersions: [1, 2, 3] });
+    expect(RELEASE_INFO).toMatchObject({ version: '1.2.0-beta.1', saveVersion: 4, campaignMissionCount: 16, operationGenerationVersions: [1, 2, 3] });
     expect(CAMPAIGN_MISSIONS).toHaveLength(16);
     expect(new Set(CAMPAIGN_MISSIONS.map((mission) => mission.id)).size).toBe(16);
     for (const mission of CAMPAIGN_MISSIONS) {

@@ -8,7 +8,7 @@ The Windows 10/11 edition uses Tauri 2 and Microsoft WebView2. The web edition r
 - `pnpm desktop:check` type-checks, creates the service-worker-free frontend and runs Rust tests/checks.
 - `pnpm desktop:release` produces an MSI installer, a portable QA executable and a SHA-256 release manifest.
 
-The portable executable is a QA artefact, not a no-install consumer distribution: WebView2 must already be available. The MSI uses Microsoft's WebView2 download bootstrapper. Windows Installer requires a numeric prerelease component, so development package revision `1.2.0-1` corresponds to the in-game `1.2.0-dev.1` build.
+The portable executable is a QA artefact, not a no-install consumer distribution: WebView2 must already be available. The MSI uses Microsoft's WebView2 download bootstrapper. Windows Installer requires a numeric prerelease component, so package revision `1.2.0-1` corresponds to the in-game `1.2.0-beta.1` build.
 
 ## Saves and recovery
 

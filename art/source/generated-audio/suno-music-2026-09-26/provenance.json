@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-26",
+  "source": {
+    "service": "Suno",
+    "accountTier": "Premier annual",
+    "creatorAccount": "themidnightwhistler",
+    "commercialEntitlementEvidence": "USER_SUPPLIED_ACTIVE_PREMIER_PLAN_SCREENSHOT_AND_EMBEDDED_GENERATION_METADATA",
+    "commercialEntitlementAttestedAt": "2026-09-26",
+    "generationHistoryRetainedExternally": true,
+    "terms": [
+      "https://help.suno.com/en/articles/9601665",
+      "https://suno.com/terms"
+    ],
+    "note": "Commercial use permission does not itself guarantee copyright protection or exclusivity. These are original instrumental outputs and must still pass human similarity review before release."
+  },
+  "tracks": [
+    {
+      "cue": "music_briefing_intelligence",
+      "title": "Briefing Room Alpha",
+      "sunoId": "019267a1-8623-474d-a8d9-02d3c91bacb8",
+      "source": { "file": "briefing-room-alpha.mp3", "sha256": "dfd9a55839e43867fb13bb1fbb817deb9f0021dd6266767e6a0624cb9313a496", "durationSeconds": 88.68 },
+      "runtime": { "file": "public/assets/audio/music/briefing-intelligence-v1.ogg", "sha256": "c8f692e8734418f482aa9667f7e54164c28ba2f53528c00aa839b9b744be599a", "durationSeconds": 60.01, "loop": true }
+    },
+    {
+      "cue": "music_carrier_launch",
+      "title": "Dawn Departure",
+      "sunoId": "77f7762f-479c-46f6-bdb2-0cfddcbfd9f3",
+      "source": { "file": "dawn-departure.mp3", "sha256": "8aacb09028419371f1c0fc156b6d67196f501fa1fcc9960e5c57052cf243899d", "durationSeconds": 88.76 },
+      "runtime": { "file": "public/assets/audio/music/carrier-launch-v1.ogg", "sha256": "8e765d6970d3b8ef4e324f0249d456a288e3e607ada1c3a097ccf391fcf69600", "durationSeconds": 75.01, "loop": false }
+    },
+    {
+      "cue": "music_patrol_north_atlantic",
+      "title": "Carrier Approach",
+      "sunoId": "4c291049-9ebe-4583-a63e-f37e70c15bf8",
+      "source": { "file": "carrier-approach.mp3", "sha256": "04266e408c396cec6fc7a67031aba738d976f14ced2a9146f114cb3e47644a04", "durationSeconds": 89.56 },
+      "runtime": { "file": "public/assets/audio/music/north-atlantic-patrol-v1.ogg", "sha256": "d82a4cf92137daded9dd8514f5e5d17bff88bd343e6e3feaabcb1ca369c7dc25", "durationSeconds": 60.01, "loop": true }
+    },
+    {
+      "cue": "music_air_combat_intercept",
+      "title": "Air Defense Arp",
+      "sunoId": "eb07d0b3-49b8-4f3d-ada9-0850f0a84437",
+      "source": { "file": "air-defence-arp.mp3", "sha256": "cacf5a5ea4146962c9da6dc808efb335ff5e0b9d3ccd60494ab6ca4de23dd0db", "durationSeconds": 89.6 },
+      "runtime": { "file": "public/assets/audio/music/air-combat-intercept-v1.ogg", "sha256": "1c7faea48c6b960128b84df5a62665a62822b9ece05dfdb9234086db4309adad", "durationSeconds": 60.01, "loop": true }
+    },
+    {
+      "cue": "music_ground_strike",
+      "title": "Low-Level Acquisition",
+      "sunoId": "909b23d1-f81a-493c-bbb7-3c843d9e76fc",
+      "source": { "file": "low-level-acquisition.mp3", "sha256": "52e83824106a858f89a1c7a91219000d43331b587f19623a99bf2f92bf3efcd8", "durationSeconds": 89.52 },
+      "runtime": { "file": "public/assets/audio/music/ground-strike-v1.ogg", "sha256": "924adae0c2e953295886fdaf19ac648ff48835442fddb5806a414f21fb8e861f", "durationSeconds": 60.01, "loop": true }
+    },
+    {
+      "cue": "music_storm_fleet_defence",
+      "title": "Defensive Phrase",
+      "sunoId": "62e4fe0c-068c-439b-a6d8-3948dc12de9b",
+      "source": { "file": "defensive-phrase.mp3", "sha256": "0ce1e1e6af16c6f8ab8c04648e7035bd3a866e0ab96e94387c348fdf57b7b3ab", "durationSeconds": 88.8 },
+      "runtime": { "file": "public/assets/audio/music/storm-fleet-defence-v1.ogg", "sha256": "5ea2c03698ffcbce1e0e99977fe0fffcfe7008c7854b27a0bc6986966def1ad1", "durationSeconds": 70.01, "loop": true }
+    },
+    {
+      "cue": "music_bastion_assault",
+      "title": "Basalt Command",
+      "sunoId": "004b3f1e-025a-4252-9037-93c63ad32d1c",
+      "source": { "file": "basalt-command.mp3", "sha256": "7e3681af1088bdcba7c49745db54b47f765c40c0b58558f2e20a27774098697f", "durationSeconds": 88.8 },
+      "runtime": { "file": "public/assets/audio/music/bastion-assault-v1.ogg", "sha256": "101bd7e1214e088e9d4c65aa6024f7c4cf7a87d1b43d826cfa80b0293c5c4c2e", "durationSeconds": 70.01, "loop": true }
+    },
+    {
+      "cue": "music_recovery_approach",
+      "title": "Narrow Margins",
+      "sunoId": "a05a6204-6a77-49ec-b295-9570cbca2fc0",
+      "source": { "file": "narrow-margins.mp3", "sha256": "6c243c1582effecf6af95aa73e31957f7edc4d84fd75db676633de1bc19868d8", "durationSeconds": 89.6 },
+      "runtime": { "file": "public/assets/audio/music/recovery-approach-v1.ogg", "sha256": "6d3aad0e83a7c645932fa8c7fbc3efcb7e72952a3433dca3cebd0be69db30531", "durationSeconds": 60.01, "loop": true }
+    },
+    {
+      "cue": "music_debrief_victory",
+      "title": "Mission Accomplished",
+      "sunoId": "2c6191f0-5d5a-42dd-977c-b0142994e78c",
+      "source": { "file": "mission-accomplished.mp3", "sha256": "67fe4c61c917601b5b7f2f980cd4e3538a4a9f38a3e3e79549c1917f2ffed3d1", "durationSeconds": 88.88 },
+      "runtime": { "file": "public/assets/audio/music/debrief-victory-v1.ogg", "sha256": "5f2610c6556762929ff050b110b8c27726ce5dba729dada2029b15ba1ab36610", "durationSeconds": 88.91, "loop": false }
+    },
+    {
+      "cue": "music_debrief_loss",
+      "title": "Mission Debrief",
+      "sunoId": "4a2fcaad-7f91-490f-a4e4-5db7775f7e01",
+      "source": { "file": "mission-debrief.mp3", "sha256": "312095f6d66b62127b155c58701c6118344a7f865c3c07675c2d9a2979d49aca", "durationSeconds": 89.0 },
+      "runtime": { "file": "public/assets/audio/music/debrief-loss-v1.ogg", "sha256": "72e0a34b3150a7df052dadfb2ff36d840056b2678dfa0279ecff22799a2de3fe", "durationSeconds": 89.01, "loop": false }
+    },
+    {
+      "cue": "music_servicing_turnaround",
+      "title": "Preparation for Sortie",
+      "sunoId": "f27e4c40-f6fb-44c0-a083-6cfdd04fff37",
+      "source": { "file": "preparation-for-sortie.mp3", "sha256": "9fc8eaf9dcb45508b43d782a103a5e1e75446aa22f8b0579b8c1f113041a20ca", "durationSeconds": 88.8 },
+      "runtime": { "file": "public/assets/audio/music/servicing-turnaround-v1.ogg", "sha256": "a49e841f0e9b11a989532f700412e77618df83593912536f7dd920842b085d66", "durationSeconds": 60.01, "loop": true }
+    }
+  ],
+  "missingCue": "music_title_command",
+  "processing": "Loop cues use a four-second wraparound equal-power crossfade. All runtime files are stereo 48 kHz Ogg Opus at 56 kbit/s VBR and normalised to approximately -20 LUFS with a -2 dBTP ceiling.",
+  "releaseStatus": "COMMERCIALLY_LICENSED_PENDING_HUMAN_LISTENING_AND_SIMILARITY_REVIEW",
+  "reproduction": ["scripts/prepare-suno-music.ps1"]
+}

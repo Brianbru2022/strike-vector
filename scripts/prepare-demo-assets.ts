@@ -36,6 +36,35 @@ const assets = [
   'assets/sprites/harrier-ejection-v1.png',
   'assets/audio/elevenlabs/aden-cannon-v2.wav',
   'assets/audio/elevenlabs/sidewinder-launch-v2.wav',
+  'assets/audio/elevenlabs/sidewinder-flyby-v1.wav',
+  'assets/audio/elevenlabs/rocket-pod-salvo-v1.wav',
+  'assets/audio/elevenlabs/bomb-release-v2.wav',
+  'assets/audio/elevenlabs/flare-eject-v2.wav',
+  'assets/audio/elevenlabs/aircraft-gun-hit-v1.wav',
+  'assets/audio/elevenlabs/ground-armour-hit-v1.wav',
+  'assets/audio/elevenlabs/ground-soft-hit-v1.wav',
+  'assets/audio/elevenlabs/water-impact-v1.wav',
+  'assets/audio/elevenlabs/explosion-small-v1.wav',
+  'assets/audio/elevenlabs/explosion-medium-v1.wav',
+  'assets/audio/elevenlabs/explosion-large-v1.wav',
+  'assets/audio/elevenlabs/fuel-cookoff-v1.wav',
+  'assets/audio/elevenlabs/aircraft-breakup-v1.wav',
+  'assets/audio/elevenlabs/aircraft-ground-crash-v1.wav',
+  'assets/audio/elevenlabs/aircraft-sea-crash-v1.wav',
+  'assets/audio/elevenlabs/ejection-seat-v1.wav',
+  'assets/audio/elevenlabs/naval-gun-v2.wav',
+  'assets/audio/elevenlabs/antiship-missile-launch-v1.wav',
+  'assets/audio/elevenlabs/carrier-touchdown-v2.wav',
+  'assets/audio/elevenlabs/carrier-deck-ambience-v1.wav',
+  'assets/audio/elevenlabs/farp-ambience-v1.wav',
+  'assets/audio/elevenlabs/storm-rain-loop-v1.wav',
+  'assets/audio/elevenlabs/thunder-distant-v1.wav',
+  'assets/audio/elevenlabs/radar-search-v1.wav',
+  'assets/audio/elevenlabs/coastal-surf-loop-v1.wav',
+  'assets/audio/elevenlabs/radar-track-loop-v1.wav',
+  'assets/audio/elevenlabs/missile-warning-loop-v1.wav',
+  'assets/audio/elevenlabs/target-lock-v1.wav',
+  'assets/audio/elevenlabs/low-fuel-warning-v1.wav',
   'assets/audio/heavy-impact-v1.wav',
   'assets/audio/north-atlantic-wind-v1.wav',
   'assets/audio/elevenlabs/pegasus-idle-loop-v1.wav',
@@ -46,12 +75,6 @@ const assets = [
   'assets/audio/elevenlabs/landing-gear-cycle-v1.wav',
   'assets/audio/elevenlabs/compressor-stall-v1.wav',
   'assets/audio/elevenlabs/engine-damaged-loop-v1.wav',
-  'assets/audio/rocket-motor-v1.wav',
-  'assets/audio/bomb-release-v1.wav',
-  'assets/audio/flare-eject-v1.wav',
-  'assets/audio/naval-gun-v1.wav',
-  'assets/audio/carrier-touchdown-v1.wav',
-  'assets/audio/threat-warning-v1.wav',
   'assets/audio/radio-chirp-v1.wav',
   'assets/ui/title-composition-hero-v1.webp',
   'assets/ui/briefing-iron-dawn-v2.jpg',
@@ -69,7 +92,10 @@ for (const relative of assets) {
   const destination = resolve(outputRoot, relative);
   mkdirSync(dirname(destination), { recursive: true });
   if (relative.endsWith('.wav')) {
-    const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', source, '-ac', '1', '-ar', '15000', '-c:a', 'pcm_s16le', destination], { stdio: 'inherit' });
+    // The focused browser demo keeps recognisable production cues while using
+    // compact derivatives; the paid web/desktop builds retain 22.05 kHz files.
+    const compactRate = /ambience|storm-rain|coastal-surf|north-atlantic-wind/.test(relative) ? '3000' : '4000';
+    const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', source, '-ac', '1', '-ar', compactRate, '-c:a', 'pcm_s16le', destination], { stdio: 'inherit' });
     if (result.error || result.status !== 0) throw new Error(`Could not prepare compact demo audio: ${relative}`);
   } else {
     copyFileSync(source, destination);

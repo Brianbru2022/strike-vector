@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-25",
+  "source": {
+    "service": "User-owned SoundFX application",
+    "model": "Sony Woosh model selected by the application",
+    "generationHistoryRetainedExternally": true,
+    "commercialEntitlementEvidence": "USER_ATTESTATION_PAID_ACCOUNT",
+    "commercialEntitlementAttestedAt": "2026-09-25",
+    "commercialEntitlementScope": "The four archived source files and two edited runtime cues in this archive were supplied by the user from their licensed paid-account workflow. Formal release review remains required."
+  },
+  "assets": [
+    {
+      "asset": "Ejection canopy separation",
+      "prompt": "Combat-aircraft canopy jettison: explosive cord crack, pressure pop and rapidly departing lightweight frame, 0.65 seconds, no seat rocket, voice or aircraft crash.",
+      "candidates": [
+        {
+          "file": "ejection-canopy-candidate-01.wav",
+          "sha256": "fb1a04242ba682003b9e4fe3e4873116bb87a47b6112629b4e34d5bc2f03275a",
+          "selected": true,
+          "selectionReason": "Only supplied candidate. The event is extremely low level and required substantial restoration gain; human listening approval is mandatory."
+        }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/sony-woosh/ejection-canopy-v1.wav",
+        "sha256": "7596773d4aba70eb3a34426406d92f1177ffecaec1e9767e53589d5a032c8615",
+        "processing": "Candidate 01; high-pass filtered, trimmed to 0.65 seconds, converted to mono 22.05 kHz 16-bit PCM, boundary fades and 49 dB restoration gain. Provisional pending critical human listening because the source peak was approximately -61.7 dBFS."
+      }
+    },
+    {
+      "asset": "Parachute opening",
+      "prompt": "Emergency parachute deploying at speed: fabric snap, suspension-line pull and quick canopy billow, 0.9 seconds, no voice, wind loop or impact.",
+      "candidates": [
+        { "file": "parachute-open-candidate-01.wav", "sha256": "74416ef9b23be31160e5b2b5241be7888d177c3d0b17ece3870017b6bf7ae57c", "selected": true, "selectionReason": "Cleanest candidate with substantial peak headroom and activity from the start of the file." },
+        { "file": "parachute-open-candidate-02.wav", "sha256": "54c0961ed4988a107edf1c66fc1584a8f5e9fec92dad6cf6dbdf63f741c26f69", "selected": false },
+        { "file": "parachute-open-candidate-03.wav", "sha256": "54c0961ed4988a107edf1c66fc1584a8f5e9fec92dad6cf6dbdf63f741c26f69", "selected": false, "note": "Duplicate service download retained for provenance." }
+      ],
+      "runtime": {
+        "file": "public/assets/audio/sony-woosh/parachute-open-v1.wav",
+        "sha256": "2fdd700918bc0bd73c0a8c74af0bd2e7e49707ad7ca1a3c065f8d3ebcfce324a",
+        "processing": "Candidate 01; trimmed to 0.9 seconds, converted to mono 22.05 kHz 16-bit PCM, boundary fades and 4 dB gain. Human sequence-mix approval remains pending."
+      }
+    }
+  ],
+  "releaseStatus": "COMMERCIALLY_LICENSED_PENDING_HUMAN_LISTENING",
+  "reproduction": [
+    "scripts/prepare-final-production-audio.ps1"
+  ]
+}

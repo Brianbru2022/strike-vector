@@ -1,6 +1,6 @@
 # Milestone 9 foreground readability audit
 
-Build: `IK87-1.2.0-DEV1-20260922-PLAY1`
+Build: `IK87-1.2.0-DEV1-20260926-AUDIO10`
 
 Automated audit: **PASS**
 

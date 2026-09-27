@@ -46,7 +46,7 @@ export default defineConfig(({mode}) => {
           start_url: '/',
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,json,jpg,png,webp,wav,svg,woff2,txt}'],
+          globPatterns: ['**/*.{js,css,html,json,jpg,png,webp,wav,ogg,svg,woff2,txt}'],
           globIgnores: demo ? ['assets/Operation*.js', 'assets/ChapterSelect*.js', 'assets/NorwegianCampaignMap*.js', 'assets/LandingPracticeScreen*.js'] : [],
           navigateFallback: 'index.html',
           // The two full-screen painted mission plates are intentionally kept

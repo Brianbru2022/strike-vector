@@ -60,6 +60,7 @@ export class TerrainSystem {
   private reducedEffects = false;
   private wavePhase = 0;
   private lightningTimer = 0;
+  private lightningStarted = false;
   private paintedBackdrop: HTMLImageElement | null = null;
   private paintedBackdropReady = false;
   private fjordBackdrop: HTMLImageElement | null = null;
@@ -177,6 +178,13 @@ export class TerrainSystem {
     this.weatherTick = 0;
     this.wavePhase = 0;
     this.lightningTimer = 0;
+    this.lightningStarted = false;
+  }
+
+  public consumeLightningStarted(): boolean {
+    const started = this.lightningStarted;
+    this.lightningStarted = false;
+    return started;
   }
 
   public setDifficulty(difficulty: DifficultyPreset): void {
@@ -192,6 +200,7 @@ export class TerrainSystem {
   public update(weather: WeatherEffect) {
     this.weatherTick++;
     this.wavePhase += 0.035;
+    this.lightningStarted = false;
 
     // Cloud drift
     for (const c of this.cloudClusters) {
@@ -207,6 +216,7 @@ export class TerrainSystem {
       this.lightningTimer--;
       if (this.lightningTimer <= 0 && Math.random() < 0.012) {
         this.lightningTimer = 8;
+        this.lightningStarted = true;
       }
     }
 
@@ -234,8 +244,8 @@ export class TerrainSystem {
     cameraX: number,
     mission: MissionDefinition
   ) {
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     const tod = mission.timeOfDay;
     const seaY = GAME_CONSTANTS.SEA_LEVEL_Y;
 
@@ -519,8 +529,8 @@ export class TerrainSystem {
     mission: MissionDefinition,
     backdrop: HTMLImageElement
   ) {
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     const tod = mission.timeOfDay;
     const presentation = getEnvironmentPresentation(mission);
     const crop = calculateBackdropCrop(
@@ -609,7 +619,7 @@ export class TerrainSystem {
     cameraX: number,
     mission: MissionDefinition
   ) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     if (mission.terrainProfile === 'ARCTIC_DEEP_FJORD') {
       this.renderArcticDeepFjordSurface(ctx, cameraX, mission);
       return;
@@ -646,8 +656,8 @@ export class TerrainSystem {
   private renderArcticDeepFjordSurface(ctx: CanvasRenderingContext2D, cameraX: number, mission: MissionDefinition): void {
     const texture = this.arcticDeepFjordTexture;
     if (!texture?.complete || texture.naturalWidth <= 0) return;
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     const sourceWidth = texture.naturalWidth * 0.42;
     const routeProgress = cameraX / Math.max(1, mission.mapLength - width);
     const sourceX = Math.max(0, Math.min(texture.naturalWidth - sourceWidth, routeProgress * (texture.naturalWidth - sourceWidth)));
@@ -723,8 +733,8 @@ export class TerrainSystem {
   private renderArcticBridgeheadSurface(ctx: CanvasRenderingContext2D, cameraX: number, mission: MissionDefinition): void {
     const texture = this.arcticBridgeheadTexture;
     if (!texture?.complete || texture.naturalWidth <= 0) return;
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     const sourceWidth = texture.naturalWidth * 0.36;
     const routeProgress = Math.max(0, Math.min(1, cameraX / Math.max(1, mission.mapLength - width)));
     const sourceX = routeProgress * (texture.naturalWidth - sourceWidth);
@@ -778,8 +788,8 @@ export class TerrainSystem {
   }
 
   private drawOceanForeground(ctx: CanvasRenderingContext2D, topY: number, seaState: SeaState = 'MODERATE') {
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     if (this.oceanForeground?.complete && this.oceanForeground.naturalWidth > 0) {
       const drawHeight = Math.max(height - topY, width * (this.oceanForeground.naturalHeight / this.oceanForeground.naturalWidth));
       const waveAmount = seaState === 'HEAVY' ? 4.5 : seaState === 'MODERATE' ? 2.2 : 0.8;
@@ -805,8 +815,8 @@ export class TerrainSystem {
 
   private renderPresentationAtmosphere(ctx: CanvasRenderingContext2D, mission: MissionDefinition): void {
     const presentation = getEnvironmentPresentation(mission);
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     ctx.save();
     const haze = ctx.createLinearGradient(0, height * 0.34, 0, height);
     haze.addColorStop(0, 'rgba(210, 225, 232, 0)');
@@ -835,7 +845,7 @@ export class TerrainSystem {
     tod: TimeOfDay,
     seaY: number
   ) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     const sunX = ((width * 0.72 - cameraX * 0.02) % (width + 300) + width + 300) % (width + 300) - 100;
     const sunY = tod.time === 'SUNSET' ? seaY - 130 : tod.time === 'NIGHT' ? 100 : 110;
 
@@ -891,7 +901,7 @@ export class TerrainSystem {
   }
 
   private renderVolumetricClouds(ctx: CanvasRenderingContext2D, cameraX: number, tod: TimeOfDay) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     ctx.save();
 
     const cloudStride = Math.max(this.reducedEffects ? 2 : 1, this.renderQuality === 'LOW' ? 2 : 1);
@@ -934,7 +944,7 @@ export class TerrainSystem {
 
   // LAYER 2: 2.5D Distant Alpine Mountain Range rendered via ctx.drawImage()
   private renderDistantMountains(ctx: CanvasRenderingContext2D, cameraX: number, tod: TimeOfDay, seaY: number) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     const mountainTexture = assetManager.getTexture('terrain_mountain_range');
     ctx.save();
 
@@ -991,7 +1001,7 @@ export class TerrainSystem {
 
   // LAYER 3: Midground Rocky Crags & Ridges (0.22x Parallax via ctx.drawImage)
   private renderMidgroundRidges(ctx: CanvasRenderingContext2D, cameraX: number, tod: TimeOfDay, seaY: number) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     const mountainTexture = assetManager.getTexture('terrain_mountain_range');
     if (!mountainTexture) return;
 
@@ -1020,7 +1030,7 @@ export class TerrainSystem {
 
   // LAYER 4: Near Coastal Bluffs & Headlands (0.45x Parallax via ctx.drawImage)
   private renderNearHeadlands(ctx: CanvasRenderingContext2D, cameraX: number, tod: TimeOfDay, seaY: number) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     const coastTexture = assetManager.getTexture('terrain_coastal') || assetManager.getTexture('terrain_flat_coast');
     if (!coastTexture) return;
 
@@ -1072,7 +1082,7 @@ export class TerrainSystem {
 
   // LAYER 5: Primary Battlefield Coastal Landmass (1.0x Parallax via ctx.drawImage)
   private renderPrimaryTerrain(ctx: CanvasRenderingContext2D, cameraX: number, mission: MissionDefinition) {
-    const width = ctx.canvas.width;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
     const seaY = GAME_CONSTANTS.SEA_LEVEL_Y;
 
     const startCoastX = 1200;
@@ -1155,8 +1165,8 @@ export class TerrainSystem {
 
   // LAYER 6: Perspective Ocean Surface with Bitmap Tileset via ctx.drawImage() & Wave Swells
   private renderPerspectiveOcean(ctx: CanvasRenderingContext2D, cameraX: number, tod: TimeOfDay) {
-    const width = ctx.canvas.width;
-    const height = ctx.canvas.height;
+    const width = GAME_CONSTANTS.VIEWPORT_WIDTH;
+    const height = GAME_CONSTANTS.VIEWPORT_HEIGHT;
     const seaY = GAME_CONSTANTS.SEA_LEVEL_Y;
     const oceanTexture = assetManager.getTexture('terrain_ocean_surface');
 
@@ -1267,7 +1277,7 @@ export class TerrainSystem {
     const screenX = siteWorldX - cameraX;
     const width = 520;
     const height = 140;
-    if (screenX < -width - 80 || screenX > ctx.canvas.width + 80) return;
+    if (screenX < -width - 80 || screenX > GAME_CONSTANTS.VIEWPORT_WIDTH + 80) return;
 
     const groundY = this.getGroundY(siteWorldX + 245, mission);
     const sprite = SpriteAssetManager.getSprite('forward_base');
@@ -1309,7 +1319,7 @@ export class TerrainSystem {
   ) {
     const screenX = carrierX - cameraX;
     const c = GAME_CONSTANTS.CARRIER;
-    if (screenX < -c.WIDTH - 150 || screenX > ctx.canvas.width + 150) return;
+    if (screenX < -c.WIDTH - 150 || screenX > GAME_CONSTANTS.VIEWPORT_WIDTH + 150) return;
 
     const paintedCarrier = SpriteAssetManager.getSprite('carrier_ship');
     if (paintedCarrier) {

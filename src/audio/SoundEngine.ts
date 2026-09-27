@@ -1,6 +1,9 @@
 import { AudioCueDefinition, AudioMixerCategory, EngineAudioState, MissionRadioMoment, WeatherEffect } from '../types/game';
 import { calculatePegasusLayerMix, MIXER_BASE_GAINS, PRIORITY_DUCKING } from './AudioMix';
 import { formatRadioCaption, getMissionRadioCall } from './RadioProduction';
+import { MUSIC_CUE_DEFINITIONS, MusicCueId, selectGameplayMusic } from './MusicCatalogue';
+
+const COASTAL_SURF_MISSIONS = new Set(['m1_coastal_strike', 'm7_bridge_strike', 'm8_airbase_raid', 'm10_hq_assault', 'm11_cold_passage', 'm13_troms_bridgehead', 'm16_north_cape_assault']);
 
 /**
  * IRON KESTREL '87 - Layered Offline Audio Engine
@@ -19,16 +22,47 @@ export const AUDIO_CUE_DEFINITIONS: Readonly<Record<string, AudioCueDefinition>>
   engine_damaged: { id: 'engine_damaged', category: 'ENGINE', gain: 0.5, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/engine-damaged-loop-v1.wav', loop: true },
   aden_cannon: { id: 'aden_cannon', category: 'WEAPONS', gain: 0.86, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 4, samplePath: '/assets/audio/elevenlabs/aden-cannon-v2.wav' },
   missile_launch: { id: 'missile_launch', category: 'WEAPONS', gain: 0.9, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/sidewinder-launch-v2.wav' },
-  rocket_launch: { id: 'rocket_launch', category: 'WEAPONS', gain: 0.82, playbackRateMin: 0.95, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/rocket-motor-v1.wav' },
-  bomb_release: { id: 'bomb_release', category: 'WEAPONS', gain: 0.72, playbackRateMin: 0.97, playbackRateMax: 1.03, maximumVoices: 2, samplePath: '/assets/audio/bomb-release-v1.wav' },
-  countermeasure: { id: 'countermeasure', category: 'WEAPONS', gain: 0.7, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 2, samplePath: '/assets/audio/flare-eject-v1.wav' },
-  combat_impact: { id: 'combat_impact', category: 'IMPACTS', gain: 0.88, playbackRateMin: 0.9, playbackRateMax: 1.08, maximumVoices: 6, samplePath: '/assets/audio/heavy-impact-v1.wav' },
-  ship_weapon: { id: 'ship_weapon', category: 'WEAPONS', gain: 0.88, playbackRateMin: 0.88, playbackRateMax: 1.05, maximumVoices: 4, priority: 'STANDARD', samplePath: '/assets/audio/naval-gun-v1.wav' },
-  carrier_touchdown: { id: 'carrier_touchdown', category: 'IMPACTS', gain: 0.78, playbackRateMin: 0.9, playbackRateMax: 1.05, maximumVoices: 2, samplePath: '/assets/audio/carrier-touchdown-v1.wav' },
-  missile_warning: { id: 'missile_warning', category: 'WARNINGS', gain: 1, playbackRateMin: 0.9, playbackRateMax: 1.3, maximumVoices: 2, priority: 'CRITICAL', duckingSeconds: 0.5, samplePath: '/assets/audio/threat-warning-v1.wav' },
-  north_atlantic_wind: { id: 'north_atlantic_wind', category: 'AMBIENCE', gain: 0.44, playbackRateMin: 0.82, playbackRateMax: 1.18, maximumVoices: 1, samplePath: '/assets/audio/north-atlantic-wind-v1.wav', loop: true },
-  radio_call: { id: 'radio_call', category: 'RADIO', gain: 0.98, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'CRITICAL', duckingSeconds: 1.8, samplePath: '/assets/audio/radio-chirp-v1.wav' },
-  ui_confirm: { id: 'ui_confirm', category: 'INTERFACE', gain: 0.64, playbackRateMin: 0.98, playbackRateMax: 1.02, maximumVoices: 2 },
+  missile_flyby: { id: 'missile_flyby', category: 'WEAPONS', gain: 0.58, playbackRateMin: 0.96, playbackRateMax: 1.05, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/sidewinder-flyby-v1.wav' },
+  rocket_launch: { id: 'rocket_launch', category: 'WEAPONS', gain: 0.82, playbackRateMin: 0.95, playbackRateMax: 1.06, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/rocket-pod-salvo-v1.wav' },
+  bomb_release: { id: 'bomb_release', category: 'WEAPONS', gain: 0.72, playbackRateMin: 0.97, playbackRateMax: 1.03, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/bomb-release-v2.wav' },
+  countermeasure: { id: 'countermeasure', category: 'WEAPONS', gain: 0.7, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/flare-eject-v2.wav' },
+  aircraft_gun_hit: { id: 'aircraft_gun_hit', category: 'IMPACTS', gain: 0.78, playbackRateMin: 0.95, playbackRateMax: 1.05, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/aircraft-gun-hit-v1.wav' },
+  ground_armour_hit: { id: 'ground_armour_hit', category: 'IMPACTS', gain: 0.76, playbackRateMin: 0.95, playbackRateMax: 1.05, maximumVoices: 4, samplePath: '/assets/audio/elevenlabs/ground-armour-hit-v1.wav' },
+  ground_soft_hit: { id: 'ground_soft_hit', category: 'IMPACTS', gain: 0.7, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 4, samplePath: '/assets/audio/elevenlabs/ground-soft-hit-v1.wav' },
+  water_impact: { id: 'water_impact', category: 'IMPACTS', gain: 0.72, playbackRateMin: 0.95, playbackRateMax: 1.05, maximumVoices: 4, samplePath: '/assets/audio/elevenlabs/water-impact-v1.wav' },
+  explosion_small: { id: 'explosion_small', category: 'IMPACTS', gain: 0.82, playbackRateMin: 0.94, playbackRateMax: 1.06, maximumVoices: 5, samplePath: '/assets/audio/elevenlabs/explosion-small-v1.wav' },
+  explosion_medium: { id: 'explosion_medium', category: 'IMPACTS', gain: 0.9, playbackRateMin: 0.94, playbackRateMax: 1.04, maximumVoices: 5, samplePath: '/assets/audio/elevenlabs/explosion-medium-v1.wav' },
+  explosion_large: { id: 'explosion_large', category: 'IMPACTS', gain: 0.94, playbackRateMin: 0.92, playbackRateMax: 1.03, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/explosion-large-v1.wav' },
+  fuel_cookoff: { id: 'fuel_cookoff', category: 'IMPACTS', gain: 0.92, playbackRateMin: 0.97, playbackRateMax: 1.02, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/fuel-cookoff-v1.wav' },
+  aircraft_breakup: { id: 'aircraft_breakup', category: 'IMPACTS', gain: 0.88, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 3, samplePath: '/assets/audio/elevenlabs/aircraft-breakup-v1.wav' },
+  aircraft_ground_crash: { id: 'aircraft_ground_crash', category: 'IMPACTS', gain: 0.96, playbackRateMin: 0.96, playbackRateMax: 1.02, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/aircraft-ground-crash-v1.wav' },
+  aircraft_sea_crash: { id: 'aircraft_sea_crash', category: 'IMPACTS', gain: 0.94, playbackRateMin: 0.96, playbackRateMax: 1.02, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/aircraft-sea-crash-v1.wav' },
+  ejection_canopy: { id: 'ejection_canopy', category: 'IMPACTS', gain: 0.82, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'CRITICAL', samplePath: '/assets/audio/elevenlabs/ejection-canopy-v2.wav' },
+  ejection_seat: { id: 'ejection_seat', category: 'IMPACTS', gain: 0.9, playbackRateMin: 0.98, playbackRateMax: 1.02, maximumVoices: 1, priority: 'CRITICAL', samplePath: '/assets/audio/elevenlabs/ejection-seat-v1.wav' },
+  parachute_open: { id: 'parachute_open', category: 'IMPACTS', gain: 0.72, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/parachute-open-v2.wav' },
+  combat_impact: { id: 'combat_impact', category: 'IMPACTS', gain: 0.88, playbackRateMin: 0.9, playbackRateMax: 1.08, maximumVoices: 6 },
+  ship_weapon: { id: 'ship_weapon', category: 'WEAPONS', gain: 0.88, playbackRateMin: 0.94, playbackRateMax: 1.04, maximumVoices: 4, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/naval-gun-v2.wav' },
+  ship_missile: { id: 'ship_missile', category: 'WEAPONS', gain: 0.92, playbackRateMin: 0.97, playbackRateMax: 1.03, maximumVoices: 3, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/antiship-missile-launch-v1.wav' },
+  ship_sinking: { id: 'ship_sinking', category: 'IMPACTS', gain: 0.76, playbackRateMin: 0.98, playbackRateMax: 1.02, maximumVoices: 2, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/ship-sinking-v1.wav' },
+  carrier_touchdown: { id: 'carrier_touchdown', category: 'IMPACTS', gain: 0.78, playbackRateMin: 0.96, playbackRateMax: 1.04, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/carrier-touchdown-v2.wav' },
+  missile_warning: { id: 'missile_warning', category: 'WARNINGS', gain: 1, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'CRITICAL', duckingSeconds: 0.5, samplePath: '/assets/audio/elevenlabs/missile-warning-loop-v1.wav', loop: true },
+  north_atlantic_wind: { id: 'north_atlantic_wind', category: 'AMBIENCE', gain: 0.44, playbackRateMin: 0.82, playbackRateMax: 1.18, maximumVoices: 1, loop: true },
+  carrier_deck_ambience: { id: 'carrier_deck_ambience', category: 'AMBIENCE', gain: 0.42, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/carrier-deck-ambience-v1.wav', loop: true },
+  farp_ambience: { id: 'farp_ambience', category: 'AMBIENCE', gain: 0.4, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/farp-ambience-v1.wav', loop: true },
+  storm_rain: { id: 'storm_rain', category: 'AMBIENCE', gain: 0.48, playbackRateMin: 0.98, playbackRateMax: 1.02, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/storm-rain-loop-v1.wav', loop: true },
+  thunder_distant: { id: 'thunder_distant', category: 'AMBIENCE', gain: 0.68, playbackRateMin: 0.96, playbackRateMax: 1.03, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/thunder-distant-v1.wav' },
+  radar_search: { id: 'radar_search', category: 'WARNINGS', gain: 0.68, playbackRateMin: 0.98, playbackRateMax: 1.02, maximumVoices: 2, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/radar-search-v1.wav' },
+  coastal_surf: { id: 'coastal_surf', category: 'AMBIENCE', gain: 0.38, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'BACKGROUND', samplePath: '/assets/audio/elevenlabs/coastal-surf-loop-v1.wav', loop: true },
+  radar_track: { id: 'radar_track', category: 'WARNINGS', gain: 0.76, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'CRITICAL', samplePath: '/assets/audio/elevenlabs/radar-track-loop-v1.wav', loop: true },
+  target_lock: { id: 'target_lock', category: 'WARNINGS', gain: 0.72, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 2, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/target-lock-v1.wav' },
+  low_fuel: { id: 'low_fuel', category: 'WARNINGS', gain: 0.7, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/low-fuel-warning-v1.wav' },
+  master_damage: { id: 'master_damage', category: 'WARNINGS', gain: 0.82, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'CRITICAL', duckingSeconds: 0.5, samplePath: '/assets/audio/elevenlabs/master-damage-warning-v1.wav' },
+  radio_squelch_in: { id: 'radio_squelch_in', category: 'RADIO', gain: 0.72, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/radio-squelch-in-v1.wav' },
+  radio_squelch_out: { id: 'radio_squelch_out', category: 'RADIO', gain: 0.68, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/radio-squelch-out-v1.wav' },
+  radio_call: { id: 'radio_call', category: 'RADIO', gain: 0.98, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 1, priority: 'CRITICAL', duckingSeconds: 1.8 },
+  ui_confirm: { id: 'ui_confirm', category: 'INTERFACE', gain: 0.64, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/ui-confirm-v1.wav' },
+  ui_cancel: { id: 'ui_cancel', category: 'INTERFACE', gain: 0.62, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 2, samplePath: '/assets/audio/elevenlabs/ui-cancel-v1.wav' },
+  objective_complete: { id: 'objective_complete', category: 'INTERFACE', gain: 0.74, playbackRateMin: 1, playbackRateMax: 1, maximumVoices: 2, priority: 'STANDARD', samplePath: '/assets/audio/elevenlabs/objective-complete-v1.wav' },
 });
 
 class SoundEngine {
@@ -47,6 +81,10 @@ class SoundEngine {
   private weatherNode: AudioBufferSourceNode | null = null;
   private weatherFilter: BiquadFilterNode | null = null;
   private weatherGain: GainNode | null = null;
+  private serviceAmbienceNode: AudioBufferSourceNode | null = null;
+  private serviceAmbienceGain: GainNode | null = null;
+  private coastalSurfNode: AudioBufferSourceNode | null = null;
+  private coastalSurfGain: GainNode | null = null;
   private atmosphereRequest: { condition: WeatherEffect['condition']; windSpeed: number } = { condition: 'CLEAR', windSpeed: 0 };
   private sampleBuffers = new Map<string, AudioBuffer>();
   private activeSampleVoices = new Map<string, number>();
@@ -82,6 +120,14 @@ class SoundEngine {
   private isMusicPlaying = false;
   private musicStep = 0;
   private musicIntervalId: number | null = null;
+  private musicSampleNode: AudioBufferSourceNode | null = null;
+  private musicSampleGain: GainNode | null = null;
+  private musicBuffers = new Map<MusicCueId, AudioBuffer>();
+  private desiredMusicCue: MusicCueId | null = null;
+  private currentMusicCue: MusicCueId | null = null;
+  private musicRequestToken = 0;
+  private gameplayMusicActive = false;
+  private recoveryMusicActive = false;
   private combatIntensity = 1.0;
 
   // Volume settings
@@ -144,6 +190,7 @@ class SoundEngine {
 
     this.generateNoiseBuffers();
     void this.preloadBundledSamples();
+    if (this.desiredMusicCue) void this.playAuthoredMusic(this.desiredMusicCue);
   }
 
   public resume() {
@@ -253,9 +300,10 @@ class SoundEngine {
       this.setAtmosphere(this.atmosphereRequest.condition, this.atmosphereRequest.windSpeed);
     }
     this.startBundledEngineLoops();
+    this.syncCoastalSurf();
   }
 
-  private playBundledSample(id: string, category: AudioMixerCategory, gainValue: number, playbackRate = 1): boolean {
+  private playBundledSample(id: string, category: AudioMixerCategory, gainValue: number, playbackRate = 1, delaySeconds = 0): boolean {
     if (!this.ctx) return false;
     const buffer = this.sampleBuffers.get(id);
     const output = this.getCategoryBus(category);
@@ -272,7 +320,7 @@ class SoundEngine {
     source.connect(gain);
     gain.connect(output);
     source.onended = () => this.activeSampleVoices.set(id, Math.max(0, (this.activeSampleVoices.get(id) ?? 1) - 1));
-    source.start();
+    source.start(this.ctx.currentTime + Math.max(0, delaySeconds));
     return true;
   }
 
@@ -353,6 +401,9 @@ class SoundEngine {
       this.ambienceNode?.disconnect();
       this.weatherNode?.stop();
       this.weatherNode?.disconnect();
+      this.coastalSurfNode?.stop();
+      this.coastalSurfNode?.disconnect();
+      this.coastalSurfGain?.disconnect();
     } catch {
       // Already stopped.
     }
@@ -363,6 +414,32 @@ class SoundEngine {
     this.weatherNode = null;
     this.weatherFilter = null;
     this.weatherGain = null;
+    this.coastalSurfNode = null;
+    this.coastalSurfGain = null;
+  }
+
+  private syncCoastalSurf() {
+    const shouldPlay = Boolean(this.missionId && (COASTAL_SURF_MISSIONS.has(this.missionId) || /coast|bridge|airbase|bastion|cape/i.test(this.missionId)));
+    if (!shouldPlay || !this.ctx) {
+      try { this.coastalSurfNode?.stop(); } catch { /* Already stopped. */ }
+      this.coastalSurfNode?.disconnect();
+      this.coastalSurfGain?.disconnect();
+      this.coastalSurfNode = null;
+      this.coastalSurfGain = null;
+      return;
+    }
+    if (this.coastalSurfNode) return;
+    const buffer = this.sampleBuffers.get('coastal_surf');
+    const output = this.getCategoryBus('AMBIENCE');
+    if (!buffer || !output) return;
+    this.coastalSurfNode = this.ctx.createBufferSource();
+    this.coastalSurfNode.buffer = buffer;
+    this.coastalSurfNode.loop = true;
+    this.coastalSurfGain = this.ctx.createGain();
+    this.coastalSurfGain.gain.setValueAtTime(0.11, this.ctx.currentTime);
+    this.coastalSurfNode.connect(this.coastalSurfGain);
+    this.coastalSurfGain.connect(output);
+    this.coastalSurfNode.start();
   }
 
   public setAtmosphere(condition: WeatherEffect['condition'], windSpeed: number) {
@@ -388,7 +465,8 @@ class SoundEngine {
       // A separate high-frequency layer gives rain, spray and deck wind their
       // own presence without baking weather into the engine or music buses.
       this.weatherNode = this.ctx.createBufferSource();
-      this.weatherNode.buffer = this.whiteNoiseBuffer;
+      const bundledStorm = condition === 'RAIN' || condition === 'THUNDERSTORM' ? this.sampleBuffers.get('storm_rain') : null;
+      this.weatherNode.buffer = bundledStorm ?? this.whiteNoiseBuffer;
       this.weatherNode.loop = true;
       this.weatherFilter = this.ctx.createBiquadFilter();
       this.weatherFilter.type = 'highpass';
@@ -695,6 +773,7 @@ class SoundEngine {
     if (!this.ctx || !this.sfxGain) return;
     const now = this.ctx.currentTime;
     const layeredSample = this.playBundledSample('missile_launch', 'WEAPONS', 0.62, 0.97 + Math.random() * 0.05);
+    this.playBundledSample('missile_flyby', 'WEAPONS', 0.32, 0.98 + Math.random() * 0.04, 0.12);
 
     // Rocket ignition whoosh
     const osc = this.ctx.createOscillator();
@@ -749,6 +828,55 @@ class SoundEngine {
     osc.stop(now + 0.29);
   }
 
+  public playAircraftGunHit() {
+    if (!this.ctx || !this.sfxGain) return;
+    const now = this.ctx.currentTime;
+    const layeredSample = this.playBundledSample('aircraft_gun_hit', 'IMPACTS', 0.54, 0.97 + Math.random() * 0.05);
+    if (layeredSample || !this.whiteNoiseBuffer) return;
+    const noise = this.ctx.createBufferSource();
+    noise.buffer = this.whiteNoiseBuffer;
+    const filter = this.ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(1600, now);
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.24, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.09);
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.getCategoryBus('IMPACTS')!);
+    noise.start(now);
+    noise.stop(now + 0.1);
+  }
+
+  public playArmourHit() {
+    this.playBundledSample('ground_armour_hit', 'IMPACTS', 0.48, 0.97 + Math.random() * 0.05);
+  }
+
+  public playSurfaceImpact(surface: 'GROUND' | 'WATER') {
+    const id = surface === 'WATER' ? 'water_impact' : 'ground_soft_hit';
+    this.playBundledSample(id, 'IMPACTS', surface === 'WATER' ? 0.46 : 0.42, 0.97 + Math.random() * 0.05);
+  }
+
+  public playAircraftBreakup() {
+    if (!this.playBundledSample('aircraft_breakup', 'IMPACTS', 0.58, 0.98 + Math.random() * 0.04)) {
+      this.playExplosion('MEDIUM');
+    }
+  }
+
+  public playAircraftCrash(surface: 'GROUND' | 'WATER') {
+    const id = surface === 'WATER' ? 'aircraft_sea_crash' : 'aircraft_ground_crash';
+    if (!this.playBundledSample(id, 'IMPACTS', surface === 'WATER' ? 0.64 : 0.68, 0.98 + Math.random() * 0.03)) {
+      this.playSurfaceImpact(surface);
+      this.playExplosion('LARGE');
+    }
+  }
+
+  public playFuelCookoff() {
+    if (!this.playBundledSample('fuel_cookoff', 'IMPACTS', 0.66, 0.99 + Math.random() * 0.02)) {
+      this.playExplosion('COLOSSAL');
+    }
+  }
+
   public playCountermeasure() {
     if (!this.ctx || !this.sfxGain) return;
     const now = this.ctx.currentTime;
@@ -791,7 +919,9 @@ class SoundEngine {
   public playExplosion(intensity: 'SMALL' | 'MEDIUM' | 'LARGE' | 'COLOSSAL') {
     if (!this.ctx || !this.sfxGain || !this.pinkNoiseBuffer) return;
     const now = this.ctx.currentTime;
-    const layeredSample = intensity === 'SMALL' ? false : this.playBundledSample('combat_impact', 'IMPACTS', intensity === 'COLOSSAL' ? 0.72 : 0.5, intensity === 'MEDIUM' ? 1.08 : 0.94);
+    const sampleId = intensity === 'SMALL' ? 'explosion_small' : intensity === 'MEDIUM' ? 'explosion_medium' : 'explosion_large';
+    const sampleGain = intensity === 'COLOSSAL' ? 0.72 : intensity === 'LARGE' ? 0.56 : intensity === 'MEDIUM' ? 0.54 : 0.46;
+    const layeredSample = this.playBundledSample(sampleId, 'IMPACTS', sampleGain, intensity === 'MEDIUM' ? 1.02 : intensity === 'SMALL' ? 1.04 : 0.94);
     const duration = intensity === 'COLOSSAL' ? 1.4 : intensity === 'LARGE' ? 0.9 : intensity === 'MEDIUM' ? 0.6 : 0.35;
     const volume = intensity === 'COLOSSAL' ? 0.8 : intensity === 'LARGE' ? 0.6 : intensity === 'MEDIUM' ? 0.45 : 0.3;
 
@@ -833,6 +963,7 @@ class SoundEngine {
 
   public playLockOnBeep(locked: boolean) {
     if (!this.ctx || !this.sfxGain) return;
+    if (locked && this.playBundledSample('target_lock', 'WARNINGS', 0.68, 1)) return;
     const now = this.ctx.currentTime;
     const osc = this.ctx.createOscillator();
     osc.type = 'square';
@@ -852,11 +983,17 @@ class SoundEngine {
     this.playThreatWarning('MISSILE');
   }
 
+  public playLowFuelWarning() {
+    if (!this.ctx) return;
+    this.playBundledSample('low_fuel', 'WARNINGS', 0.64, 1);
+  }
+
   public playThreatWarning(kind: 'RADAR' | 'FIGHTER' | 'MISSILE') {
     if (!this.ctx || !this.sfxGain) return;
     this.applyPriorityDucking('WARNING');
     const now = this.ctx.currentTime;
-    const layeredSample = this.playBundledSample('missile_warning', 'WARNINGS', kind === 'MISSILE' ? 0.48 : 0.34, kind === 'MISSILE' ? 1.12 : kind === 'FIGHTER' ? 0.92 : 1.28);
+    const sampleId = kind === 'RADAR' ? 'radar_search' : kind === 'FIGHTER' ? 'radar_track' : 'missile_warning';
+    const layeredSample = this.playBundledSample(sampleId, 'WARNINGS', kind === 'MISSILE' ? 0.48 : kind === 'RADAR' ? 0.42 : 0.4, 1);
     const osc = this.ctx.createOscillator();
     osc.type = kind === 'RADAR' ? 'square' : 'sawtooth';
     const low = kind === 'MISSILE' ? 650 : kind === 'FIGHTER' ? 520 : 760;
@@ -879,13 +1016,13 @@ class SoundEngine {
     const now = this.ctx.currentTime;
     const output = this.getCategoryBus('WEAPONS');
     if (!output) return;
-    const layeredSample = kind === 'NAVAL_GUN' && this.playBundledSample('ship_weapon', 'WEAPONS', 0.62, 0.96 + Math.random() * 0.05);
+    const layeredSample = this.playBundledSample(kind === 'NAVAL_GUN' ? 'ship_weapon' : 'ship_missile', 'WEAPONS', kind === 'NAVAL_GUN' ? 0.62 : 0.72, kind === 'NAVAL_GUN' ? 0.96 + Math.random() * 0.05 : 1);
     const osc = this.ctx.createOscillator();
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(kind === 'MISSILE' ? 150 : 92, now);
     osc.frequency.exponentialRampToValueAtTime(kind === 'MISSILE' ? 520 : 28, now + (kind === 'MISSILE' ? 0.34 : 0.22));
     const gain = this.ctx.createGain();
-    gain.gain.setValueAtTime(kind === 'MISSILE' ? 0.28 : layeredSample ? 0.14 : 0.42, now);
+    gain.gain.setValueAtTime(kind === 'MISSILE' ? (layeredSample ? 0.1 : 0.28) : layeredSample ? 0.14 : 0.42, now);
     gain.gain.exponentialRampToValueAtTime(0.01, now + (kind === 'MISSILE' ? 0.38 : 0.24));
     const noise = this.ctx.createBufferSource();
     noise.buffer = this.pinkNoiseBuffer;
@@ -893,7 +1030,7 @@ class SoundEngine {
     noiseFilter.type = kind === 'MISSILE' ? 'bandpass' : 'lowpass';
     noiseFilter.frequency.setValueAtTime(kind === 'MISSILE' ? 1300 : 580, now);
     const noiseGain = this.ctx.createGain();
-    noiseGain.gain.setValueAtTime(kind === 'MISSILE' ? 0.24 : layeredSample ? 0.1 : 0.34, now);
+    noiseGain.gain.setValueAtTime(kind === 'MISSILE' ? (layeredSample ? 0.08 : 0.24) : layeredSample ? 0.1 : 0.34, now);
     noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.36);
     osc.connect(gain);
     gain.connect(output);
@@ -967,8 +1104,77 @@ class SoundEngine {
     osc.stop(now + 0.26);
   }
 
+  public playEjectionSeat() {
+    if (!this.ctx) return;
+    this.applyPriorityDucking('WARNING');
+    if (!this.playBundledSample('ejection_seat', 'IMPACTS', 0.82, 1)) this.playExplosion('SMALL');
+  }
+
+  public playEjectionCanopy() {
+    if (!this.ctx) return;
+    this.applyPriorityDucking('WARNING');
+    this.playBundledSample('ejection_canopy', 'IMPACTS', 0.8, 1);
+  }
+
+  public playParachuteOpen() {
+    if (!this.ctx) return;
+    this.playBundledSample('parachute_open', 'IMPACTS', 0.68, 1);
+  }
+
+  public playShipSinking() {
+    if (!this.ctx) return;
+    this.playBundledSample('ship_sinking', 'IMPACTS', 0.7, 1);
+  }
+
+  public playMasterDamageWarning() {
+    if (!this.ctx) return;
+    this.applyPriorityDucking('WARNING');
+    this.playBundledSample('master_damage', 'WARNINGS', 0.82, 1);
+  }
+
+  public playObjectiveComplete() {
+    if (!this.ctx) return;
+    this.playBundledSample('objective_complete', 'INTERFACE', 0.72, 1);
+  }
+
+  public playThunder() {
+    if (!this.ctx) return;
+    this.playBundledSample('thunder_distant', 'AMBIENCE', 0.58, 0.98 + Math.random() * 0.04);
+  }
+
+  public startServiceAmbience(siteType: 'CARRIER' | 'FORWARD_BASE') {
+    if (!this.ctx || this.serviceAmbienceNode) return;
+    const buffer = this.sampleBuffers.get(siteType === 'CARRIER' ? 'carrier_deck_ambience' : 'farp_ambience');
+    const output = this.getCategoryBus('AMBIENCE');
+    if (!buffer || !output) return;
+    this.serviceAmbienceNode = this.ctx.createBufferSource();
+    this.serviceAmbienceNode.buffer = buffer;
+    this.serviceAmbienceNode.loop = true;
+    this.serviceAmbienceGain = this.ctx.createGain();
+    this.serviceAmbienceGain.gain.setValueAtTime(0.32, this.ctx.currentTime);
+    this.serviceAmbienceNode.connect(this.serviceAmbienceGain);
+    this.serviceAmbienceGain.connect(output);
+    this.serviceAmbienceNode.start();
+  }
+
+  public stopServiceAmbience() {
+    try {
+      this.serviceAmbienceNode?.stop();
+      this.serviceAmbienceNode?.disconnect();
+      this.serviceAmbienceGain?.disconnect();
+    } catch {
+      // The source may already have been stopped during a state transition.
+    }
+    this.serviceAmbienceNode = null;
+    this.serviceAmbienceGain = null;
+  }
+
   public playUIClick() {
+    if (!this.ctx) this.init();
+    this.resume();
     if (!this.ctx || !this.sfxGain) return;
+    if (this.desiredMusicCue && !this.musicSampleNode) void this.playAuthoredMusic(this.desiredMusicCue);
+    if (this.playBundledSample('ui_confirm', 'INTERFACE', 0.62, 1)) return;
     const now = this.ctx.currentTime;
     const osc = this.ctx.createOscillator();
     osc.type = 'sine';
@@ -981,6 +1187,12 @@ class SoundEngine {
     gain.connect(this.getCategoryBus('INTERFACE')!);
     osc.start(now);
     osc.stop(now + 0.05);
+  }
+
+  public playUICancel() {
+    if (!this.ctx || !this.sfxGain) return;
+    if (this.playBundledSample('ui_cancel', 'INTERFACE', 0.6, 1)) return;
+    this.playUIClick();
   }
 
   // --- RADIO COMMS CHATTER ---
@@ -1014,7 +1226,8 @@ class SoundEngine {
     const now = this.ctx.currentTime;
     const output = this.getCategoryBus('RADIO');
     if (!output) return;
-    const layeredSample = this.playBundledSample('radio_call', 'RADIO', 0.38, 1);
+    const layeredSample = this.playBundledSample('radio_squelch_in', 'RADIO', 0.62, 1)
+      || this.playBundledSample('radio_call', 'RADIO', 0.38, 1);
     const osc = this.ctx.createOscillator();
     osc.type = 'square';
     osc.frequency.setValueAtTime(1080, now);
@@ -1030,6 +1243,7 @@ class SoundEngine {
 
   public setMissionContext(missionId: string | null) {
     this.missionId = missionId;
+    this.syncCoastalSurf();
   }
 
   public playMissionRadio(moment: MissionRadioMoment): boolean {
@@ -1054,6 +1268,8 @@ class SoundEngine {
         utterance.rate = 1.25;
         utterance.pitch = 0.9;
         utterance.volume = this.masterVol * 0.9;
+        utterance.onend = () => this.playBundledSample('radio_squelch_out', 'RADIO', 0.6, 1);
+        utterance.onerror = () => this.playBundledSample('radio_squelch_out', 'RADIO', 0.6, 1);
         window.speechSynthesis.speak(utterance);
       }
     } catch {
@@ -1061,8 +1277,109 @@ class SoundEngine {
     }
   }
 
-  // --- DYNAMIC ADAPTIVE RETRO-SYNTH MUSIC GENERATOR ---
-  public startMusic() {
+  // --- AUTHORED MUSIC WITH PROCEDURAL OFFLINE FALLBACK ---
+  public setMusicScene(scene: 'MENU' | 'BRIEFING' | 'GAMEPLAY' | 'VICTORY' | 'LOSS' | 'SERVICING') {
+    this.gameplayMusicActive = scene === 'GAMEPLAY';
+    const cue: MusicCueId | null = scene === 'BRIEFING'
+      ? 'briefing_intelligence'
+      : scene === 'GAMEPLAY'
+        ? selectGameplayMusic(this.missionId, this.combatIntensity, this.recoveryMusicActive)
+        : scene === 'VICTORY'
+          ? 'debrief_victory'
+          : scene === 'LOSS'
+            ? 'debrief_loss'
+            : scene === 'SERVICING'
+              ? 'servicing_turnaround'
+              : null;
+    this.desiredMusicCue = cue;
+    if (cue) void this.playAuthoredMusic(cue);
+    else this.stopMusic();
+  }
+
+  public startMusic(carrierLaunch = false) {
+    this.gameplayMusicActive = true;
+    this.recoveryMusicActive = false;
+    const cue: MusicCueId = carrierLaunch
+      ? 'carrier_launch'
+      : selectGameplayMusic(this.missionId, this.combatIntensity, false);
+    this.desiredMusicCue = cue;
+    if (this.ctx) void this.playAuthoredMusic(cue);
+  }
+
+  private async loadMusicBuffer(cue: MusicCueId): Promise<AudioBuffer | null> {
+    const cached = this.musicBuffers.get(cue);
+    if (cached) return cached;
+    if (!this.ctx) return null;
+    const definition = MUSIC_CUE_DEFINITIONS[cue];
+    try {
+      const response = await fetch(definition.path);
+      if (!response.ok || !this.ctx) return null;
+      const decoded = await this.ctx.decodeAudioData(await response.arrayBuffer());
+      this.musicBuffers.set(cue, decoded);
+      return decoded;
+    } catch {
+      return null;
+    }
+  }
+
+  private async playAuthoredMusic(cue: MusicCueId) {
+    this.desiredMusicCue = cue;
+    if (!this.ctx || !this.musicGain) return;
+    if (this.currentMusicCue === cue && this.musicSampleNode) return;
+    const token = ++this.musicRequestToken;
+    const buffer = await this.loadMusicBuffer(cue);
+    if (token !== this.musicRequestToken || this.desiredMusicCue !== cue || !this.ctx || !this.musicGain) return;
+    if (!buffer) {
+      this.startProceduralMusic();
+      return;
+    }
+
+    if (this.musicIntervalId !== null) {
+      clearInterval(this.musicIntervalId);
+      this.musicIntervalId = null;
+    }
+    const now = this.ctx.currentTime;
+    const previousNode = this.musicSampleNode;
+    const previousGain = this.musicSampleGain;
+    if (previousNode && previousGain) {
+      previousNode.onended = null;
+      previousGain.gain.cancelScheduledValues(now);
+      previousGain.gain.setValueAtTime(previousGain.gain.value, now);
+      previousGain.gain.linearRampToValueAtTime(0.0001, now + 0.45);
+      try { previousNode.stop(now + 0.46); } catch { /* Already stopped. */ }
+    }
+
+    const definition = MUSIC_CUE_DEFINITIONS[cue];
+    const source = this.ctx.createBufferSource();
+    const gain = this.ctx.createGain();
+    source.buffer = buffer;
+    source.loop = definition.loop;
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.linearRampToValueAtTime(definition.gain, now + 0.7);
+    source.connect(gain);
+    gain.connect(this.musicGain);
+    source.onended = () => {
+      if (this.musicSampleNode !== source) return;
+      source.disconnect();
+      gain.disconnect();
+      this.musicSampleNode = null;
+      this.musicSampleGain = null;
+      this.currentMusicCue = null;
+      this.isMusicPlaying = false;
+      if (cue === 'carrier_launch' && this.gameplayMusicActive) {
+        const next = selectGameplayMusic(this.missionId, this.combatIntensity, this.recoveryMusicActive);
+        this.desiredMusicCue = next;
+        void this.playAuthoredMusic(next);
+      }
+    };
+    this.musicSampleNode = source;
+    this.musicSampleGain = gain;
+    this.currentMusicCue = cue;
+    this.isMusicPlaying = true;
+    source.start(now);
+  }
+
+  private startProceduralMusic() {
     if (this.isMusicPlaying || !this.ctx) return;
     this.isMusicPlaying = true;
     this.musicStep = 0;
@@ -1076,6 +1393,17 @@ class SoundEngine {
 
   public setCombatIntensity(intensity: number) {
     this.combatIntensity = Math.max(1.0, Math.min(3.0, intensity));
+    if (!this.gameplayMusicActive || this.currentMusicCue === 'carrier_launch' || this.recoveryMusicActive) return;
+    const next = selectGameplayMusic(this.missionId, this.combatIntensity, false);
+    if (next !== this.desiredMusicCue) void this.playAuthoredMusic(next);
+  }
+
+  public setRecoveryMusic(active: boolean) {
+    if (this.recoveryMusicActive === active) return;
+    this.recoveryMusicActive = active;
+    if (!this.gameplayMusicActive || this.currentMusicCue === 'carrier_launch') return;
+    const next = selectGameplayMusic(this.missionId, this.combatIntensity, active);
+    if (next !== this.desiredMusicCue) void this.playAuthoredMusic(next);
   }
 
   private tickMusicSequencer() {
@@ -1194,17 +1522,33 @@ class SoundEngine {
   }
 
   public stopMusic() {
+    this.musicRequestToken++;
+    this.desiredMusicCue = null;
+    this.gameplayMusicActive = false;
+    this.recoveryMusicActive = false;
     this.isMusicPlaying = false;
     if (this.musicIntervalId !== null) {
       clearInterval(this.musicIntervalId);
       this.musicIntervalId = null;
     }
+    const source = this.musicSampleNode;
+    const gain = this.musicSampleGain;
+    this.musicSampleNode = null;
+    this.musicSampleGain = null;
+    this.currentMusicCue = null;
+    if (source) {
+      source.onended = null;
+      try { source.stop(); } catch { /* Already stopped. */ }
+      source.disconnect();
+    }
+    gain?.disconnect();
   }
 
   public stopAll() {
     this.stopJetEngine();
     this.stopMusic();
     this.stopAmbience();
+    this.stopServiceAmbience();
   }
 }
 

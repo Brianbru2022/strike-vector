@@ -37,6 +37,7 @@ import { createDemoProgress, DEMO_MANIFEST, exportDemoTransfer, loadDemoProgress
 import { recordBetaEvent } from './game/BetaEvidence';
 import { appendControlConceptEvidence, clearControlConceptEvidence, ControlConceptEvidenceV1, ControlConceptResponseV1, ControlConceptSlot, createControlConceptScenario, loadControlConceptEvidence } from './game/ControlConceptPlaytest';
 import { RELEASE_INFO } from './game/Release';
+import { calculateCanvasBackingStore } from './game/CanvasResolution';
 
 const EXPERIENCE_MANIFEST = DEMO_BUILD ? DEMO_MANIFEST : SHOWCASE_MANIFEST;
 
@@ -134,6 +135,54 @@ export default function App() {
   useEffect(() => {
     activeOperationRef.current = activeOperation;
   }, [activeOperation]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const stage = canvas?.parentElement;
+    if (!canvas || !stage) return;
+
+    const resizeBackingStore = () => {
+      const bounds = stage.getBoundingClientRect();
+      const qualityScale = performanceSnapshot?.resolutionScale
+        ?? engineRef.current?.getPerformanceSnapshot().resolutionScale
+        ?? 1;
+      const backing = calculateCanvasBackingStore(
+        bounds.width,
+        bounds.height,
+        window.devicePixelRatio || 1,
+        qualityScale,
+      );
+      if (canvas.width !== backing.width) canvas.width = backing.width;
+      if (canvas.height !== backing.height) canvas.height = backing.height;
+      canvas.dataset.renderScale = String(backing.renderScale);
+    };
+
+    resizeBackingStore();
+    const observer = new ResizeObserver(resizeBackingStore);
+    observer.observe(stage);
+    window.addEventListener('resize', resizeBackingStore);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', resizeBackingStore);
+    };
+  }, [performanceSnapshot?.resolutionScale]);
+
+  useEffect(() => {
+    if (gameState === 'PLAYING' || gameState === 'PAUSED' || gameState === 'EJECTING') return;
+    if (gameState === 'SERVICING') {
+      soundEngine.setMusicScene('SERVICING');
+      return;
+    }
+    if (gameState === 'DEBRIEFING' || gameState === 'VICTORY' || gameState === 'GAME_OVER') {
+      soundEngine.setMusicScene(scoreData?.isVictory ? 'VICTORY' : 'LOSS');
+      return;
+    }
+    if (gameState === 'BRIEFING' || gameState === 'CAMPAIGN_MAP' || gameState === 'NORWEGIAN_MAP' || gameState === 'OPERATIONS_BOARD' || gameState === 'OPERATION_DOSSIER' || gameState === 'CHAPTER_SELECT') {
+      soundEngine.setMusicScene('BRIEFING');
+      return;
+    }
+    soundEngine.setMusicScene('MENU');
+  }, [gameState, scoreData?.isVictory]);
 
   useEffect(() => {
     if (!controllerNotice) return;

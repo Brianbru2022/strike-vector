@@ -18,7 +18,7 @@ describe('showcase audio catalogue', () => {
 
   it('uses distinct checked-in recordings for the production-critical cues', () => {
     const sampled = Object.values(AUDIO_CUE_DEFINITIONS).filter((cue) => cue.samplePath);
-    expect(sampled).toHaveLength(19);
+    expect(sampled).toHaveLength(48);
     expect(new Set(sampled.map((cue) => cue.samplePath)).size).toBe(sampled.length);
     expect(AUDIO_CUE_DEFINITIONS.missile_launch.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.rocket_launch.samplePath);
     expect(AUDIO_CUE_DEFINITIONS.bomb_release.samplePath).not.toBe(AUDIO_CUE_DEFINITIONS.combat_impact.samplePath);
@@ -33,13 +33,51 @@ describe('showcase audio catalogue', () => {
     expect(AUDIO_CUE_DEFINITIONS.compressor_stall.samplePath).toBe('/assets/audio/elevenlabs/compressor-stall-v1.wav');
     expect(AUDIO_CUE_DEFINITIONS.aden_cannon.samplePath).toBe('/assets/audio/elevenlabs/aden-cannon-v2.wav');
     expect(AUDIO_CUE_DEFINITIONS.missile_launch.samplePath).toBe('/assets/audio/elevenlabs/sidewinder-launch-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.missile_flyby.samplePath).toBe('/assets/audio/elevenlabs/sidewinder-flyby-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.rocket_launch.samplePath).toBe('/assets/audio/elevenlabs/rocket-pod-salvo-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.bomb_release.samplePath).toBe('/assets/audio/elevenlabs/bomb-release-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.countermeasure.samplePath).toBe('/assets/audio/elevenlabs/flare-eject-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.aircraft_gun_hit.samplePath).toBe('/assets/audio/elevenlabs/aircraft-gun-hit-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ground_armour_hit.samplePath).toBe('/assets/audio/elevenlabs/ground-armour-hit-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ground_soft_hit.samplePath).toBe('/assets/audio/elevenlabs/ground-soft-hit-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.water_impact.samplePath).toBe('/assets/audio/elevenlabs/water-impact-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.explosion_small.samplePath).toBe('/assets/audio/elevenlabs/explosion-small-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.explosion_medium.samplePath).toBe('/assets/audio/elevenlabs/explosion-medium-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.explosion_large.samplePath).toBe('/assets/audio/elevenlabs/explosion-large-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.fuel_cookoff.samplePath).toBe('/assets/audio/elevenlabs/fuel-cookoff-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.aircraft_breakup.samplePath).toBe('/assets/audio/elevenlabs/aircraft-breakup-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.aircraft_ground_crash.samplePath).toBe('/assets/audio/elevenlabs/aircraft-ground-crash-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.aircraft_sea_crash.samplePath).toBe('/assets/audio/elevenlabs/aircraft-sea-crash-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ejection_seat.samplePath).toBe('/assets/audio/elevenlabs/ejection-seat-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ejection_canopy.samplePath).toBe('/assets/audio/elevenlabs/ejection-canopy-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.parachute_open.samplePath).toBe('/assets/audio/elevenlabs/parachute-open-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ship_weapon.samplePath).toBe('/assets/audio/elevenlabs/naval-gun-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ship_missile.samplePath).toBe('/assets/audio/elevenlabs/antiship-missile-launch-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ship_sinking.samplePath).toBe('/assets/audio/elevenlabs/ship-sinking-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.carrier_touchdown.samplePath).toBe('/assets/audio/elevenlabs/carrier-touchdown-v2.wav');
+    expect(AUDIO_CUE_DEFINITIONS.carrier_deck_ambience.samplePath).toBe('/assets/audio/elevenlabs/carrier-deck-ambience-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.farp_ambience.samplePath).toBe('/assets/audio/elevenlabs/farp-ambience-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.storm_rain.samplePath).toBe('/assets/audio/elevenlabs/storm-rain-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.thunder_distant.samplePath).toBe('/assets/audio/elevenlabs/thunder-distant-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.radar_search.samplePath).toBe('/assets/audio/elevenlabs/radar-search-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.coastal_surf.samplePath).toBe('/assets/audio/elevenlabs/coastal-surf-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.radar_track.samplePath).toBe('/assets/audio/elevenlabs/radar-track-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.missile_warning.samplePath).toBe('/assets/audio/elevenlabs/missile-warning-loop-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.target_lock.samplePath).toBe('/assets/audio/elevenlabs/target-lock-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.low_fuel.samplePath).toBe('/assets/audio/elevenlabs/low-fuel-warning-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.master_damage.samplePath).toBe('/assets/audio/elevenlabs/master-damage-warning-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.radio_squelch_in.samplePath).toBe('/assets/audio/elevenlabs/radio-squelch-in-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.radio_squelch_out.samplePath).toBe('/assets/audio/elevenlabs/radio-squelch-out-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ui_confirm.samplePath).toBe('/assets/audio/elevenlabs/ui-confirm-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.ui_cancel.samplePath).toBe('/assets/audio/elevenlabs/ui-cancel-v1.wav');
+    expect(AUDIO_CUE_DEFINITIONS.objective_complete.samplePath).toBe('/assets/audio/elevenlabs/objective-complete-v1.wav');
     for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'engine_damaged']) {
       expect(AUDIO_CUE_DEFINITIONS[id].loop).toBe(true);
     }
   });
 
   it('limits continuous beds to a single looping voice', () => {
-    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'engine_damaged', 'north_atlantic_wind']) {
+    for (const id of ['jet_idle', 'jet_power', 'airframe_wind', 'vtol_thrust', 'engine_damaged', 'north_atlantic_wind', 'carrier_deck_ambience', 'farp_ambience', 'storm_rain', 'coastal_surf', 'radar_track', 'missile_warning']) {
       expect(AUDIO_CUE_DEFINITIONS[id].loop).toBe(true);
       expect(AUDIO_CUE_DEFINITIONS[id].maximumVoices).toBe(1);
     }

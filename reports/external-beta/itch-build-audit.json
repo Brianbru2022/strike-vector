@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "buildId": "IK87-1.2.0-DEV1-20260921-DIRECTION1",
-  "releaseVersion": "1.2.0-dev.1",
-  "generatedAt": "2026-09-21T07:07:38.730Z",
+  "buildId": "IK87-1.2.0-BETA1-20260927-A",
+  "releaseVersion": "1.2.0-beta.1",
+  "generatedAt": "2026-09-27T16:02:32.194Z",
   "hosting": "itch-html5-iframe-relative",
   "serviceWorkerEnabled": false,
-  "totalBytes": 37145060,
-  "fileCount": 106,
-  "fingerprint": "43d4ab829ab665c5c1d57e0e916fe4303ff26630059ad14beb7e777e3aa53697",
+  "totalBytes": 47702809,
+  "fileCount": 165,
+  "fingerprint": "677570de7e80b96d87c28e3b0ff5b1f4bd828250023b63cf90109b7449ecb390",
   "configuredFeedbackUrl": null,
   "feedbackUrlEmbedded": false,
   "assetClasses": {
     "images": 71,
-    "audio": 13,
+    "audio": 61,
     "scripts": 11
   },
   "files": [
@@ -32,6 +32,246 @@
       "sha256": "68dd5adc7b55fb193054a6e0c386b899d17b83352295c192b6910ba38084014a"
     },
     {
+      "path": "assets/audio/elevenlabs/aden-cannon-v2.wav",
+      "bytes": 40312,
+      "sha256": "5026c23a05b1f9c68c7c18198bbf5892b69b3e2fea6606ae645e34fecb0309da"
+    },
+    {
+      "path": "assets/audio/elevenlabs/aircraft-breakup-v1.wav",
+      "bytes": 97502,
+      "sha256": "d6b14914c386743a65105102179e8dbdfca3b185c3b26cd13b1c0666c4b555a7"
+    },
+    {
+      "path": "assets/audio/elevenlabs/aircraft-ground-crash-v1.wav",
+      "bytes": 105918,
+      "sha256": "87b1e15e0286ca4e60efb2387818bc412d5bb4a74e1446ca0f9e5d4b885ed40d"
+    },
+    {
+      "path": "assets/audio/elevenlabs/aircraft-gun-hit-v1.wav",
+      "bytes": 20174,
+      "sha256": "6f34cc29ab7716fa845e2b292510fcc2e55742b6dd3347664d318e90d38d47e1"
+    },
+    {
+      "path": "assets/audio/elevenlabs/aircraft-sea-crash-v1.wav",
+      "bytes": 114914,
+      "sha256": "b8d1c06628bb17fcb40058f73fca5203d64e8688a9bb702a5a5ae806022523f6"
+    },
+    {
+      "path": "assets/audio/elevenlabs/airframe-wind-loop-v1.wav",
+      "bytes": 132378,
+      "sha256": "7c65489af2aea4a6528e4988229f8e2bf4145bb66efcfa30cd8904b669ca3293"
+    },
+    {
+      "path": "assets/audio/elevenlabs/antiship-missile-launch-v1.wav",
+      "bytes": 88840,
+      "sha256": "a66e3f2aa7b1552af101b18ae7bd32cf881c5af3ce836fa23bc81dc78d325243"
+    },
+    {
+      "path": "assets/audio/elevenlabs/bomb-release-v2.wav",
+      "bytes": 30948,
+      "sha256": "0097db0626676834b091e77e289b60213e8516bf78a997f190940e8218fa5c90"
+    },
+    {
+      "path": "assets/audio/elevenlabs/carrier-deck-ambience-v1.wav",
+      "bytes": 529278,
+      "sha256": "c2b425fad1509bedeaafa08c191b9f99736d711e1f93fa59c671dcaa422db529"
+    },
+    {
+      "path": "assets/audio/elevenlabs/carrier-touchdown-v2.wav",
+      "bytes": 66578,
+      "sha256": "740cb8ba6081f3665a03a4c552e366dfebcc088ec94abc529c3d4a741316f248"
+    },
+    {
+      "path": "assets/audio/elevenlabs/coastal-surf-loop-v1.wav",
+      "bytes": 529278,
+      "sha256": "c7c44566306fc931b45235cd9784c20cd47807fe244eea38f6e43477a7974e2f"
+    },
+    {
+      "path": "assets/audio/elevenlabs/compressor-stall-v1.wav",
+      "bytes": 60054,
+      "sha256": "81c82d18944a842290d7ecbb911ed4d509028810d5eeed2ec9c74687e0f66bef"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ejection-canopy-v2.wav",
+      "bytes": 28744,
+      "sha256": "f21c5c9fda25773047720eba3c6559203416429f71c0c6570288816de94d1e22"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ejection-seat-v1.wav",
+      "bytes": 52338,
+      "sha256": "a2bec9d93a43822f4332ebcdfb401b0941291627db95b9ba7526556232fc2a94"
+    },
+    {
+      "path": "assets/audio/elevenlabs/engine-damaged-loop-v1.wav",
+      "bytes": 176478,
+      "sha256": "da99b76c2bcfabefaebbaad36332fde315ba261c971ab22e901d568c1a3d1b5d"
+    },
+    {
+      "path": "assets/audio/elevenlabs/explosion-large-v1.wav",
+      "bytes": 123294,
+      "sha256": "2e617da4c57f56ea638c9550d4acac539139834a74aaf2d2fa265b432a3c0693"
+    },
+    {
+      "path": "assets/audio/elevenlabs/explosion-medium-v1.wav",
+      "bytes": 79084,
+      "sha256": "10b07872131728aa0233d35e97a5663e03cbc4edec75220194cb4322275039e4"
+    },
+    {
+      "path": "assets/audio/elevenlabs/explosion-small-v1.wav",
+      "bytes": 44178,
+      "sha256": "70b5d294990a7ac564f84ace0d893a5a2cb7e95ea7bdb9e72d2c380650989a27"
+    },
+    {
+      "path": "assets/audio/elevenlabs/farp-ambience-v1.wav",
+      "bytes": 492234,
+      "sha256": "e1af185d997911b843ed42f255e43d50ae62e7ee2574ef6e5f97da7a9710ae2a"
+    },
+    {
+      "path": "assets/audio/elevenlabs/flare-eject-v2.wav",
+      "bytes": 30948,
+      "sha256": "f5fe241edb847436cf85c2788f01272c4c232398129ea16a27f0c830632a8e7e"
+    },
+    {
+      "path": "assets/audio/elevenlabs/fuel-cookoff-v1.wav",
+      "bytes": 199210,
+      "sha256": "18691bd05efb59e3c1ec7da62eadca3d84ce4c17971393009e01f6c3079f0624"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ground-armour-hit-v1.wav",
+      "bytes": 25154,
+      "sha256": "3d17355bc945a5852a1d235ffa5ac077354995126ce79fa81ace49ae340c244e"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ground-soft-hit-v1.wav",
+      "bytes": 26960,
+      "sha256": "13616168d80430eaf4ea8003ce90bae44538c3b50dc38a2fafb307b252ee73ca"
+    },
+    {
+      "path": "assets/audio/elevenlabs/landing-gear-cycle-v1.wav",
+      "bytes": 52116,
+      "sha256": "c714e362670858c1f1275f60664b9dc94efe77d310264275caf955b213687f0b"
+    },
+    {
+      "path": "assets/audio/elevenlabs/low-fuel-warning-v1.wav",
+      "bytes": 28744,
+      "sha256": "1927ac4f8e400d19b367675a18bb5ea87c3eb70b1d8c04fe6d37a344806f14fd"
+    },
+    {
+      "path": "assets/audio/elevenlabs/master-damage-warning-v1.wav",
+      "bytes": 30948,
+      "sha256": "add9dcc5548b7e16d40e46279c6afec49ad0ad2924fa6ca22785135c9718c2c0"
+    },
+    {
+      "path": "assets/audio/elevenlabs/missile-warning-loop-v1.wav",
+      "bytes": 44178,
+      "sha256": "c8ee8bcfcc097f5939b5e91caa5505cbc956ed267054bd07e18a1166accd6c58"
+    },
+    {
+      "path": "assets/audio/elevenlabs/naval-gun-v2.wav",
+      "bytes": 60054,
+      "sha256": "ac1b157a85b5bc0a4d03ea614c00e0673fa802c15c69dd7217dbf32fbc3d96c2"
+    },
+    {
+      "path": "assets/audio/elevenlabs/nozzle-transition-v1.wav",
+      "bytes": 52998,
+      "sha256": "7c254ef1a6f3c661ba14f835f3b0aab80a8f9c671b0211191dd5ea8b10ab7209"
+    },
+    {
+      "path": "assets/audio/elevenlabs/objective-complete-v1.wav",
+      "bytes": 34654,
+      "sha256": "7a4e9069cb89d21e5334a26aecb08573fb01e25707d77780a0ce53222ff71773"
+    },
+    {
+      "path": "assets/audio/elevenlabs/parachute-open-v2.wav",
+      "bytes": 39768,
+      "sha256": "e6c41c89e0a383db74fad9063566317bf09b9ac7a80f0cf1b3ec7d1d94ebca39"
+    },
+    {
+      "path": "assets/audio/elevenlabs/pegasus-idle-loop-v1.wav",
+      "bytes": 132378,
+      "sha256": "16d9e57cb59868e7febae3484c26b9d1bb14748fc11d93fcb5ef6ffb6953f031"
+    },
+    {
+      "path": "assets/audio/elevenlabs/pegasus-power-loop-v1.wav",
+      "bytes": 59614,
+      "sha256": "a85b090642285115b8453f47aeff8d8bc19940c999a8a82d5da7092ee16d817c"
+    },
+    {
+      "path": "assets/audio/elevenlabs/radar-search-v1.wav",
+      "bytes": 16220,
+      "sha256": "9111489764f6d7242de27b18bbd88abde1d5426102f4a6c1b56ca3a72bd44635"
+    },
+    {
+      "path": "assets/audio/elevenlabs/radar-track-loop-v1.wav",
+      "bytes": 44178,
+      "sha256": "62b942afd6d0eabf25b67347bc2bf8e867def2fad78716bbb22223bb1b90da88"
+    },
+    {
+      "path": "assets/audio/elevenlabs/radio-squelch-in-v1.wav",
+      "bytes": 8460,
+      "sha256": "e75637d53a240afb0793b1b4c4de368f80afb028f1f93c328f2db2d42c36e514"
+    },
+    {
+      "path": "assets/audio/elevenlabs/radio-squelch-out-v1.wav",
+      "bytes": 9406,
+      "sha256": "d13dc5f3ac3442b425513a0486fe795a7b7a028599ca5a0f7d93ca04d39ccebf"
+    },
+    {
+      "path": "assets/audio/elevenlabs/rocket-pod-salvo-v1.wav",
+      "bytes": 44356,
+      "sha256": "87dde4136b8ce077eb7b2a7e9229ac7925a077e10a6ef801785897afce588ef0"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ship-sinking-v1.wav",
+      "bytes": 247038,
+      "sha256": "3356770d48ad926fc3d9f05d333a056931ba808a9237606278fcd3a5c66a860b"
+    },
+    {
+      "path": "assets/audio/elevenlabs/sidewinder-flyby-v1.wav",
+      "bytes": 44746,
+      "sha256": "aa1cbc558edb1a32f9b68d32bdb6895bab9fc6a3393feda2c3eb11375c8f7280"
+    },
+    {
+      "path": "assets/audio/elevenlabs/sidewinder-launch-v2.wav",
+      "bytes": 53646,
+      "sha256": "ebadfdf065f5611e2ff821101ddd215cd9065079a39d4686984ac61251126908"
+    },
+    {
+      "path": "assets/audio/elevenlabs/storm-rain-loop-v1.wav",
+      "bytes": 492234,
+      "sha256": "9ada4cb002ea9ffda591c63abb71aedb73c5c626f4cb618b1fa1fe9dbe23cce8"
+    },
+    {
+      "path": "assets/audio/elevenlabs/target-lock-v1.wav",
+      "bytes": 20428,
+      "sha256": "35518ee5c75673c96b6ae0bd4bd3016466cea8c543fe5292acb6e681b6c9c53e"
+    },
+    {
+      "path": "assets/audio/elevenlabs/thunder-distant-v1.wav",
+      "bytes": 199004,
+      "sha256": "83a81bc30a74f8b1d62f0d881f7eefd00275ceb5b300a99b399de428daa4eeda"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ui-cancel-v1.wav",
+      "bytes": 8202,
+      "sha256": "74c099b321071f15cd62fba3409820fe72a450590715069dc741d092e0bf2f59"
+    },
+    {
+      "path": "assets/audio/elevenlabs/ui-confirm-v1.wav",
+      "bytes": 7112,
+      "sha256": "351e372d2a81cf2e38cf34bd19db3e92821faa05a2d78290f7bf12085f16fbd3"
+    },
+    {
+      "path": "assets/audio/elevenlabs/vtol-downwash-loop-v2.wav",
+      "bytes": 132378,
+      "sha256": "e17fe52c75799d5b61bd19235001b8ad4db94239d147007522d502a2862d0b68"
+    },
+    {
+      "path": "assets/audio/elevenlabs/water-impact-v1.wav",
+      "bytes": 35752,
+      "sha256": "2b177208633d3cfa63f89fabfe63dba8fe04e9aea014b36fc646b841c33ffa8c"
+    },
+    {
       "path": "assets/audio/flare-eject-v1.wav",
       "bytes": 11510,
       "sha256": "988e89a4052a8a9990468daa79ede753cd41c42435e6afddc48afd7bcc23b883"
@@ -40,6 +280,61 @@
       "path": "assets/audio/heavy-impact-v1.wav",
       "bytes": 46348,
       "sha256": "e8cd6a8244e2948f5b4c280a60ce37d28ad98ee2a84a367830983da8e78e2b3a"
+    },
+    {
+      "path": "assets/audio/music/air-combat-intercept-v1.ogg",
+      "bytes": 448171,
+      "sha256": "1c7faea48c6b960128b84df5a62665a62822b9ece05dfdb9234086db4309adad"
+    },
+    {
+      "path": "assets/audio/music/bastion-assault-v1.ogg",
+      "bytes": 483246,
+      "sha256": "101bd7e1214e088e9d4c65aa6024f7c4cf7a87d1b43d826cfa80b0293c5c4c2e"
+    },
+    {
+      "path": "assets/audio/music/briefing-intelligence-v1.ogg",
+      "bytes": 419421,
+      "sha256": "c8f692e8734418f482aa9667f7e54164c28ba2f53528c00aa839b9b744be599a"
+    },
+    {
+      "path": "assets/audio/music/carrier-launch-v1.ogg",
+      "bytes": 568550,
+      "sha256": "8e765d6970d3b8ef4e324f0249d456a288e3e607ada1c3a097ccf391fcf69600"
+    },
+    {
+      "path": "assets/audio/music/debrief-loss-v1.ogg",
+      "bytes": 635207,
+      "sha256": "72e0a34b3150a7df052dadfb2ff36d840056b2678dfa0279ecff22799a2de3fe"
+    },
+    {
+      "path": "assets/audio/music/debrief-victory-v1.ogg",
+      "bytes": 673837,
+      "sha256": "5f2610c6556762929ff050b110b8c27726ce5dba729dada2029b15ba1ab36610"
+    },
+    {
+      "path": "assets/audio/music/ground-strike-v1.ogg",
+      "bytes": 438730,
+      "sha256": "924adae0c2e953295886fdaf19ac648ff48835442fddb5806a414f21fb8e861f"
+    },
+    {
+      "path": "assets/audio/music/north-atlantic-patrol-v1.ogg",
+      "bytes": 446742,
+      "sha256": "d82a4cf92137daded9dd8514f5e5d17bff88bd343e6e3feaabcb1ca369c7dc25"
+    },
+    {
+      "path": "assets/audio/music/recovery-approach-v1.ogg",
+      "bytes": 443600,
+      "sha256": "6d3aad0e83a7c645932fa8c7fbc3efcb7e72952a3433dca3cebd0be69db30531"
+    },
+    {
+      "path": "assets/audio/music/servicing-turnaround-v1.ogg",
+      "bytes": 474289,
+      "sha256": "a49e841f0e9b11a989532f700412e77618df83593912536f7dd920842b085d66"
+    },
+    {
+      "path": "assets/audio/music/storm-fleet-defence-v1.ogg",
+      "bytes": 487608,
+      "sha256": "5ea2c03698ffcbce1e0e99977fe0fffcfe7008c7854b27a0bc6986966def1ad1"
     },
     {
       "path": "assets/audio/naval-gun-v1.wav",
@@ -192,9 +487,9 @@
       "sha256": "b17a4b4e97a3baa4f248360f5329cd0d094327f6395237dc3b2afbf85c34a6d5"
     },
     {
-      "path": "assets/ChapterSelectScreen-D8d-6fw5.js",
+      "path": "assets/ChapterSelectScreen-Dwxxdqwd.js",
       "bytes": 5233,
-      "sha256": "4c2a25929564c25b219c41953bb009e2ea2079fd32366687c11e16f0fb3d83bd"
+      "sha256": "ce1c3b0c567829ae17099f349a9e6829e4fb20408a9556b92449eb28d5532382"
     },
     {
       "path": "assets/core-mPlcS5K-.js",
@@ -207,19 +502,19 @@
       "sha256": "69eefb38d700ce3d27b8fcd8589e0209db34510a774f50dacec0ec2d0ed4c5dd"
     },
     {
-      "path": "assets/index-CihR_1DI.js",
-      "bytes": 532558,
-      "sha256": "8749a0aa5926b69489131bd883cac77faab6b8e760cc17f4c77bf5146780c40b"
+      "path": "assets/index-BB--QUXy.css",
+      "bytes": 117466,
+      "sha256": "8b4f15f129e89e1e7f0c4aa6797862a91a9242410bb4b311b7dc59c94a1f9d33"
     },
     {
-      "path": "assets/index-Ochtrf72.css",
-      "bytes": 116965,
-      "sha256": "a8186bd2a2295dccf6d65ef56f10fa97e16530276316839b0c5e987877dfd0d2"
+      "path": "assets/index-CCQhfw-d.js",
+      "bytes": 572623,
+      "sha256": "00c1f6946eb03c661a54c8e98496b161bebd5ebffaea0436daa19b170c37b19a"
     },
     {
-      "path": "assets/LandingPracticeScreen-DpaNuS_p.js",
+      "path": "assets/LandingPracticeScreen-fGjs-e2h.js",
       "bytes": 4387,
-      "sha256": "cb3a8731bd5f54abac440e09b42b8ba7dc1e7487ad597cc97a53345e91f30a8f"
+      "sha256": "5b68fdd9a7ac7329a3c39005dfc21ad7511899173c1b33bba480080379cea0b8"
     },
     {
       "path": "assets/layers/bastion-fortress-surface-v1.webp",
@@ -277,24 +572,24 @@
       "sha256": "55c27b811365c558dd3163fc708523598cb76a87be0aaf58cbe4eeada34c1ca6"
     },
     {
-      "path": "assets/NorwegianCampaignMap-wpZHcafP.js",
+      "path": "assets/NorwegianCampaignMap-B-nADKXn.js",
       "bytes": 5933,
-      "sha256": "e11f574b20e9939e92f9975a8f605518f66722aa4bf2c6816b0d3028be0c0f28"
+      "sha256": "7539cf9315dd1bd9b4187f4a011b3a664ef239305193a7c111766cd52c13d6de"
     },
     {
-      "path": "assets/OperationAfterAction-DQ-KDJk8.js",
+      "path": "assets/OperationAfterAction-CSdVjwf3.js",
       "bytes": 3537,
-      "sha256": "39c1086287119f4b40529ffcc361071bea81251a2c3b5c4833aece40d6c7ba52"
+      "sha256": "56082fb511f78f7abcbca2bf091e4aa6d4af752d5ffe77f22002c9eaa6e5f8c4"
     },
     {
-      "path": "assets/OperationDossier-Cg-qUQ2B.js",
+      "path": "assets/OperationDossier-tPpfsJLu.js",
       "bytes": 6753,
-      "sha256": "063d8c5a0e234c636f3f2e6c330e93bafd3f593a8591a54d71de6561b582c921"
+      "sha256": "5af3b3eae67298f6fbe778a2298b217bde8510607bade72e085108ef3c2a4bfb"
     },
     {
-      "path": "assets/OperationsBoard-CgIBvReR.js",
+      "path": "assets/OperationsBoard-etZiSqJ8.js",
       "bytes": 10150,
-      "sha256": "1889342aa7fe7ff2477e3001a9ce969ee7038f1f4d3b631fcae92e0a73269943"
+      "sha256": "93cc7f21a755dd56b70ebd23581611fe853c19a8828ec51c5086f63e6b4880cc"
     },
     {
       "path": "assets/react-vendor-DDwC_z6H.js",
@@ -383,8 +678,8 @@
     },
     {
       "path": "assets/sprites/manifest.json",
-      "bytes": 14461,
-      "sha256": "89e0f9ed5894f3678d3d7b5f83eb524e43979186efee56f61caaa4057f259f77"
+      "bytes": 18027,
+      "sha256": "3bb9ed212024ec88877503b3cd3fe001ae0f52b78e4623860e16e558a1e3ef1b"
     },
     {
       "path": "assets/sprites/mi24d-painted-v2.png",
@@ -514,12 +809,12 @@
     {
       "path": "index.html",
       "bytes": 883,
-      "sha256": "7d1b082060010741b857bdefdf6762f3e41dd886e917abf5e5c23920bbc15d2e"
+      "sha256": "6bbc77f4df3e309d2700ba02ed204ce4d66a834df1eacd91bf4f976c422a5039"
     },
     {
       "path": "legal/AI_CONTENT_DISCLOSURE.txt",
-      "bytes": 890,
-      "sha256": "bf5eb30e73865cd7b672624b89c3a307417e10afd60ec13ecec04cd026a079d3"
+      "bytes": 1698,
+      "sha256": "1bfbe00a4d2de52ab33d26733754c537a0b12ab270b5bdbfcb8ec7983247c476"
     },
     {
       "path": "legal/EULA.txt",

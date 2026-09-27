@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { AircraftCondition, LoadoutPreset, MissionDefinition } from '../types/game';
 import { getOfferedLoadouts, LOADOUT_PRESETS, serviceAircraft } from '../game/ServiceSystem';
 import { ArrowRight, Fuel, ShieldCheck, Wrench } from 'lucide-react';
@@ -33,6 +33,11 @@ export const ServicingScreen: React.FC<ServicingScreenProps> = ({ mission, recov
   const background = siteType === 'CARRIER' ? '/assets/ui/carrier-servicing-v1.webp' : '/assets/ui/farp-servicing-v1.webp';
   const norwegianSortie = isNorwegianMission(mission);
   const missionBackdrop = missionPresentationArtwork(mission);
+
+  useEffect(() => {
+    soundEngine.startServiceAmbience(siteType);
+    return () => soundEngine.stopServiceAmbience();
+  }, [siteType]);
 
   return (
     <div className="mission-screen-enter absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-zinc-950 p-3 font-mono-tech md:p-7">

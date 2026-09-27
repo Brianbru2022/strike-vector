@@ -9,7 +9,9 @@ The register distinguishes two release states:
 - **Approved:** project-authored metadata or deterministic audio synthesised by `scripts/generate_showcase_audio.py`.
 - **Conditional:** AI-assisted visual output generated for this project, archived under `art/source`, then cleaned, composed or optimised locally. Conditional means internally cleared for the current build but still subject to the final similarity, trade-mark, livery and legal review required before commercial publication.
 
-No stock library, third-party music, external photograph or runtime generation service is declared in the shipped asset pack. Ten foundational aircraft cues are user-directed ElevenLabs Sound Effects outputs edited locally for the project. The user confirmed on 25 September 2026 that they were generated under their paid ElevenLabs account; source files, generation records and that entitlement attestation are retained in the project provenance record.
+No stock library, third-party music, external photograph or runtime generation service is declared in the shipped asset pack. Forty-eight foundational aircraft, weapon, impact, environment and warning cues are user-directed ElevenLabs Sound Effects outputs edited locally for the project. Source files, generation records and the user's entitlement attestation are retained in the ElevenLabs provenance record. The replaced Sony Woosh ejection candidates remain archived only as non-shipping historical evidence.
+
+Eleven instrumental music cues are user-directed Suno outputs generated and downloaded during the user's active Premier subscription, then edited locally. They remain `CONDITIONAL` pending human listening and similarity review; Suno's commercial-use permission is not treated as a guarantee of copyright protection or exclusivity.
 
 ## AI-output basis and limitation
 
